@@ -6,4 +6,8 @@ module EnvVar
   def self.unset(name)
     ENV.delete(name)
   end
+
+  def self.get(name)
+    ENV[name]
+  end
 end
