@@ -10,4 +10,8 @@ module EnvVar
   def self.get(name)
     ENV[name]
   end
+
+  def self.fetch(name)
+    ENV.fetch(name)
+  end
 end
