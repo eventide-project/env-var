@@ -52,12 +52,15 @@ end
 
 
 Work Sequence
-- EnvVar.set
+√- EnvVar.set
   - generate a random env var name so that we're not concerned with original value (test) (controls: EnvVar::Random.example (eg: TEST_HJJKGG678675BGGG)
   - set it (test setup)
   - retrieve (operational)
   - check it (test)
   - restore it to original value (test)
+- EnvVar.unset
+  - generate a random env var name so that we're not concerned with original value (test) (controls: EnvVar::Random.example (eg: TEST_HJJKGG678675BGGG)
+
 - EnvVar.push
   - Push to non-existing env var (use random var name)
     - generate a random env var name so that we're not concerned with original value (test) (controls: EnvVar::Random.example (eg: TEST_HJJKGG678675BGGG)
