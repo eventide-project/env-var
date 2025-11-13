@@ -24,8 +24,12 @@ Exceptional cases
 
 Example
 
+EnvVar.push("USER", "something")
+previously_pushed_value = EnvVar.pop("USER")
 
-EnvVar.push("USER") = "something" do
+
+
+EnvVar.push("USER", "something") do
   test do
     # ...
   end
@@ -62,14 +66,30 @@ Work Sequence
   - generate a random env var name so that we're not concerned with original value (test) (controls: EnvVar::Random.example (eg: TEST_HJJKGG678675BGGG)
 √- EnvVar.get
 √- EnvVar.fetch
+
 - EnvVar.push
-  - Push to non-existing env var (use random var name)
-    - generate a random env var name so that we're not concerned with original value (test) (controls: EnvVar::Random.example (eg: TEST_HJJKGG678675BGGG)
-    - set it (test setup)
-    - record current value (operational)
+  - Case: Without block
+    - Raise an argument error
+
+  - Case: Push to existing env var (use stable var name)
+    - generate a random env var name so that we're not concerned with original value (test)
+    - set the env var to a control value
+    - push a new control value
+    - check: use block to test that the variable has the new value
+    - check: environment has reset to original value
+
+  - Case: Push to non-existing env var (use random var name)
+    - generate a random env var name so that we're not concerned with original value (test)
+    - do not set the env var to a control value
+    - push a new control value
+    - check: environment has reset to original value
+
     - set it (operational)
     - check recorded value in EnvVar's data (test)
     - check value of env var in the environment (test)
     - restore it to original value (test)
-  - Push to existing env var (use stable var name)
-    - ...
+
+  - Case: Block raises an error
+      - Ensure reset if exception happens in block
+
+  - Push a hash. Treat each key/value as an individual env var.
