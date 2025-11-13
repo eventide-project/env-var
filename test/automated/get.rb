@@ -11,7 +11,7 @@ context "Get" do
   environment_value = EnvVar.get(control_var_name)
 
   context do
-    comment ENV[control_var_name].inspect
+    comment "Value: #{ENV[control_var_name].inspect}"
     detail "Control: #{environment_value.inspect}"
 
     test do
