@@ -4,21 +4,22 @@ context "Push" do
   control_var_name = "TEST_#{SecureRandom.hex}"
   control_value = SecureRandom.hex
 
-  comment "Environment Variable: #{control_var_name.inspect}"
-
   initial_value = SecureRandom.hex
   ENV[control_var_name] = initial_value
+
+  comment "Environment Variable: #{control_var_name.inspect}"
+  comment "Initial Value: #{initial_value.inspect}"
 
   environment_value = nil
   result = EnvVar.push(control_var_name, control_value) do
     environment_value = ENV[control_var_name]
   end
 
-  context do
-    comment "Value: #{environment_value.inspect}"
+  context "Pushed Value" do
+    comment environment_value.inspect
     detail "Control: #{control_value.inspect}"
 
-    test do
+    test "Is the current environment value" do
       assert(environment_value == control_value)
     end
   end
@@ -29,13 +30,15 @@ context "Push" do
     comment "#{restored_value.inspect}"
     detail "Control: #{initial_value.inspect}"
 
-    test do
+    test "Is the initial value" do
       assert(restored_value == initial_value)
     end
   end
 
-  context do
-    test do
+  context "Result" do
+    comment result.inspect
+
+    test "Is the initial value" do
       assert(result == initial_value)
     end
   end
