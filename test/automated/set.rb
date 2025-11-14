@@ -10,8 +10,8 @@ context "Set" do
 
   environment_value = ENV.fetch(control_var_name)
 
-  context do
-    comment "Value: #{environment_value.inspect}"
+  context "Environment value" do
+    comment environment_value.inspect
     detail "Control: #{control_value.inspect}"
 
     test do
