@@ -68,10 +68,10 @@ Work Sequence
 √- EnvVar.fetch
 
 - EnvVar.push
-  - Case: Without block
+  √- Case: Without block
     - Raise an argument error
 
-  - Case: Push to existing env var (use stable var name)
+  √- Case: Push to existing env var (use stable var name)
     - generate a random env var name so that we're not concerned with original value (test)
     - set the env var to a control value
     - push a new control value
