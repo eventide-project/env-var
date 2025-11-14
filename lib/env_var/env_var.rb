@@ -19,5 +19,15 @@ module EnvVar
 
   def self.push(name, value, &action)
     raise Error, "Push must be invoked with a block" if action.nil?
+
+    original_value = get(name)
+
+    set(name, value)
+
+    action.call
+
+    set(name, original_value)
+
+    original_value
   end
 end
