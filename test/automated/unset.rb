@@ -10,11 +10,13 @@ context "Unset" do
 
   EnvVar.unset(control_var_name)
 
+  environment_value = ENV[control_var_name]
+
   context do
-    detail "Value: #{ENV[control_var_name].inspect}"
+    detail "Value: #{environment_value.inspect}"
 
     test do
-      assert(ENV[control_var_name].nil?)
+      assert(environment_value.nil?)
     end
   end
 end
