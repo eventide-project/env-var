@@ -1,7 +1,7 @@
 require_relative "automated_init"
 
 context "Unset" do
-  control_var_name = "TEST_#{SecureRandom.hex}"
+  control_var_name = Controls::VariableName.random
   control_value = SecureRandom.hex
 
   comment "Environment Variable: #{control_var_name.inspect}"
