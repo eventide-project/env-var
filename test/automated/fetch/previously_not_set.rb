@@ -7,8 +7,10 @@ context "Fetch" do
     context do
       comment "Environment variable: #{ENV[control_var_name].inspect}"
 
-      assert_raises(KeyError) do
-        EnvVar.fetch(control_var_name)
+      test do
+        assert_raises(KeyError) do
+          EnvVar.fetch(control_var_name)
+        end
       end
     end
   end
