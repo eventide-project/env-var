@@ -5,13 +5,14 @@ context "Fetch" do
   control_value = SecureRandom.hex
 
   comment "Environment Variable: #{control_var_name.inspect}"
+  comment "Initial Value: #{control_value.inspect}"
 
   ENV[control_var_name] = control_value
 
   environment_value = EnvVar.fetch(control_var_name)
 
-  context do
-    comment "Value: #{environment_value.inspect}"
+  context "Retrieved value" do
+    comment environment_value.inspect
     detail "Control: #{control_value.inspect}"
 
     test do
