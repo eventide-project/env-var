@@ -13,7 +13,7 @@ context "Unset" do
 
   environment_value = ENV[control_var_name]
 
-  context "Environment value" do
+  context "Current value" do
     comment environment_value.inspect
 
     test do
