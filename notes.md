@@ -67,7 +67,7 @@ Work Sequence
 √- EnvVar.get
 √- EnvVar.fetch
 
-=> - Clarify usability of test output
+√- Clarify usability of test output
   - Review the output objectively
   - Assess solubility
 
@@ -93,10 +93,10 @@ Work Sequence
     - check value of env var in the environment (test)
     - restore it to original value (test)
 
-  - Case: Block raises an error
+  √- Case: Block raises an error
       - Ensure reset if exception happens in block
 
   - Push a hash. Treat each key/value as an individual env var.
 
-- "Previously" is grandiose
+√- "Previously" is grandiose
   - Maybe just "already"
