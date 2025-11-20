@@ -82,7 +82,7 @@ Work Sequence
     - check: use block to test that the variable has the new value
     - check: environment has reset to original value
 
-  =>- Case: Push to non-existing env var (use random var name)
+  √- Case: Push to non-existing env var (use random var name)
     - generate a random env var name so that we're not concerned with original value (test)
     - do not set the env var to a control value
     - push a new control value

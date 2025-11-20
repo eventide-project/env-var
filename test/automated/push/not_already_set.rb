@@ -1,23 +1,26 @@
 require_relative "../automated_init"
 
 context "Push" do
-  context "Non-existing environment variable" do
+  context "Not Already set" do
     control_var_name = "TEST_#{SecureRandom.hex}"
     control_value = SecureRandom.hex
 
-    comment "Environment Variable: #{control_var_name.inspect}"
+    already_set = ENV.keys.include?(control_var_name)
 
-    environment_value = nil
+    comment "Environment Variable: #{control_var_name.inspect}"
+    comment "Already Set: #{already_set.inspect}"
+
+    pushed_value = nil
     result = EnvVar.push(control_var_name, control_value) do
-      environment_value = ENV[control_var_name]
+      pushed_value = ENV[control_var_name]
     end
 
     context "Pushed Value" do
-      comment environment_value.inspect
+      comment pushed_value.inspect
       detail "Control: #{control_value.inspect}"
 
       test "Is the current environment value" do
-        assert(environment_value == control_value)
+        assert(pushed_value == control_value)
       end
     end
 
