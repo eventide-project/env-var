@@ -22,12 +22,14 @@ module EnvVar
 
     original_value = get(name)
 
-    set(name, value)
+    begin
+      set(name, value)
 
-    action.call
+      action.call
+    ensure
+      set(name, original_value)
 
-    set(name, original_value)
-
-    original_value
+      original_value
+    end
   end
 end
