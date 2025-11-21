@@ -96,7 +96,7 @@ Work Sequence
   √- Case: Block raises an error
       - Ensure reset if exception happens in block
 
-  - Push a hash. Treat each key/value as an individual env var.
+  √- Push a hash. Treat each key/value as an individual env var.
 
 √- "Previously" is grandiose
   - Maybe just "already"
