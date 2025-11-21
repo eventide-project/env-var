@@ -36,10 +36,13 @@ context "Push" do
   end
 
   context "Result" do
-    comment result.inspect
+    initial_values = { control_var_name => initial_value }
 
-    test "Is the initial value" do
-      assert(result == initial_value)
+    comment result.inspect
+    detail "Control: #{initial_values.inspect}"
+
+    test "Is the initial values" do
+      assert(result == initial_values)
     end
   end
 end
