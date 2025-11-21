@@ -26,10 +26,10 @@ module EnvVar
       set(name, value)
 
       action.call
-    ensure
-      set(name, original_value)
 
       original_value
+    ensure
+      set(name, original_value)
     end
   end
 end
