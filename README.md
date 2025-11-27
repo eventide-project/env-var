@@ -82,6 +82,22 @@ A dictionary of the environment variable names and the environment variables' or
 | hash | The dictionary of environment variable names whose values will be affected, and the new values | Hash |
 | action | The block to be executed in the context of the new environment variable values | Proc |
 
+## Getting an Environment Variable's Value
+
+(To do)
+
+## Fetching an Environment Variable's Value
+
+(To do)
+
+## Setting an Environment Variable's Value
+
+(To do)
+
+## Unsetting an Environment Variable's Value
+
+(To do)
+
 ## License
 
 The `EnvVar` library is released under the [MIT License](https://github.com/eventide-project/env_var/blob/master/MIT-License.txt).
