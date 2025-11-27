@@ -55,7 +55,8 @@ EnvVar.push(env_vars) do
 end
 
 
-Work Sequence
+Work
+
 √- EnvVar.set
   - generate a random env var name so that we're not concerned with original value (test) (controls: EnvVar::Random.example (eg: TEST_HJJKGG678675BGGG)
   - set it (test setup)
@@ -100,3 +101,14 @@ Work Sequence
 
 √- "Previously" is grandiose
   - Maybe just "already"
+
+- Release
+  √- Publish a v0
+    - Checkout initial skeleton commit
+    - Build gem at v0
+    - Publish
+
+- Documentation
+
+- Logging
+
