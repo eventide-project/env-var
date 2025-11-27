@@ -109,6 +109,12 @@ Work
     - Publish
 
 - Documentation
+  √- Push a single variable
+  √- Push a set of variables
+  - Get
+  - Fetch
+  - Set
+  - Unset
 
 - Logging
 
