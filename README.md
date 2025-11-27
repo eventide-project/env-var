@@ -28,7 +28,9 @@ EnvVar.push("SomeEnvVar", "some new value") do
 end
 ```
 
-If the environment variable already exists in the environment, its value will be preserved and then restored at the conclusion of the action block. If the environment variable does not already exist, then it will be declared in the environment, and then unset at the conclusion of the action block.
+The value of the environment variable will be changed to the new value _before_ the block executes, and will be restored to the original value _after_ the block executes.
+
+If the environment variable does not already exist, it will be declared in the environment and then unset at the conclusion of the action block.
 
 **Returns**
 
@@ -60,7 +62,9 @@ EnvVar.push(new_values) do
 end
 ```
 
-If an environment variable already exist in the environment, its value will be preserved and then restored at the conclusion of the action block. If an environment variable does not already exist, then it will be declared in the environment, and then unset at the conclusion of the action block.
+The value of an environment variable will be changed to the new value _before_ the block executes, and will be restored to the original value _after_ the block executes.
+
+If an environment variable does not already exist, it will be declared in the environment and then unset at the conclusion of the action block.
 
 **Returns**
 
