@@ -8,11 +8,13 @@ Temporarily set environment variable values by treating the environment as a sta
 ENV["SomeEnvVar"] = "some original value"
 
 EnvVar.push("SomeEnvVar", "some new value") do
-  # The SomeEnvVar environment value is "some new value" inside this block
+  # The SomeEnvVar environment value is
+  # "some new value" inside this block
   p ENV["SomeEnvVar"] # => "some new value"
 end
 
-# The SomeEnvVar environment value is restored to the original value at the end of the block
+# The SomeEnvVar environment value is restored
+# to the original value at the end of the block
 p ENV["SomeEnvVar"] # => "some original value"
 ```
 
@@ -24,7 +26,8 @@ push(variable_name, value, &action)
 
 ```ruby
 EnvVar.push("SomeEnvVar", "some new value") do
-  # The SomeEnvVar environment value is "some new value" inside this block
+  # The SomeEnvVar environment value is
+  # "some new value" inside this block
 end
 ```
 
@@ -57,8 +60,10 @@ new_values = {
 }
 
 EnvVar.push(new_values) do
-  # The SomeEnvVar environment value is "some new value" inside this block
-  # The SomeOtherEnvVar environment value is "some other new value" inside this block
+  # The SomeEnvVar environment value is
+  # "some new value" inside this block
+  # The SomeOtherEnvVar environment value is
+  # "some other new value" inside this block
 end
 ```
 
