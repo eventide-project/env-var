@@ -111,10 +111,13 @@ Work
 - Documentation
   √- Push a single variable
   √- Push a set of variables
-  - Get
-  - Fetch
-  - Set
-  - Unset
+  √- Get
+  √- Fetch
+  √- Set
+  √- Unset
+  √- Correct description of result of get, and remove mention of NilClass
+
+- Test for result of set
 
 - Logging
 

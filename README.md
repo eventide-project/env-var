@@ -89,15 +89,14 @@ get(variable_name)
 ```
 
 ```ruby
+ENV["SomeEnvVar"] = "some value"
 EnvVar.get("SomeEnvVar")
 # => "some value"
 ```
 
-Returns the value of the environment variable. If the environment variable is not set, the method returns `nil`.
-
 **Returns**
 
-The environment variable's value, or `nil` if the environment variable is not set. The return type is `String` or `NilClass`.
+The environment variable's value. The environment variable's value is `String`. If the environment variable is not set, the returned value is `nil`.
 
 **Parameters**
 
@@ -112,15 +111,21 @@ fetch(variable_name)
 ```
 
 ```ruby
+ENV["SomeEnvVar"] = "some value"
 EnvVar.fetch("SomeEnvVar")
 # => "some value"
 ```
 
-Returns the value of the environment variable. If the environment variable is not set, the method raises a `KeyError`.
+If the environment variable is not set, `KeyError` is raised.
+
+```ruby
+EnvVar.fetch("SomeUnsetVar")
+# => key not found: "SomeUnsetVar" (KeyError)
+```
 
 **Returns**
 
-The environment variable's value. The return type is `String`.
+The environment variable's value. The environment variable's value is `String`.
 
 **Parameters**
 
@@ -146,7 +151,7 @@ Sets the value of the environment variable.
 
 **Returns**
 
-The value that was set. The return type is `String`.
+The value that was set. The type of the returned value is `String`.
 
 **Parameters**
 
@@ -169,7 +174,7 @@ Unsets the environment variable.
 
 **Returns**
 
-The value of the environment variable before it was unset, or `nil` if the environment variable was not set. The return type is `String` or `NilClass`.
+The value of the environment variable before it was unset. The environment variable's type is `String`. If the environment variable was not set, the returned value is `nil`.
 
 **Parameters**
 
