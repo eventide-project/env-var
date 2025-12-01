@@ -10,12 +10,14 @@ ENV["SomeEnvVar"] = "some original value"
 EnvVar.push("SomeEnvVar", "some new value") do
   # The SomeEnvVar environment value is
   # "some new value" inside this block
-  p ENV["SomeEnvVar"] # => "some new value"
+  p ENV["SomeEnvVar"]
+  # => "some new value"
 end
 
 # The SomeEnvVar environment value is restored
 # to the original value at the end of the block
-p ENV["SomeEnvVar"] # => "some original value"
+p ENV["SomeEnvVar"]
+# => "some original value"
 ```
 
 ## Pushing a Change to an Environment Variable
