@@ -117,7 +117,7 @@ Work
   √- Unset
   √- Correct description of result of get, and remove mention of NilClass
 
-- Test for result of set
+√- Test for result of set
 
 - Logging
 
