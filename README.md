@@ -167,7 +167,12 @@ unset(variable_name)
 ```
 
 ```ruby
+ENV["SomeEnvVar"] = "some value"
 EnvVar.unset("SomeEnvVar")
+# => "some value"
+
+ENV["SomeEnvVar"]
+# => nil
 ```
 
 Unsets the environment variable.
