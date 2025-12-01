@@ -40,15 +40,22 @@ module EnvVar
   def self.push(name_or_hash, value=nil, &action)
     raise Error, "Push must be invoked with a block" if action.nil?
 
-    hash = nil
-    if name_or_hash.respond_to?(:to_hash)
-      hash = name_or_hash.to_hash
-      logger.trace { "Pushing environment variables (#{hash.inspect})" }
-    else
+    values = nil
+
+    if name_or_hash.is_a?(String)
       name = name_or_hash
-      logger.trace { "Pushing environment variable (Name: #{name.inspect}, Value: #{value.inspect})" }
-      hash = { name => value }
+      values = { name => value }
+    else
+      values = name_or_hash
     end
+
+    original_values = push_values(values, &action)
+
+    original_values
+  end
+
+  def push_values(hash, &action)
+    logger.trace { "Pushing environment variables (#{hash.inspect})" }
 
     original_values = {}
 
@@ -61,7 +68,7 @@ module EnvVar
     begin
       action.call
 
-      logger.debug { "Pushed environment variables (#{hash.inspect})" }
+      logger.debug { "Pushed environment variables (#{values.inspect})" }
 
       original_values
     ensure
