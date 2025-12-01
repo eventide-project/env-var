@@ -9,7 +9,7 @@ context "Unset" do
   comment "Environment Variable: #{control_var_name.inspect}"
   comment "Initial Value: #{control_value.inspect}"
 
-  EnvVar.unset(control_var_name)
+  result = EnvVar.unset(control_var_name)
 
   environment_value = ENV[control_var_name]
 
@@ -18,6 +18,15 @@ context "Unset" do
 
     test do
       assert(environment_value.nil?)
+    end
+  end
+
+  context "Result" do
+    comment result.inspect
+    detail "Control: #{control_value.inspect}"
+
+    test "Is the value before unsetting" do
+      assert(result == control_value)
     end
   end
 end
