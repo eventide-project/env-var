@@ -182,6 +182,14 @@ The value of the environment variable before it was unset. The environment varia
 | --- | --- | --- |
 | variable_name | The name of the environment variable to remove | String |
 
+## Log Tags
+
+The following tags are applied to log messages recorded by the `EnvVar` operations:
+
+| Tag | Description |
+| --- | --- |
+| env_var | Applied to all log messages written by this library |
+
 ## License
 
 The `EnvVar` library is released under the [MIT License](https://github.com/eventide-project/env_var/blob/master/MIT-License.txt).
