@@ -84,19 +84,98 @@ A dictionary of the environment variable names and the environment variables' or
 
 ## Getting an Environment Variable's Value
 
-(To do)
+```ruby
+get(variable_name)
+```
+
+```ruby
+EnvVar.get("SomeEnvVar")
+# => "some value"
+```
+
+Returns the value of the environment variable. If the environment variable is not set, the method returns `nil`.
+
+**Returns**
+
+The environment variable's value, or `nil` if the environment variable is not set. The return type is `String` or `NilClass`.
+
+**Parameters**
+
+| Name | Description | Type |
+| --- | --- | --- |
+| variable_name | The name of the environment variable whose value will be retrieved | String |
 
 ## Fetching an Environment Variable's Value
 
-(To do)
+```ruby
+fetch(variable_name)
+```
+
+```ruby
+EnvVar.fetch("SomeEnvVar")
+# => "some value"
+```
+
+Returns the value of the environment variable. If the environment variable is not set, the method raises a `KeyError`.
+
+**Returns**
+
+The environment variable's value. The return type is `String`.
+
+**Parameters**
+
+| Name | Description | Type |
+| --- | --- | --- |
+| variable_name | The name of the environment variable whose value will be retrieved | String |
+
+**Raises**
+
+`KeyError` if the environment variable is not set.
 
 ## Setting an Environment Variable's Value
 
-(To do)
+```ruby
+set(variable_name, value)
+```
+
+```ruby
+EnvVar.set("SomeEnvVar", "some value")
+```
+
+Sets the value of the environment variable.
+
+**Returns**
+
+The value that was set. The return type is `String`.
+
+**Parameters**
+
+| Name | Description | Type |
+| --- | --- | --- |
+| variable_name | The name of the environment variable whose value will be set | String |
+| value | The value to assign to the environment variable | String |
 
 ## Unsetting an Environment Variable's Value
 
-(To do)
+```ruby
+unset(variable_name)
+```
+
+```ruby
+EnvVar.unset("SomeEnvVar")
+```
+
+Unsets the environment variable.
+
+**Returns**
+
+The value of the environment variable before it was unset, or `nil` if the environment variable was not set. The return type is `String` or `NilClass`.
+
+**Parameters**
+
+| Name | Description | Type |
+| --- | --- | --- |
+| variable_name | The name of the environment variable to remove | String |
 
 ## License
 
