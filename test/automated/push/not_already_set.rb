@@ -1,7 +1,7 @@
 require_relative "../automated_init"
 
 context "Push" do
-  context "Not Already set" do
+  context "Not already set" do
     control_var_name = "TEST_#{SecureRandom.hex}"
     control_value = SecureRandom.hex
 
@@ -15,7 +15,7 @@ context "Push" do
       pushed_value = ENV[control_var_name]
     end
 
-    context "Pushed Value" do
+    context "Pushed value" do
       comment pushed_value.inspect
       detail "Control: #{control_value.inspect}"
 

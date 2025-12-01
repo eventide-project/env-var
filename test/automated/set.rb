@@ -4,9 +4,12 @@ context "Set" do
   control_var_name = Controls::VariableName.random
   control_value = SecureRandom.hex
 
-  comment "Environment Variable: #{control_var_name.inspect}"
+  initial_value = ENV[control_var_name]
 
-  EnvVar.set(control_var_name, control_value)
+  comment "Environment Variable: #{control_var_name.inspect}"
+  comment "Initial Value: #{initial_value.inspect}"
+
+  result = EnvVar.set(control_var_name, control_value)
 
   environment_value = ENV.fetch(control_var_name)
 
@@ -16,6 +19,15 @@ context "Set" do
 
     test do
       assert(environment_value == control_value)
+    end
+  end
+
+  context "Result" do
+    comment result.inspect
+    detail "Control: #{control_value.inspect}"
+
+    test "Is the set value" do
+      assert(result == control_value)
     end
   end
 end
