@@ -68,7 +68,7 @@ module EnvVar
     begin
       action.call
 
-      logger.debug { "Pushed environment variables (#{values.inspect})" }
+      logger.debug { "Pushed environment variables (#{hash.inspect})" }
 
       original_values
     ensure
