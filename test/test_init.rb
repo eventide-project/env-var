@@ -11,6 +11,7 @@ require 'env_var/controls'
 
 require 'test_bench'; TestBench.activate
 
-## Enable this and remove the fully-qualified control
-## constant names in test scripts - Scott, Sat Feb 21 2026
-# include EnvVar
+## Replace with import when possible, and remove the
+## fully-qualified control constant names in test scripts
+## - Scott, Sat Feb 21 2026
+## include EnvVar
