@@ -1,7 +1,7 @@
 require_relative "automated_init"
 
 context "Set" do
-  control_var_name = Controls::VariableName.random
+  control_var_name = EnvVar::Controls::VariableName.random
   control_value = SecureRandom.hex
 
   initial_value = ENV[control_var_name]

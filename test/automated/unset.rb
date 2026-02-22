@@ -1,7 +1,7 @@
 require_relative "automated_init"
 
 context "Unset" do
-  control_var_name = Controls::VariableName.random
+  control_var_name = EnvVar::Controls::VariableName.random
   control_value = SecureRandom.hex
 
   ENV[control_var_name] = control_value
