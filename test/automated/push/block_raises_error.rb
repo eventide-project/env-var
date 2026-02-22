@@ -2,7 +2,7 @@ require_relative "../automated_init"
 
 context "Push" do
   context "Block raises an error" do
-    control_var_name = Controls::VariableName.random
+    control_var_name = EnvVar::Controls::VariableName.random
     control_value = SecureRandom.hex
 
     initial_value = SecureRandom.hex

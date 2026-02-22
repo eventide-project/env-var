@@ -11,4 +11,4 @@ require 'env_var/controls'
 
 require 'test_bench'; TestBench.activate
 
-include EnvVar
+# include EnvVar

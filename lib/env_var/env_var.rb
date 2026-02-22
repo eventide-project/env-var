@@ -54,7 +54,7 @@ module EnvVar
     original_values
   end
 
-  def push_values(hash, &action)
+  def self.push_values(hash, &action)
     logger.trace { "Pushing environment variables (#{hash.inspect})" }
 
     original_values = {}

@@ -2,7 +2,7 @@ require_relative "../automated_init"
 
 context "Fetch" do
   context "Not Already Set" do
-    control_var_name = Controls::VariableName.random
+    control_var_name = EnvVar::Controls::VariableName.random
 
     already_set = ENV.keys.include?(control_var_name)
 

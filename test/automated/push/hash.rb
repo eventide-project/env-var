@@ -2,8 +2,8 @@ require_relative "../automated_init"
 
 context "Push" do
   context "Hash" do
-    control_var_name_1 = Controls::VariableName.random
-    control_var_name_2 = Controls::VariableName.random
+    control_var_name_1 = EnvVar::Controls::VariableName.random
+    control_var_name_2 = EnvVar::Controls::VariableName.random
     control_value_1 = SecureRandom.hex
     control_value_2 = SecureRandom.hex
 
