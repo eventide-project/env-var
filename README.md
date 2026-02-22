@@ -52,7 +52,7 @@ A dictionary of the environment variable name and the environment variable's ori
 ## Pushing a Change to a Set of Environment Variables
 
 ```ruby
-push(hash, value, &action)
+self.push(hash, value, &action)
 ```
 
 ```ruby
@@ -87,7 +87,7 @@ A dictionary of the environment variable names and the environment variables' or
 ## Getting an Environment Variable's Value
 
 ```ruby
-get(variable_name)
+self.get(variable_name)
 ```
 
 ```ruby
@@ -109,7 +109,7 @@ The environment variable's value. The environment variable's value is `String`. 
 ## Fetching an Environment Variable's Value
 
 ```ruby
-fetch(variable_name)
+self.fetch(variable_name)
 ```
 
 ```ruby
@@ -142,7 +142,7 @@ The environment variable's value. The environment variable's value is `String`.
 ## Setting an Environment Variable's Value
 
 ```ruby
-set(variable_name, value)
+self.set(variable_name, value)
 ```
 
 ```ruby
@@ -165,7 +165,7 @@ The value that was set. The type of the returned value is `String`.
 ## Unsetting an Environment Variable's Value
 
 ```ruby
-unset(variable_name)
+self.unset(variable_name)
 ```
 
 ```ruby
