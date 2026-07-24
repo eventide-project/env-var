@@ -97,6 +97,11 @@ correcting a defect.
 - The developer stated the experiment's question.
 - The developer declared the experiment **affirmed** on Fri Jul 24 2026 at 11 AM PDT.
   No untested-merge confirmation was required: the suite passes, 24 tests, 0 failed.
+- The developer chose a merge commit over a fast-forward, so the experiment's commits
+  read as a unit in `master`'s history (options put through the selection UI).
+- The developer confirmed **deleting the local `experiment/unset-block-form` branch**
+  after the merge (options put through the selection UI). The branch had no remote
+  counterpart, so no remote deletion was in play.
 
 **State: Affirmed.** The block form of `unset` earns its place. The declaration is the
 developer's, made on the evidence in this record rather than on a use site — none was
