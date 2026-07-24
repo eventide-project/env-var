@@ -95,14 +95,22 @@ correcting a defect.
   record with no forecast, and was told plainly what that costs (options put through the
   selection UI, "Branch it, no forecast").
 - The developer stated the experiment's question.
+- The developer declared the experiment **affirmed** on Fri Jul 24 2026 at 11 AM PDT.
+  No untested-merge confirmation was required: the suite passes, 24 tests, 0 failed.
 
-**State: not concluded.** The feature is built and verified; the question — whether it is
-useful — is not yet answered, because usefulness is settled by use, not by the suite.
-What would resolve it: a real use site for a fixed variable name that may be set in the
-ambient environment. Affirmation is the developer's to declare, and on affirmation this
-record's log is copied into `waytide/log/` and the branch merges to `master` (its tests
-pass, so no untested-merge confirmation is needed).
+**State: Affirmed.** The block form of `unset` earns its place. The declaration is the
+developer's, made on the evidence in this record rather than on a use site — none was
+found within the library, and the finding that the suite has no site needing the feature
+stands as recorded. What carried the affirmation is the shape of the case that does need
+it (a fixed variable name that may be present in the ambient environment, of which this
+project's own `test/test_init.rb` is an instance) together with the feature's low cost.
+
+The decisions this experiment established were logged to `waytide/log/` as the work
+proceeded, so the affirmation's log copy is the merge of this branch into `master`,
+together with the entry recording the affirmation itself. The experiment produced
+implementation, so the branch merges to `master` — its tests pass.
 
 ---
 
 Authored by Scott Bellware on Fri Jul 24 2026 at 10 AM PDT
+Changed by Scott Bellware on Fri Jul 24 2026 at 11 AM PDT
