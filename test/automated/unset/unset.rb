@@ -1,4 +1,4 @@
-require_relative "automated_init"
+require_relative "../automated_init"
 
 context "Unset" do
   control_var_name = EnvVar::Controls::VariableName.random
