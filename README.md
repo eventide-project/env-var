@@ -165,7 +165,7 @@ The value that was set. The type of the returned value is `String`.
 ## Unsetting an Environment Variable's Value
 
 ```ruby
-self.unset(variable_name)
+self.unset(variable_name, &action)
 ```
 
 ```ruby
@@ -177,7 +177,7 @@ ENV["SomeEnvVar"]
 # => nil
 ```
 
-Unsets the environment variable.
+Unsets the environment variable. The environment variable is removed from the environment, rather than set to an empty value.
 
 **Returns**
 
@@ -188,6 +188,40 @@ The value of the environment variable before it was unset. The environment varia
 | Name | Description | Type |
 | --- | --- | --- |
 | variable_name | The name of the environment variable to remove | String |
+| action | The block to be executed while the environment variable is unset | Proc |
+
+## Unsetting an Environment Variable for the Duration of a Block
+
+```ruby
+ENV["SomeEnvVar"] = "some original value"
+
+EnvVar.unset("SomeEnvVar") do
+  # The SomeEnvVar environment variable does not
+  # exist in the environment inside this block
+  p ENV.key?("SomeEnvVar")
+  # => false
+end
+
+# The SomeEnvVar environment variable is restored
+# to the original value at the end of the block
+p ENV["SomeEnvVar"]
+# => "some original value"
+```
+
+The environment variable will be removed from the environment _before_ the block executes, and will be restored to the original value _after_ the block executes. The original value is restored even when the block raises an error.
+
+If the environment variable does not already exist, it will not exist at the conclusion of the action block, even if the block sets it.
+
+**Returns**
+
+The value of the environment variable before it was unset. The environment variable's type is `String`. If the environment variable was not set, the returned value is `nil`.
+
+**Parameters**
+
+| Name | Description | Type |
+| --- | --- | --- |
+| variable_name | The name of the environment variable to remove | String |
+| action | The block to be executed in the context of the unset environment variable | Proc |
 
 ## Log Tags
 

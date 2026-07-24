@@ -29,12 +29,24 @@ module EnvVar
     value
   end
 
-  def self.unset(name)
+  def self.unset(name, &action)
     logger.trace { "Unsetting environment variable (Name: #{name.inspect})" }
     value = ENV.delete(name)
     logger.debug { "Unset environment variable (Name: #{name.inspect}, Value: #{value.inspect})" }
 
-    value
+    return value if action.nil?
+
+    begin
+      action.call
+
+      value
+    ensure
+      if value.nil?
+        ENV.delete(name)
+      else
+        set(name, value)
+      end
+    end
   end
 
   def self.push(name_or_hash, value=nil, &action)
