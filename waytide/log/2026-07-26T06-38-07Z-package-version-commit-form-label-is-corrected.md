@@ -1,0 +1,1 @@
+# The git package's subject-first-commit-messages rule labels the version form "Package version form" rather than "Version bump form", since "bump" is a figurative term the language package retires, and the form's purpose — stating the current version and the next one — is now stated in the rule

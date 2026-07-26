@@ -8,7 +8,11 @@ Developers gravitate toward recounting their exploits — "Fixed the parser", "A
 - **"is corrected"** for a defect; **"is clarified"** for a refactor or readability change.
 - **Omit the verb for a new item.** "Widget tests", not "Widget tests are added".
 - **Rename form:** "Widget, rather than sprocket".
-- **Version bump form:** "Package version is increased from 1.1.1 to 1.2.0".
+- **Package version form:** "Package version is increased from 1.1.1 to 1.2.0" — the
+  message states the current version and the next one, so the log line carries the
+  transition without a reader reaching for the package specification. "Increased" holds
+  even when a trailing segment resets, as it does here: what is increased is the version,
+  not each segment.
 - **No 50-character limit** — let the first line run as long as it needs to state the subject clearly.
 
 **Why:** the log records the history of the software, and it is scanned rather than read, so leading with the changed thing rather than the developer's action is both truer to what the log is for and easier to review. It is the Eventide house style, and it composes with the commit-wording rule — "Task 9 is done" already states the fact, software-first.
@@ -18,3 +22,4 @@ Developers gravitate toward recounting their exploits — "Fixed the parser", "A
 ---
 
 Authored by Scott Bellware on Mon Jul 13 2026 at 1 PM PT
+Changed by Scott Bellware on Sat Jul 25 2026 at 11 PM PT
