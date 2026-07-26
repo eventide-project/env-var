@@ -223,6 +223,23 @@ The value of the environment variable before it was unset. The environment varia
 | variable_name | The name of the environment variable to remove | String |
 | action | The block to be executed in the context of the unset environment variable | Proc |
 
+## Log Messages
+
+Each operation writes a pair of messages: a `trace` message before the work, and a `debug` message after it. Every interpolated value is inspected, so a value appears quoted and an absent value appears as `nil`.
+
+| Operation | Level | Message |
+| --- | --- | --- |
+| get | trace | Getting environment variable (Name: …) |
+| | debug | Got environment variable (Name: …, Value: …) |
+| fetch | trace | Fetching environment variable (Name: …) |
+| | debug | Fetched environment variable (Name: …, Value: …) |
+| set | trace | Setting environment variable (Name: …, Value: …) |
+| | debug | Set environment variable (Name: …, Value: …) |
+| unset | trace | Unsetting environment variable (Name: …) |
+| | debug | Unset environment variable (Name: …, Value: …) |
+| push_values | trace | Pushing environment variables (Hash) |
+| | debug | Pushed environment variables (Hash) |
+
 ## Log Tags
 
 The following tags are applied to log messages recorded by the `EnvVar` operations:
