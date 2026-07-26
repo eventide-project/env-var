@@ -1,0 +1,1 @@
+# A date in a record's title is written "Mon Jan 1 2026 18:06" — compact, local, minute-precise — as a new foundation rule, distinct from the UTC filename prefix and the footer's local "at 11 AM PT" form, and the three existing record titles are conformed to it

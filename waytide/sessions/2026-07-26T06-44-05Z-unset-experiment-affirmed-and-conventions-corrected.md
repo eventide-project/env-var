@@ -1,4 +1,4 @@
-# Session — The unset experiment's affirmation and three convention corrections (Jul 24–25 2026)
+# Session — The unset experiment's affirmation and three convention corrections (Sat Jul 25 2026 23:44)
 
 ## Opening summary
 
@@ -191,3 +191,4 @@ and for writing down what is found when it fails.
 ---
 
 Authored by Scott Bellware on Sat Jul 25 2026 at 11 PM PT
+Changed by Scott Bellware on Sun Jul 26 2026 at 12 AM PT

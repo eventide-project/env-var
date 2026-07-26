@@ -1,4 +1,4 @@
-# Session — The block form of `unset` (Jul 24 2026)
+# Session — The block form of `unset` (Fri Jul 24 2026 11:16)
 
 ## Opening summary
 
@@ -272,3 +272,4 @@ when the question of usefulness comes up again against a real use site.
 
 Authored by Scott Bellware on Fri Jul 24 2026 at 11 AM PDT
 Changed by Scott Bellware on Sat Jul 25 2026 at 10 AM PDT
+Changed by Scott Bellware on Sun Jul 26 2026 at 12 AM PDT
