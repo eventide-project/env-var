@@ -155,7 +155,16 @@ Writing the record also produced the session's sharpest finding, and it emerged 
 test obtains absence from a freshly generated random name that has never been set, so
 absence is free and the block form buys nothing. The case that does need it is a *fixed*
 variable name that may already be present in the ambient environment — a developer's shell
-or continuous integration — of which this project's own `test/test_init.rb` is an instance.
+or continuous integration — and at the time, this project's own `test/test_init.rb` was
+named as an instance of that shape.
+
+**Corrected on Sat Jul 25 2026:** the developer corrected that citation. `test_init.rb` is
+**test harness initiation, not a subject of testing or verification** — its defaults
+configure the run rather than stating library behavior with a contract to protect, and
+testing them would turn the instrument on itself. It is therefore not a candidate use
+site, and the finding stands without qualification: **this repository contains no use site
+for the block form at all.** The case for the feature rests entirely on code that consumes
+this library. The experiment record carries the same correction.
 → `waytide/log/2026-07-24T17-38-42Z-unset-block-form-reconstituted-as-an-experiment.md`
 
 ## 9. Orientation, and the experiment's standing
@@ -262,3 +271,4 @@ when the question of usefulness comes up again against a real use site.
 ---
 
 Authored by Scott Bellware on Fri Jul 24 2026 at 11 AM PDT
+Changed by Scott Bellware on Sat Jul 25 2026 at 10 AM PDT

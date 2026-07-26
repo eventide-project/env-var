@@ -65,12 +65,21 @@ not anticipated.
 
 **The case that does need it is a fixed variable name that may already be set.** Random
 names cannot help when the name under test is fixed by the code being tested and may be
-present in the ambient environment — a developer's shell, or CI. Exercising the
-absent path then requires removing that specific variable and putting it back, which is
-exactly what the block form does and exactly the complement of what `push` already does
-for values. This project's own `test/test_init.rb` is an instance of the shape: it
-defaults `CONSOLE_DEVICE`, `LOG_TAGS`, `LOG_LEVEL`, and `TEST_BENCH_DETAIL` with `||=`,
-so any test of their unset behavior needs those specific names absent and restored.
+present in the ambient environment — a developer's shell, or continuous integration (CI).
+Exercising the absent path then requires removing that specific variable and putting it
+back, which is exactly what the block form does and exactly the complement of what `push`
+already does for values.
+
+**Corrected on Sat Jul 25 2026:** this record originally named this project's own
+`test/test_init.rb` as an instance of that shape, on the grounds that it defaults
+`CONSOLE_DEVICE`, `LOG_TAGS`, `LOG_LEVEL`, and `TEST_BENCH_DETAIL` with `||=`. The
+developer corrected it: `test_init.rb` is **test harness initiation, not a subject of
+testing or verification**. Its defaults configure the run; they are not library behavior
+with a contract to protect, and testing them would turn the instrument on itself. So it
+is not a candidate use site, and the finding above stands without qualification — **this
+repository contains no use site for the block form at all.** The case for the feature
+rests entirely on code that consumes this library, where a fixed variable name set in the
+ambient environment is the ordinary situation.
 
 **"Unset" was made to mean absent, not empty.** The restoration branches on whether there
 was a value rather than relying on `ENV[name] = nil` deleting the key. `ENV[name] = nil`
@@ -119,3 +128,4 @@ implementation, so the branch merges to `master` — its tests pass.
 
 Authored by Scott Bellware on Fri Jul 24 2026 at 10 AM PDT
 Changed by Scott Bellware on Fri Jul 24 2026 at 11 AM PDT
+Changed by Scott Bellware on Sat Jul 25 2026 at 10 AM PDT
