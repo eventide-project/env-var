@@ -248,6 +248,14 @@ The following tags are applied to log messages recorded by the `EnvVar` operatio
 | --- | --- |
 | env_var | Applied to all log messages written by this library |
 
+To print this library's log messages, and only this library's, set `LOG_TAGS` to the library's tag and `LOG_LEVEL` to `trace`:
+
+```
+LOG_TAGS=env_var LOG_LEVEL=trace ruby some_script.rb
+```
+
+`LOG_LEVEL=trace` is the most verbose level, and prints every level beneath it as well, which is what shows both messages of each operation's pair. Log messages are written to `stderr` unless `CONSOLE_DEVICE` is set to `stdout`.
+
 ## License
 
 The `EnvVar` library is released under the [MIT License](https://github.com/eventide-project/env_var/blob/master/MIT-License.txt).
