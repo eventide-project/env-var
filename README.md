@@ -256,6 +256,8 @@ LOG_TAGS=env_var LOG_LEVEL=trace ruby some_script.rb
 
 `LOG_LEVEL=trace` is the most verbose level, and prints every level beneath it as well, which is what shows both messages of each operation's pair. Log messages are written to `stderr` unless `CONSOLE_DEVICE` is set to `stdout`.
 
+The environment variables above are the logger's, not this library's. For the full set and their syntax, see Eventide's logger library, [evt-log](https://github.com/eventide-project/log).
+
 ## License
 
 The `EnvVar` library is released under the [MIT License](https://github.com/eventide-project/env_var/blob/master/MIT-License.txt).
