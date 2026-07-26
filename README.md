@@ -162,7 +162,7 @@ The value that was set. The type of the returned value is `String`.
 | variable_name | The name of the environment variable whose value will be set | String |
 | value | The value to assign to the environment variable | String |
 
-## Unsetting an Environment Variable's Value
+## Unsetting an Environment Variable
 
 ```ruby
 self.unset(variable_name, &action)
