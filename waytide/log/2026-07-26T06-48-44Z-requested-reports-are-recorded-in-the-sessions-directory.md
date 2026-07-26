@@ -1,0 +1,1 @@
+# A report the developer asks for is recorded as a dated file in waytide/sessions/ rather than printed and discarded, overriding the framework's printed-output-only instruction in the test-report and lib-report rules

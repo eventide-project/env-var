@@ -1,0 +1,1 @@
+# Saving a requested report is confirmed with the developer through the selection UI after the report is rendered, rather than saved automatically, so which snapshots enter the record stays the developer's judgment
