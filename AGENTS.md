@@ -1,4 +1,3 @@
-
 ## Waytide
 
 This project's Waytide system and working conventions live under `waytide/`,
