@@ -36,7 +36,7 @@ first), `waytide/local/experiments/` (recorded experiments that test a question)
 `waytide/local/features/` (the lifecycle record of a feature), and `waytide/local/sessions/` (the narrative record of a work session).
 
 **Experiments and features each carry a full branch lifecycle** — their own branch, a
-working location chosen at initiation (the single working tree or a worktree), declared
+working location chosen at initiation (branch only, or branch and worktree), declared
 end states, and recorded confirmations — in the `experiment-runs-on-its-own-branch` and
 `feature-runs-on-its-own-branch` rules. They differ where an experiment's question does
 not carry over to a feature's intent: an experiment forecasts, reaches a verdict
@@ -93,7 +93,18 @@ git subtree pull --prefix waytide/system/foundation https://github.com/waytide/f
 
 This package has no dependencies. (The composite `install-all.sh` installs every package and runs this same bootstrap for you.)
 
-**Refresh from upstream** periodically to pull the latest rules:
+**Refresh from upstream** periodically to pull the latest rules. Once foundation is
+installed, one command refreshes every installed package:
+
+```
+sh waytide/system/foundation/refresh-packages.sh
+```
+
+It reports each package that moved and the rule files that changed in it, because those
+files are binding and a silent refresh would be a change of behavior nobody saw. Name
+packages to refresh only those (`sh … refresh-packages.sh testing git`). Set
+`WAYTIDE_ORIGIN` to refresh from a fork or a mirror instead of `https://github.com/waytide`. A single package
+can still be pulled directly:
 
 ```
 git subtree pull --prefix waytide/system/foundation https://github.com/waytide/foundation.git master --squash

@@ -10,7 +10,7 @@ persisted, dated artifact, kept after the feature concludes.
 - **Record format:** open with the **Intent** — what is being built and why — then the
   setup: a **`**State:**` line**, the **upstream branch** it will merge into (`master` or
   another topic branch), the **feature branch**, its **base**, and the **working location**
-  chosen at initiation (single working tree, or a worktree and its path). As the work
+  chosen at initiation (branch only, or branch and worktree with the worktree's path). As the work
   proceeds, record the **confirmations** the lifecycle required and any change of working
   location.
 - **The state sits on a canonical `**State:**` line**, in the setup block, carrying one of
@@ -65,3 +65,4 @@ loop-records rule (the design record for the same feature), and the decision-log
 
 Authored by Scott Bellware on Mon Jul 27 2026 at 12:31:14 AM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 2:30:44 PM PT
+Changed by Scott Bellware on Mon Jul 27 2026 at 4:23:46 PM PT
