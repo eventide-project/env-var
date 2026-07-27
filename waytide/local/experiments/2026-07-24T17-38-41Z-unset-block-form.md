@@ -12,6 +12,7 @@ whether that complement earns its place in the library.
 
 ## Setup
 
+- **State:** Affirmed
 - **Upstream branch:** `master`
 - **Experiment branch:** `experiment/unset-block-form`
 - **Base:** `eaa70bb6763c827f727756f59bba1fde58b23990` (`eaa70bb`, "Waytide is installed"), from `master`
@@ -112,14 +113,14 @@ correcting a defect.
   after the merge (options put through the selection UI). The branch had no remote
   counterpart, so no remote deletion was in play.
 
-**State: Affirmed.** The block form of `unset` earns its place. The declaration is the
+**Affirmed.** The block form of `unset` earns its place. The declaration is the
 developer's, made on the evidence in this record rather than on a use site — none was
 found within the library, and the finding that the suite has no site needing the feature
 stands as recorded. What carried the affirmation is the shape of the case that does need
 it (a fixed variable name that may be present in the ambient environment, of which this
 project's own `test/test_init.rb` is an instance) together with the feature's low cost.
 
-The decisions this experiment established were logged to `waytide/log/` as the work
+The decisions this experiment established were logged to `waytide/local/log/` as the work
 proceeded, so the affirmation's log copy is the merge of this branch into `master`,
 together with the entry recording the affirmation itself. The experiment produced
 implementation, so the branch merges to `master` — its tests pass.
@@ -129,3 +130,4 @@ implementation, so the branch merges to `master` — its tests pass.
 Authored by Scott Bellware on Fri Jul 24 2026 at 10 AM PDT
 Changed by Scott Bellware on Fri Jul 24 2026 at 11 AM PDT
 Changed by Scott Bellware on Sat Jul 25 2026 at 10 AM PDT
+Changed by Scott Bellware on Mon Jul 27 2026 at 3:31 PM PDT
