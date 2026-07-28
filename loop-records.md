@@ -42,11 +42,12 @@ teaches the method by example, and exposes where gates were skipped.
 `waytide/local/loops/` in the format above, recording each pass's hinge → options →
 decision/chat. Mark retroactive reconstructions as backfills. Keep the one-line
 decision-log entries separate and intact. Related: the DBE vocabulary (loop, hinge,
-gate, deliberation), the hinge-cycle rule, the auto-record-design-dialogue rule, and
-foundation's file-name prefix and decision-log conventions.
+gate, deliberation), the hinge-cycle rule, and foundation's file-name prefix and
+decision-log conventions.
 
 ---
 
 Authored by Scott Bellware on Tue Jun 30 2026 at 12 PM PT
 Changed by Scott Bellware on Wed Jul 22 2026 at 10 PM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 2:30:44 PM PT
+Changed by Scott Bellware on Tue Jul 28 2026 at 12:21:11 AM PT
