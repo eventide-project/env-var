@@ -19,6 +19,18 @@ cat >/dev/null 2>&1
 directory=$(basename "$PWD" 2>/dev/null)
 branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
+# Anything git would report as not committed — modified tracked files, staged changes,
+# and untracked files that are not ignored. All three are uncommitted, and the last is
+# not the noise it might seem: a file left untracked is usually one that should be added
+# or ignored, so reporting it is the point rather than a cost.
+#
+# The segment is absent when the tree is clean, which is how the whole line works —
+# a segment appears only when it has something to say.
+changes=
+if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
+  changes="uncommitted changes"
+fi
+
 # Locate the system, as the session-start notice does.
 if [ -d waytide/system ]; then
   system=waytide/system
@@ -47,7 +59,7 @@ fi
 # trails after a hyphen, so the developer's own orientation comes first and the
 # system indicator reads as an annotation on it.
 line=
-for segment in "$directory" "$branch"; do
+for segment in "$directory" "$branch" "$changes"; do
   if [ -n "$segment" ]; then
     if [ -z "$line" ]; then
       line="$segment"
