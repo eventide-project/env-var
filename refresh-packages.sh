@@ -47,7 +47,8 @@ fi
 
 # --- What is installed -----------------------------------------------------
 
-# A package is a directory carrying a README.md — the same test the load notice uses.
+# A package is a directory carrying a README.md — the same test the session-start
+# notice uses.
 # Depth 2 finds a top-level package, depth 3 a grouped one such as code/ruby.
 installed=$(
   cd waytide/system &&
