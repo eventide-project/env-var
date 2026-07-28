@@ -1,5 +1,5 @@
 #!/bin/sh
-# Print the Waytide load notice at session start.
+# Print the Waytide session-start notice.
 #
 # Run by the harness as a SessionStart hook, not by the agent — see the
 # announce-waytide-at-session-start rule. It reads the package directories
@@ -13,9 +13,12 @@ set +e
 
 # A non-empty WAYTIDE_QUIET silences the notice. The opt-out lives in the
 # developer's own environment, never in committed project content.
-if [ -n "$WAYTIDE_QUIET" ]; then
-  exit 0
-fi
+#
+# It is checked at the end rather than here, because it no longer governs everything
+# this hook emits. WAYTIDE_QUIET silences what the developer sees; the read instruction
+# is addressed to the agent and is not a surface they read, so quieting the notice must
+# not disable it. Otherwise a display preference would silently switch off the mechanism
+# that carries the rules — the kind of silent failure this hook exists to answer.
 
 # Locate the system: waytide/system/ in a consuming project, system/
 # in the Waytide authoring source. Checked in that order — a consuming project
@@ -53,7 +56,11 @@ if [ "$count" = "1" ]; then
   noun=package
 fi
 
-notice=$(printf 'Waytide loaded from %s/ — %s %s: %s' \
+# "installed", not "loaded": the hook runs before the session, so at the moment the
+# notice prints, no rule file has been read. "Loaded" means brought into a runtime —
+# read in — which is the one thing this notice cannot report. Installation and a live
+# configuration are what the script can actually observe, so they are what it claims.
+notice=$(printf 'Waytide installed at %s/ — %s %s: %s' \
   "$system" "$count" "$noun" "$list")
 
 # Report work that has not reached a concluded state — experiments and features
@@ -167,4 +174,54 @@ if [ -n "$features" ]; then
   notice="${notice}\\n${features}"
 fi
 
-printf '{"systemMessage": "%s"}\n' "$notice"
+# The load-command line, always present. The notice states what is installed; this states
+# when the rules are read and what the developer types to have it happen now.
+#
+# The command names the read outright: "load waytide". It is a command, not the contentless
+# foil request the line carried until 2026-07-28 — the developer's message now carries the
+# instruction rather than only the occasion for it. What that gives up is attributability:
+# with a contentless word, a read that followed could only have come from the hook's
+# additionalContext channel, and with a named command it could have come from either. The
+# command is legible to a developer who has never seen the system, which is what it buys.
+#
+# The command carries no emphasis markup. It was written with markdown asterisks until
+# 2026-07-28, on the assumption that the harness renders the notice as markdown; it does not
+# — the systemMessage is displayed as plain text, so the asterisks reached the developer
+# literally and drew the eye to punctuation rather than to the words they were meant to
+# emphasize. Emphasis is unavailable on this channel, and the line stands without it: it
+# already ends with the command in the position the sentence points at.
+#
+# The command sentence is last. Until 2026-07-28 the cost of typing it — that loading takes
+# a moment — followed the command, so the line ended on a caveat and the words to be typed
+# sat mid-line. The two sentences are swapped so the command ends the line: the caveat is
+# read before the developer decides, and the thing to type is the last thing on the line,
+# which is where the eye lands and where a command can be copied without reading past it.
+#
+# No quotation marks, deliberately. The notice is interpolated into a JSON string built by
+# printf with no escaping, so a double quote here would terminate the string and produce
+# output the harness cannot parse — the notice would vanish with no error at all.
+notice="${notice}\\nWaytide's rules are loaded before your first instruction will be processed. Loading the rules will take a few moments. To load them now, type: load waytide."
+
+# The read instruction, carried to the agent rather than to the developer. It goes in
+# additionalContext, not in the notice: the notice is rendered for a person, and an
+# instruction addressed to the agent is not something the developer needs to read every
+# session. The two channels have different audiences, so they carry different text.
+#
+# It states the read is unconditional because the failure it answers was conditional —
+# a session opened with a small request, the read was judged not to be worth it, and the
+# session then grew into rule edits and package publishes governed by rules never read.
+#
+# This does not verify that the rules were read. Nothing here can: the hook runs before
+# the session and has no way to observe what the agent then does. It removes the excuse
+# of the instruction being buried in a file the agent may not open, and no more.
+instruction=$(printf 'Waytide is installed at %s/. Before your first substantive action in this session, read every rule file under %s/ and follow them — %s/foundation/ first, since it defines the system, then the other packages, including each package vocabulary.md, whose terms are binding and cannot be applied unread. The read is unconditional: the apparent size of the first request is not a reason to defer it, because the size of the opening request predicts nothing about where the session goes. The developer may open with the command load waytide. That command asks for exactly this and nothing more: read the rules, say only that the read is done, and wait for the real request. Do not restate the session-start notice or print a package count; the announce-waytide-at-session-start rule reserves that to the harness.' \
+  "$system" "$system" "$system")
+
+hook_output=$(printf '"hookSpecificOutput": {"hookEventName": "SessionStart", "additionalContext": "%s"}' \
+  "$instruction")
+
+if [ -n "$WAYTIDE_QUIET" ]; then
+  printf '{%s}\n' "$hook_output"
+else
+  printf '{"systemMessage": "%s", %s}\n' "$notice" "$hook_output"
+fi

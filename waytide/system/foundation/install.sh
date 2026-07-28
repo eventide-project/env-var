@@ -3,7 +3,8 @@
 # Foundation is standalone, but it owns the bootstrap: this script places the
 # project-root AGENTS.md that makes waytide/system/ and waytide/local/rules/ get read at session start,
 # a CLAUDE.md that imports it (Claude Code reads CLAUDE.md, not AGENTS.md), and a
-# .claude/settings.json whose SessionStart hook and status line print the load notice.
+# .claude/settings.json whose SessionStart hook and status line print the session-start
+# notice.
 # Run from the root of the consuming project.
 #
 # Usage:
@@ -34,11 +35,14 @@ unread). `waytide/local/rules/` holds this project's own local rules.
 Read `waytide/system/foundation/` first; it defines the system. The rules
 override default behavior where they conflict; explicit user instructions still win.
 
-**The load notice is printed by the harness, not by you — do not print one.** A
+**The session-start notice is printed by the harness, not by you — do not print one.** A
 `SessionStart` hook in `.claude/settings.json` runs
 `waytide/system/foundation/session-start.sh`, which reads the package directories
-actually present and emits the one-line `Waytide loaded from … — N packages: …`
-notice; a status line carries the same count for the rest of the session. A developer
+actually present and emits the `Waytide installed at … — N packages: …` notice, closing
+with a line telling the developer to type `load waytide` — the command that asks for the
+read instruction the hook carries to be acted on now;
+a status line keeps the system's presence on screen for the rest of the session, beside
+the working directory, branch, and any uncommitted, untracked, or unpushed work. A developer
 silences both by setting the `WAYTIDE_QUIET` environment variable to any non-empty
 value in their own environment.
 
@@ -139,7 +143,7 @@ place_claude_md() {
   fi
 }
 
-# The .claude/settings.json content that makes the harness print the load notice.
+# The .claude/settings.json content that makes the harness print the session-start notice.
 settings_json() {
   cat <<'EOF'
 {
@@ -149,7 +153,7 @@ settings_json() {
         "hooks": [
           {
             "type": "command",
-            "command": "sh waytide/system/foundation/session-start.sh"
+            "command": "waytide/system/foundation/session-start.sh"
           }
         ]
       }
@@ -157,7 +161,7 @@ settings_json() {
   },
   "statusLine": {
     "type": "command",
-    "command": "sh waytide/system/foundation/statusline.sh"
+    "command": "waytide/system/foundation/statusline.sh"
   }
 }
 EOF
@@ -199,7 +203,7 @@ warn_ignored_settings_json() {
 }
 
 # Ensure .claude/settings.json carries the SessionStart hook and status line that
-# print the load notice. Unlike AGENTS.md and CLAUDE.md, this file cannot be safely
+# print the session-start notice. Unlike AGENTS.md and CLAUDE.md, this file cannot be safely
 # appended to — merging JSON needs a JSON tool that may not be installed, and a
 # corrupted settings.json silently disables every setting in it. So an existing file
 # is never modified: the exact block is printed for the developer to merge. Note
@@ -212,14 +216,14 @@ place_settings_json() {
     # No settings file yet — creating one takes nothing away, so do it directly.
     mkdir -p .claude
     settings_json > .claude/settings.json
-    echo "Created .claude/settings.json with the Waytide load notice (SessionStart hook and status line)."
+    echo "Created .claude/settings.json with the Waytide session-start notice (SessionStart hook and status line)."
     echo "Commit it so the notice travels to everyone who checks the project out."
   else
     echo "You already have a .claude/settings.json."
     echo
     echo "It is not modified here: JSON cannot be safely appended to, and a malformed"
     echo "settings.json silently disables every setting in it. Merge these two keys into"
-    echo "your file yourself — 'hooks' prints the load notice at session start, and"
+    echo "your file yourself — 'hooks' prints the session-start notice, and"
     echo "'statusLine' keeps the package count on screen. Note that setting 'statusLine'"
     echo "REPLACES any status line you have already configured; leave that key out if you"
     echo "would rather keep yours."
@@ -242,7 +246,7 @@ fi
 
 # 2. Ensure the project-root AGENTS.md activates the system, that CLAUDE.md
 #    imports it so the bootstrap also reaches Claude Code sessions, and that
-#    .claude/settings.json prints the load notice.
+#    .claude/settings.json prints the session-start notice.
 place_agents_md
 place_claude_md
 place_settings_json
