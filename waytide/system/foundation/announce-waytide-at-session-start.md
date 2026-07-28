@@ -34,7 +34,20 @@ Waytide loaded from waytide/system/ — 5 packages: foundation, language, testin
   branch name gives it away. The configuration that best isolates an experiment is the
   one that most easily loses track of it.
 
-- **A status line.** `waytide/system/foundation/statusline.sh` keeps the same count on screen for the whole session, alongside the working directory and git branch, so the fact stays available instead of scrolling away.
+- **A status line.** `waytide/system/foundation/statusline.sh` keeps the same count on screen for the whole session, alongside the working directory and git branch, so the fact stays available instead of scrolling away:
+
+```
+waytide · master - Waytide system active (7 packages)
+waytide · master · uncommitted changes - Waytide system active (7 packages)
+```
+
+  The **uncommitted changes** segment appears only when the working tree has something
+  not committed — a modified tracked file, a staged change, or an untracked file that is
+  not ignored. All three are uncommitted, and the untracked case is the point rather than
+  noise: a file left untracked is usually one that should be added or ignored. Absence is
+  the clean signal, as it is for the notice's open experiments and features. It is words
+  rather than a mark on the branch — `master*` is the conventional form and means nothing
+  until a reader is taught it.
 
 Both are wired by a committed `.claude/settings.json` that `install.sh` places in the consuming project.
 
@@ -69,3 +82,4 @@ Changed by Scott Bellware on Sun Jul 26 2026 at 10:12:41 PM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 12:29:18 AM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 2:07:00 PM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 2:30:44 PM PT
+Changed by Scott Bellware on Mon Jul 27 2026 at 5:10:17 PM PT
