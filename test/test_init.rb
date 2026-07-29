@@ -12,6 +12,6 @@ require 'env_var/controls'
 require 'test_bench'; TestBench.activate
 
 require 'constant'
-include Constant::Import
+using Constant::Import
 
 import EnvVar
