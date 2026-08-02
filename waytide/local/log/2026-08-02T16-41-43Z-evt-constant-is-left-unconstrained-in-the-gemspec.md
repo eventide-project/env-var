@@ -1,0 +1,1 @@
+# evt-constant is declared in the gemspec without a version constraint, holding to the house practice that leaves every Eventide dependency unconstrained, though the test suite's `except:` keyword requires 2.2.1.0 or later
