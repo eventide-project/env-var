@@ -12,6 +12,7 @@ The lexicon of **Design By Efferent** (DBE) — use this vocabulary, with these 
 |---|---|---|
 | **Design By Efferent** / **DBE** | the methodology | The name of the whole approach these rules, this lexicon, and the loop describe. A **design** discipline (tests drive design, not "development"), driven **by the efferent** — the use-site view. A variant *of* TDD (tests are the vehicle); the name foregrounds what makes it distinct: design originated from the efferent reference. |
 | **loop** | the cycle | The DBE cycle — a *distributed* OODA loop (Boyd): the AI **observes** and **acts** (mechanized), the human **orients** and **decides** at the gates. Orientation — design judgment — is the irreplaceable phase, kept with the human. (See "The loop, as a distributed OODA cycle".) |
+| **cycle** | the unit of the loop | **One traversal of the loop**: a hinge surfaced, decided, and acted on. It is the unit a loop record is written in — one section per cycle, carrying that cycle's hinge, the options put at the gate, and the decision. See "cycle is scoped by what precedes it". |
 | **hinge** | the object | A decision the design turns on — one that is **subtle** *and* **load-bearing**. Where the human's judgment belongs. |
 | **gate** | the mechanism | Where the loop stops and hands a hinge to the human. The interrupt/handoff. (Verb: the loop *gates* at hinges.) |
 | **deliberation** | the human's act | What the human does at a gate: weighs the hinge and decides. *Deliberate* = carefully weighed **and** intentional — the opposite of the AI's averaging. |
@@ -35,6 +36,27 @@ Every gate's form — options plus a mandatory escape — follows from two resul
 **The best options are ones the AI can't produce.** The option set is the AI's own, drawn from the average. The best answer is often one only the human can produce, and a closed list tempts the human to pick from it instead of producing their own. So every gate keeps an escape open — the human dictating outright, or a chat to work the answer out. The escape is mandatory, at every gate, without exception: it is what keeps the human above the AI's mean when the right answer isn't on the list.
 
 The first result says *why there are options*. The second says *why the options are never enough*.
+
+## "Cycle" is scoped by what precedes it
+
+The word names three nested things, and **the word before it says which**. This is deliberate,
+and it is the one place this vocabulary lets a term carry more than one meaning:
+
+- **a cycle** — one traversal of the loop: a hinge surfaced, decided, acted on. The unit a
+  loop record is written in.
+- **the hinge cycle** — the five hinges in order, actuation through naming, for one outcome's
+  initial implementation (see the hinge-cycle rule). A hinge cycle is five cycles.
+- **the DBE cycle** — the loop itself, the whole distributed OODA cycle. Interchangeable with
+  **the loop**, which is the preferred term for it.
+
+**Bare "cycle" is always the smallest of the three.** The larger two are never written without
+their qualifier, so an unqualified cycle is one traversal and nothing else.
+
+**Why one word rather than three.** The three are the same shape at different scales — a
+traversal, a sequence of traversals for one outcome, and the whole. Naming them with unrelated
+words would hide that they nest; the qualifier carries the scale at the cost of a word. The
+alternative considered was to reserve "cycle" for the traversal and rename the other two, which
+is more edits for a distinction the qualifier already draws.
 
 ## "Load-bearing", explained
 
@@ -83,6 +105,7 @@ Together these give the **asymmetry that justifies the gate**: a load-bearing ch
 - **asymmetric** → **load-bearing**
 - **capability-independent** → state it plainly (subtlety is about the design, not the model)
 - **non-hinge** → **mechanical**
+- **pass** (one traversal of the loop) → **cycle**
 
 **Why:** The terminology is the conveyable output of this work — it is how the approach is taught to other engineers. Scattering it across observations and a digest left no authoritative source and risked drift; one binding glossary keeps usage consistent and avoids the overloaded or academic words this method rejects (e.g. discriminator, intrinsic, "given", "non-hinge"). Each term was chosen for solubility: plain, positive where possible, and free of programming collisions. Two competing "the name" declarations would drift, so DBE is the single canonical name.
 
@@ -91,3 +114,4 @@ Together these give the **asymmetry that justifies the gate**: a load-bearing ch
 ---
 
 Authored by Scott Bellware on Thu Jul 16 2026 at 8 PM PT
+Changed by Scott Bellware on Sun Aug 2 2026 at 12:22:15 AM PT

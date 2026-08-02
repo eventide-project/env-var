@@ -31,7 +31,7 @@ The one-liner:
 - The first implementation may run a *contained* red/green loop, so long as the failure reaches no stable test.
 
 **The `loops/` artifact directory** (this package contributes it)
-- Loop records — one file per feature recording each pass's hinge → options → decision/chat.
+- Loop records — one file per feature recording each cycle's hinge → options → decision/chat.
 
 Includes `foundation`, `language`, `testing`.
 
