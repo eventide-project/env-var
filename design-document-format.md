@@ -11,7 +11,7 @@ A design doc (`waytide/local/design/*.md`) is titled `# <Title> — Design` and 
 
 **Why:** a design is the stable reference a plan realizes and a reader returns to, so a common frame — summary, motivation, substance, dated resolutions, explicit exclusions — lets a reader locate the settled shape and know what is fixed versus open without reconstructing it. Dating the settled resolutions makes the design's own history legible.
 
-**How to apply:** when writing a design, open with a summary or premise and the motivation, define the vocabulary it introduces, develop the substance in named or numbered sections, and close with dated **Settled** resolutions and an **Out of Scope / Deferred** section. A design may show interface shape — signatures, structure, the model — but not implementation bodies; the how emerges in the build. Related: the foundation agent-design-convention (what the directory is) and the package-dependency-heading rule.
+**How to apply:** when writing a design, open with a summary or premise and the motivation, define the vocabulary it introduces, develop the substance in named or numbered sections, and close with dated **Settled** resolutions and an **Out of Scope / Deferred** section. A design may show interface shape — signatures, structure, the model — but not implementation bodies; the how emerges in the build. Related: the foundation design-convention (what the directory is) and the package-dependency-heading rule.
 
 ---
 
