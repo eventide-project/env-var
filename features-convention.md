@@ -37,7 +37,7 @@ persisted, dated artifact, kept after the feature concludes.
   the feature was **escalated**, judged to need more isolation than the single working tree
   gives it. The record then **gains a line**; the original is not rewritten.
 - **It is the feature's lifecycle record, not its design record.** The same feature's
-  design — each pass's hinge, the options put to the developer, and the decision — belongs
+  design — each cycle's hinge, the options put to the developer, and the decision — belongs
   in a loop record under `waytide/local/loops/` (see the design-by-efferent loop-records rule).
   The two divide by concern and **each names the other**. They are separate files because
   `waytide/local/loops/` is contributed by `design-by-efferent`, which includes `foundation`
@@ -74,3 +74,4 @@ Changed by Scott Bellware on Mon Jul 27 2026 at 4:23:46 PM PT
 Changed by Scott Bellware on Sat Aug 1 2026 at 4:34:12 PM PT
 Changed by Scott Bellware on Sat Aug 1 2026 at 11:03:25 PM PT
 Changed by Scott Bellware on Sat Aug 1 2026 at 11:12:40 PM PT
+Changed by Scott Bellware on Sun Aug 2 2026 at 12:22:15 AM PT

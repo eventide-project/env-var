@@ -75,7 +75,7 @@ what accounts for every place this rule departs from the experiment's.
   location.
 - **DBE governs the inside.** The five hinges — actuation, observation, controls,
   implementation, naming — govern how the feature is designed, and the loop record captures
-  each pass. This rule governs only the outside: how the feature begins, where it is
+  each cycle. This rule governs only the outside: how the feature begins, where it is
   worked, and how it ends.
 - **The states.** A feature **ends** in one of three states — **completed** (integrated
   into the upstream branch, the ordinary conclusion), **abandoned** (dropped before
@@ -161,3 +161,4 @@ Changed by Scott Bellware on Mon Jul 27 2026 at 4:31:18 PM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 4:34:01 PM PT
 Changed by Scott Bellware on Sat Aug 1 2026 at 11:03:25 PM PT
 Changed by Scott Bellware on Sat Aug 1 2026 at 11:12:40 PM PT
+Changed by Scott Bellware on Sun Aug 2 2026 at 12:22:15 AM PT
