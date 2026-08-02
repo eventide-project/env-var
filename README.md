@@ -78,7 +78,7 @@ So `install.sh`, `refresh-packages.sh`, `session-start.sh`, and `statusline.sh` 
 Foundation carries an **`install.sh`**, which also has to activate the system. Run it from your project root:
 
 ```
-sh install.sh
+./install.sh
 ```
 
 It installs foundation and then places a **root `AGENTS.md`** that tells the agent to read `waytide/system/` and `waytide/local/rules/` at the start of every session. That root file is what actually activates the system: `git subtree` can only put files under `waytide/`, never at the project root, so without this step the rules are installed but nothing reads them. If you already have an `AGENTS.md`, the script shows you the exact text, explains the effect, and asks before appending — it never edits your file silently.

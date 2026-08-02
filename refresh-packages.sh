@@ -165,7 +165,7 @@ cat <<'BOOTSTRAP'
 
 Not refreshed by this script, because neither is a package: the root AGENTS.md and
 .claude/settings.json. If foundation's bootstrap has changed, delete AGENTS.md's Waytide
-section and run `sh waytide/system/foundation/install.sh agents-md` to regenerate it.
+section and run `waytide/system/foundation/install.sh agents-md` to regenerate it.
 BOOTSTRAP
 
 [ -z "$failed" ]
