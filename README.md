@@ -45,7 +45,7 @@ git subtree add  --prefix waytide/system/code/ruby https://github.com/waytide/co
 git subtree pull --prefix waytide/system/code/ruby https://github.com/waytide/code-ruby.git master --squash
 ```
 
-It includes `foundation` and `language` — install those too, or run `sh waytide/system/code/ruby/install-dependencies.sh` from your project root.
+It includes `foundation` and `language` — install those too, or run `waytide/system/code/ruby/install-dependencies.sh` from your project root.
 
 **Refresh from upstream** periodically to pull the latest rules:
 
