@@ -18,4 +18,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "evt-log"
 
   s.add_development_dependency "test_bench"
+  s.add_development_dependency "evt-constant"
 end

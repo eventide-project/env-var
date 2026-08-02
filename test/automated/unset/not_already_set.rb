@@ -2,7 +2,7 @@ require_relative "../automated_init"
 
 context "Unset" do
   context "Not already set" do
-    control_var_name = EnvVar::Controls::VariableName.random
+    control_var_name = Controls::VariableName.random
     control_value = SecureRandom.hex
 
     already_set = ENV.key?(control_var_name)
