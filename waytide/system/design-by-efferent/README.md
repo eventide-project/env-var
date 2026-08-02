@@ -48,7 +48,7 @@ git subtree add  --prefix waytide/system/design-by-efferent https://github.com/w
 git subtree pull --prefix waytide/system/design-by-efferent https://github.com/waytide/design-by-efferent.git master --squash
 ```
 
-It includes `foundation`, `language`, and `testing` — install those too, or run `sh waytide/system/design-by-efferent/install-dependencies.sh` from your project root.
+It includes `foundation`, `language`, and `testing` — install those too, or run `waytide/system/design-by-efferent/install-dependencies.sh` from your project root.
 
 **Refresh from upstream** periodically to pull the latest rules:
 
