@@ -12,7 +12,7 @@ Keep each part tight. Read current state before printing — do not report stale
 
 **Why:** a status report is a recurring request with a known shape; fixing the format makes the report repeatable and complete, and steers reading toward the in-repo sources of truth rather than recollection.
 
-**How to apply:** on a status-report request, render the parts above from current files (`waytide/local/plans/`, `waytide/local/deferred/`, `waytide/local/log/`, git). Confirm the suite count and the two-level context tree by running the suite rather than asserting them; the two levels are the first two nesting depths of `context "…"` declarations, excluding comment and assertion lines. Related: the test-report and test-tree commands in the testing package.
+**How to apply:** on a status-report request, render the parts above from current files (`waytide/local/plans/`, `waytide/local/deferred/`, `waytide/local/log/`, git). Confirm the suite count and the two-level context tree by running the suite rather than asserting them, and take the two levels from **the run's output** rather than from the `context "…"` declarations in the source — a dynamic context reads as a placeholder in the source and as its real value in a run, and an unnamed test appears in the source and emits no line. Related: the test-report and test-tree commands in the testing package, which derive the same tree the same way (the test-tree rule states the reasons in full).
 
 ---
 
@@ -20,3 +20,4 @@ Authored by Scott Bellware on Sun Jun 28 2026 at 11 PM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 2:07:00 PM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 2:30:44 PM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 2:35:51 PM PT
+Changed by Scott Bellware on Fri Jul 31 2026 at 10:53:02 PM PT
