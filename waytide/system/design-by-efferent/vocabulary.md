@@ -14,6 +14,7 @@ The lexicon of **Design By Efferent** (DBE) — use this vocabulary, with these 
 | **loop** | the cycle | The DBE cycle — a *distributed* OODA loop (Boyd): the AI **observes** and **acts** (mechanized), the human **orients** and **decides** at the gates. Orientation — design judgment — is the irreplaceable phase, kept with the human. (See "The loop, as a distributed OODA cycle".) |
 | **cycle** | the unit of the loop | **One traversal of the loop**: a hinge surfaced, decided, and acted on. It is the unit a loop record is written in — one section per cycle, carrying that cycle's hinge, the options put at the gate, and the decision. See "cycle is scoped by what precedes it". |
 | **hinge** | the object | A decision the design turns on — one that is **subtle** *and* **load-bearing**. Where the human's judgment belongs. |
+| **attended** / **unattended** | the gating cadence | Whether the loop **stops** at each hinge for the developer (attended, the default) or the agent decides each hinge and generates through (unattended). Chosen at a feature's or experiment's initiation and held for its duration. **DBE is in effect either way** — the cradle, the efferent-first actuation, and the solubility standard hold in both; only the stopping changes. A batch-size trade: attention spent continuously against rework paid at the end. |
 | **gate** | the mechanism | Where the loop stops and hands a hinge to the human. The interrupt/handoff. (Verb: the loop *gates* at hinges.) |
 | **deliberation** | the human's act | What the human does at a gate: weighs the hinge and decides. *Deliberate* = carefully weighed **and** intentional — the opposite of the AI's averaging. |
 | **mechanical** / **mechanics** | the complement | Everything that isn't a hinge — the AI generates it straight through. |
@@ -106,6 +107,7 @@ Together these give the **asymmetry that justifies the gate**: a load-bearing ch
 - **capability-independent** → state it plainly (subtlety is about the design, not the model)
 - **non-hinge** → **mechanical**
 - **pass** (one traversal of the loop) → **cycle**
+- **suspending DBE** → **unattended** (the method is never suspended; only the gating is)
 
 **Why:** The terminology is the conveyable output of this work — it is how the approach is taught to other engineers. Scattering it across observations and a digest left no authoritative source and risked drift; one binding glossary keeps usage consistent and avoids the overloaded or academic words this method rejects (e.g. discriminator, intrinsic, "given", "non-hinge"). Each term was chosen for solubility: plain, positive where possible, and free of programming collisions. Two competing "the name" declarations would drift, so DBE is the single canonical name.
 
@@ -115,3 +117,4 @@ Together these give the **asymmetry that justifies the gate**: a load-bearing ch
 
 Authored by Scott Bellware on Thu Jul 16 2026 at 8 PM PT
 Changed by Scott Bellware on Sun Aug 2 2026 at 12:22:15 AM PT
+Changed by Scott Bellware on Sun Aug 2 2026 at 1:04:45 PM PT

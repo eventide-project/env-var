@@ -16,6 +16,9 @@ displace (the log stays one line per decision).
 - Filename per the ISO 8601 UTC datetime prefix convention:
   `YYYY-MM-DDTHH-MM-SSZ-<feature-name>.md`.
 - A `# Loop record — <feature>` title and a one-paragraph summary of the feature.
+- **The mode, declared at the top** — **attended** or **unattended** (see the
+  attended-or-unattended-is-chosen-at-initiation rule). It is stated once, because it changes
+  how every cycle below is read.
 - One section per **cycle**, in order. Each cycle records:
   - **Hinge** — the subtle, load-bearing decision the AI determined.
   - **Options** — the candidates put to the developer at the gate (or "none — not
@@ -23,6 +26,12 @@ displace (the log stays one line per decision).
     skipped gate is part of the record's value).
   - **Decision / chat** — what the developer chose, or the chat that ensued and
     how it resolved (record the substance of the chat, not just the outcome).
+- **Under an unattended mode, a cycle carries its hinge and the decision with its reasoning,
+  and no Options or Decision / chat line** — neither happened, and writing them would be a
+  false record of a deliberation that never occurred. This is **not** the "none — not gated"
+  form above: that marks a **skipped** gate in an attended run, which is a defect worth
+  surfacing, where an unattended run has no gates by choice. The mode declaration is what
+  tells them apart.
 - An **Outcome** line: the resulting code/behavior, suite state, and commit.
 - A **provenance footer** ending the file (`Authored by … / Changed by …`), like
   every working-state artifact — see foundation's
@@ -48,6 +57,7 @@ decision-log conventions.
 ---
 
 Authored by Scott Bellware on Tue Jun 30 2026 at 12 PM PT
+Changed by Scott Bellware on Sun Aug 2 2026 at 1:04:45 PM PT
 Changed by Scott Bellware on Wed Jul 22 2026 at 10 PM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 2:30:44 PM PT
 Changed by Scott Bellware on Tue Jul 28 2026 at 12:21:11 AM PT
