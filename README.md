@@ -14,6 +14,11 @@ The one-liner:
 - First turn: the first gate is the actuation and an unnamed assert; naming is deferred to the feature's close.
 - Never ask whether to start test-first — it is the standing default.
 
+**Attended or unattended**
+- The gating cadence is chosen at a feature's or experiment's initiation, beside the working location; attended is the default.
+- DBE is in effect either way — the cradle, the efferent-first actuation, and the solubility standard all hold. Only the stopping changes.
+- An unattended cycle is recorded with its hinge and the decision's reasoning, and no options or decision line, since neither happened.
+
 **The hinge cycle**
 - Five hinges, each accepted before the next: actuation → observation → controls → implementation → naming.
 - What each hinge displays: the actuation is the anchor at every downstream hinge; the contexts are shown once, at hinge 1.
