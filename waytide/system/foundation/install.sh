@@ -8,8 +8,8 @@
 # Run from the root of the consuming project.
 #
 # Usage:
-#   sh install.sh             install/refresh foundation, then place the bootstrap files
-#   sh install.sh agents-md   place the bootstrap files only (foundation already
+#   ./install.sh              install/refresh foundation, then place the bootstrap files
+#   ./install.sh agents-md    place the bootstrap files only (foundation already
 #                             installed; used by the composite install-all.sh so the
 #                             bootstrap logic lives in one place, not two)
 set -e
