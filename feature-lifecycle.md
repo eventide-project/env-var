@@ -73,10 +73,17 @@ what accounts for every place this rule departs from the experiment's.
   taken for. Either way the addition is confirmed and recorded, the record **gains a line**
   rather than having its original rewritten, and the conclusion dispatches on the current
   location.
-- **DBE governs the inside.** The five hinges — actuation, observation, controls,
-  implementation, naming — govern how the feature is designed, and the loop record captures
-  each cycle. This rule governs only the outside: how the feature begins, where it is
-  worked, and how it ends.
+- **DBE governs the inside, attended or unattended.** The five hinges — actuation,
+  observation, controls, implementation, naming — govern how the feature is designed, and the
+  loop record captures each cycle. What is chosen at initiation is the **gating cadence**:
+  **attended**, where the loop stops at every hinge for the developer, or **unattended**, where
+  the agent decides each hinge and generates through. Attended is the default, and the choice
+  is put through the selection UI **beside the working location**, since both are decisions
+  about how the work will be conducted and both hold for its duration. **DBE is in effect
+  either way** — only the stopping changes. Record it as a confirmation and declare it at the
+  top of the loop record. See the design-by-efferent
+  attended-or-unattended-is-chosen-at-initiation rule. This rule governs only the outside: how
+  the feature begins, where it is worked, and how it ends.
 - **The states.** A feature **ends** in one of three states — **completed** (integrated
   into the upstream branch, the ordinary conclusion), **abandoned** (dropped before
   completion), or **superseded** (replaced by a different design) — or it is **suspended**
@@ -114,8 +121,8 @@ what accounts for every place this rule departs from the experiment's.
   deleting the branch — git refuses to delete a branch checked out in a worktree — and
   **one confirmation covers both**. Suspension never deletes.
 - **Record every confirmation** the lifecycle requires — the working-location choice at
-  initiation, adding a worktree to a feature under way, branch deletion and worktree
-  removal — in the feature record, so the work's authority is auditable.
+  initiation, the attended-or-unattended choice at initiation, adding a worktree to a feature
+  under way, branch deletion and worktree removal — in the feature record, so the work's authority is auditable.
 - **There is no instruction to watch for other work.** The experiment rule asks the agent
   to watch for main-sequence work starting while an experiment is open. That has no
   counterpart here: during a feature, other work is normally **another feature**, and
@@ -162,3 +169,4 @@ Changed by Scott Bellware on Mon Jul 27 2026 at 4:34:01 PM PT
 Changed by Scott Bellware on Sat Aug 1 2026 at 11:03:25 PM PT
 Changed by Scott Bellware on Sat Aug 1 2026 at 11:12:40 PM PT
 Changed by Scott Bellware on Sun Aug 2 2026 at 12:22:15 AM PT
+Changed by Scott Bellware on Sun Aug 2 2026 at 1:04:45 PM PT
