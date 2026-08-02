@@ -1,9 +1,9 @@
-# A report the developer asks for is recorded in `waytide/sessions/`
+# A report the developer asks for is recorded in `waytide/local/work-sessions/`
 
 When the developer asks for a **report** — a status report, a test report, a test tree, a
 lib report, or any other on-demand report command — print it in the response as usual, then
 **ask the developer whether to save it**. On confirmation, the same content is written to a
-file in `waytide/sessions/`. A report is not printed and discarded by default, and it is not
+file in `waytide/local/work-sessions/`. A report is not printed and discarded by default, and it is not
 saved without being asked either.
 
 - **Which reports.** Every on-demand report the developer requests. The named ones are the
@@ -24,10 +24,10 @@ saved without being asked either.
 - **Provenance footer.** Like every working-state artifact with a body, it ends with the
   `Authored by … / Changed by …` footer.
 
-**This overrides two framework rules.** The `code/ruby` package's `lib-report-format` rule
+**This overrides two system-package rules.** The `code/ruby` package's `lib-report-format` rule
 says "Do not write the rendered report to a file — it is printed output only," and the
 `testing` package's `test-report-format` rule repeats it ("neither report is written to a
-file"). In this project that instruction is reversed. The framework rules are otherwise
+file"). In this project that instruction is reversed. Those rules are otherwise
 unchanged: their prescribed sections and their instruction to re-derive everything from
 current files still hold — only the printed-output-only restriction is lifted.
 
@@ -45,26 +45,27 @@ record is a judgment about what will matter later, and that judgment is the deve
 prompt also comes after the report is rendered, when its contents are visible, so the
 decision is made on the actual report rather than on the intention to produce one.
 
-**Why `waytide/sessions/`:** the developer directed this directory. It is the home of the
+**Why `waytide/local/work-sessions/`:** the developer directed this directory. It is the home of the
 records written to be read by a person rather than consulted as truth-of-record, which is
 what a report is — a rendering for a reader, pointing at the durable files it was derived
 from. Note that it means the directory holds two kinds of document: session records, which
-follow the shape in foundation's `agent-sessions-convention`, and reports, which follow the
+follow the shape in foundation's `work-sessions-convention`, and reports, which follow the
 shape of their own report rule. A report is not a session record and is not held to that
 shape.
 
 **How to apply:** on a report request, render the report per its own format rule and print
 it. Then ask through the selection UI whether to save it. On confirmation, write the same
-content to `waytide/sessions/` with a UTC-prefixed filename, a titled heading, and a
+content to `waytide/local/work-sessions/` with a UTC-prefixed filename, a titled heading, and a
 provenance footer; on a decline, print nothing further and leave no file. Do not revise a
 recorded report later — produce a new one. Related: foundation's `status-report-format` and
-`agent-sessions-convention`, the `design-by-efferent` package's present-every-prompt rule
+`work-sessions-convention`, the `design-by-efferent` package's present-every-prompt rule
 (the selection UI and its built-in escape), the
 `testing` package's `test-report-format` and `test-tree-command`, the `code/ruby` package's
-`lib-report-format`, and foundation's `agent-file-names` and
+`lib-report-format`, and foundation's `file-names` and
 `working-state-artifacts-carry-a-provenance-footer` rules.
 
 ---
 
 Authored by Scott Bellware on Sat Jul 25 2026 at 11 PM PT
 Changed by Scott Bellware on Sat Jul 25 2026 at 11 PM PT
+Changed by Scott Bellware on Sun Aug 2 2026 at 9:50:35 AM PT
