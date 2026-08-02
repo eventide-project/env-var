@@ -49,7 +49,7 @@ value in their own environment.
 `waytide/` holds exactly two directories, splitting what came from outside from what
 is this project's own. `waytide/system/` is installed and never edited in place.
 `waytide/local/` is everything this project writes: `rules/` alongside the working
-state — `log/`, `deferred/`, `observations/`, `design/`, `plans/`, `sessions/`,
+state — `log/`, `deferred/`, `observations/`, `design/`, `plans/`, `work-sessions/`,
 `loops/`, `experiments/` — each worked with as its convention describes, and only
 `rules/` read as binding at session start.
 EOF
@@ -236,6 +236,37 @@ place_settings_json() {
   warn_ignored_settings_json
 }
 
+# Rename a project's waytide/local/sessions/ to waytide/local/work-sessions/. The
+# directory carried the bare name sessions/ until 2026-07-30, when it was renamed for
+# what a session is here — a work session. A rule change names the new directory but
+# cannot move a project's own files, so the installer does it.
+#
+# This is the ONLY place the installer touches waytide/local/, a project's own working
+# state, and it stays narrow accordingly: it moves only when the old directory is
+# present and the new one is absent, so there is exactly one reading of what should
+# happen. Anything else is reported and left alone — an installer guessing at a merge
+# of two directories of records is worse than a developer doing it deliberately. The
+# move is a plain mv rather than git mv, which would fail on records that were never
+# committed; git detects the rename when the developer commits it.
+migrate_work_sessions() {
+  old_dir="waytide/local/sessions"
+  new_dir="waytide/local/work-sessions"
+
+  if [ ! -d "$old_dir" ]; then
+    return 0
+  fi
+
+  if [ -d "$new_dir" ]; then
+    echo "Both waytide/local/sessions/ and waytide/local/work-sessions/ are present — neither is touched."
+    echo "waytide/local/sessions/ is the old name. Move its records into work-sessions/ and remove it."
+    return 0
+  fi
+
+  mv "$old_dir" "$new_dir"
+  echo "Renamed waytide/local/sessions/ to waytide/local/work-sessions/ — the directory's current name."
+  echo "Commit the rename."
+}
+
 # 1. Install (or refresh) the foundation rules — skipped in agents-md-only mode.
 if [ "$1" != "agents-md" ]; then
   if [ ! -d "$prefix" ]; then
@@ -250,3 +281,7 @@ fi
 place_agents_md
 place_claude_md
 place_settings_json
+
+# 3. Carry a project's own working state across the directory renames a rule change
+#    cannot reach.
+migrate_work_sessions

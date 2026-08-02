@@ -11,7 +11,7 @@ time is resolved when one is written.
 The two datetime conventions in this package both satisfy it:
 
 - The **ISO-8601-UTC filename prefix** — `2026-07-01T20-40-00Z-some-name.md` —
-  already carried seconds (see the agent-file-names rule).
+  already carried seconds (see the file-names rule).
 - The **provenance footer** — `Mon Jan 1 2026 at 3:45:12 PM PT` — carries them
   because this rule requires it (see the record-rule-authorship-in-a-footer rule).
 
@@ -48,7 +48,7 @@ a working-state artifact, a log entry, or any other file — write the seconds. 
 specifying a new datetime format, specify it to seconds. Leave date-only conventions
 as they are, and do not revise a datetime already recorded at a coarser resolution.
 Related: the record-rule-authorship-in-a-footer rule (the human-readable local
-datetime this corrects), the agent-file-names-use-iso8601-utc-prefix rule (the
+datetime this corrects), the file-names-use-iso8601-utc-prefix rule (the
 machine-sortable UTC filename prefix), and the
 working-state-artifacts-carry-a-provenance-footer rule (the artifacts that carry a
 footer).

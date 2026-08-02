@@ -17,7 +17,7 @@ set +e
 # It is checked at the end rather than here, because it no longer governs everything
 # this hook emits. WAYTIDE_QUIET silences what the developer sees; the read instruction
 # is addressed to the agent and is not a surface they read, so quieting the notice must
-# not disable it. Otherwise a display preference would silently switch off the mechanism
+# not disable it. Otherwise a display preference would silently deactivate the mechanism
 # that carries the rules — the kind of silent failure this hook exists to answer.
 
 # Locate the system: waytide/system/ in a consuming project, system/
@@ -64,8 +64,8 @@ notice=$(printf 'Waytide installed at %s/ — %s %s: %s' \
   "$system" "$count" "$noun" "$list")
 
 # Report work that has not reached a concluded state — experiments and features
-# alike. Neither is ever left silently open (the experiment-runs-on-its-own-branch
-# and feature-runs-on-its-own-branch rules), but nothing otherwise brings an open
+# alike. Neither is ever left silently open (the experiment-lifecycle
+# and feature-lifecycle rules), but nothing otherwise brings an open
 # one to attention: the working directories under waytide/ are not read at session
 # start, and work done in a worktree leaves no trace in the main working tree at
 # all — it stays on the upstream branch, so even the branch name gives nothing away.
@@ -200,7 +200,21 @@ fi
 # No quotation marks, deliberately. The notice is interpolated into a JSON string built by
 # printf with no escaping, so a double quote here would terminate the string and produce
 # output the harness cannot parse — the notice would vanish with no error at all.
-notice="${notice}\\nWaytide's rules are loaded before your first instruction will be processed. Loading the rules will take a few moments. To load them now, type: load waytide."
+#
+# A blank line precedes it. Everything above is what the notice reports — the install, and
+# any experiment or feature left open — and this line is the only part that asks the
+# developer to do something. Run together, the ask reads as one more reported fact and the
+# command to type sits at the bottom of an undifferentiated block. The blank line falls
+# after the open-work lines rather than between them and the install line, so the report
+# stays one block and the break marks the change of purpose rather than a change of subject.
+#
+# A second blank line sets the command sentence apart from the caveat ahead of it. Ending
+# the line with the command put the words to be typed in the position the eye settles on,
+# but they were still the tail of a two-sentence paragraph, so finding them meant reading
+# the caveat first. On its own line the command is the one thing on the notice's last line,
+# and it can be read and copied without reading past anything. The caveat keeps its place
+# ahead of it, where a developer reads it before deciding whether to type the command.
+notice="${notice}\\n\\nWaytide's rules are loaded before your first instruction will be processed. Loading the rules will take a few moments.\\n\\nTo load them now, type: load waytide."
 
 # The read instruction, carried to the agent rather than to the developer. It goes in
 # additionalContext, not in the notice: the notice is rendered for a person, and an
@@ -214,8 +228,18 @@ notice="${notice}\\nWaytide's rules are loaded before your first instruction wil
 # This does not verify that the rules were read. Nothing here can: the hook runs before
 # the session and has no way to observe what the agent then does. It removes the excuse
 # of the instruction being buried in a file the agent may not open, and no more.
-instruction=$(printf 'Waytide is installed at %s/. Before your first substantive action in this session, read every rule file under %s/ and follow them — %s/foundation/ first, since it defines the system, then the other packages, including each package vocabulary.md, whose terms are binding and cannot be applied unread. The read is unconditional: the apparent size of the first request is not a reason to defer it, because the size of the opening request predicts nothing about where the session goes. The developer may open with the command load waytide. That command asks for exactly this and nothing more: read the rules, say only that the read is done, and wait for the real request. Do not restate the session-start notice or print a package count; the announce-waytide-at-session-start rule reserves that to the harness.' \
-  "$system" "$system" "$system")
+# The local rules are named unconditionally, whether or not the directory is there. The
+# binding rule (rules-convention) and the AGENTS.md bootstrap both name it without a
+# condition, and an instruction narrower than the rule it exists to get followed is the defect
+# being corrected. A project with no local rules yet is the ordinary case, not an error, and a
+# fixed instruction is one string rather than one per project layout.
+#
+# The path defaults to the consuming-project layout, which is what an install produces; the
+# authoring source is detected the same way the packages and the open-work scan are.
+own_rules=${own:-waytide/local}
+
+instruction=$(printf 'Waytide is installed at %s/. Before your first substantive action in this session, read every rule file under %s/ and follow them — %s/foundation/ first, since it defines the system, then the other packages, including each package vocabulary.md, whose terms are binding and cannot be applied unread. Read the local rules this project adds as well, in %s/rules/, which are binding in the same way and which no package supplies; that directory may not exist yet, which is ordinary and not an error. Read only that one directory beside the packages: the working directories next to it — log, deferred, design, plans, work-sessions, experiments, loops — are worked with as their own conventions describe and are not read as binding rules at session start. The read is unconditional: the apparent size of the first request is not a reason to defer it, because the size of the opening request predicts nothing about where the session goes. Once the rules are read, print the deferred queue as a list of rows, one row per item under %s/deferred/, per the print-the-deferred-queue-after-the-rule-read rule, and then wait for the developer to make a request. The developer may open with the command load waytide, which asks for exactly that and nothing more. Do not restate the session-start notice or print a package count; the announce-waytide-at-session-start rule reserves that to the harness.' \
+  "$system" "$system" "$system" "$own_rules" "$own_rules")
 
 hook_output=$(printf '"hookSpecificOutput": {"hookEventName": "SessionStart", "additionalContext": "%s"}' \
   "$instruction")

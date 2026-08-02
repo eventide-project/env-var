@@ -1,37 +1,59 @@
-# A feature runs on its own branch and ends completed, abandoned, superseded, or suspended
+# A feature's working location is chosen at initiation, and it ends completed, abandoned, superseded, or suspended
 
-A feature is a bounded unit of main-line work with a lifecycle: it runs on a branch
-created for it, is designed through the five hinges, and reaches one of four declared
+A feature is a bounded unit of main-line work with a lifecycle: it is worked in a location
+chosen when it begins, is designed through the five hinges, and reaches one of four declared
 states. The feature record tracks that lifecycle. A feature is built to an **intent**, not
 a question — nothing is being tested — which is what separates it from an experiment and
 what accounts for every place this rule departs from the experiment's.
 
-- **Always on a branch.** Every feature is built on a branch created for it — never
-  directly on the branch it will merge into. Name it `feature/<subject>`, where `<subject>`
-  is a short dash-separated, lower-case name of *what is being built*, named literally. The
-  upstream branch is not encoded in the name; it lives in the record.
+- **A branch is usual but not required.** Where a feature takes a branch it is named
+  `feature/<subject>`, where `<subject>` is a short dash-separated, lower-case name of *what
+  is being built*, named literally. The upstream branch is not encoded in the name; it lives
+  in the record. **A feature may also be built directly on the current branch** — see the
+  working location below.
 - **Record the base and the upstream branch.** The baseline the feature branched from is
   captured in the record — the base commit SHA and the ref it came from — never pinned with
   a tag. The upstream branch it merges back into is **not always `master`**; it may be
   another topic branch, and the record names it so the merge target is never ambiguous.
-- **The working location is chosen at initiation — branch only, or branch and worktree.**
-  Every feature branches; the choice is only how many working directories the branch is
-  worked in. Each option states what it creates, rather than leaving it to be inferred.
+- **The working location is chosen at initiation — branch only, branch and worktree, or the
+  current branch.** Each option states what it creates, rather than leaving it to be
+  inferred.
   **Branch only** — create the branch
   `feature/<subject>` and switch this working tree to it, switching back at the conclusion
   (`git switch -c feature/<subject>`). **Branch and worktree** — create the branch and
   check it out in a new worktree, a second working directory, while this working tree
-  stays on the upstream branch (`git worktree add -b feature/<subject> <path>`). Both
-  create the branch, since it does not exist yet at initiation. **Branch only says nothing
-  about the working tree** — what distinguishes the two options is whether a working
-  directory is added, so branch only is presented as the branch it creates and the return
-  at the conclusion, not as a movement of the working tree, which is immaterial to it. The
-  `-b` is required, and
+  stays on the upstream branch (`git worktree add -b feature/<subject> <path>`). **The current
+  branch** — build the feature where the working tree already is, creating nothing; there is
+  no branch to switch back to at the conclusion and nothing to merge. The first two create the
+  branch, since it does not exist yet at initiation. **Branch only says nothing
+  about the working tree** — what distinguishes it from the worktree option is whether a
+  working directory is added, so branch only is presented as the branch it creates and the
+  return at the conclusion, not as a movement of the working tree, which is immaterial to it.
+  The `-b` is required, and
   the plain `git worktree add <path> <branch>` form applies only when a worktree is added
   to a feature already under way. The choice is
   put to the user at **every** initiation, through the **AskUserQuestion** selection UI,
-  with no standing default — as it is for an experiment. The choice, and for a worktree its
+  with no standing default. The choice, and for a worktree its
   **path**, go in the record; the conclusion executes the mechanics that match it.
+  **The current branch is offered last, after the two branching options.** A selection's first
+  option reads as the recommended one whatever the rule says about defaults, and the current
+  branch is the option that gives up isolation — so putting it first would recommend by
+  position what the rule declines to recommend in words. Last is where it belongs: available
+  without being urged.
+- **The current-branch option is a feature's alone; an experiment never has it.** An
+  experiment is a **controlled deviation from the main line** — it may be refuted or
+  abandoned, and until it is affirmed its changes must not reach the branch it deviates from.
+  The branch is what makes that reversible, so it is not optional there. A feature **is** the
+  main line, and its changes are meant to land on it, so a branch protects it against nothing
+  that is not already ordinary. The asymmetry is not a relaxation of the feature's discipline;
+  it follows from what the two kinds of work are, which is the same reasoning that gives a
+  feature no forecast, no verdict, and no merge gate.
+- **What the current branch costs, stated plainly.** There is no isolation: partial work sits
+  on the branch others read, and abandoning the feature means reverting rather than deleting a
+  branch. The record still carries the intent, the state, and the confirmations, so the
+  lifecycle is unchanged — only its containment is. Choose it where a branch would buy nothing:
+  work small enough to finish in one sitting, or work whose intermediate states are harmless
+  on the upstream branch.
 - **A worktree is a sibling of the repository directory, named
   `<repository-name>-feature-<subject>`** — the branch name with its slash written as a
   dash, prefixed by the repository. For a repository at `…/projects/eventide/constant`
@@ -77,7 +99,15 @@ what accounts for every place this rule departs from the experiment's.
   in place and checked out, so the feature resumes where it stands.
 - **Conclude in the main working tree, on the upstream branch.** However a feature
   concludes, the user should end up on the upstream branch — with branch only
-  by switching back, and under a worktree in the main working tree, which never left it.
+  by switching back, and under a worktree in the main working tree, which never left it. On
+  the **current branch** there is nowhere to return from: the working tree never left, and
+  the conclusion is the state being recorded.
+- **On the current branch there is no merge and no branch to delete.** The work is already on
+  the upstream branch as it is made, so **completed** means the intent is built rather than
+  integrated, and **abandoned** means the work is reverted rather than a branch left unmerged.
+  That is the substantive cost of the option and the reason it is chosen deliberately: an
+  abandoned feature on a branch is discarded by deleting the branch, and on the current branch
+  it has to be undone.
 - **Branch deletion is user-confirmed, and the worktree is removed first.** Deleting the
   feature branch, local or remote, requires explicit user confirmation put through the
   selection UI. Where the feature was worked in a worktree, removing the worktree precedes
@@ -102,17 +132,20 @@ states, merge gate, and affirmation all exist to answer a **question**, and a fe
 not ask one. Copying them across would install ceremony where the justification does not
 reach — the failure the design method exists to retire.
 
-**How to apply:** branch every feature as `feature/<subject>`, and record the upstream
-branch, the feature branch, and the base. Put the working location to the user at every
-initiation, and place a worktree as a sibling of the repository directory named
+**How to apply:** put the working location to the user at every initiation — branch only,
+branch and worktree, then the current branch last — and record the choice. Where a branch is taken,
+name it `feature/<subject>` and record the upstream branch, the feature branch, and the base;
+on the current branch, record that and the branch it is being built on. Place a worktree as a
+sibling of the repository directory named
 `<repository-name>-feature-<subject>`. Design the feature through the hinges. End it in a
 state: **completed** on integration, **abandoned** if dropped, **superseded** if replaced
 (cross-referencing both records), or **suspended** if paused. Verify before integrating and
-add no gate at the merge; fix a post-merge failure from there. Leave the user on the
-upstream branch in the main working tree, confirm before deleting any branch — removing the
-worktree first, under one confirmation — and record every confirmation in the feature
-record. Related: the agent-features-convention (the record), the
-experiment-runs-on-its-own-branch rule (the capability this mirrors, and where it
+add no gate at the merge; fix a post-merge failure from there. On the current branch there is
+no merge, no branch to delete, and nothing to return to — completion is the intent being
+built, and abandonment is a revert. Otherwise leave the user on the upstream branch in the
+main working tree, confirm before deleting any branch — removing the worktree first, under one
+confirmation — and record every confirmation in the feature record. Related: the features-convention (the record), the
+experiment-lifecycle rule (the capability this mirrors, and where it
 deliberately differs), the announce-waytide-at-session-start rule (which reports features
 that have not concluded), the design-by-efferent hinge-cycle and loop-records rules (which
 govern the feature's design), and the `git` run-suite-before-commit rule.
@@ -126,3 +159,5 @@ Changed by Scott Bellware on Mon Jul 27 2026 at 4:22:48 PM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 4:23:46 PM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 4:31:18 PM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 4:34:01 PM PT
+Changed by Scott Bellware on Sat Aug 1 2026 at 11:03:25 PM PT
+Changed by Scott Bellware on Sat Aug 1 2026 at 11:12:40 PM PT

@@ -19,7 +19,7 @@ AM/PM, no seconds.
   prefix records, rendered in local time. For a record covering work that spanned more than
   one day, the title still names the single moment the record was written, not a range.
 - **This is a third date format, and the three do not overlap.** The **filename** prefix is
-  machine-sortable and UTC (`2026-07-24T18-16-22Z-…`, see the agent-file-names rule). The
+  machine-sortable and UTC (`2026-07-24T18-16-22Z-…`, see the file-names rule). The
   **provenance footer** is human-readable local time with a zone abbreviation
   (`Fri Jul 24 2026 at 11 AM PT`, see record-rule-authorship-in-a-footer). The **title** is
   this form: compact, local, minute-precise. Each is used where it is specified and nowhere
@@ -44,12 +44,13 @@ carried, unambiguously, by the filename.
 `Mon Jan 1 2026 18:06` in the author's local time, at the moment the record is written —
 `date "+%a %b %-d %Y %H:%M"`. Do not add a timezone abbreviation, AM/PM, or seconds, and do
 not write a date range. Keep the filename's UTC prefix and the footer's local
-`at <hour> <zone>` form as they are. Related: the agent-file-names rule (the UTC filename
+`at <hour> <zone>` form as they are. Related: the file-names rule (the UTC filename
 prefix), record-rule-authorship-in-a-footer (the footer's format), the
-agent-sessions-convention (the session record's dated title), and
+work-sessions-convention (the session record's dated title), and
 working-state-artifacts-carry-a-provenance-footer.
 
 ---
 
 Authored by Scott Bellware on Sun Jul 26 2026 at 12 AM PT
 Changed by Scott Bellware on Mon Jul 27 2026 at 12:41:09 AM PT
+Changed by Scott Bellware on Thu Jul 30 2026 at 10:27:32 AM PT
