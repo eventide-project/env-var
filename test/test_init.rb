@@ -14,4 +14,4 @@ require 'test_bench'; TestBench.activate
 require 'constant'
 using Constant::Import
 
-import EnvVar
+import EnvVar, except: :Log
