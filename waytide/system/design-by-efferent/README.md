@@ -33,7 +33,7 @@ The one-liner:
 - TDD designs behavior; adding coverage protects it — distinct activities. Never break a working implementation to introduce a test.
 - The hinges still gate a *coverage* test's design, with the implementation hinge degenerate.
 - Drop an outcome whose test is green-on-arrival — it drives no design.
-- The first implementation may run a *contained* red/green loop, so long as the failure reaches no stable test.
+- The implementation hinge offers two candidates: the working implementation, or the **red/green/refactor cycle** — chosen, and so not the choreography this method rejects. The red must reach no stable test, and the cycle is unavailable when covering existing behavior.
 
 **The `loops/` artifact directory** (this package contributes it)
 - Loop records — one file per feature recording each cycle's hinge → options → decision/chat.
