@@ -13,6 +13,9 @@ What a version means, and how the next one is chosen. Not how a package is built
   the selection interface, each showing the resulting version and the claim it makes. The
   choice is a promise about other people's code, and a published version cannot be taken back.
 
+**Vocabulary** (`vocabulary.md`): one term, **product generation** — the leading segment of a
+four-segment version, a product-management declaration rather than a compatibility claim.
+
 **What this package deliberately does not hold.** A release touches three separate concerns,
 and only one of them is versioning:
 
