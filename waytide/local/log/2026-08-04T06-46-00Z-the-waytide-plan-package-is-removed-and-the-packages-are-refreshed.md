@@ -1,0 +1,1 @@
+# The Waytide `plan` package is removed and the remaining packages are refreshed — `plan` was folded into `foundation`, whose refresh brings the same four rules back under `waytide/system/foundation/`, and `design-by-efferent`, `language`, and `versioning` are updated in the same pass
