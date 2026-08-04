@@ -17,7 +17,7 @@ One place holds it, so a release changes one line. A version duplicated into a c
 second thing to keep true, and the gemspec is the copy that is actually published.
 
 **The gem name takes the `evt-` prefix**, and a multi-word name joins its words with an
-underscore — `evt-env_var`, in a repository whose directory is `env-var`. The directory name
+underscore — `evt-file_store`, in a repository whose directory is `file-store`. The directory name
 and the gem name are not the same string and are not derived from each other; the gemspec
 states the gem name, and it is the authority.
 
@@ -53,3 +53,4 @@ suite that is verified before the release commit).
 ---
 
 Authored by Scott Bellware on Sat Aug 1 2026 at 11:09:47 PM PT
+Changed by Scott Bellware on Tue Aug 4 2026 at 10:04:18 AM PT

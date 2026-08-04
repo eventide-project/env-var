@@ -25,7 +25,7 @@ Prescriptive Ruby style.
 
 **Releasing a gem**
 - The version lives in the gemspec's `s.version` and nowhere else; the gem is built with `gem build` and published with `gem push`.
-- Gem names take the `evt-` prefix, joining a multi-word name with an underscore — `evt-env_var` in a directory named `env-var`.
+- Gem names take the `evt-` prefix, joining a multi-word name with an underscore — `evt-file_store` in a directory named `file-store`.
 - What a version *means* and who chooses the next one are the `versioning` package's, stated without knowledge of Ruby.
 
 **Command**: `lib-report` (classify `lib/` by role, construct, method style, API currency, error taxonomy, idioms).
