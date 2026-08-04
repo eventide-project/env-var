@@ -35,7 +35,12 @@ Beyond the four core directories, foundation defines the **work-artifact**
 directories for planning and running changes — `waytide/local/plans/` (implementation plans
 that sequence a settled design), `waytide/local/design/` (design docs that settle direction
 first), `waytide/local/experiments/` (recorded experiments that test a question),
-`waytide/local/features/` (the lifecycle record of a feature), and `waytide/local/work-sessions/` (the narrative record of a work session).
+`waytide/local/features/` (the lifecycle record of a feature), `waytide/local/work-sessions/` (the narrative record of a work session), and
+`waytide/local/migration/` (execution plans for transitions of content **across a repository
+boundary**, kept after the content has gone so the trail of where it went stays in the
+repository it left), and `waytide/local/suspended/` (an **undo queue** for what the project
+stopped doing — the thing itself moves, carrying the return address needed to put it
+back).
 
 **Experiments and features each carry a full branch lifecycle** — their own branch, a
 working location chosen at initiation (branch only, or branch and worktree), declared
@@ -45,19 +50,44 @@ not carry over to a feature's intent: an experiment forecasts, reaches a verdict
 (affirmed/refuted/inconclusive/abandoned/superseded), and merges through a test gate on
 user-declared affirmation; a feature does none of those, ends
 completed/abandoned/superseded (or suspended), and is simply verified before it
-integrates. How plans and designs *read* (their sections) is the `plan` package's
-concern.
+integrates.
+
+**How plans and designs *read*** — their sections — is foundation's concern too, in four
+rules that were the `plan` package until it was folded in on 2026-08-03:
+
+- **An implementation plan's common elements read in a settled order** — Goals, Source designs,
+  Work sequences, Superseded plans, Architecture, Process notes, Tasks, among others the work
+  calls for. The order is settled; the set is not (`plan-document-format`).
+- **A design doc shares a common spine** — summary or premise, motivation, substantive sections,
+  dated **Settled** resolutions, and an **Out of Scope / Deferred** tail
+  (`design-document-format`).
+- **Plans contain no code samples**, and avoid committing to method or file names that are not
+  yet decided (`plans-no-code-samples`).
+- **A design section documenting a package dependency is titled "Package Dependency"**, never a
+  bare "Dependency", which is overloaded (`package-dependency-heading`).
+
+They live here because foundation defines the artifacts they format. Held separately, the
+citation ran both ways — foundation naming the `plan` package for the shape of documents
+foundation itself governs, and every rule in that package addressed to directories only
+foundation creates.
 
 Other packages may contribute their own artifact directories (for example,
 design-by-efferent contributes `waytide/local/loops/`); foundation owns
 `rules`/`observations`/`deferred`/`log` and the
-`plans`/`design`/`experiments`/`features`/`work-sessions` work-artifact directories.
+`plans`/`design`/`experiments`/`features`/`work-sessions`/`migration`/`suspended` work-artifact directories.
 
 Foundation also settles **what a package dependency is**, in the
 `a-citation-is-not-a-dependency` rule: a rule may name another package's rule freely, and that
 citation becomes a dependency only where the citing rule **will not work** without the cited
 package. Motivation is not the test, and a "standalone" claim is about what must be installed
 rather than about what a rule's prose may name.
+
+**Vocabulary** (`vocabulary.md`): the terms every other package and every project uses, since
+foundation defines the artifacts they all write into. It states **deferred**, **suspended**, and
+**out of scope** beside each other — *not yet*, *no longer*, *not here* — because they are
+confused most where nothing distinguishes them; and defines **projection**, **reconcile**,
+**working-state artifact**, and **recognizable-content line**. Its one substitution is **work
+session record**, never bare "session record".
 
 This package includes no others — everything else includes it. It cites several, which is
 exactly the distinction the rule above draws.
