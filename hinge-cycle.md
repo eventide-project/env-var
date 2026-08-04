@@ -5,7 +5,7 @@ Building the initial implementation of an outcome runs a cycle of **five hinges*
 1. **Actuation** — the invocation of the unit under test (its efferent shape: name, arguments, arity, return).
 2. **Observation** — what is asserted about the result (value-equality vs. identity vs. a raised error; what the explaining variable is compared against).
 3. **Controls** — the example constants the test is built from (which control form, nested vs. top-level, what inner constants, Array vs. Hash seeding, literals vs. controls).
-4. **Implementation** — the code that satisfies the test.
+4. **Implementation** — the code that satisfies the test. This hinge always has two candidates: the working implementation written directly, or the **red/green/refactor cycle** (see the the-implementation-hinge-offers-the-red-green-refactor-cycle rule).
 5. **Naming** — the outcome `context` that names what the observation establishes (the test's name).
 
 The first three concern the test (turn one); the fourth is the implementation (turn two). Only after the actuation, observation, and controls are accepted does the AI assemble and show the turn-one test file (per the first-turn rule); then it proposes the implementation as the fourth hinge, and — once that is accepted — writes it, runs the suite, and shows the test with its result. The fifth hinge, **naming**, is **deferred to the feature's close** (per the first-turn rule, the cradle and its outcomes are developed unnamed): once the feature's outcomes are implemented, each outcome's name is settled as its own hinge — via options, per the one-outcome-at-a-time naming rule. For a single-outcome feature, naming directly follows the implementation hinge.
@@ -19,3 +19,4 @@ The first three concern the test (turn one); the fourth is the implementation (t
 ---
 
 Authored by Scott Bellware on Sun Jun 28 2026 at 8 AM PT
+Changed by Scott Bellware on Sun Aug 2 2026 at 6:37:11 PM PT
