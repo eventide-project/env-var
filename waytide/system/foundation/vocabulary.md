@@ -44,7 +44,7 @@ scope** is *not here*.
 - **reconcile** — to correct the **live, forward-looking** artifacts that cite something which
   has changed, moved, or been deleted. Reconciling is directed at what points *at* a thing, not
   at the thing itself, and it is confined to artifacts read as current: an observation, a
-  design, a plan, another deferred item. **Historical records are left as written.** A design is
+  design, a plan, another deferred item. **Historical records are left as written**, the one exception being a record that discloses what should not have been disclosed; see the disclosure rule. A design is
   reconciled **against** the records rather than **regenerated from** them: it is a source of
   truth a plan points back at, so rebuilding it from downstream work would invert the direction
   of authority.
@@ -81,3 +81,4 @@ write the **Say** term.
 ---
 
 Authored by Scott Bellware on Mon Aug 3 2026 at 11:31:19 PM PT
+Changed by Scott Bellware on Tue Aug 4 2026 at 10:12:44 AM PT
