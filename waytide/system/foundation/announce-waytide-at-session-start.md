@@ -126,7 +126,7 @@ Both are wired by a committed `.claude/settings.json` that `install.sh` places i
   The instruction states that the read is **unconditional** — that the apparent size of the
   first request is not a reason to defer it. That is the failure it answers: a session opened
   with a one-line request, the read was judged not worth it, and the session grew into rule
-  edits, a session record, and two package publishes governed by rules that were never read.
+  edits, a work session record, and two package publishes governed by rules that were never read.
   Reading on demand kept producing locally plausible results, so nothing ever announced the
   gap.
 
@@ -208,7 +208,8 @@ Both are wired by a committed `.claude/settings.json` that `install.sh` places i
   longer testable from ordinary use.
 
   **The hook still carries the whole instruction.** The developer's command names the read,
-  but what the agent is to do with it — read `foundation/` first, read each `vocabulary.md`,
+  but what the agent is to do with it — read `foundation/` first, read each `vocabulary.md`
+  a package has,
   read the project's own `local/rules/` as well, leave the other working directories out of
   the read, print the deferred queue when the read is done, wait for the developer's request,
   print no package count — reaches the agent only through `additionalContext`.
@@ -229,7 +230,7 @@ Both are wired by a committed `.claude/settings.json` that `install.sh` places i
 
   **It names `local/rules/` and nothing else beside the packages.** The working directories
   next to it — `log/`, `deferred/`, `design/`, `plans/`, `work-sessions/`, `experiments/`,
-  `loops/` — are worked with as their own conventions describe and are **not** read as binding
+  `loops/`, `migration/`, `suspended/` — are worked with as their own conventions describe and are **not** read as binding
   rules at session start. The instruction says so outright, because an instruction naming
   `local/` rather than `local/rules/` would reverse that settled distinction.
 
@@ -300,3 +301,6 @@ Changed by Scott Bellware on Thu Jul 30 2026 at 11:48:52 AM PT
 Changed by Scott Bellware on Thu Jul 30 2026 at 11:56:04 AM PT
 Changed by Scott Bellware on Sat Aug 1 2026 at 4:10:02 PM PT
 Changed by Scott Bellware on Sat Aug 1 2026 at 4:27:36 PM PT
+Changed by Scott Bellware on Sun Aug 2 2026 at 8:13:27 PM PT
+Changed by Scott Bellware on Sun Aug 2 2026 at 8:23:08 PM PT
+Changed by Scott Bellware on Mon Aug 3 2026 at 11:31:19 PM PT
