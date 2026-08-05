@@ -28,6 +28,6 @@ value in their own environment.
 `waytide/` holds exactly two directories, splitting what came from outside from what
 is this project's own. `waytide/system/` is installed and never edited in place.
 `waytide/local/` is everything this project writes: `rules/` alongside the working
-state — `log/`, `deferred/`, `observations/`, `design/`, `plans/`, `work-sessions/`,
+state — `log/`, `deferred/`, `observations/`, `aspiration/`, `intention/`, `work-sessions/`,
 `loops/`, `experiments/` — each worked with as its convention describes, and only
 `rules/` read as binding at session start.
