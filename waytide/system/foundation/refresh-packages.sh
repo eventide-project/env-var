@@ -159,13 +159,64 @@ what changed before the next one, since the agent's conventions have moved.
 BINDING
 fi
 
-# The bootstrap is not a package, so no subtree pull touches it, and it can fall behind
-# the packages it activates. Saying so is all this script does about it.
-cat <<'BOOTSTRAP'
+# The bootstrap is not a package, so no subtree pull touches it, and it falls behind the
+# packages it activates. This used to print a reminder saying so; on 2026-08-06 every
+# consuming project's bootstrap was found stale anyway, which is what a reminder is worth.
+# So it is checked rather than mentioned: the refresh is the moment the drift is created,
+# and it is the moment nobody has to remember.
+bootstrap_state=unchecked
+installer="waytide/system/foundation/install.sh"
 
-Not refreshed by this script, because neither is a package: the root AGENTS.md and
-.claude/settings.json. If foundation's bootstrap has changed, delete AGENTS.md's Waytide
-section and run `waytide/system/foundation/install.sh agents-md` to regenerate it.
+# The installer is asked for the bootstrap text rather than parsed for it, but only when
+# it is known to answer. An installer predating the `bootstrap` subcommand treats the
+# argument as an ordinary run and starts installing, so it is never invoked on a guess.
+if [ -f AGENTS.md ] && [ -f "$installer" ] && grep -q '"\$1" = "bootstrap"' "$installer"; then
+  current=$(mktemp)
+  carried=$(mktemp)
+  trap 'rm -f "$current" "$carried"' EXIT
+
+  sh "$installer" bootstrap > "$current" 2>/dev/null || true
+
+  # AGENTS.md may hold the project's own content above the section, so only the section
+  # is compared.
+  sed -n '/^## Waytide$/,$p' AGENTS.md > "$carried"
+
+  # An empty result means the installer answered with nothing, which is not agreement.
+  # Reporting a match on a comparison that did not happen is the one outcome worth
+  # ruling out, since it would report the drift as absent.
+  if [ ! -s "$current" ]; then
+    bootstrap_state=unchecked
+  elif cmp -s "$current" "$carried"; then
+    bootstrap_state=current
+  else
+    bootstrap_state=stale
+  fi
+fi
+
+if [ "$bootstrap_state" = stale ]; then
+  cat <<'BOOTSTRAP'
+
+The root AGENTS.md does not match the bootstrap the installed foundation now generates.
+It is not a package, so no refresh reaches it, and it activates the system the packages
+above were just refreshed into. To regenerate it, delete AGENTS.md's Waytide section and
+run `waytide/system/foundation/install.sh agents-md`.
 BOOTSTRAP
+elif [ "$bootstrap_state" = current ]; then
+  cat <<'BOOTSTRAP'
+
+The root AGENTS.md matches the installed foundation's bootstrap. .claude/settings.json is
+not checked and is not a package either; if the session-start hook or status line stops
+working, `waytide/system/foundation/install.sh agents-md` places it again.
+BOOTSTRAP
+else
+  cat <<'BOOTSTRAP'
+
+The root AGENTS.md was NOT checked against the installed foundation's bootstrap — either
+there is no AGENTS.md, or the installed installer cannot print the bootstrap for
+comparison. It is not a package, so no refresh reaches it, and it may be behind the
+packages just refreshed. To regenerate it, delete AGENTS.md's Waytide section and run
+`waytide/system/foundation/install.sh agents-md`.
+BOOTSTRAP
+fi
 
 [ -z "$failed" ]

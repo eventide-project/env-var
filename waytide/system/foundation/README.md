@@ -135,12 +135,16 @@ foundation  →  (nothing — the base every other package builds on)
 
 ## Installing into a project
 
-**Foundation carries the tooling a consuming project runs**, and it is the only package that does. Two facts settle that, and they decide all four of its scripts rather than only the installer:
+**Foundation carries the tooling a consuming project runs**, and it is the only package that does. Two facts settle that, and they decide all five of its scripts rather than only the installer:
 
 - **`git subtree` can only place files inside a package directory.** So a tool a consuming project runs has to live in some package; there is nowhere else for it to be delivered.
 - **It has to be a package that is always there.** Foundation is the only one — every other package includes it, so a project running Waytide at all has foundation.
 
-So `install.sh`, `refresh-packages.sh`, `session-start.sh`, and `statusline.sh` are here. The **authoring** tools are not: `install-all.sh` and `report-direct-commits.sh` sit unpackaged at the root of the composite repository, because only the composite publishes and a consuming project never runs them.
+So `install.sh`, `refresh-packages.sh`, `session-start.sh`, `statusline.sh`, and `report-unrecognized-mode.sh` are here. The **authoring** tools are not: `install-all.sh`, `report-direct-commits.sh`, `read-consuming-projects.sh`, and `report-planning-directories-named-in-part.sh` sit unpackaged at the root of the composite repository, because only the composite publishes and a consuming project never runs them.
+
+**`report-unrecognized-mode.sh`** reports a mode rule in `waytide/local/rules/` naming a mode the installed `a-project-works-in-a-mode-chosen-at-initiation` rule no longer defines. It is packaged rather than kept with the authoring tools because the file it checks is **the project's own** — a rename upstream reaches the packages and stops, since no refresh may rewrite a project's rules, so the drift is only visible from inside the project and only the project's developer can correct it. It reads the defined mode names out of the installed rule rather than carrying a list, so a mode added upstream needs no change to the script. Every consuming project on one machine was found in exactly this state on 2026-08-06, a mode having been renamed the day before.
+
+**`refresh-packages.sh` also checks the bootstrap.** The root `AGENTS.md` is written by `install.sh`, belongs to no package, and is therefore the one activated file no `git subtree pull` can reach — so a refresh updates the packages beneath it and leaves it behind. The script used to print a reminder saying so; on 2026-08-06 every consuming project's bootstrap was found stale anyway, which is what a reminder is worth. It now compares the section against what the installed installer generates, at the moment the drift is created. Where the comparison cannot be made — no `AGENTS.md`, or an installer predating the `bootstrap` subcommand it asks for — it says the check did not happen rather than reporting agreement, and it never invokes an installer that would treat the request as an install.
 
 Foundation carries an **`install.sh`**, which also has to activate the system. Run it from your project root:
 

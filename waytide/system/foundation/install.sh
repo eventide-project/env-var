@@ -12,6 +12,9 @@
 #   ./install.sh agents-md    place the bootstrap files only (foundation already
 #                             installed; used by the composite install-all.sh so the
 #                             bootstrap logic lives in one place, not two)
+#   ./install.sh bootstrap    print the AGENTS.md bootstrap section and exit, placing
+#                             nothing; refresh-packages.sh compares it against the
+#                             project's AGENTS.md, so the text has one source here
 set -e
 
 prefix="waytide/system/foundation"
@@ -281,6 +284,15 @@ migrate_work_sessions() {
   echo "Renamed waytide/local/sessions/ to waytide/local/work-sessions/ — the directory's current name."
   echo "Commit the rename."
 }
+
+# 0. Print the bootstrap section and stop. Nothing is installed and nothing is placed,
+#    so this is safe to run anywhere, including from the authoring source. It exists so
+#    refresh-packages.sh can compare a project's AGENTS.md against the current text
+#    without parsing this script's source.
+if [ "$1" = "bootstrap" ]; then
+  bootstrap
+  exit 0
+fi
 
 # 1. Install (or refresh) the foundation rules — skipped in agents-md-only mode.
 if [ "$1" != "agents-md" ]; then
