@@ -6,7 +6,7 @@ The project's **binding** rules — naming conventions, terminology, plan-writin
 - **`waytide/local/rules/`** — the project's **own local rules**, one per file. The project's own conventions, not installed from a package.
 
 - **Read every rule file under both `waytide/system/` and `waytide/local/rules/` at the start of a session and follow them.** They override default behavior where they conflict; explicit user instructions still win. Read `waytide/system/foundation/` first — it defines the system.
-- **Rules are kept separate from work artifacts.** `waytide/system/` and `waytide/local/rules/` hold only rules. The project's working state lives beside `rules/` under `waytide/local/` — `log/`, `deferred/`, `observations/`, `design/`, `plans/`, `work-sessions/`, `loops/`, `experiments/`, `migration/`, `suspended/` — worked with as their own conventions describe, not read as binding rules at session start.
+- **Rules are kept separate from work artifacts.** `waytide/system/` and `waytide/local/rules/` hold only rules. The project's working state lives beside `rules/` under `waytide/local/` — `log/`, `deferred/`, `observations/`, the project's planning directories, `work-sessions/`, `loops/`, `experiments/`, `migration/`, `suspended/` — worked with as their own conventions describe, not read as binding rules at session start.
 - **A rule's purpose may cut across its category.** Folder names name the *surface* a rule acts on, not the purpose it serves; judge a stance-installing rule by the mindset it installs, not by surface conformance. See the rules-install-a-mindset rule.
 - **Format:** frontmatter-free markdown — a `# <title>` stating the rule, the rule in prose, then short `**Why:**` and `**How to apply:**` lines. A **system package** rule is named by a dash-separated, lower-case name; a project's **own local rule** in `waytide/local/rules/` takes the ISO-8601-UTC datetime prefix (see the file-names rule).
 - **Recording a new local rule:** when the user states a rule, or a decision sets a rule for future work, add it as a new file in `waytide/local/rules/`, and add a matching one-line entry to `waytide/local/log/`. (A rule that belongs to a system package is edited in that package and re-published, not added here.)
@@ -28,3 +28,4 @@ Changed by Scott Bellware on Sat Aug 1 2026 at 3:48:36 PM PT
 Changed by Scott Bellware on Sat Aug 1 2026 at 4:34:12 PM PT
 Changed by Scott Bellware on Sun Aug 2 2026 at 8:13:27 PM PT
 Changed by Scott Bellware on Sun Aug 2 2026 at 8:23:08 PM PT
+Changed by Scott Bellware on Thu Aug 6 2026 at 12:21:42 AM PT

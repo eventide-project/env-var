@@ -60,6 +60,13 @@ fi
 # notice prints, no rule file has been read. "Loaded" means brought into a runtime —
 # read in — which is the one thing this notice cannot report. Installation and a live
 # configuration are what the script can actually observe, so they are what it claims.
+#
+# What the initialization-rule carries is not here. It led this line from 2026-08-05 until
+# 2026-08-06, and it moved to the agent, which prints it at the head of the response that begins
+# the rule read — see the initialization-rule. It stands for a loading, and this hook runs before
+# the session, so it could only ever appear here at a moment when nothing was being loaded. The
+# move takes the doubled-backslash hazard with it: nothing of it is interpolated into JSON any
+# more.
 notice=$(printf 'Waytide installed at %s/ — %s %s: %s' \
   "$system" "$count" "$noun" "$list")
 
@@ -238,8 +245,30 @@ notice="${notice}\\n\\nWaytide's rules are loaded before your first instruction 
 # authoring source is detected the same way the packages and the open-work scan are.
 own_rules=${own:-waytide/local}
 
-instruction=$(printf 'Waytide is installed at %s/. Before your first substantive action in this session, read every rule file under %s/ and follow them — %s/foundation/ first, since it defines the system, then the other packages, including each package vocabulary.md, whose terms are binding and cannot be applied unread; not every package has one, and its absence is not a defect. Read the local rules this project adds as well, in %s/rules/, which are binding in the same way and which no package supplies; that directory may not exist yet, which is ordinary and not an error. Read only that one directory beside the packages: the working directories next to it — log, deferred, design, plans, work-sessions, experiments, loops, migration, suspended — are worked with as their own conventions describe and are not read as binding rules at session start. The read is unconditional: the apparent size of the first request is not a reason to defer it, because the size of the opening request predicts nothing about where the session goes. Once the rules are read, print the deferred queue as a list of rows, one row per item under %s/deferred/, per the print-the-deferred-queue-after-the-rule-read rule, and then wait for the developer to make a request. The developer may open with the command load waytide, which asks for exactly that and nothing more. Do not restate the session-start notice or print a package count; the announce-waytide-at-session-start rule reserves that to the harness.' \
-  "$system" "$system" "$system" "$own_rules" "$own_rules")
+# The instruction names the initialization-rule as the first file to open, and it has to: what
+# that rule carries is printed at the head of the read, and the agent has read nothing at the
+# moment it prints. One rule file read ahead of the others is what supplies it. The block itself
+# is not carried here — it lives in that rule, where it is edited as prose rather than as a
+# doubled-backslash JSON literal.
+#
+# It also requires the response that opens that one file to carry no prose. The initialization-rule
+# cannot ask for this: the response in question is the one that reads it, so at the moment the
+# agent writes there, the rule is not yet in hand. This instruction is the only channel that
+# reaches the agent before any file is opened, which is the same reason it names the file at all.
+# Without the sentence the read opens on a line of narration standing in the one position that
+# rule reserves.
+instruction=$(printf 'Waytide is installed at %s/. Before your first substantive action in this session, read every rule file under %s/ and follow them — %s/foundation/ first, since it defines the system, then the other packages, including each package vocabulary.md, whose terms are binding and cannot be applied unread; not every package has one, and its absence is not a defect. Read the local rules this project adds as well, in %s/rules/, which are binding in the same way and which no package supplies; that directory may not exist yet, which is ordinary and not an error. Read only that one directory beside the packages: the working directories next to it — log, deferred, the project'\''s planning directories, work-sessions, experiments, loops, migration, suspended — are worked with as their own conventions describe and are not read as binding rules at session start. The read is unconditional: the apparent size of the first request is not a reason to defer it, because the size of the opening request predicts nothing about where the session goes. Open %s/foundation/initialization-rule.md ahead of every other rule file, and print what it carries at the head of the response that carries the rest of the read, per that rule. The response that opens that one file carries the tool call and nothing else: print no preamble there, and no account of what you are about to read, so what that rule carries is the first text of the read. Say nothing about it in any response — no name for it, no substitute word, no description standing in for one — and do not cite that rule by name. Once the rules are read, print the deferred queue as a list of rows, one row per item under %s/deferred/, per the print-the-deferred-queue-after-the-rule-read rule, and then wait for the developer to make a request. The developer may open with the command load waytide, which asks for exactly that and nothing more. Do not restate the session-start notice or print a package count; the announce-waytide-at-session-start rule reserves that to the harness.' \
+  "$system" "$system" "$system" "$own_rules" "$system" "$own_rules")
+
+# WAYTIDE_QUIET reaches the agent for one thing only: what the initialization-rule carries.
+# Everything else the opt-out governs is rendered by the harness from this output, so withholding
+# the output silences it. That one is not — the agent prints it, and the agent cannot read the
+# environment, so the only way the opt-out reaches it is a sentence carried here. The read and the
+# deferred queue stay untouched, as they always have: quieting a display must not disable the
+# mechanism that carries the rules.
+if [ -n "$WAYTIDE_QUIET" ]; then
+  instruction="${instruction} WAYTIDE_QUIET is set in this environment, so print nothing at the head of the read; the rule read and the deferred queue are unaffected."
+fi
 
 hook_output=$(printf '"hookSpecificOutput": {"hookEventName": "SessionStart", "additionalContext": "%s"}' \
   "$instruction")
