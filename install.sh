@@ -18,6 +18,20 @@ prefix="waytide/system/foundation"
 repo="https://github.com/waytide/foundation.git"
 
 # The bootstrap section written into the project-root AGENTS.md.
+#
+# It does not name the planning directories, and that is deliberate: they depend on
+# the project's mode — `design/` and `plans/` under formal, `aspiration/` and
+# `intention/` under intuitive, `orientation/` and `action/` under OODA (see foundation's
+# a-project-works-in-a-mode-chosen-at-initiation
+# rule). This script cannot know which, because the mode is chosen by the agent at the
+# project's initiation, which is after an install has run. Naming the formal pair here
+# would write it back into a project in another mode every time the bootstrap was regenerated —
+# which is what refresh-packages.sh tells a developer to do when foundation's bootstrap
+# changes, so a routine refresh would silently undo a migration.
+#
+# The list is illustrative rather than exhaustive — it omits `migration/` and
+# `suspended/` too — and its claim is that these are working state rather than rules,
+# which survives without naming every one. Do not add the planning directories back.
 bootstrap() {
   cat <<'EOF'
 ## Waytide
@@ -50,9 +64,9 @@ value in their own environment.
 `waytide/` holds exactly two directories, splitting what came from outside from what
 is this project's own. `waytide/system/` is installed and never edited in place.
 `waytide/local/` is everything this project writes: `rules/` alongside the working
-state — `log/`, `deferred/`, `observations/`, `design/`, `plans/`, `work-sessions/`,
-`loops/`, `experiments/` — each worked with as its convention describes, and only
-`rules/` read as binding at session start.
+state — `log/`, `deferred/`, `observations/`, `work-sessions/`, `loops/`,
+`experiments/`, and the project's planning directories — each worked with as its
+convention describes, and only `rules/` read as binding at session start.
 EOF
 }
 

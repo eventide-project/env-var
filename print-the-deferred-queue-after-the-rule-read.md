@@ -61,6 +61,11 @@ duplicate. This is a different thing on a different surface:
 - **This print happens after the read, inside the response that concludes it.** It is bounded
   to that one moment, it does not recur, and nothing about it competes with the notice.
 
+**It is one of two things the agent prints around the read**, and the other is the **mark**,
+at the read's head (see the initialization-rule). Both sit here
+for the same reason: bounded to the read, printed once, and duplicating nothing the harness
+emits. The queue is the closing bookend and the mark is the opening one.
+
 **The agent reads the items, so nothing has to be machine-readable.** A script parsing
 `waytide/local/deferred/` would need the `**Gated on:**` line in a fixed form to say anything
 about what is actionable. The agent reads the prose, so the deferred convention's format is
@@ -86,11 +91,14 @@ notice, which remains the harness's and is prohibited to the agent. Related: the
 deferred-convention (the queue's format and its resolution step), the
 next-deferred-item-command rule (the on-demand way into the queue), the status-report-format
 rule (whose deferred table is a rendered table with a `kind` column, this one being neither),
-the rules-convention (the read this follows), and the announce-waytide-at-session-start
-rule (the notice this is not).
+the rules-convention (the read this follows), the
+initialization-rule (the read's opening bookend), and the
+announce-waytide-at-session-start rule (the notice this is not).
 
 ---
 
 Authored by Scott Bellware on Sat Aug 1 2026 at 4:10:02 PM PT
 Changed by Scott Bellware on Sat Aug 1 2026 at 4:16:40 PM PT
 Changed by Scott Bellware on Sat Aug 1 2026 at 5:35:18 PM PT
+Changed by Scott Bellware on Wed Aug 5 2026 at 10:47:28 PM PT
+Changed by Scott Bellware on Wed Aug 5 2026 at 11:44:36 PM PT
