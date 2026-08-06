@@ -130,6 +130,20 @@ maintainable.
 **Through the selection interface**, per the present-every-prompt-through-askuserquestion rule,
 with **formal as the default**.
 
+**Where no mode rule is present, the selection prompt is displayed at once.** The agent does not
+report that the mode has never been chosen and offer to ask, and does not wait for a further
+instruction before asking. Finding no mode rule **is** the occasion; announcing the occasion and
+stopping leaves the project uninitiated until a second instruction arrives, and spends a turn on a
+non-decision — a developer told that a question could be asked has no answer to give but *yes*.
+This is the same reasoning the `design-by-efferent` never-ask-to-start-test-first rule applies to
+its own settled default: asking whether to ask confirms what is already decided.
+
+**Say "ask", not "put".** *Put* in the sense of *pose* is archaic, and a developer meets the
+everyday sense first, where it says nothing about what will happen — the same objection the
+present-every-prompt rule makes to *put this question again* in an option description. It holds in
+speech to the developer as well as in an option's wording. This rule's own headings still read
+*put*, which is the older idiom and is being left rather than swept.
+
 **The question is asked in these words:**
 
 > Select the mode for this project. The behavior and functioning of Waytide isn't affected by the
@@ -309,7 +323,9 @@ vocabulary and the planning directories — with each option naming its mode's t
 their directories. Write the chosen mode into
 `waytide/local/rules/` as a `formal-mode`, `intuitive-mode`, or `ooda-mode` rule with its datetime
 prefix. Where
-no mode rule is present, ask — the absence is a question never asked, not a default. Check the
+no mode rule is present, display the selection prompt at once rather than reporting the absence and
+offering to ask — the absence is a question never asked, not a default, and finding it is the
+occasion to ask. Check the
 planning directories against the rule and surface any contradiction rather than assuming a mode.
 Work the directories the mode names, applying the same conventions and document formats in
 either. In a rule that merely mentions one of the artifacts, write **the direction artifact** or
@@ -336,3 +352,4 @@ Changed by Scott Bellware on Wed Aug 5 2026 at 9:32:50 PM PT
 Changed by Scott Bellware on Wed Aug 5 2026 at 9:44:24 PM PT
 Changed by Scott Bellware on Wed Aug 5 2026 at 10:15:04 PM PT
 Changed by Scott Bellware on Thu Aug 6 2026 at 10:13:17 AM PT
+Changed by Scott Bellware on Thu Aug 6 2026 at 3:25:24 PM PT
