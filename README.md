@@ -23,7 +23,6 @@ The one-liner:
 - Five hinges, each accepted before the next: actuation → observation → controls → implementation → naming.
 - What each hinge displays: the actuation is the anchor at every downstream hinge; the contexts are shown once, at hinge 1.
 - The actuation gate offers candidate actuations as options, with a mandatory origination escape.
-- Every prompt — hinge or not — goes through the selection UI; its built-in free-text choice *is* the escape.
 - Advance one outcome at a time and stop at every gate; never batch-generate test files.
 
 **After the implementation hinge**
