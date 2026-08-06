@@ -1,4 +1,3 @@
-
 ## Waytide
 
 This project's Waytide system and working conventions live under `waytide/`,
@@ -9,8 +8,9 @@ committed alongside the code and read at the start of each session.
 
 `waytide/system/` holds the installed system packages —
 `waytide/system/foundation/`, `waytide/system/language/`, and so on, including
-each package's `vocabulary.md` glossary (its terms are binding and can't be applied
-unread). `waytide/local/rules/` holds this project's own local rules.
+each package's `vocabulary.md` glossary where it has one (its terms are binding and
+can't be applied unread; not every package has one, and its absence is not a
+defect). `waytide/local/rules/` holds this project's own local rules.
 Read `waytide/system/foundation/` first; it defines the system. The rules
 override default behavior where they conflict; explicit user instructions still win.
 
@@ -28,6 +28,6 @@ value in their own environment.
 `waytide/` holds exactly two directories, splitting what came from outside from what
 is this project's own. `waytide/system/` is installed and never edited in place.
 `waytide/local/` is everything this project writes: `rules/` alongside the working
-state — `log/`, `deferred/`, `observations/`, `aspiration/`, `intention/`, `work-sessions/`,
-`loops/`, `experiments/` — each worked with as its convention describes, and only
-`rules/` read as binding at session start.
+state — `log/`, `deferred/`, `observations/`, `work-sessions/`, `loops/`,
+`experiments/`, and the project's planning directories — each worked with as its
+convention describes, and only `rules/` read as binding at session start.
