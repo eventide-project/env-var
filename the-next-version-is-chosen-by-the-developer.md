@@ -44,10 +44,11 @@ options rather than a fait accompli.
 options through the selection UI with the resulting version and the claim each makes, and let
 the developer choose. Do not include the generation. Do not propose one and ask for
 confirmation. Related: the version-scheme rule (what the segments mean and why the generation
-is excluded), the `design-by-efferent` present-every-prompt-through-askuserquestion rule (why
+is excluded), the `foundation` present-every-prompt-through-askuserquestion rule (why
 every prompt goes through the selection UI), and the `git` subject-first-commit-messages rule
 (the commit that records the change, `Package version is increased from X to Y`).
 
 ---
 
 Authored by Scott Bellware on Sat Aug 1 2026 at 11:09:47 PM PT
+Changed by Scott Bellware on Wed Aug 5 2026 at 10:15:04 PM PT
