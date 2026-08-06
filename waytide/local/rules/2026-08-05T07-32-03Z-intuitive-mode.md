@@ -1,19 +1,19 @@
-# This project works in creative mode — its planning artifacts are an aspiration and an intention
+# This project works in intuitive mode — its planning artifacts are an aspiration and an intention
 
-**What this rule binds:** this project works in **creative mode**. Its settled-direction
-artifact is an **aspiration**, in `waytide/local/aspiration/`, and its sequencing artifact
+**What this rule binds:** this project works in **intuitive mode**. Its direction artifact
+is an **aspiration**, in `waytide/local/aspiration/`, and its sequencing artifact
 is an **intention**, in `waytide/local/intention/`. `waytide/local/design/` and
 `waytide/local/plans/` are not used here. That is the whole of what this file binds, and it
 is fixed — a project's mode does not change after initiation.
 
 **Everything below explains the mode and binds nothing.** It is written out so this file
 stands on its own, and it describes the system as it stood when this project was initiated,
-which is the date in this filename. Waytide's own `a-project-works-in-formal-or-creative-mode`
+which is the date in this filename. Waytide's own `a-project-works-in-a-mode-chosen-at-initiation`
 rule holds the system's account.
 
 **The two modes.** A Waytide project works in one of two, chosen at its initiation. Under
 **formal**, the default, the artifacts are a **design** and a **plan**, in
-`waytide/local/design/` and `waytide/local/plans/`. Under **creative** they are an
+`waytide/local/design/` and `waytide/local/plans/`. Under **intuitive** they are an
 **aspiration** and an **intention**, in `waytide/local/aspiration/` and
 `waytide/local/intention/`. A design and an aspiration both answer *what are we going
 toward*; a plan and an intention both answer *what are we going to do*.
@@ -42,3 +42,4 @@ following the four planning rules unchanged. Do not use `waytide/local/design/` 
 ---
 
 Authored by Scott Bellware on Wed Aug 5 2026 at 12:32:03 AM PT
+Changed by Scott Bellware on Thu Aug 6 2026 at 12:50:39 PM PT
