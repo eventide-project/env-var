@@ -46,4 +46,4 @@ git subtree pull --prefix waytide/system/language https://github.com/waytide/lan
 
 ## License
 
-Waytide is in early development and is **not yet licensed for use** — all rights reserved. A license, the Eventide Common Interest License, is forthcoming.
+Waytide is licensed under the **Eventide Common Interest License** — source-available and free to use, and not open source in the strict sense, since it does not permit modification. The license text is forthcoming and will be published in `LICENSE`.
