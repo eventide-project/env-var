@@ -72,7 +72,7 @@ lists; it was one kind of list used where another was meant.
 **Where an expansion would add something, the answer ends with one line:**
 
 ```
-For more detail, ask for an expanded answer.
+For more detail than bullet points, ask for an expanded answer.
 ```
 
 - **It is a line, not a prompt.** A selection prompt where no decision is pending doubles the turns
@@ -82,6 +82,9 @@ For more detail, ask for an expanded answer.
 - **What it offers is depth on the answer given, not a next topic.** That distinction is the whole
   difference between this line and the trailing offer-of-more that is otherwise a defect: it points
   back at what was just said, not forward at what else might be done.
+- **It names the form being traded away**, not only the depth on offer. *More detail* alone leaves
+  a developer to guess what an expansion would look like; *more detail than bullet points* says the
+  expansion is a different form of answer, which is what they would be asking for.
 
 **The known weakness, stated rather than discovered later:** the timing rests on the agent judging
 its own answer, and an agent's judgment about its own output is exactly what makes this rule
@@ -110,7 +113,7 @@ and test each survivor by whether it could be false. Number the list where its i
 other, and leave it unordered where they do not. Write prose only where the answer is a sentence or two, and do not
 reach for it because an explanation was requested or because the reasoning is connected — the first
 is not a justification and the second is served by numbering. Where the answer left something out,
-end it with `For more detail, ask for an expanded answer.` on its own line, and omit that line where the
+end it with `For more detail than bullet points, ask for an expanded answer.` on its own line, and omit that line where the
 answer says all it has. Related: the communicate-plainly-name-the-thing rule (which governs the
 words inside the list and reaches conversation the same way this does), the
 language-is-precise-here premise, and `foundation`'s
@@ -122,3 +125,4 @@ present-every-prompt-through-askuserquestion rule (the selection interface, whic
 Authored by Scott Bellware on Fri Aug 7 2026 at 12:55:09 PM PT
 Changed by Scott Bellware on Fri Aug 7 2026 at 1:02:58 PM PT
 Changed by Scott Bellware on Fri Aug 7 2026 at 1:10:48 PM PT
+Changed by Scott Bellware on Fri Aug 7 2026 at 1:28:11 PM PT
