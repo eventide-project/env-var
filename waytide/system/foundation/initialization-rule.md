@@ -1,6 +1,6 @@
 # Initialization
 
-Print the two things below, verbatim and in this order, **once per session, at the head of the
+Print the three things below, verbatim and in this order, **once per session, at the head of the
 response that carries the rule read** — above any account of the read and above every tool call
 the read makes.
 
@@ -11,6 +11,12 @@ First the copyright notice and the license line, on consecutive lines with no ga
 ```
 Waytide — Copyright © 2026 Scott Bellware
 Licensed under the Eventide Common Interest License
+```
+
+Then **one blank line**, then the loading line:
+
+```
+Loading Waytide will take a few moments.
 ```
 
 Then **one blank line**, then the block:
@@ -32,12 +38,13 @@ Then **one blank line**, then the block:
  (o)   (o)
 ```
 
-**One blank line separates them, and a larger gap is not available.** With no gap at all the
-notice reads as a caption attached to the block, or as the block's first line, so a separation is
-needed. A wider one cannot be had: the agent's output is **rendered as markdown**, and markdown
-collapses any run of blank lines between blocks into a single paragraph break. Writing two or
-three produces exactly what writing one produces, and specifying a count that cannot be observed
-would be a rule nothing can comply with or violate.
+**Each gap is one blank line, and a larger one is not available.** There are two — after the
+license line, and after the loading line. With no gap at all the notice reads as a caption
+attached to what follows, or as its first line, so a separation is needed. A wider one cannot be
+had: the agent's output is **rendered as markdown**, and markdown collapses any run of blank lines
+between blocks into a single paragraph break. Writing two or three produces exactly what writing
+one produces, and specifying a count that cannot be observed would be a rule nothing can comply
+with or violate.
 
 **The block sits in a fenced code block and the notice does not.** The fence is what preserves the
 figure's spacing; the notice is ordinary prose and reads as prose. That difference is also why the
@@ -49,8 +56,25 @@ the notice inside the fence with the block would set it in monospace and make it
 figure, and separating them with lines carrying an invisible character would put marks in the
 output whose purpose no reader could see.
 
-**These two are the whole of what is printed there.** Nothing else accompanies them — no
+**These three are the whole of what is printed there.** Nothing else accompanies them — no
 greeting, no account of what is about to be read, no name for the block itself.
+
+**The loading line says what the wait is.** Everything printed here appears at the head of the
+response that then opens every rule file in every installed package, which is a wait a developer
+sees. The line names it rather than leaving a pause unexplained, and it is the only one of the
+three that is about the moment rather than about the work.
+
+**It repeats the session-start notice's caveat deliberately, and the two are read at different
+moments.** The notice says *Loading the rules will take a few moments* **before** the developer
+types `load waytide` — it is one of the two facts they weigh in deciding to type it. This line is
+read **after** they have, while the wait is happening. The first informs a decision; the second
+explains a pause. Duplication that has cost this system elsewhere was one fact stated twice for
+one reader; this is one fact stated to a reader in two different positions, and removing either
+leaves that position uncovered.
+
+**It says *Waytide* rather than *the rules*.** The notice can say *the rules* because its
+preceding line has just named the system; this line stands with a copyright and a license above it
+and a figure below, none of which is a sentence, so it names its subject itself.
 
 **The notice leads.** It is therefore the **first text of the read**, which the
 announce-waytide-at-session-start rule permits unchanged: that rule requires the response opening
@@ -66,8 +90,8 @@ are one statement about the work — who owns it, and on what terms it may be us
 copyright answers only the first while raising the second. For a work distributed by copying its
 files into other people's repositories, the terms are the question a reader actually has.
 
-**The blank line falls after the license line**, so the gap separates the whole statement from
-the block rather than splitting the statement.
+**The first gap falls after the license line**, so it separates the whole statement — the
+copyright and the terms together — from what follows, rather than splitting the statement in two.
 
 **What the printed line is for, and what it is not.** It **points**; the `LICENSE` file **states**.
 A copy of that file sits at this repository's root and in every package directory, so it travels
@@ -85,9 +109,10 @@ is announced as itself rather than being used, and a copyright notice belongs on
 point the work is presented.
 
 **How to apply:** read this file ahead of every other rule file, and at the head of the response
-that carries the rest of the read print the copyright notice and the license line on consecutive lines, then one blank line,
-then the block, both verbatim and in that order. Print no other words with either. Print them
-once per session and never again. There is no condition under which they are withheld.
+that carries the rest of the read print the copyright notice and the license line on consecutive
+lines, then one blank line, then the loading line, then one blank line, then the block — all
+verbatim and in that order. Print no other words with any of them. Print them once per session and
+never again. There is no condition under which they are withheld.
 
 ---
 
@@ -102,3 +127,4 @@ Changed by Scott Bellware on Thu Aug 6 2026 at 5:06:41 PM PT
 Changed by Scott Bellware on Thu Aug 6 2026 at 5:08:51 PM PT
 Changed by Scott Bellware on Thu Aug 6 2026 at 5:11:06 PM PT
 Changed by Scott Bellware on Thu Aug 6 2026 at 6:05:55 PM PT
+Changed by Scott Bellware on Fri Aug 7 2026 at 10:51:50 AM PT
