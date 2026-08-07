@@ -72,15 +72,11 @@ the block rather than splitting the statement.
 **What the printed line is for, and what it is not.** It **points**; the `LICENSE` file **states**.
 A copy of that file sits at this repository's root and in every package directory, so it travels
 into each component repository and into every project that installs a package — which is where the
-license is read. The printed line does not carry terms and is not the place to put them. It is
-also silenced by `WAYTIDE_QUIET`, which is a further reason the license cannot depend on it.
+license is read. The printed line does not carry terms and is not the place to put them.
 
 **The year is the year of the notice, not of the session.** It is written into this rule and is
 printed verbatim, so it does not track the clock and is not computed. It changes when the rule
 changes.
-
-Print nothing where the hook's read instruction says `WAYTIDE_QUIET` is set — the notice is
-silenced with the block, being part of what that variable suppresses.
 
 **Why:** the block stands for the system being brought into force in this session, so it is
 printed at the moment the rule files are opened — the one moment only the agent is present for.
@@ -91,7 +87,7 @@ point the work is presented.
 **How to apply:** read this file ahead of every other rule file, and at the head of the response
 that carries the rest of the read print the copyright notice and the license line on consecutive lines, then one blank line,
 then the block, both verbatim and in that order. Print no other words with either. Print them
-once per session and never again, and print nothing where `WAYTIDE_QUIET` is set.
+once per session and never again. There is no condition under which they are withheld.
 
 ---
 
@@ -105,3 +101,4 @@ Changed by Scott Bellware on Thu Aug 6 2026 at 4:59:06 PM PT
 Changed by Scott Bellware on Thu Aug 6 2026 at 5:06:41 PM PT
 Changed by Scott Bellware on Thu Aug 6 2026 at 5:08:51 PM PT
 Changed by Scott Bellware on Thu Aug 6 2026 at 5:11:06 PM PT
+Changed by Scott Bellware on Thu Aug 6 2026 at 6:05:55 PM PT

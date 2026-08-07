@@ -18,7 +18,7 @@
 #
 # Run from the root of the project:
 #
-#   ./waytide/system/foundation/report-unrecognized-mode.sh
+#   waytide/system/foundation/report-unrecognized-mode.sh
 #
 # It only reads.
 
