@@ -187,6 +187,25 @@ new mechanism carries it, and nothing has to be taught to read it.
 **The filename alone carries the mode**, which is what lets both checks below work without the
 file being opened.
 
+**The mode rule is committed, and a decision-log entry is written with it.** Writing the file is
+not the whole of recording the mode, and neither obligation is new — the rules-convention already
+requires a matching `waytide/local/log/` entry for every new local rule, and the
+decision-log-convention already requires a log entry to be committed with the change it describes.
+They are restated here because this is the rule an agent reads at the moment a mode is chosen, and
+a rule that says only *write the file* is followed exactly as far as it is written.
+
+- **The log entry** states which mode was chosen, in the log's one-line form. The mode rule
+  records that the project is in a mode; the log entry records that the choice was made and when,
+  which is the trail every other decision in the project leaves.
+- **The commit** carries both. An uncommitted mode rule is a mode that exists on one machine — the
+  project's own convention, invisible to everyone who clones it and to every check that reads it,
+  which is the same failure an uncommitted executable bit produces on a script.
+
+**This lands at the least convenient moment, which is why it is stated.** A mode is chosen at
+initiation, when a project is new and often has nothing else in it, so the mode rule and its log
+entry are frequently the project's first substantive commit rather than an addition to work
+already in flight.
+
 - **A rule is written whichever mode is chosen.** Formal is the default, not the silent case.
 - **An absent mode rule means the question has never been asked** — not that the project is
   formal. The agent asks, once, and writes the rule.
@@ -322,7 +341,8 @@ that the behavior and functioning of Waytide are unaffected and the mode sets th
 vocabulary and the planning directories — with each option naming its mode's two artifacts and
 their directories. Write the chosen mode into
 `waytide/local/rules/` as a `formal-mode`, `intuitive-mode`, or `ooda-mode` rule with its datetime
-prefix. Where
+prefix, write a matching one-line `waytide/local/log/` entry naming the mode chosen, and commit
+both. Where
 no mode rule is present, display the selection prompt at once rather than reporting the absence and
 offering to ask — the absence is a question never asked, not a default, and finding it is the
 occasion to ask. Check the
@@ -353,3 +373,4 @@ Changed by Scott Bellware on Wed Aug 5 2026 at 9:44:24 PM PT
 Changed by Scott Bellware on Wed Aug 5 2026 at 10:15:04 PM PT
 Changed by Scott Bellware on Thu Aug 6 2026 at 10:13:17 AM PT
 Changed by Scott Bellware on Thu Aug 6 2026 at 3:25:24 PM PT
+Changed by Scott Bellware on Thu Aug 6 2026 at 5:15:51 PM PT
