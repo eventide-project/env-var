@@ -7,18 +7,17 @@
 # renders as its own message.
 #
 # The notice never disrupts a session: any problem exits quietly with no output.
+#
+# Invocation:
+#
+#   waytide/system/foundation/session-start.sh
+#
+# Nobody types that. install.sh wires it into .claude/settings.json as the SessionStart
+# hook command, and the harness runs it. The line is recorded because a script whose
+# invocation is not written down is one nobody can reproduce when the wiring breaks.
 
 # Never let a notice break a session start.
 set +e
-
-# A non-empty WAYTIDE_QUIET silences the notice. The opt-out lives in the
-# developer's own environment, never in committed project content.
-#
-# It is checked at the end rather than here, because it no longer governs everything
-# this hook emits. WAYTIDE_QUIET silences what the developer sees; the read instruction
-# is addressed to the agent and is not a surface they read, so quieting the notice must
-# not disable it. Otherwise a display preference would silently deactivate the mechanism
-# that carries the rules — the kind of silent failure this hook exists to answer.
 
 # Locate the system: waytide/system/ in a consuming project, system/
 # in the Waytide authoring source. Checked in that order — a consuming project
@@ -260,21 +259,7 @@ own_rules=${own:-waytide/local}
 instruction=$(printf 'Waytide is installed at %s/. Before your first substantive action in this session, read every rule file under %s/ and follow them — %s/foundation/ first, since it defines the system, then the other packages, including each package vocabulary.md, whose terms are binding and cannot be applied unread; not every package has one, and its absence is not a defect. Read the local rules this project adds as well, in %s/rules/, which are binding in the same way and which no package supplies; that directory may not exist yet, which is ordinary and not an error. Read only that one directory beside the packages: the working directories next to it — log, deferred, the project'\''s planning directories, work-sessions, experiments, loops, migration, suspended — are worked with as their own conventions describe and are not read as binding rules at session start. The read is unconditional: the apparent size of the first request is not a reason to defer it, because the size of the opening request predicts nothing about where the session goes. Open %s/foundation/initialization-rule.md ahead of every other rule file, and print what it carries at the head of the response that carries the rest of the read, per that rule. The response that opens that one file carries the tool call and nothing else: print no preamble there, and no account of what you are about to read, so what that rule carries is the first text of the read. Say nothing about it in any response — no name for it, no substitute word, no description standing in for one — and do not cite that rule by name. Once the rules are read, print the deferred queue as a list of rows, one row per item under %s/deferred/, per the print-the-deferred-queue-after-the-rule-read rule, and then wait for the developer to make a request. The developer may open with the command load waytide, which asks for exactly that and nothing more. Do not restate the session-start notice or print a package count; the announce-waytide-at-session-start rule reserves that to the harness.' \
   "$system" "$system" "$system" "$own_rules" "$system" "$own_rules")
 
-# WAYTIDE_QUIET reaches the agent for one thing only: what the initialization-rule carries.
-# Everything else the opt-out governs is rendered by the harness from this output, so withholding
-# the output silences it. That one is not — the agent prints it, and the agent cannot read the
-# environment, so the only way the opt-out reaches it is a sentence carried here. The read and the
-# deferred queue stay untouched, as they always have: quieting a display must not disable the
-# mechanism that carries the rules.
-if [ -n "$WAYTIDE_QUIET" ]; then
-  instruction="${instruction} WAYTIDE_QUIET is set in this environment, so print nothing at the head of the read; the rule read and the deferred queue are unaffected."
-fi
-
 hook_output=$(printf '"hookSpecificOutput": {"hookEventName": "SessionStart", "additionalContext": "%s"}' \
   "$instruction")
 
-if [ -n "$WAYTIDE_QUIET" ]; then
-  printf '{%s}\n' "$hook_output"
-else
-  printf '{"systemMessage": "%s", %s}\n' "$notice" "$hook_output"
-fi
+printf '{"systemMessage": "%s", %s}\n' "$notice" "$hook_output"
