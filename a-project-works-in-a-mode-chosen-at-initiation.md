@@ -130,13 +130,24 @@ maintainable.
 **Through the selection interface**, per the present-every-prompt-through-askuserquestion rule,
 with **formal as the default**.
 
-**Where no mode rule is present, the selection prompt is displayed at once.** The agent does not
-report that the mode has never been chosen and offer to ask, and does not wait for a further
-instruction before asking. Finding no mode rule **is** the occasion; announcing the occasion and
+**Where no mode rule is present, the selection prompt is displayed at once, and the response
+carries the prompt and nothing else.** No preamble, no report that the mode has never been
+chosen, no account of what the read surfaced, and no citation of this rule. The agent does not
+offer to ask and does not wait for a further instruction before asking.
+
+**Two failures are forbidden here and only one of them is obvious.** Announcing the occasion and
 stopping leaves the project uninitiated until a second instruction arrives, and spends a turn on a
 non-decision — a developer told that a question could be asked has no answer to give but *yes*.
+The subtler one is **announcing and then asking in the same response**: the prompt arrives, so
+nothing is blocked, and the developer still has to read an explanation of why they are being asked
+before reaching the question. The prompt states what it needs; a preamble in front of it is the
+agent reasoning where the developer wanted a choice.
+
 This is the same reasoning the `design-by-efferent` never-ask-to-start-test-first rule applies to
-its own settled default: asking whether to ask confirms what is already decided.
+its own settled default: asking whether to ask confirms what is already decided. It is also the
+shape the announce-waytide-at-session-start rule requires of the response that opens the
+initialization rule — the tool call and nothing else — for the same reason, that a line of the
+agent's narration stands where the thing itself should be.
 
 **Say "ask", not "put".** *Put* in the sense of *pose* is archaic, and a developer meets the
 everyday sense first, where it says nothing about what will happen — the same objection the
@@ -343,9 +354,9 @@ their directories. Write the chosen mode into
 `waytide/local/rules/` as a `formal-mode`, `intuitive-mode`, or `ooda-mode` rule with its datetime
 prefix, write a matching one-line `waytide/local/log/` entry naming the mode chosen, and commit
 both. Where
-no mode rule is present, display the selection prompt at once rather than reporting the absence and
-offering to ask — the absence is a question never asked, not a default, and finding it is the
-occasion to ask. Check the
+no mode rule is present, display the selection prompt at once, in a response carrying the prompt
+and nothing else — no preamble, no report of the absence, no citation of this rule. The absence is
+a question never asked, not a default, and finding it is the occasion to ask. Check the
 planning directories against the rule and surface any contradiction rather than assuming a mode.
 Work the directories the mode names, applying the same conventions and document formats in
 either. In a rule that merely mentions one of the artifacts, write **the direction artifact** or
@@ -374,3 +385,4 @@ Changed by Scott Bellware on Wed Aug 5 2026 at 10:15:04 PM PT
 Changed by Scott Bellware on Thu Aug 6 2026 at 10:13:17 AM PT
 Changed by Scott Bellware on Thu Aug 6 2026 at 3:25:24 PM PT
 Changed by Scott Bellware on Thu Aug 6 2026 at 5:15:51 PM PT
+Changed by Scott Bellware on Thu Aug 6 2026 at 9:44:31 PM PT
