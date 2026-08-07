@@ -21,9 +21,7 @@ actually present and emits the `Waytide installed at … — N packages: …` no
 with a line telling the developer to type `load waytide` — the command that asks for the
 read instruction the hook carries to be acted on now;
 a status line keeps the system's presence on screen for the rest of the session, beside
-the working directory, branch, and any uncommitted, untracked, or unpushed work. A developer
-silences both by setting the `WAYTIDE_QUIET` environment variable to any non-empty
-value in their own environment.
+the working directory, branch, and any uncommitted, untracked, or unpushed work.
 
 `waytide/` holds exactly two directories, splitting what came from outside from what
 is this project's own. `waytide/system/` is installed and never edited in place.
