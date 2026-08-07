@@ -1,6 +1,12 @@
 #!/bin/sh
 # Install (or refresh) the agent-norms packages this package depends on.
-# Run from the root of the consuming project.
+# Run from the root of the consuming project. This script lives inside the package whose
+# dependencies it installs, so it is invoked by its path from that root.
+#
+# Usage:
+#
+#   waytide/system/code/ruby/install-dependencies.sh
+#
 set -e
 
 add() {
