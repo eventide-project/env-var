@@ -13,7 +13,7 @@
 # Nobody types that either. install.sh wires it into .claude/settings.json as the
 # statusLine command, and the harness runs it every turn.
 #
-# Because a project-level statusLine replaces whatever status line the developer
+# Because a project-level statusLine replaces whatever status line the engineer
 # configured for themselves, this renders the working directory and git branch
 # too, so adopting it takes nothing away.
 
@@ -23,7 +23,7 @@ set +e
 # it is consumed so the harness never writes into a closed pipe.
 cat >/dev/null 2>&1
 
-# The repository's own name leads the line and is set in bold, so the developer's first
+# The repository's own name leads the line and is set in bold, so the engineer's first
 # orientation — which repository this is — separates from the segments annotating it. The
 # harness passes terminal escape sequences through, and printf builds them here because a
 # literal escape byte cannot be written into a shell string portably.
@@ -54,12 +54,12 @@ fi
 # the history, and an untracked file is on it. This segment names the particular state,
 # because its remedy is the one that differs — an untracked file is added or ignored, where
 # a modified tracked file is committed. Without it the line reported uncommitted changes
-# over a tree where nothing had been modified at all, which sends the developer looking for
+# over a tree where nothing had been modified at all, which sends the engineer looking for
 # an edit that does not exist.
 #
 # So an untracked file raises both segments, deliberately. The alternative — narrowing
 # uncommitted to tracked modifications — would make the two segments a partition and cost
-# the axis: a developer scanning for whether anything is uncommitted would have to read two
+# the axis: a engineer scanning for whether anything is uncommitted would have to read two
 # segments to answer one question.
 untracked=
 if [ -n "$(git ls-files --others --exclude-standard 2>/dev/null)" ]; then
@@ -103,7 +103,7 @@ else
 fi
 
 # The segment names the system and nothing else. It carried a package count until
-# 2026-07-28; the count told a developer nothing they act on, changed only when a package
+# 2026-07-28; the count told a engineer nothing they act on, changed only when a package
 # was installed, and competed for width with the segments that do change. What the line is
 # for here is the standing fact that Waytide is in force — one word says it.
 #
@@ -122,11 +122,11 @@ if [ -n "$system" ]; then
 fi
 
 # The directory and branch lead, separated by a middle dot; the Waytide segment
-# trails after a double colon, so the developer's own orientation comes first and the
+# trails after a double colon, so the engineer's own orientation comes first and the
 # system indicator reads as an annotation on it. The double colon separates more firmly
 # than the hyphen it replaced on 2026-07-28: a hyphen also joins words, so it read as
 # punctuation inside the sentence of segments rather than as the break between the
-# developer's own state and the system standing behind it.
+# engineer's own state and the system standing behind it.
 line=
 for segment in "$directory" "$branch" "$changes" "$untracked" "$unpushed"; do
   if [ -n "$segment" ]; then

@@ -4,10 +4,7 @@
 **across a repository boundary**, and the record of how the move actually went. Content leaving
 this repository for another, or arriving from one, is planned and recorded here.
 
-- **When to use:** content is to cross out of this repository or into it — a library extracted
-  into its own repository, a body of work moved to a project that will own it, one repository
-  split into several or several merged into one, or existing conventions migrated into an
-  installed system. If the content ends up under a different repository's root, it belongs here.
+- **When to use:** content is to cross out of this repository or into it. A library extracted into its own repository, a body of work moved to a project that will own it, one repository split into several or several merged into one, or existing conventions migrated into an installed system. If the content ends up under a different repository's root, it belongs here.
 - **What distinguishes it from the project's sequencing artifact.** That artifact sequences a build
   **inside** this repository, against a design this repository settled. A migration plan
   sequences work that **crosses out of it**: the increments land in two repositories, the
@@ -30,23 +27,28 @@ this repository for another, or arriving from one, is planned and recorded here.
   a-time-value-carries-minutes-and-seconds rule.
 
 **Why:** a transition across a repository boundary is the operation most likely to lose content
-and least likely to be recoverable when it does. It is ordered — content has to arrive before it
-can be depended on, and stop being authoritative in one place before it becomes authoritative in
-another — and the state in between is a state no single repository fully describes. Planning it
-in the repository the content is leaving puts the plan where the content still is, and keeping
-the record afterward leaves a trail from the place a reader will look first. Without a named
-home, such a plan goes in with the project's sequencing artifacts, where it reads as ordinary
-build work, or into a chat where
+and least likely to be recoverable when it does. It is ordered. Content has to arrive before it
+can be depended on. It has to stop being authoritative in one place before it becomes
+authoritative in another. And the state in between is a state no single repository fully describes.
+
+Planning it
+in the repository the content is leaving puts the plan where the content still is. Keeping
+the record afterward leaves a trail from the place a reader will look first. Without a named home, such a plan goes in with the project's sequencing artifacts, where it
+reads as ordinary build work. Or it goes into a chat, where
 it does not survive the session.
 
-**How to apply:** before moving content across a repository boundary, write a record here naming
-the source and destination, the increments in order, and what is true while the move is under
-way; record what happened against it as the work proceeds; and **keep the record** once the
+**How to apply:** before moving content across a repository boundary, write a record here. It
+names the source and destination, the increments in order, and what is true while the move is
+under way. Record what happened against it as the work proceeds, and **keep the record** once the
 content has gone. Do not use the project's sequencing artifact for a move that crosses out of the
-repository, and do not delete a migration record on completion. Related: the plans-convention
-(the plan that sequences work *within* this repository), the design-convention (a migration may
-realize a design, or may be mechanical enough to need none), the file-names rule (the filename
-prefix), and the working-state-artifacts-carry-a-provenance-footer rule.
+repository. Do not delete a migration record on completion.
+
+Related:
+
+- the plans-convention — the plan that sequences work *within* this repository
+- the design-convention — a migration may realize a design, or may be mechanical enough to need none
+- the file-names rule — the filename prefix
+- the working-state-artifacts-carry-a-provenance-footer rule
 
 ---
 
@@ -54,3 +56,8 @@ Authored by Scott Bellware on Sun Aug 2 2026 at 8:13:27 PM PT
 Changed by Scott Bellware on Wed Aug 5 2026 at 1:03:00 AM PT
 Changed by Scott Bellware on Wed Aug 5 2026 at 10:57:02 AM PT
 Changed by Scott Bellware on Thu Aug 6 2026 at 12:21:42 AM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 8:18:59 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 10:50:46 PM PT
+Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT

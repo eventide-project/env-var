@@ -9,7 +9,7 @@
 #
 # It is packaged rather than kept with the authoring tools because it is not one.
 # It is machine-scoped rather than project-scoped: it reports the Waytide projects
-# on this machine, and the developer who wants that is anyone who installed
+# on this machine, and the engineer who wants that is anyone who installed
 # Waytide into more than one project, not only whoever maintains Waytide. The
 # authoring tools at the composite root run against the packages; this runs
 # beside projects, which is a third position and the reason it is here.
@@ -34,7 +34,7 @@
 set -e
 
 # Overridable so the script can be exercised against a registry written for a
-# test, without touching the developer's own.
+# test, without touching the engineer's own.
 registry=${WAYTIDE_REGISTRY:-$HOME/.config/waytide/consuming-projects.toml}
 
 # --- The registry ----------------------------------------------------------
@@ -231,7 +231,7 @@ fi
 
 # Nothing found and everything excluded are different states with different
 # remedies, so they are not reported with one message: the first sends the
-# developer to the included paths, the second to the exclusions.
+# engineer to the included paths, the second to the exclusions.
 if [ "$actionable" -eq 0 ]; then
   if [ -s "$found" ]; then
     echo "Every consuming project found is excluded by $registry" >&2

@@ -1,6 +1,6 @@
 # A design section documenting a package dependency is titled "Package Dependency"
 
-When a design doc has a section that documents a dependency on a package (a gem, library, or other installable package), title that section **Package Dependency** — not just "Dependency".
+A design doc may have a section that documents a dependency on a package, meaning a gem, a library, or another installable package. Title that section **Package Dependency**, not just "Dependency".
 
 **Why:** "Dependency" is overloaded — it can mean a code-level dependency, a runtime relationship, an injected collaborator, and more. "Package Dependency" names exactly what the section is about: a dependency on a package. The user corrected a bare "Dependency" heading to "Package Dependency" directly.
 
@@ -9,3 +9,4 @@ When a design doc has a section that documents a dependency on a package (a gem,
 ---
 
 Authored by Scott Bellware on Fri Jun 12 2026 at 10 AM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT

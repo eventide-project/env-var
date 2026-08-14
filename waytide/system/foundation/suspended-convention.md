@@ -1,13 +1,11 @@
 # `waytide/local/suspended/` — an undo queue for what the project stopped doing
 
 `waytide/local/suspended/` holds things the project **stopped doing** and set aside rather than
-deleted: a rule that became ceremony, a procedure nobody runs, a report nobody reads, a step
-that costs more than it protects. Anything the project stopped doing can be suspended, and
+deleted. That is a rule that became ceremony, a procedure nobody runs, a report nobody reads, or
+a step that costs more than it is worth. Anything the project stopped doing can be suspended, and
 anything suspended can be **restored**.
 
-**It is an undo queue, in the sense the Command Pattern means.** Each suspended thing carries
-what it takes to **reverse its own suspension** — not merely a copy of itself, but the
-information needed to put the world back as it was. Suspending is the command; the record is
+**It is an undo queue, in the sense the Command Pattern means.** Each suspended thing carries what it takes to **reverse its own suspension** — not merely a copy of itself. The information needed to put the world back as it was. Suspending is the command. The record is
 what makes it undoable.
 
 - **The thing itself moves.** The file is moved into `waytide/local/suspended/`, not copied and
@@ -42,39 +40,44 @@ back:
   rules-convention. Those edits are part of the command, and a restore that does not reverse
   them leaves the thing back in place and uncited.
 
-**This is the recognizable-content form the system already uses.** The experiments-convention
+**This is the plain text data attribute form the system already uses.** The experiments-convention
 and features-convention define a canonical `**State:**` line that `session-start.sh` reads
-mechanically, and the deferred queue carries `**Gated on:**` and `**Priority:**` the same way. A
-bold label, a colon, a value, optionally as a list item — one protocol across the system rather
-than a second one for this directory. Frontmatter is allowed and would also serve; it is not
+mechanically, and the deferred queue carries `**Waits for:**` and `**Priority:**` the same way. It is a
+bold label, a colon, and a value, optionally as a list item. That is one protocol in the system,
+rather than a second one for this directory. Frontmatter is allowed and would also serve. It is not
 used here because there is no reason to introduce a second form where the existing one fits.
 
 **Suspension is not deletion, and restoration is not re-invention.** A thing deleted is
 reconstructed later from memory and argument, and comes back different. A thing suspended comes
-back as it was, with the record of why it left — which is what makes reconsidering it cheap
+back as it was, with the record of why it left. That is what makes reconsidering it cheap
 enough to actually happen.
 
 **Suspension is recorded in the decision log**, like any decision, and so is restoration. The
-suspended file is the artifact; the log entry is the fact that it happened.
+suspended file is the artifact. The log entry is the fact that it happened.
 
-**Why:** conventions accumulate and rarely leave. A rule that has stopped earning its keep is
-ordinarily either endured, because removing it feels like losing something, or deleted, after
-which reconsidering it means reconstructing it from nothing. Both outcomes are bad, and the
-second is why the first happens. A reversible middle state makes setting something aside a small
-act rather than a final one — the cost of being wrong is a restore rather than a rewrite — which
+**Why:** conventions accumulate and rarely leave. A rule that is no longer justified is ordinarily endured or deleted. It is endured because removing it feels like losing something. Once deleted, reconsidering it means reconstructing it from nothing. The two outcomes are bad, and the
+second is why the first happens.
+
+A reversible middle state makes setting something aside a small act rather than a final one. The cost of being wrong is a restore rather than a rewrite. That
 is what lets a project prune ceremony at the rate it accumulates it. Recording the reconciliations
 is what makes the reversal real: without them, restoring returns a file and leaves the system
 still arranged around its absence.
 
-**How to apply:** when something the project does has stopped earning its keep, move it into
-`waytide/local/suspended/`, add the `**Origin:**`, `**Kind:**`,
-`**Suspended:**`, and `**Reconciliations:**` lines, and write the reason and what would bring it
-back. Log the suspension. To restore, reverse each reconciliation, move the file back to its
-`**Origin:**`, remove the return-address lines, and log that too. Do not delete what can be suspended, and do
-not suspend what was never in use — that is not a reversal of anything. Related: the
-rules-convention (removing a rule, and the reconciliation a suspension must record), the
-deferred-convention (the other queue, which deletes on resolution rather than keeping),
-the decision-log rule, and the file-names rule (the ISO-8601-UTC prefix a suspended file keeps).
+**How to apply:** when something the project does is no longer justified, move it into
+`waytide/local/suspended/`. Add the `**Origin:**`, `**Kind:**`,
+`**Suspended:**`, and `**Reconciliations:**` lines. Write the reason, and what would bring it
+back. Log the suspension.
+
+To restore, reverse each reconciliation, move the file back to its
+`**Origin:**`, remove the return-address lines, and log that too. Do not delete what can be suspended. Do
+not suspend what was never in use, since that is not a reversal of anything.
+
+Related:
+
+- the rules-convention — removing a rule, and the reconciliation a suspension must record
+- the deferred-convention — the other queue, which deletes on resolution rather than keeping
+- the decision-log rule
+- the file-names rule — the ISO-8601-UTC prefix a suspended file keeps
 
 ---
 
@@ -82,3 +85,13 @@ Authored by Scott Bellware on Sun Aug 2 2026 at 8:23:08 PM PT
 Changed by Scott Bellware on Sun Aug 2 2026 at 8:26:41 PM PT
 Changed by Scott Bellware on Sun Aug 2 2026 at 8:28:55 PM PT
 Changed by Scott Bellware on Sun Aug 2 2026 at 8:33:47 PM PT
+Changed by Scott Bellware on Sat Aug 8 2026 at 2:21:56 PM PT
+Changed by Scott Bellware on Sat Aug 8 2026 at 2:34:57 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 8:18:59 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 10:48:55 PM PT
+Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
+Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
+Changed by Scott Bellware on Tue Aug 11 2026 at 4:06:18 AM PT
+Changed by Scott Bellware on Wed Aug 12 2026 at 12:14:07 PM PT
