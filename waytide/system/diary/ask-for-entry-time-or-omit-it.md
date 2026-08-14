@@ -9,12 +9,17 @@ answer decides only whether the entry carries a time and what it is.
 
 **The ask carries these options:**
 
-1. **No time.** The filename drops the `T HH-MM-SS` block and becomes `YYYY-MM-DD-<name>.md`. The
+1. **No time.** The filename drops the `T HH-MM` block and becomes `YYYY-MM-DD-<name>.md`. The
    datetime line drops the `at HH:MM` with it and reads `Ddd Mon D YYYY`.
-2. **Now**, with the current time in the label — `Now (2:01 PM)`. The filename takes the full
-   `YYYY-MM-DDTHH-MM-SS` prefix and the datetime line reads `Ddd Mon D YYYY at HH:MM`.
-3. **Enter the time.** The writer gives the value.
+2. **Now**, with the current time in the label — `Now (2:01 PM)`. The filename takes the
+   `YYYY-MM-DDTHH-MM` prefix and the datetime line reads `Ddd Mon D YYYY at HH:MM`.
+3. **Enter the time.** The writer gives the value. A value stated to the second takes the
+   `YYYY-MM-DDTHH-MM-SS` prefix. Every other value stops at the minute.
 4. **Explain**, per the foundation package's present-every-prompt-through-askuserquestion rule.
+
+**`Now` is held to the minute, like every other answer.** It reads a clock that has a seconds
+value, and the stamp drops it. Seconds reach a filename only where the writer states them, so no
+answer here produces a resolution the writer did not give. See the diary-entries rule.
 
 **`Now` is offered only for an entry about today.** For a back-dated entry the current clock time
 is not the entry's time, and naming it `Now` would say it is. The ask then carries **No time**,
@@ -48,6 +53,9 @@ formerly a separate signal the writer had to know to give, which is a capability
 through the selection interface. Offer **No time**, **Now** with the current time in its label,
 **Enter the time**, and **Explain**. Drop **Now** where the entry is not about today.
 
+Stamp the filename to the minute under **Now**, and under a time the writer stated to the minute.
+Write seconds only where the writer stated seconds.
+
 Name the file and write the datetime line to match the answer. Settle the date first by the
 diary-entries rule's dating default, and do not put the date to the writer.
 
@@ -66,3 +74,4 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 1:05:44 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:10:10 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:01:46 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:06:30 PM PT
+Changed by Scott Bellware on Fri Aug 14 2026 at 2:54:56 PM PT
