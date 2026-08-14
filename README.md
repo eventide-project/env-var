@@ -13,8 +13,10 @@ runs the other way. The writer keeps it, and the agent reads it.
   by the datetime prefix every dated artifact takes, in the writer's **local time**. That is
   the one place the package departs from foundation's file-names rule, which normalizes to UTC.
   A diary entry is one writer's personal record, so the hour it carries is the hour they wrote
-  it in. A day usually holds one entry and can hold several. An entry is committed with the
-  project, and a second writer reads it.
+  it in. The stamp stops at the **minute**, and carries seconds only where the writer states
+  seconds, which departs from foundation's a-time-value-carries-minutes-and-seconds rule for
+  reasons the diary-entries rule gives. A day usually holds one entry and can hold several. An
+  entry is committed with the project, and a second writer reads it.
 - **The agent reads the active writer's diary at session start**
   (`the-diary-is-read-at-session-start`), after the rules and the vocabularies, oldest entry
   first. It carries the writer's thinking from one session to the next, which no other artifact
@@ -86,3 +88,4 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 10:44:17 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 10:59:11 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 10:59:41 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 12:54:20 PM PT
+Changed by Scott Bellware on Fri Aug 14 2026 at 2:54:56 PM PT

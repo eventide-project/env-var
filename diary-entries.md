@@ -7,9 +7,25 @@ project may hold the diaries of more than one writer, and each writer's entries 
 their own directory. This is distinct from `waytide/local/log/`, the decision log the agent
 writes, which is one record for the whole project.
 
-Filename: `YYYY-MM-DDTHH-MM-SS-<name>.md`, with the timestamp computed in **local time** by
-`date +%Y-%m-%dT%H-%M-%S`. The colons of ISO 8601 are written as dashes for filename safety.
+Filename: `YYYY-MM-DDTHH-MM-<name>.md`, with the timestamp computed in **local time** by
+`date +%Y-%m-%dT%H-%M`. The colons of ISO 8601 are written as dashes for filename safety.
 Never use UTC for these entries, which is the writer's stated preference.
+
+**The stamp carries seconds only where the writer gave seconds.** A time the writer states to the
+second takes the `YYYY-MM-DDTHH-MM-SS` form. Every other answer stops at the minute. That includes
+**Now**, which reads a clock that has a seconds value and drops it.
+
+**A second the writer did not state is a resolution they did not give.** The moment of writing is
+knowable to the second. The entry's own time frequently is not, and the two are not the same value.
+An entry about last Tuesday's meeting has no seconds to recover, and supplying the clock's would
+record a precision nobody stated.
+
+**This departs from the foundation package's a-time-value-carries-minutes-and-seconds rule**, which
+specifies a new datetime format to seconds. That rule answers a running history inside **one file**,
+whose entries collide at a coarse resolution. The later entry then goes unwritten rather than
+looking like a duplicate of the one above it. A diary is one file per entry, so that collision
+cannot arise. What the coarser stamp costs is two entries written in the same minute, which sort
+against each other by name rather than by moment.
 
 **The form carries no trailing `Z`.** In ISO 8601 that character designates UTC, and this stamp is
 local time. It was kept until 2026-08-14, on the reasoning that it is a literal token of the form
@@ -60,6 +76,9 @@ past time where the entry is not about today. Where the writer gave no time, ask
 ask-for-entry-time-or-omit-it rule and stamp the file to their answer. A day they named is not a
 time.
 
+Stamp to the minute. Write seconds only where the writer stated seconds, and drop the clock's
+seconds under **Now**.
+
 Related:
 
 - the identity-resolution-contract rule — how `<username>` is resolved
@@ -79,3 +98,4 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 12:54:20 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:05:44 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:10:10 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:01:46 PM PT
+Changed by Scott Bellware on Fri Aug 14 2026 at 2:54:56 PM PT

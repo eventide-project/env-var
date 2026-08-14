@@ -18,10 +18,14 @@ their username. See the identity-resolution-contract rule.
 file, so a day with three entries is three files, in the order they were written.
 
 **An entry takes a datetime prefix in the writer's local time.** The form is
-`YYYY-MM-DDTHH-MM-SS-<name>.md`, and the name is dash-separated and lower-case. It carries no
+`YYYY-MM-DDTHH-MM-<name>.md`, and the name is dash-separated and lower-case. It carries no
 trailing `Z`, which in ISO 8601 designates UTC and would be false on a local-time stamp. The
 directory listing is then an index. Each entry says when it was written and what it is about, in
 order.
+
+**The stamp stops at the minute unless the writer gave seconds**, in which case it takes the
+`YYYY-MM-DDTHH-MM-SS` form. The diary-entries rule states the condition and why the diary departs
+from the foundation package's a-time-value-carries-minutes-and-seconds rule here.
 
 **This departs from the foundation package's file-names rule, which requires UTC.** That rule
 normalizes a dated artifact to UTC because a project's contributors are globally distributed,
@@ -69,8 +73,9 @@ found without opening it. The local-time stamp is the one place the diary depart
 convention, and the reason is above.
 
 **How to apply:** resolve the active writer, and write an entry as a new file in
-`waytide/local/diary/<username>/`. Give it the full datetime prefix in the writer's local time,
-and a name saying what it is about. Do not convert the time to UTC. End it with an
+`waytide/local/diary/<username>/`. Give it the datetime prefix in the writer's local time, to the
+minute, and a name saying what it is about. Carry seconds only where the writer gave seconds. Do
+not convert the time to UTC. End it with an
 `Authored by` line. Do not edit an entry once it is written. Write a later entry instead.
 
 Related:
@@ -93,3 +98,4 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 10:44:17 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 10:56:57 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 12:31:47 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:10:10 PM PT
+Changed by Scott Bellware on Fri Aug 14 2026 at 2:54:56 PM PT

@@ -12,8 +12,9 @@ datetime line, without the `at HH:MM`.
 matches the readable datetime style used inside an entry.
 
 **How to apply:** when writing a commit message for a diary entry, format the parenthetical
-date with `date -j -f "%Y-%m-%d %H:%M:%S" "<filename-stamp>" "+%a %b %e %Y"` and collapse any
-double space — `Diary entry: <subject> (Tue Jun 16 2026)`.
+date with `date -j -f "%Y-%m-%d %H:%M" "<filename-stamp>" "+%a %b %e %Y"` and collapse any
+double space — `Diary entry: <subject> (Tue Jun 16 2026)`. Use `"%Y-%m-%d %H:%M:%S"` where the
+stamp carries seconds, and `"%Y-%m-%d"` where it carries no time at all.
 
 Related:
 
@@ -25,3 +26,4 @@ Related:
 
 Authored by Scott Bellware on Fri Aug 14 2026 at 9:55:45 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 10:44:17 AM PT
+Changed by Scott Bellware on Fri Aug 14 2026 at 2:54:56 PM PT
