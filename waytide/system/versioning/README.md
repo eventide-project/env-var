@@ -8,10 +8,10 @@ What a version means, and how the next one is chosen. Not how a package is built
   — nothing, nothing but read, or change their code. The leading segment, where a project
   carries one, answers *is this the same product*, which is a **declaration** rather than a
   reading of the change, and is never increased at a release.
-- **The next version is put to the developer, never decided by the agent**
-  (`the-next-version-is-chosen-by-the-developer`). Patch, minor, and major are offered through
+- **The next version is put to the engineer, never decided by the agent**
+  (`the-next-version-is-chosen-by-the-engineer`). Patch, minor, and major are offered through
   the selection interface, each showing the resulting version and the claim it makes. The
-  choice is a promise about other people's code, and a published version cannot be taken back.
+  decision is a promise about other people's code, and a published version cannot be taken back.
 
 **Vocabulary** (`vocabulary.md`): one term, **product generation** — the leading segment of a
 four-segment version, a product-management declaration rather than a compatibility claim.
@@ -28,11 +28,11 @@ and only one of them is versioning:
   it today is a Ruby gem. What a version means does not change with the packaging technology,
   and a rule that mixed the two would be unusable by a project that packages differently.
 
-**Why it is called versioning.** Not *release* or *packaging*: both name acts whose substance
+**Why it is called versioning.** Not *release* or *packaging*: each names an act whose substance
 is the technology-specific part — bundling a distributable and publishing it. What is left is
-not an act but a meaning. Not *version*: a version is a particular value, where this package
-governs the practice of assigning and interpreting them, and `waytide/version` would read as
-the version of Waytide itself rather than of the things made with it.
+not an act but a meaning. Not *version*. A version is a particular value, where this package governs
+the practice of assigning and interpreting them. `waytide/version` would read as the version
+of Waytide itself, rather than of the things made with it.
 
 This is a standalone package: it includes no other packages.
 
@@ -42,7 +42,7 @@ versioning  →  (nothing — standalone)
 
 ## Installing into a project
 
-Install with `git subtree` — it puts the files in your project's `waytide/system/` tree, committed alongside your code and read at session start:
+Install with `git subtree`. It puts the files in your project's `waytide/system/` tree, committed alongside your code and read at session start:
 
 ```
 git subtree add  --prefix waytide/system/versioning https://github.com/waytide/versioning.git master --squash
@@ -60,4 +60,8 @@ git subtree pull --prefix waytide/system/versioning https://github.com/waytide/v
 
 ## License
 
-Waytide is licensed under the **Eventide Common Interest License** — source-available and free to use, and not open source in the strict sense, since it does not permit modification. The license text is forthcoming and will be published in `LICENSE`.
+Waytide is licensed under the **Eventide Common Interest License**. It is source-available and free to use. It is not open source in the strict sense, since it does not permit modification. The license text is forthcoming and will be published in `LICENSE`.
+Changed by Scott Bellware on Sun Aug 9 2026 at 6:06:52 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 10:58:52 PM PT
+Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
