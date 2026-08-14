@@ -1,9 +1,9 @@
 #!/bin/sh
 # Report a mode rule naming a mode the installed Waytide no longer defines.
 #
-# A project works in a mode chosen at its initiation, recorded as a rule in
+# A project works in a mode chosen at its start, recorded as a rule in
 # waytide/local/rules/ whose filename carries the mode — 2026-08-05T07-32-03Z-intuitive-mode.md
-# (see foundation's a-project-works-in-a-mode-chosen-at-initiation rule). The filename
+# (see foundation's a-project-works-in-a-mode-chosen-at-the-start rule). The filename
 # alone carries it, which is what lets the mode be read without the file being opened.
 #
 # Waytide's own vocabulary can change, and a rename reaches this project only as far as
@@ -32,7 +32,7 @@ if [ -d system/foundation ] && [ ! -d waytide/system ]; then
 fi
 
 rules="waytide/local/rules"
-mode_rule_definition="waytide/system/foundation/a-project-works-in-a-mode-chosen-at-initiation.md"
+mode_rule_definition="waytide/system/foundation/a-project-works-in-a-mode-chosen-at-the-start.md"
 
 if [ ! -d waytide/system ]; then
   echo "No packages installed — waytide/system/ is not present." >&2
@@ -40,7 +40,7 @@ if [ ! -d waytide/system ]; then
 fi
 
 if [ ! -f "$mode_rule_definition" ]; then
-  echo "The installed foundation has no a-project-works-in-a-mode-chosen-at-initiation rule," >&2
+  echo "The installed foundation has no a-project-works-in-a-mode-chosen-at-the-start rule," >&2
   echo "so there is nothing to check a mode against. Refresh the packages." >&2
   exit 1
 fi
@@ -104,7 +104,7 @@ This file is this project's own, so no refresh will correct it and this script d
 either. Rename it for the mode it now is, and correct the mode named in its title and its
 binding paragraph, and the rule name it cites. Leave the explanation below the binding
 paragraph as written — a local rule is a dated snapshot, and only its first paragraph
-binds, so an account of the system as it stood at this project's initiation is not made
+binds, so an account of the system as it stood at this project's start is not made
 wrong by a later change.
 REMEDY
 

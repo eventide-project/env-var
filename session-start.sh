@@ -49,7 +49,7 @@ count=$(printf '%s\n' "$packages" | wc -l | tr -d ' ')
 list=$(printf '%s\n' "$packages" | tr '\n' ',' | sed 's|,$||; s|,|, |g')
 
 # Installing foundation alone is the ordinary first install, so the single-package
-# notice is what a developer sees before any other package is added.
+# notice is what a engineer sees before any other package is added.
 noun=packages
 if [ "$count" = "1" ]; then
   noun=package
@@ -181,18 +181,18 @@ if [ -n "$features" ]; then
 fi
 
 # The load-command line, always present. The notice states what is installed; this states
-# when the rules are read and what the developer types to have it happen now.
+# when the rules are read and what the engineer types to have it happen now.
 #
 # The command names the read outright: "load waytide". It is a command, not the contentless
-# foil request the line carried until 2026-07-28 — the developer's message now carries the
+# foil request the line carried until 2026-07-28 — the engineer's message now carries the
 # instruction rather than only the occasion for it. What that gives up is attributability:
 # with a contentless word, a read that followed could only have come from the hook's
 # additionalContext channel, and with a named command it could have come from either. The
-# command is legible to a developer who has never seen the system, which is what it buys.
+# command is legible to a engineer who has never seen the system, which is what it buys.
 #
 # The command carries no emphasis markup. It was written with markdown asterisks until
 # 2026-07-28, on the assumption that the harness renders the notice as markdown; it does not
-# — the systemMessage is displayed as plain text, so the asterisks reached the developer
+# — the systemMessage is displayed as plain text, so the asterisks reached the engineer
 # literally and drew the eye to punctuation rather than to the words they were meant to
 # emphasize. Emphasis is unavailable on this channel, and the line stands without it: it
 # already ends with the command in the position the sentence points at.
@@ -200,7 +200,7 @@ fi
 # The command sentence is last. Until 2026-07-28 the cost of typing it — that loading takes
 # a moment — followed the command, so the line ended on a caveat and the words to be typed
 # sat mid-line. The two sentences are swapped so the command ends the line: the caveat is
-# read before the developer decides, and the thing to type is the last thing on the line,
+# read before the engineer decides, and the thing to type is the last thing on the line,
 # which is where the eye lands and where a command can be copied without reading past it.
 #
 # No quotation marks, deliberately. The notice is interpolated into a JSON string built by
@@ -209,7 +209,7 @@ fi
 #
 # A blank line precedes it. Everything above is what the notice reports — the install, and
 # any experiment or feature left open — and this line is the only part that asks the
-# developer to do something. Run together, the ask reads as one more reported fact and the
+# engineer to do something. Run together, the ask reads as one more reported fact and the
 # command to type sits at the bottom of an undifferentiated block. The blank line falls
 # after the open-work lines rather than between them and the install line, so the report
 # stays one block and the break marks the change of purpose rather than a change of subject.
@@ -219,12 +219,12 @@ fi
 # but they were still the tail of a two-sentence paragraph, so finding them meant reading
 # the caveat first. On its own line the command is the one thing on the notice's last line,
 # and it can be read and copied without reading past anything. The caveat keeps its place
-# ahead of it, where a developer reads it before deciding whether to type the command.
+# ahead of it, where a engineer reads it before deciding whether to type the command.
 notice="${notice}\\n\\nWaytide's rules are loaded before your first instruction will be processed. Loading the rules will take a few moments.\\n\\nTo load them now, type: load waytide."
 
-# The read instruction, carried to the agent rather than to the developer. It goes in
+# The read instruction, carried to the agent rather than to the engineer. It goes in
 # additionalContext, not in the notice: the notice is rendered for a person, and an
-# instruction addressed to the agent is not something the developer needs to read every
+# instruction addressed to the agent is not something the engineer needs to read every
 # session. The two channels have different audiences, so they carry different text.
 #
 # It states the read is unconditional because the failure it answers was conditional —
@@ -256,8 +256,8 @@ own_rules=${own:-waytide/local}
 # reaches the agent before any file is opened, which is the same reason it names the file at all.
 # Without the sentence the read opens on a line of narration standing in the one position that
 # rule reserves.
-instruction=$(printf 'Waytide is installed at %s/. Before your first substantive action in this session, read every rule file under %s/ and follow them — %s/foundation/ first, since it defines the system, then the other packages, including each package vocabulary.md, whose terms are binding and cannot be applied unread; not every package has one, and its absence is not a defect. Read the local rules this project adds as well, in %s/rules/, which are binding in the same way and which no package supplies; that directory may not exist yet, which is ordinary and not an error. Read only that one directory beside the packages: the working directories next to it — log, deferred, the project'\''s planning directories, work-sessions, experiments, loops, migration, suspended — are worked with as their own conventions describe and are not read as binding rules at session start. The read is unconditional: the apparent size of the first request is not a reason to defer it, because the size of the opening request predicts nothing about where the session goes. Open %s/foundation/initialization-rule.md ahead of every other rule file, and print what it carries at the head of the response that carries the rest of the read, per that rule. The response that opens that one file carries the tool call and nothing else: print no preamble there, and no account of what you are about to read, so what that rule carries is the first text of the read. Say nothing about it in any response — no name for it, no substitute word, no description standing in for one — and do not cite that rule by name. Once the rules are read, print the deferred queue as a list of rows, one row per item under %s/deferred/, per the print-the-deferred-queue-after-the-rule-read rule, and then wait for the developer to make a request. The developer may open with the command load waytide, which asks for exactly that and nothing more. Do not restate the session-start notice or print a package count; the announce-waytide-at-session-start rule reserves that to the harness.' \
-  "$system" "$system" "$system" "$own_rules" "$system" "$own_rules")
+instruction=$(printf 'Waytide is installed at %s/. Before your first substantive action in this session, read every rule file under %s/ and follow them — %s/foundation/ first, since it defines the system, then the other packages, including each package vocabulary.md, whose terms are binding and cannot be applied unread; not every package has one, and its absence is not a defect. Read the local rules this project adds as well, in %s/rules/, which are binding in the same way and which no package supplies; that directory may not exist yet, which is ordinary and not an error. Read this project'\''s own vocabulary too, the single file %s/vocabulary.md, whose terms and substitutions decide over every package'\''s; that file may not exist, which is ordinary and not an error. Read only those two beside the packages, unless an installed package'\''s own rule directs another read: the working directories next to them — log, deferred, the project'\''s planning directories, work-sessions, experiments, loops, migration, suspended — are worked with as their own conventions describe and are not read as binding rules at session start. The read is unconditional: the apparent size of the first request is not a reason to defer it, because the size of the opening request predicts nothing about where the session goes. Open %s/foundation/initialization-rule.md ahead of every other rule file, and print what it carries at the head of the response that carries the rest of the read, per that rule. The response that opens that one file carries the tool call and nothing else: print no preamble there, and no account of what you are about to read, so what that rule carries is the first text of the read. Say nothing about it in any response — no name for it, no substitute word, no description standing in for one — and do not cite that rule by name. Once the rules are read, print the deferred queue as a list of rows, one row per item under %s/deferred/, per the print-the-deferred-queue-after-the-rule-read rule, and then wait for the engineer to make a request. The engineer may open with the command load waytide, which asks for exactly that and nothing more. Do not restate the session-start notice or print a package count; the announce-waytide-at-session-start rule reserves that to the harness.' \
+  "$system" "$system" "$system" "$own_rules" "$own_rules" "$system" "$own_rules")
 
 hook_output=$(printf '"hookSpecificOutput": {"hookEventName": "SessionStart", "additionalContext": "%s"}' \
   "$instruction")
