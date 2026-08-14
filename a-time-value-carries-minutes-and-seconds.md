@@ -19,12 +19,22 @@ The two datetime conventions in this package satisfy it:
 **Settled** resolutions do. There is no time of day to resolve there, and this rule
 adds none. It applies when a time is written.
 
-**A record's title is the one exception.** A dated record title is written
+**A record's title is one of two exceptions.** A dated record title is written
 `Mon Jan 1 2026 18:06` — 24-hour, minutes, no seconds (see the record-title-date-format
 rule). The defect this rule corrects is a **repeated line within one file**: a running history whose entries collide at the same resolution. A later one cannot be told from the one before it and goes unwritten rather than looking like a duplicate.
 
 The record's filename already carries the seconds-precise UTC instant for the same moment. A title occurs **once** per file, so that collision cannot arise there. The exception is
 bounded to titles and reaches no other written time.
+
+**A diary entry's filename stamp is the second.** It stops at the minute, and carries seconds only
+where the writer stated seconds (see the `diary` package's diary-entries rule). The same collision
+argument applies, since a diary is one file per entry rather than a running history inside one.
+What that rule adds is a second ground: the entry's own time is the writer's to state, and a clock's
+seconds are not a value they gave.
+
+**Both exceptions are named here, and a third is not assumed.** Each is stated in the rule that
+takes it, and each argues from what this rule's defect does not reach. A format wanting a third
+states its own case the same way.
 
 **A recorded datetime is never revised to a resolution it never had.** The minutes
 and seconds of a past event are not recoverable, and supplying them would falsify
@@ -50,6 +60,7 @@ Related:
 - the record-rule-authorship-in-a-footer rule — the human-readable local datetime this corrects
 - the file-names-use-iso8601-utc-prefix rule — the machine-sortable UTC filename prefix
 - the working-state-artifacts-carry-a-provenance-footer rule — the artifacts that carry a footer
+- the `diary` package's diary-entries rule — the second exception, and its own grounds for it
 
 ---
 
@@ -62,3 +73,4 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 10:42:20 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
+Changed by Scott Bellware on Fri Aug 14 2026 at 2:54:56 PM PT
