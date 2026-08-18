@@ -40,7 +40,7 @@ The one-liner:
 - Drop an outcome whose test is green-on-arrival — it drives no design.
 - The implementation hinge offers two candidates: the working implementation, or the **red/green/refactor cycle** — chosen, and so not the choreography this method rejects. The red must reach no stable test, and the cycle is unavailable when covering existing behavior.
 
-**The `loops/` artifact directory** (this package contributes it)
+**The `logs/loops/` artifact directory** (this package contributes it)
 - Loop records — one file per feature recording each cycle's hinge → options → decision/chat.
 
 Includes `foundation`, `language`, `testing`.
@@ -81,3 +81,4 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 10:56:35 PM PT
 Changed by Scott Bellware on Wed Aug 12 2026 at 1:12:44 PM PT
 Changed by Scott Bellware on Thu Aug 13 2026 at 8:22:31 AM PT
 Changed by Scott Bellware on Thu Aug 13 2026 at 9:04:18 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 4:22:08 PM PT
