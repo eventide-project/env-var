@@ -29,15 +29,10 @@ repo="https://github.com/waytide/foundation.git"
 
 # The bootstrap section written into the project-root AGENTS.md.
 #
-# It does not name the planning directories, and that is deliberate: they depend on
-# the project's mode — `design/` and `plans/` under formal, `aspiration/` and
-# `intention/` under intuitive, `orientation/` and `action/` under OODA (see foundation's
-# a-project-works-in-a-mode-chosen-at-the-start
-# rule). This script cannot know which, because the mode is chosen by the agent at the
-# project's start, which is after an install has run. Naming the formal pair here
-# would write it back into a project in another mode every time the bootstrap was regenerated —
-# which is what refresh-packages.sh tells a engineer to do when foundation's bootstrap
-# changes, so a routine refresh would silently undo a migration.
+# It does not name the planning directory, and that is deliberate. It named none while the
+# planning directories depended on a project's mode, and the mode mechanism was decommissioned
+# on 2026-08-18. One directory replaces it, and the convention naming it is not yet written, so
+# there is still nothing here for the bootstrap to assert.
 #
 # The list is illustrative rather than exhaustive — it omits `migration/` and
 # `suspended/` too — and its claim is that these are working state rather than rules,

@@ -57,7 +57,8 @@ it back*.
 - **out of scope** — what a **design deliberately excludes**. It is neither queued nor set
   aside. It is a boundary the design draws around itself, recorded in its trailing **Out of
   Scope / Deferred** section so a reader knows the omission was chosen rather than overlooked.
-  Its rule is the design-convention. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process,
+  Its rule was the design-convention, decommissioned 2026-08-18 with the mode mechanism, and the
+  idea's convention that replaces it is not yet written. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process,
   and method.**
 
 The distinguishing question: **deferred** is *not yet*, **suspended** is *no longer*, **out of
@@ -182,3 +183,4 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 1:29:25 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:38:29 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:06:30 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:08:25 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 10:31:36 PM PT
