@@ -150,7 +150,6 @@ A word not to write, and the word to write instead. When the impulse is a word i
 | **load-bearing** | "asymmetric" | the second mark of a hinge — other work rests on the decision |
 | **mechanical** | "non-hinge" | everything that is not a hinge, which the AI generates straight through |
 | **cycle** | "pass" | one traversal of the loop — see "Cycle is scoped by what precedes it" |
-| **unattended** | "suspending DBE" | the human's level of participation, where the agent decides each hinge. The method is never suspended. Only the waits are |
 | **wait** | "gate", as a verb | what the loop does at a hinge. `gate` is the noun for the mechanism and takes no verb form. **STE: `WAIT (v)` is approved, and used with its approved meaning** |
 | **the human's level of participation** | "gating cadence" | whether the human is in the loop. Attended is in the loop, and unattended is out of it. Attended and unattended cause a cadence and are not one. **STE: `level` is approved with a meaning Waytide does not use.** `LEVEL (n)` is *a horizontal line, plane, surface, or condition*. Waytide's sense is degree, which STE Rule 1.3 forbids, so `level` is reserved |
 
@@ -215,3 +214,4 @@ Changed by Scott Bellware on Thu Aug 13 2026 at 1:08:26 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:29:25 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:38:29 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:06:30 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 9:41:07 PM PT

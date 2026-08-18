@@ -6,7 +6,7 @@ Test-first is the standing default for starting any task. Do not ask "shall I st
 
 **Attended or unattended**
 is a different question: it asks how often the loop **stops**, not what it builds. DBE is in
-effect either way, so nothing about the method is being confirmed or declined. What is chosen is a batch size. The trade has two real sides. Small batches spend attention continuously and keep rework near zero, and big batches spend none until the end and pay in rework.
+effect either way, so nothing about the method is being confirmed or declined. What is chosen is a batch size. The trade has two real sides. Small batches spend attention continuously and keep rework near zero, and big batches spend none until the end and take rework instead.
 
 A question
 with a genuinely situational answer is a decision rather than a settled default, so this rule's
@@ -37,3 +37,4 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 10:58:52 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 9:45:19 PM PT

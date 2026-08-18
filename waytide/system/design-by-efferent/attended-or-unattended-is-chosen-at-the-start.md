@@ -18,7 +18,7 @@ untouched. Only the stopping is.
 
 **The decision is batch size.** Attended is **small-batch**. The engineer's attention is spent continuously, and a wrong turn is caught at the hinge where it was taken. So rework stays near zero.
 
-Unattended is **big-batch**: no attention is spent until the end. A wrong turn is found with everything built on top of it. Rework is the price.
+Unattended is **big-batch**: no attention is spent until the end. A wrong turn is found with everything built on top of it. Rework is the cost.
 
 Which is cheaper depends on
 how load-bearing the work is, and on how likely the first pass is to be right. That is a judgment
@@ -92,10 +92,9 @@ the STE writing rules, with Waytide's reserved terms. Short sentences. Active vo
 One idea in each item. The STE dictionary does not approve `hinge`, `actuation`, `cradle`, or `solubility`. A plan written in the raw standard could not name any of them. See the `language`
 package's ste rules.
 
-**This is not a plan document.** `foundation`'s plans-convention governs a plan in
-`waytide/local/plans/`, an intention in `waytide/local/intention/`, or an action in
-`waytide/local/action/`, whichever the project's mode names. This plan is presented in the response,
-before the agent generates, and it is not written to a file.
+**This is not a planning record.** `foundation` governs the project's planning records, which are
+written to a directory and kept. This plan is presented in the response, before the agent
+generates, and it is not written to a file.
 
 **Why:** the engineer's attention is the scarce thing the whole method is arranged around. The
 arrangement assumes it is always worth spending at a hinge. For work whose rework cost is
@@ -123,7 +122,6 @@ it at the top of the loop record. Run the hinges either way.
 **When unattended, present the plan
 as a list before generating, and write it in ETE.** Write each cycle
 as its hinge and the decision with its reasoning. Write no Options or Decision / chat line.
-Do not describe unattended work as suspending DBE — what is suspended is the waits.
 
 Related:
 
@@ -153,3 +151,6 @@ Changed by Scott Bellware on Tue Aug 11 2026 at 1:12:44 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
 Changed by Scott Bellware on Wed Aug 12 2026 at 6:24:18 AM PT
 Changed by Scott Bellware on Thu Aug 13 2026 at 8:22:31 AM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 9:41:07 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 9:45:19 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 10:31:36 PM PT
