@@ -11,6 +11,11 @@ The rules in this package govern how commits are made and worded:
   commit, so history stays verified at every commit.
 - **Commit messages state the fact, not the bookkeeping**. Write "Task 9 is
   done", never "mark Task 9 done".
+- **A subject stops at 50 characters and a body wraps at 72**. Fifty is a display
+  budget, since `git log --oneline` truncates near there. Seventy-two is a wrapping
+  budget, since `git log` indents a body by four and 80 columns is the target. The
+  subject limit does a second job: a subject that will not fit is usually a commit
+  doing too much, and the answer is to split it.
 - **Subject-first commit messages**. The subject of the change leads, in
   passive voice and indicative mood ("Widget reconciliation is corrected"), so
   a scanned log surfaces what changed first.
@@ -49,3 +54,4 @@ git subtree pull --prefix waytide/system/git https://github.com/waytide/git.git 
 ## License
 
 Waytide is licensed under the **Eventide Common Interest License**. It is source-available and free to use. It is not open source in the strict sense, since it does not permit modification. The license text is forthcoming and will be published in `LICENSE`.
+Changed by Scott Bellware on Mon Aug 17 2026 at 11:58:01 PM PT
