@@ -24,9 +24,9 @@ alongside it. It says nothing about what its rules may refer to.
 adopted the testing conventions, degrade this section."* The rule works either way. So `testing` is cited
 and not declared.
 
-**The refused dependency** is the features-convention rule. It cites
+**The refused dependency** is the implementations-convention. It cites
 `design-by-efferent`'s loop-records rule and deliberately stops short of requiring anything in
-`waytide/local/loops/`. Its words are *"would invert the package graph, and would make the
+`waytide/local/logs/loops/`. Its words are *"would invert the package graph, and would make the
 feature lifecycle unavailable to a project that installs `foundation` alone."* That rule is
 two things at once. It is a citation of another package, and the reason a dependency was not taken.
 
@@ -58,7 +58,7 @@ its dependency graph. Add it to `install-dependencies.sh`. Do not declare a depe
 Related:
 
 - the rules-convention — the rule format and where rules live
-- the features-convention — the refused dependency worked through in full
+- the implementations-convention — the refused dependency it declines
 - the status-report-format rule — the model citation, written for the cited package's absence
 - each package's README — where a dependency is declared
 
@@ -74,3 +74,5 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 10:58:52 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT

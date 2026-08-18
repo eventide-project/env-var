@@ -4,8 +4,8 @@ The rules under `waytide/system/` and `waytide/local/rules/` are read at the sta
 along with the project's own `waytide/local/vocabulary.md`. Once they are read, **print the
 deferred queue** before waiting for the engineer's first real request. It is the last thing the read produces.
 
-**The form is a list, one row per item** under `waytide/local/deferred/` — not a rendered
-table:
+**The form is a list, one row per item** — every idea under `waytide/local/ideas/` tagged
+`[deferred]`. Not a rendered table:
 
 ```
 7 deferred items
@@ -25,7 +25,7 @@ Each row carries three fields, in this order:
 - **Summary** — one line saying what the item is about, read from the item.
 
 **The rows are ordered by priority**, rank 1 first, from each item's `**Priority:**` line (see
-the deferred-convention). The rank itself is not a fourth field. The order carries it, and
+the deferred-queue-convention). The rank itself is not a fourth field. The order carries it, and
 printing the number beside a row already in that position states it twice.
 
 **Items with no rank sort last**, among themselves by filename prefix, oldest first, and are
@@ -66,14 +66,14 @@ at the read's head (see the initialization-rule). The two sit here
 for the same reason: bounded to the read, printed once, and duplicating nothing the harness
 emits. The queue is the closing bookend and the mark is the opening one.
 
-**The agent reads the items, so nothing has to be machine-readable.** A script parsing
-`waytide/local/deferred/` would need the `**Waits for:**` line in a fixed form to say anything
-about what is actionable. The agent reads the prose, so the deferred convention's format is
-unaffected by this rule.
+**The agent reads the items, so nothing has to be machine-readable.** A script would need the
+`[deferred]` tag and the `**Waits for:**` line in a fixed form to say anything about what is
+actionable. The agent reads the prose, so the deferred-queue-convention's format is unaffected by
+this rule.
 
 **Why:** the deferred queue is where work goes so it is not lost, and it was the one working
 directory nothing reported. The working directories are not read at session start. The
-session-start notice covers only experiments and features that have not concluded. The
+session-start notice covers only implementations that have not concluded. The
 `next-deferred-item` command reaches the queue only when someone thinks to ask. So an item was surfaced only by deliberate looking.
 
 Printing it at the moment the rules are read costs
@@ -84,7 +84,8 @@ Putting it after the read rather than in the notice
 is what keeps it from becoming furniture. The notice would carry it every session in the same
 place. The failure of a permanent line is that it stops being read.
 
-**How to apply:** after reading the rule files at the start of a session, read `waytide/local/deferred/`. Print one row per item: the title, the date from the filename prefix, and a one-line summary. Order the rows by the items' `**Priority:**` ranks, with unranked items last, and state the count. Where no item is ranked, order by filename prefix and
+**How to apply:** after reading the rule files at the start of a session, read
+`waytide/local/ideas/` and take the ideas tagged `[deferred]`. Print one row per item: the title, the date from the filename prefix, and a one-line summary. Order the rows by the items' `**Priority:**` ranks, with unranked items last, and state the count. Where no item is ranked, order by filename prefix and
 mark nothing.
 
 Where the queue is empty, print a
@@ -93,7 +94,8 @@ notice, which remains the harness's and is prohibited to the agent.
 
 Related:
 
-- the deferred-convention — the queue's format and its resolution step
+- the deferred-queue-convention — the tag that is the queue, the rank, and the resolution step
+- the ideas-convention — the directory the items live in
 - the next-deferred-item-command rule — the on-demand way into the queue
 - the status-report-format rule — whose deferred table is a rendered table with a `kind` column, this one being neither
 - the rules-convention — the read this follows
@@ -115,3 +117,4 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 8:18:59 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 10:42:20 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:24:07 AM PT

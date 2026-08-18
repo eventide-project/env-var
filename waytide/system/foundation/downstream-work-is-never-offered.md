@@ -42,7 +42,7 @@ working in this week, against rules that will be read at the start of every sess
 engineer is weighing that. The agent is weighing a diff it has just produced.
 
 An agent that names the pending state presses toward a change across repositories at the moment
-its own view of the work is narrowest. That is the same failure the experiment-lifecycle rule bars
+its own view of the work is narrowest. That is the same failure the implementation-lifecycle rule bars
 when it forbids the agent raising the end of an experiment, reached through a different act.
 
 **A report is the place this fails**, rather than a question, which is why the rule reaches
@@ -58,10 +58,11 @@ state fully when one is put. Raise none of it on your own initiative.
 
 Related:
 
-- the experiment-lifecycle rule — the agent never raising the end of an experiment, the same failure through a different act
+- the implementation-lifecycle rule — the agent never raising the end of an experiment, the same failure through a different act
 - the announce-waytide-at-session-start rule — the notice, which is the harness's and reports only the project the session is in
 - this package's README — the refresh procedure itself, which is run on the engineer's instruction
 
 ---
 
 Authored by Scott Bellware on Sun Aug 16 2026 at 12:37:43 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT

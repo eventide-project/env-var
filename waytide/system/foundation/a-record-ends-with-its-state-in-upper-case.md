@@ -55,7 +55,7 @@ unresolvable path uses git, and **live** artifacts that cite the record are reco
 rename.
 
 **Why:** a record's state is the thing most often wanted without reading the record, and a
-directory listing is where it is asked for. `local/experiments/` answers *which of these
+directory listing is where it is asked for. `local/implementations/` answers *which of these
 concluded* at a glance, in a file tree, in a shell, and in any editor's sidebar — none of which
 opens a file to show a line near its top.
 
@@ -72,7 +72,10 @@ experiment or feature record carrying no state line, and add none to any file's 
 
 Related:
 
-- the experiments-convention and features-convention — two of the records that carry a state line, and the words each fixes. The idea's convention is not yet written, the mode mechanism having been decommissioned on 2026-08-18
+- the implementations-convention — the record whose state line is absent while the work is under
+  way, and the words each kind takes
+- the ideas-convention — the other record that carries a state line, and which carries one from the
+  moment it is written
 - the file-names rule — the ISO-8601-UTC prefix and the lower-case name this takes an exception to
 - the rules-convention — referencing by name rather than path, and the reconciliation a rename obliges
 - the direction-and-sequencing-artifacts-take-a-log-entry rule — the log entry a state change also takes
@@ -83,3 +86,4 @@ Authored by Scott Bellware on Sun Aug 16 2026 at 2:44:25 AM PT
 Changed by Scott Bellware on Sun Aug 16 2026 at 2:54:58 AM PT
 Changed by Scott Bellware on Sun Aug 16 2026 at 3:03:12 AM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 10:31:36 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT

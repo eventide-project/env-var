@@ -38,9 +38,8 @@ To load them now, type: load waytide.
   entirely. It still governs everything else this hook emits, and the load line's
   no-quotation-marks rule below is the same hazard arriving through a different character.
 
-  Each record under `waytide/local/experiments/` and `waytide/local/features/` is read for its
-  canonical `**State:**` line (see the experiments-convention and the
-  features-convention). An experiment whose state is **Affirmed**, **Refuted**,
+  Each record under `waytide/local/implementations/` is read for its canonical `**State:**` line
+  (see the implementations-convention). An experiment whose state is **Affirmed**, **Refuted**,
   **Inconclusive**, **Abandoned**, or **Superseded** has concluded, as has a feature that
   is **Completed**, **Abandoned**, or **Superseded**. Those are not reported. **Suspended**
   and a record carrying no state line are. When every
@@ -359,3 +358,4 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 10:21:45 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 1:12:44 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 9:45:19 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT

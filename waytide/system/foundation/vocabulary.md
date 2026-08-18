@@ -40,18 +40,20 @@ waytide-keeps-its-word-where-the-ste-word-means-something-else rule.
 them beside each other.** They differ in *what is set aside*, *where it goes*, and *what brings
 it back*.
 
-- **deferred** — a **design change** identified mid-task and postponed until the current task
-  finishes. It goes into `waytide/local/deferred/` as a **queue, not a record**: an item is
-  worked and then its file is **deleted**, leaving a decision-log entry as the durable trace. A
+- **deferred** — work identified mid-task and postponed until the current task finishes. It is
+  an **idea tagged `[deferred]`** in `waytide/local/ideas/`, and the **tag is the queue**: the tag
+  comes off when the item is worked, and the record itself is kept with its state changed. A
   deferred item is *waiting its turn* — the project still intends to do it. It carries a
   `**Waits for:**` line saying what must finish first, and may carry a `**Priority:**` rank. Its
-  rule is the deferred-convention. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process,
+  rule is the deferred-queue-convention. **`[deferred]` the tag is not `Deferred` the state**,
+  which means parked indefinitely; an idea may carry both. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process,
   and method.**
 - **suspended** — something the project **stopped doing** and set aside rather than deleted: a
-  rule that became ceremony, a procedure nobody runs. The thing **itself moves** into
-  `waytide/local/suspended/`, intact, carrying its **return address** so the suspension can be
-  reversed. A suspended thing is *not waiting its turn* — the project has stopped, and the
-  resumption note states what would change that. Its rule is the suspended-convention. **STE:
+  rule that became ceremony, a procedure nobody runs. The thing is **removed**, with a log entry
+  tagged `[suspended]` naming what it cost and what else changed. A suspended thing is *not
+  waiting its turn* — the project has stopped, and the entry states why. Its rule is the
+  a-suspension-is-a-log-entry rule. It moved into `waytide/local/suspended/` with a return address
+  until 2026-08-18, when that directory was removed unrestored. **STE:
   absent. `suspend (v)` is not approved and gives HANG (v), which is physical. Technical noun, ETE
   engineering, process, and method.**
 - **out of scope** — what a **design deliberately excludes**. It is neither queued nor set
@@ -75,8 +77,8 @@ scope** is *not here*.
   to suit it. **STE: absent from the STE dictionary. Technical noun, ETE evented systems and autonomous components.**
 - **reconcile** — to correct the **live, forward-looking** artifacts that cite something which
   has changed, moved, or been deleted. Reconciling is directed at what points *at* a thing, not
-  at the thing itself, and it is confined to artifacts read as current: an observation, a
-  design, a plan, another deferred item. **Historical records are left as written**, the one exception being a record that discloses what should not have been disclosed. See the disclosure rule. A design is
+  at the thing itself, and it is confined to artifacts read as current: an observation, an idea,
+  another deferred item, an implementation record. **Historical records are left as written**, the one exception being a record that discloses what should not have been disclosed. See the disclosure rule. A design is
   reconciled **against** the records rather than **regenerated from** them: it is a source of
   truth a plan points back at, so rebuilding it from downstream work would invert the direction
   of authority. **STE: absent from the STE dictionary. Technical verb, ETE engineering, design, process, and method.**
@@ -117,7 +119,7 @@ scope** is *not here*.
     `Explain` costs one of the four option slots where this one costs none.
   - **An option that names an answer inside the question is not this.** A prompt asking for a time
     may offer *Enter the time*, and that is a candidate rather than a way out of the option set.
-    See the `diary` package's ask-for-entry-time-or-omit-it rule.
+    See the `journal` package's ask-for-entry-time-or-omit-it rule.
   - **STE: absent from the STE dictionary as a compound. `option (n)` is not approved and gives
     ALTERNATIVE (n), `FREE (adj)` is approved in an unrelated sense, and `text` is absent.
     Technical noun, ETE human-computer interaction.**
@@ -142,7 +144,7 @@ write the **Use** term.
   human-computer-interaction examples, and a category is not a standing permission, so the term
   above is what reserves the word.
 - **work session record** — always carrying **work**. Bare *session* is ambiguous. A reader can supply a shell session, a therapy session, or a
-  parliamentary one, and the shell reading is the one an engineer reaches first. The qualifier says which sense is meant. This holds in the prompt that offers to write one, and in prose about either. The record's own title is `# Work Session — <name> (<date>)`, and the directory name is `waytide/local/work-sessions/`.
+  parliamentary one, and the shell reading is the one an engineer reaches first. The qualifier says which sense is meant. This holds in the prompt that offers to write one, and in prose about either. The record's own title is `# Work Session — <name> (<date>)`, and the directory name is `waytide/local/logs/work-sessions/`.
 
 ## Discontinuations
 
@@ -184,3 +186,7 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 1:38:29 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:06:30 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:08:25 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 10:31:36 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:24:07 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 12:31:05 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 2:11:33 PM PT

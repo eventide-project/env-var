@@ -26,9 +26,9 @@ rule). The defect this rule corrects is a **repeated line within one file**: a r
 The record's filename already carries the seconds-precise UTC instant for the same moment. A title occurs **once** per file, so that collision cannot arise there. The exception is
 bounded to titles and reaches no other written time.
 
-**A diary entry's filename stamp is the second.** It stops at the minute, and carries seconds only
-where the writer stated seconds (see the `diary` package's diary-entries rule). The same collision
-argument applies, since a diary is one file per entry rather than a running history inside one.
+**A journal entry's filename stamp is the second.** It stops at the minute, and carries seconds only
+where the writer stated seconds (see the `journal` package's journal-entries rule). The same collision
+argument applies, since a journal is one file per entry rather than a running history inside one.
 What that rule adds is a second ground: the entry's own time is the writer's to state, and a clock's
 seconds are not a value they gave.
 
@@ -60,7 +60,7 @@ Related:
 - the record-rule-authorship-in-a-footer rule — the human-readable local datetime this corrects
 - the file-names-use-iso8601-utc-prefix rule — the machine-sortable UTC filename prefix
 - the working-state-artifacts-carry-a-provenance-footer rule — the artifacts that carry a footer
-- the `diary` package's diary-entries rule — the second exception, and its own grounds for it
+- the `journal` package's journal-entries rule — the second exception, and its own grounds for it
 
 ---
 
@@ -74,3 +74,4 @@ Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:54:56 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 12:31:05 PM PT

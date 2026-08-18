@@ -27,7 +27,7 @@ rule. Where it would not, it is an instruction and nothing is asked.
 
 Each is genuine, and the selection carries all three:
 
-- **A rule**, in `waytide/local/rules/`, with the matching `waytide/local/log/` entry the
+- **A rule**, in `waytide/local/rules/`, with the matching `waytide/local/logs/log/` entry the
   rules-convention requires.
 - **An observation**, in `waytide/local/ideas/`, where the thinking has not stabilized.
   The observations-convention prefers this where there is doubt. Promoting later is cheap, and
@@ -70,3 +70,4 @@ Related:
 
 Authored by Scott Bellware on Fri Aug 14 2026 at 11:32:29 AM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:16:30 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT
