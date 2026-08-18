@@ -1,12 +1,34 @@
-# A working-state artifact takes square-bracket category tags
+# A record takes square-bracket category tags
 
-Any working-state artifact under `waytide/local/` may be categorized with **square-bracket
-tags**, as in `[idea]`. A tag applies to the **whole artifact** or to **one list item**.
+**Any record may be categorized with square-bracket tags**, as in `[idea]`. This is the system's
+one tagging protocol, and it is universal: no record is excluded from it, and no rule excludes
+one. A tag applies to the **whole record** or to **one list item**.
 
-- **Whole artifact:** the tag goes on a dedicated `**Tags:**` line among the canonical lines at
-  the head of the record, **after `**State:**` where there is one**. Several tags are separated
-  by spaces — `**Tags:** [idea] [decision]`.
-- **List item:** the tag prefixes that item's text — `- [idea] My great idea is thus`.
+**Universal means every record, of every kind, anywhere.** A working-state artifact under
+`waytide/local/`, a decision log entry, a rule file under `waytide/system/` or
+`waytide/local/rules/`, a journal entry, a README. Where a record exists, it may carry tags.
+
+## Where the tag goes
+
+**There is one form, and every record uses it.**
+
+- **The whole record** — the tags go on a dedicated `**Tags:**` line among the canonical lines at
+  the head, **after `**State:**` where there is one**. Several tags are separated by spaces —
+  `**Tags:** [idea] [decision]`.
+- **One list item** — the tag prefixes that item's text — `- [idea] My great idea is thus`.
+
+**A record with no head gains one.** A decision log entry is a title and nothing else, so a
+`**Tags:**` line under its title is the entry's whole head. The decision-log-convention states
+that shape, and a tagged entry is two lines rather than one.
+
+**A leading-tag form was written on 2026-08-18 and superseded the same day.** It put a one-line
+record's tags inside its `# <title>` — `# [suspended] The rule is suspended, …` — on the reasoning
+that a short record had nowhere else to put them. It is discontinued. A second form buys a line
+saved and costs every reader and every search two shapes to know, and the tag is no longer in the
+field the rest of the system reads it from.
+
+**No record is excluded, and none is excluded by its shape.** Short, one-line, generated, or
+historical, a record that carries tags carries them on a `**Tags:**` line.
 
 **The form is lower-case, in square brackets.** A multiword tag is dash-separated and lower-case,
 as `[legal-matter]` is.
@@ -15,21 +37,13 @@ as `[legal-matter]` is.
 Nothing validates one, nothing enumerates the set, and a tag used once is as legitimate as a tag
 used a hundred times.
 
-**Tags are optional at every level.** An artifact that is not categorized carries no `**Tags:**`
-line, and a list that is not categorized carries no prefixes. Absence claims nothing.
+**Tags are optional at every level.** A record that is not categorized carries no `**Tags:**`
+line and no leading tag, and a list that is not categorized carries no prefixes. Absence claims
+nothing. **Optional is not the same as excluded** — every record may be tagged, and none must
+be.
 
 **It is the plain text data attribute form** the system already uses — a bold label, a colon,
 and a value. See this package's vocabulary.
-
-## The one exception — the decision log
-
-**A `waytide/local/log/` entry takes no tags.** A log entry is deliberately one line, a
-`# <title>` with no body and no template, and a `**Tags:**` line would break that shape.
-
-**This is the same exception, for the same reason, as the provenance footer's.** The
-working-state-artifacts-carry-a-provenance-footer rule exempts the log on exactly this ground.
-Where one obligation over the working-state artifacts exempts the log for its one-line shape, the
-next one does too.
 
 ## A reserved tag and a freeform tag
 
@@ -69,20 +83,21 @@ tagging the same thing `[idea]` and `[ideas]` have categorized nothing together.
 rather than solved, because solving it costs the property the tags exist for.
 
 **How to apply:** where a categorization is worth marking, add a `**Tags:**` line at the head of
-the artifact, after `**State:**` where there is one. Prefix a list item with `[tag]` to mark that
-item alone.
+the record, after `**State:**` where there is one. Prefix a list item with `[tag]` to mark that item alone.
 
 Write tags lower-case and dash-separated in square brackets. Introduce a freeform tag as it is
-needed. Add none to a `waytide/local/log/` entry, and derive nothing from a freeform tag.
+needed, and derive nothing from one. Exclude no record from tagging.
 
 Reserve a tag by naming it in a rule and stating what follows from it. Where no rule names a tag,
 it is freeform.
 
 Related:
 
-- the `diary` package's diary-convention and datetime-stamp-line rules — where a diary entry's `**Tags:**` line sits, which is under the datetime line and above the summary
-- the working-state-artifacts-carry-a-provenance-footer rule — the same obligation shape, and the same log exception
-- the decision-log-convention — the one-line entry this exempts
+- the `journal` package's journal-convention and datetime-stamp-line rules — where a journal entry's `**Tags:**` line sits, which is under the datetime line and above the summary
+- the decision-log-convention — the entry that gains a `**Tags:**` line under its title
+- the a-suspension-is-a-log-entry rule — `[suspended]`, the reserved tag the log carries
+- the working-state-artifacts-carry-a-provenance-footer rule — a separate obligation, which does
+  exempt the log; a footer is lines the entry has nowhere to put, where a tag is not
 - this package's vocabulary — the plain text data attribute line
 
 ---
@@ -90,3 +105,8 @@ Related:
 Authored by Scott Bellware on Mon Aug 17 2026 at 10:13:43 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 10:15:53 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 10:39:52 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 12:31:05 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 2:11:33 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 2:47:19 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 3:04:41 PM PT

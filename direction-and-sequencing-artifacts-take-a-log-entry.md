@@ -2,7 +2,7 @@
 
 A **direction artifact** — a design, an aspiration, or an orientation — and a **sequencing
 artifact** — a plan, an intention, or an action — each pair with a one-line entry in
-`waytide/local/log/`. The entry is written at three moments, and at no others.
+`waytide/local/logs/log/`. The entry is written at three moments, and at no others.
 
 - **On creation.** That direction is settled at all, or that a settled direction is now being
   sequenced, is itself a decision. The record is written **Active**, and the entry records the
@@ -34,8 +34,8 @@ changed. This project's `The aspirations stand against …` entries are that cas
 ## Why the obligation is stated here rather than in each convention
 
 **Four conventions already name their own log entry, and two did not.** The
-observations-convention, the rules-convention, the deferred-convention, and the
-suspended-convention each state the pairing inline. The two planning conventions required the
+observations-convention, the rules-convention, the deferred-queue-convention, and the
+a-suspension-is-a-log-entry rule each state the pairing inline. The two planning conventions required the
 artifact, its dated resolutions, and its footer, and named no entry. Those conventions were
 decommissioned on 2026-08-18 with the mode mechanism, and this obligation outlived them.
 
@@ -61,7 +61,7 @@ completed task and every reworded paragraph would stop being skimmable, which is
 a one-line-per-decision record is for.
 
 **How to apply:** when a direction artifact or a sequencing artifact is created, write a matching
-one-line entry in `waytide/local/log/`. Write one for each `Settled` resolution added afterward,
+one-line entry in `waytide/local/logs/log/`. Write one for each `Settled` resolution added afterward,
 and one for each change of the `**State:**` line.
 
 Write none for a completed task, and none for
@@ -71,8 +71,9 @@ naming what it was read against.
 Related:
 
 - the decision-log-convention — the entry's form, and the general trigger this makes specific
-- the decommissioned mode mechanism in `waytide/local/suspended/` — the two conventions this obligation was written against, and the state words they carried
-- the observations-convention, rules-convention, deferred-convention, and suspended-convention — the four that already state their own pairing
+- the a-suspension-is-a-log-entry rule — the entry a removal takes, which is the whole of that act state words they carried
+- the observations-convention, rules-convention, deferred-queue-convention, and
+  a-suspension-is-a-log-entry — the four that already state their own pairing
 - the working-state-artifacts-carry-a-provenance-footer rule — the same shape, one obligation stated once across several conventions
 - the work-sessions-convention — the reconciliation prompt whose *the direction stands* answer is logged
 
@@ -82,3 +83,6 @@ Authored by Scott Bellware on Sun Aug 16 2026 at 2:04:53 AM PT
 Changed by Scott Bellware on Sun Aug 16 2026 at 2:19:18 AM PT
 Changed by Scott Bellware on Sun Aug 16 2026 at 3:03:12 AM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 10:31:36 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:24:07 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 2:11:33 PM PT

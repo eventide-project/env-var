@@ -59,7 +59,8 @@ project's to say stops being said. An agent may expose something on the grounds 
 
 Related:
 
-- the deferred-convention and the reconcile entry in this package's vocabulary — where the standing rule is stated
+- the rules-convention and the reconcile entry in this package's vocabulary — where the standing
+  rule is stated
 - the work-sessions-convention — the title format, an instance of the standing rule
 
 ---
@@ -73,3 +74,4 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 10:43:08 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:24:07 AM PT

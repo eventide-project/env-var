@@ -20,11 +20,15 @@ this package:
   (`vocabulary-convention`). One file, no datetime prefix, and optional.
 - **`waytide/local/ideas/`**. Working hypotheses and rule-candidates still under
   discovery. Not yet binding.
-- **`waytide/local/deferred/`**. Design changes postponed until the current task finishes.
-  A queue, not a permanent record. It is **printed as a list of rows at the start of every
-  session**, immediately after the rules are read, so a parked item is not lost by going
-  unread (`print-the-deferred-queue-after-the-rule-read`).
-- **`waytide/local/log/`**. The decision log: one file per decision, a one-line title.
+- **The deferred queue** is not a directory. It is every idea tagged `[deferred]`
+  (`deferred-queue-convention`), postponed until the current task finishes. It is **printed as a
+  list of rows at the start of every session**, immediately after the rules are read, so a parked
+  item is not lost by going unread (`print-the-deferred-queue-after-the-rule-read`).
+- **`waytide/local/logs/`**. The **running records**, grouped (`logs-directory`) — records that
+  accrue chronologically and are never revised, as against the directories that state what is
+  currently true. It holds **`logs/log/`**, the decision log, one file per decision with a
+  one-line title; **`logs/loops/`**, contributed by `design-by-efferent`; and
+  **`logs/work-sessions/`**. The three sat directly under `waytide/local/` until 2026-08-18.
 
 Three conventions govern all of them: the **ISO-8601-UTC filename prefix**
 (`file-names`) that makes every artifact sort chronologically and declare its
@@ -51,23 +55,22 @@ Beyond the four core directories, foundation defines the **work-artifact** direc
 planning and running changes:
 
 - `waytide/local/ideas/` — the project's planning records, whatever its tags name them
-- `waytide/local/experiments/` — recorded experiments that test a question
-- `waytide/local/features/` — the lifecycle record of a feature
-- `waytide/local/work-sessions/` — the narrative record of a work session
+- `waytide/local/implementations/` — the lifecycle record of an experiment or a feature
 - `waytide/local/migration/` — execution plans for transitions of content **across a repository
   boundary**, kept after the content has gone so the trail of where it went stays in the
   repository it left
-- `waytide/local/suspended/` — an **undo queue** for what the project stopped doing. The thing
-  itself moves, carrying the return address needed to put it back
 
-**Experiments and features each carry a full branch lifecycle**, in the
-`experiment-lifecycle` and `feature-lifecycle` rules. That is their own branch, a
-working location chosen at the start, declared end states, and recorded confirmations. They differ where an experiment's question does
-not carry over to a feature's intent. An experiment forecasts and reaches a verdict, which is
-affirmed, refuted, inconclusive, abandoned, or superseded. It merges through a test gate on
-user-declared affirmation. A feature does none of those, ends
-completed/abandoned/superseded (or suspended), and is simply verified before it
-integrates.
+**An implementation carries a full branch lifecycle**, in the `implementations-convention` and
+`implementation-lifecycle` rules — its own branch, a working location chosen at the start, a
+declared end, and recorded confirmations. **Two kinds, and a tag says which.** An `[experiment]` is
+built to a **question** and a `[feature]` to an **intent**, and that one difference accounts for
+every other: an experiment forecasts, reaches a verdict of affirmed, refuted, or inconclusive,
+merges through a test gate on the engineer's affirmation, and is watched for drift. A feature does
+none of those, ends **completed**, is simply verified before it integrates, and is the only kind
+that may be built on the current branch.
+
+The four rules that stated this as two lifecycles were consolidated on 2026-08-18. They agreed on
+almost everything and had already drifted in their wording of the same clauses.
 
 **The project's ideas** live in `waytide/local/ideas/`, one file per idea (`ideas-convention`).
 A design is an idea, and so is a plan, an aspiration, an intention, an orientation, an action, a
@@ -103,8 +106,8 @@ idea that was neither had nowhere to sit.
   takes none, and neither does prose that settles nothing. It closes an asymmetry: four other
   conventions already stated their own pairing, and these two rested on the decision log's
   when-in-doubt clause.
-- **An experiment record and a feature record each pair with a log entry** too
-  (`experiment-and-feature-records-take-a-log-entry`), on creation and on each change of state. The
+- **An implementation record pairs with a log entry** too
+  (`implementation-records-take-a-log-entry`), on creation and on each change of state. The
   concluding entry is a **summary marker** where the work merged and **carries the substance**
   where it did not — a refuted experiment's branch is deleted unmerged, so a record that lived only
   there is unreachable, which a file deleted from `master` never is.
@@ -117,9 +120,9 @@ foundation itself governs. Every rule in that package was addressed to directori
 foundation creates.
 
 Other packages may contribute their own artifact directories (for example,
-design-by-efferent contributes `waytide/local/loops/`). Foundation owns
+design-by-efferent contributes `waytide/local/logs/loops/`). Foundation owns
 `rules`/`observations`/`deferred`/`log` and the
-`plans`/`design`/`experiments`/`features`/`work-sessions`/`migration`/`suspended` work-artifact directories.
+`ideas`/`implementations`/`logs`/`migration` work-artifact directories.
 
 Foundation also settles **what a package dependency is**, in the
 `a-citation-is-not-a-dependency` rule. A rule may name another package's rule freely. That
@@ -147,15 +150,19 @@ previous version, and closing that gap is the engineer's instruction to give. Th
 unrefreshed or unpushed is a prompt whatever its grammar. Doing the work when asked, reporting it
 once done, and answering a question about downstream state are each unaffected.
 
-**A working-state artifact takes square-bracket category tags**
-(`working-state-artifacts-take-category-tags`) — a `**Tags:**` line for the whole artifact, or a
-`[tag]` prefixing one list item. Freeform and lower-case, with no controlled vocabulary and
+**Any record takes square-bracket category tags** (`a-record-takes-category-tags`) — a
+`**Tags:**` line at the head, or a `[tag]` prefixing one list item. **The protocol is universal
+and has one form: no record is excluded, no rule excludes one, and no shape gets a second
+form.** A decision log entry that carries tags is a title, a blank line, and a `**Tags:**`
+line. Freeform and lower-case, with no controlled vocabulary and
 nothing derived from a **freeform** tag, which is what separates one from the `**State:**` line
 beside it. A **reserved** tag is one a rule names and states what follows from — the reserved set
 is small, each member findable in a rule, and the freeform space untouched around it.
-The decision log is the one exception, exempted for its one-line shape exactly as the provenance
-footer exempts it. The protocol was the `diary` package's until 2026-08-18, and it was lifted here
-because nothing in it was ever about diaries.
+The decision log was exempted until 2026-08-18, when the exemption was removed —
+`[suspended]` is the first tag its entries carry. A leading-tag form for one-line records was
+written the same day and superseded within it. The protocol was the
+`journal` package's until 2026-08-18, and it was lifted here
+because nothing in it was ever about journals.
 
 **A historical record is edited for one reason only** — that it discloses what should not have
 been disclosed (`disclosure-is-the-one-reason-to-edit-a-historical-record`). The correction
@@ -228,7 +235,7 @@ Foundation carries an **`install.sh`**, which also has to activate the system. R
 
 It installs foundation and then places a **root `AGENTS.md`** that tells the agent to read `waytide/system/`, `waytide/local/rules/`, and `waytide/local/vocabulary.md` at the start of every session. That root file is what actually activates the system. `git subtree` can only put files under `waytide/`, never at the project root. Without this step the rules are installed but nothing reads them. If you already have an `AGENTS.md`, the script shows you the exact text, explains the effect, and asks before appending. It never edits your file silently.
 
-It also **renames `waytide/local/work-sessions/` if your project still holds it under its old name**, `waytide/local/sessions/`. This is the one place the installer touches your project's own working state. It moves the directory only when the old name is present and the new one is absent. Where the two exist it reports them and changes nothing, leaving the merge to you.
+It also **renames `waytide/local/logs/work-sessions/` if your project still holds it under its old name**, `waytide/local/sessions/`. This is the one place the installer touches your project's own working state. It moves the directory only when the old name is present and the new one is absent. Where the two exist it reports them and changes nothing, leaving the merge to you.
 
 You can install with plain `git subtree` instead, but then you must add the root `AGENTS.md` yourself or the system stays inactive:
 
@@ -288,3 +295,12 @@ Changed by Scott Bellware on Mon Aug 17 2026 at 10:15:53 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 10:31:36 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:16:30 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:40:35 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:24:07 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 12:31:05 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 2:11:33 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 2:47:19 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 3:04:41 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 4:22:08 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 4:41:26 PM PT

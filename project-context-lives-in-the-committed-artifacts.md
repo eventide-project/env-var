@@ -5,7 +5,7 @@ it, the working directories hold it, and git carries it. An agent memory store i
 those places, and nothing that belongs in one of them is held in a store instead.
 
 **The artifacts are the ones this package already defines.** A binding convention is a rule in
-`waytide/local/rules/`. A decision is a one-line entry in `waytide/local/log/`. Thinking that has
+`waytide/local/rules/`. A decision is a one-line entry in `waytide/local/logs/log/`. Thinking that has
 not stabilized is an observation in `waytide/local/ideas/`. Direction and sequencing are
 the project's planning artifacts. Postponed work is a deferred item, and what the project stopped
 doing is suspended. Each has its own convention, and between them they hold what a project knows
@@ -62,3 +62,4 @@ Authored by Scott Bellware on Fri Aug 14 2026 at 9:55:45 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 10:44:17 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 11:32:29 AM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:16:30 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT

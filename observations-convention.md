@@ -26,14 +26,14 @@ record, and what state it then carries is not settled.
 
 **`Lapsed` and `Abandoned` differ in who acted.** Abandoning is a decision — the record was
 dropped. Lapsing is what happens when nobody decides anything and the work moves past the record.
-The corpus already used the sense: the deferred-convention says a reference *time has overtaken*
+The corpus already used the sense: the deferred-queue-convention says a reference *time has overtaken*
 is not a defect and is not chased.
 
 - **When to use:** the material is genuinely useful to keep but still under active discovery, or it is a method/definition the user hasn't ratified as a convention. When in doubt between a rule and an observation, prefer an observation — promoting later is cheap, retracting a premature rule is not.
 - **Format:** the same frontmatter-free markdown as rules — a `# <title>`, the content in prose. Open with a `**State:**` line holding one word, a `**Tags:**` line carrying `[observation]`, and a `**Why this state:**` line saying what would promote it. The filename follows the ISO-8601-UTC prefix convention (see the file-names rule).
 - **Provenance footer:** end the file with the `Authored by … / Changed by …` footer, like every working-state artifact — see the working-state-artifacts-carry-a-provenance-footer rule.
-- **Promotion:** when an observation stabilizes into a binding convention, lift it into `waytide/local/rules/` as a new local rule and leave the observation as the discovery record (note the promotion in the two). Add a `waytide/local/log/` entry for the promotion.
-- **Recording one:** add the file, and add a matching one-line entry to `waytide/local/log/` noting it was recorded as an observation (and why it isn't yet a rule).
+- **Promotion:** when an observation stabilizes into a binding convention, lift it into `waytide/local/rules/` as a new local rule and leave the observation as the discovery record (note the promotion in the two). Add a `waytide/local/logs/log/` entry for the promotion.
+- **Recording one:** add the file, and add a matching one-line entry to `waytide/local/logs/log/` noting it was recorded as an observation (and why it isn't yet a rule).
 
 **Why:** discovery produces valuable thinking before it is ready to be binding. A place for non-binding hypotheses keeps that thinking without prematurely imposing it as a rule. Preferring an observation when in doubt makes the cheap move (promote later) the default over the costly one (retract a premature rule).
 
@@ -57,3 +57,5 @@ Changed by Scott Bellware on Mon Aug 17 2026 at 11:16:30 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:21:39 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:25:14 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:32:18 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:24:07 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT

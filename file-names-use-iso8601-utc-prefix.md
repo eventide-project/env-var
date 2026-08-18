@@ -2,7 +2,7 @@
 
 The datetime prefix marks a **dated artifact** — something a project accrues over time, ordered by when it was made. These take it:
 
-- The **working-state** directories: the decision log (`log/`), `deferred/`, `observations/`, and the work-artifact directories (the project's planning directories, `experiments/`, `loops/`).
+- The **working-state** directories: the running records under `logs/` — the decision log (`logs/log/`), `logs/loops/`, and `logs/work-sessions/` — and the work-artifact directories `ideas/`, `implementations/`, and `migration/`.
 - A consuming project's **own local rules** — the rules that project adds to its `waytide/local/rules/`. A local rule is a dated decision in that project's history.
 
 The prefix is an **ISO 8601 datetime normalized to UTC**, followed by a dash-separated, lower-case name and `.md`.
@@ -35,3 +35,6 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
 Changed by Scott Bellware on Sun Aug 16 2026 at 2:54:58 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:24:07 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 4:22:08 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 4:41:26 PM PT

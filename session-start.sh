@@ -69,10 +69,9 @@ fi
 notice=$(printf 'Waytide installed at %s/ — %s %s: %s' \
   "$system" "$count" "$noun" "$list")
 
-# Report work that has not reached a concluded state — experiments and features
-# alike. Neither is ever left silently open (the experiment-lifecycle
-# and feature-lifecycle rules), but nothing otherwise brings an open
-# one to attention: the working directories under waytide/ are not read at session
+# Report work that has not reached a concluded state. An implementation is never
+# left silently open (the implementation-lifecycle rule), but nothing otherwise
+# brings an open one to attention: the working directories under waytide/ are not read at session
 # start, and work done in a worktree leaves no trace in the main working tree at
 # all — it stays on the upstream branch, so even the branch name gives nothing away.
 #
@@ -155,29 +154,23 @@ else
   own=
 fi
 
-experiments=
-features=
+implementations=
 
 if [ -n "$own" ]; then
-  experiments=$(
-    report_open "$own/experiments" experiment experiments \
-      Affirmed Refuted Inconclusive Abandoned Superseded
-  )
-
-  features=$(
-    report_open "$own/features" feature features \
-      Completed Abandoned Superseded
+  # One directory, one call. The concluded words are the union of the two kinds':
+  # an experiment reaches a verdict, a feature reaches Completed, and both may be
+  # abandoned or superseded. Suspended is deliberately absent — a suspended
+  # implementation is paused rather than concluded, and is still reported.
+  implementations=$(
+    report_open "$own/implementations" implementation implementations \
+      Affirmed Refuted Inconclusive Completed Abandoned Superseded
   )
 fi
 
 # A literal backslash-n, so the JSON string carries a line break the harness
 # renders — not an actual newline, which would be invalid inside a JSON string.
-if [ -n "$experiments" ]; then
-  notice="${notice}\\n${experiments}"
-fi
-
-if [ -n "$features" ]; then
-  notice="${notice}\\n${features}"
+if [ -n "$implementations" ]; then
+  notice="${notice}\\n${implementations}"
 fi
 
 # The load-command line, always present. The notice states what is installed; this states
@@ -256,7 +249,7 @@ own_rules=${own:-waytide/local}
 # reaches the agent before any file is opened, which is the same reason it names the file at all.
 # Without the sentence the read opens on a line of narration standing in the one position that
 # rule reserves.
-instruction=$(printf 'Waytide is installed at %s/. Before your first substantive action in this session, read every rule file under %s/ and follow them — %s/foundation/ first, since it defines the system, then the other packages, including each package vocabulary.md, whose terms are binding and cannot be applied unread; not every package has one, and its absence is not a defect. Read the local rules this project adds as well, in %s/rules/, which are binding in the same way and which no package supplies; that directory may not exist yet, which is ordinary and not an error. Read this project'\''s own vocabulary too, the single file %s/vocabulary.md, whose terms and substitutions decide over every package'\''s; that file may not exist, which is ordinary and not an error. Read only those two beside the packages, unless an installed package'\''s own rule directs another read: the working directories next to them — log, deferred, the project'\''s planning directories, work-sessions, experiments, loops, migration, suspended — are worked with as their own conventions describe and are not read as binding rules at session start. The read is unconditional: the apparent size of the first request is not a reason to defer it, because the size of the opening request predicts nothing about where the session goes. Open %s/foundation/initialization-rule.md ahead of every other rule file, and print what it carries at the head of the response that carries the rest of the read, per that rule. The response that opens that one file carries the tool call and nothing else: print no preamble there, and no account of what you are about to read, so what that rule carries is the first text of the read. Say nothing about it in any response — no name for it, no substitute word, no description standing in for one — and do not cite that rule by name. Once the rules are read, print the deferred queue as a list of rows, one row per item under %s/deferred/, per the print-the-deferred-queue-after-the-rule-read rule, and then wait for the engineer to make a request. The engineer may open with the command load waytide, which asks for exactly that and nothing more. Do not restate the session-start notice or print a package count; the announce-waytide-at-session-start rule reserves that to the harness.' \
+instruction=$(printf 'Waytide is installed at %s/. Before your first substantive action in this session, read every rule file under %s/ and follow them — %s/foundation/ first, since it defines the system, then the other packages, including each package vocabulary.md, whose terms are binding and cannot be applied unread; not every package has one, and its absence is not a defect. Read the local rules this project adds as well, in %s/rules/, which are binding in the same way and which no package supplies; that directory may not exist yet, which is ordinary and not an error. Read this project'\''s own vocabulary too, the single file %s/vocabulary.md, whose terms and substitutions decide over every package'\''s; that file may not exist, which is ordinary and not an error. Read only those two beside the packages, unless an installed package'\''s own rule directs another read: the working directories next to them — logs, ideas, implementations, migration — are worked with as their own conventions describe and are not read as binding rules at session start. The read is unconditional: the apparent size of the first request is not a reason to defer it, because the size of the opening request predicts nothing about where the session goes. Open %s/foundation/initialization-rule.md ahead of every other rule file, and print what it carries at the head of the response that carries the rest of the read, per that rule. The response that opens that one file carries the tool call and nothing else: print no preamble there, and no account of what you are about to read, so what that rule carries is the first text of the read. Say nothing about it in any response — no name for it, no substitute word, no description standing in for one — and do not cite that rule by name. Once the rules are read, print the deferred queue as a list of rows, one row per item under %s/deferred/, per the print-the-deferred-queue-after-the-rule-read rule, and then wait for the engineer to make a request. The engineer may open with the command load waytide, which asks for exactly that and nothing more. Do not restate the session-start notice or print a package count; the announce-waytide-at-session-start rule reserves that to the harness.' \
   "$system" "$system" "$system" "$own_rules" "$own_rules" "$system" "$own_rules")
 
 hook_output=$(printf '"hookSpecificOutput": {"hookEventName": "SessionStart", "additionalContext": "%s"}' \

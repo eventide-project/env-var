@@ -6,8 +6,13 @@ aspiration, an intention, an orientation, an action, a specification, and an obs
 
 **What each one is, is a tag.** An aspiration is an idea tagged `[aspiration]`. The tags are the
 ordinary square-bracket tags every working-state artifact takes (see the
-working-state-artifacts-take-category-tags rule), and the set is open — a project writes the tag
+a-record-takes-category-tags rule), and the set is open — a project writes the tag
 it needs.
+
+**One tag is reserved and is read mechanically: `[deferred]`.** It marks work postponed until the
+current task finishes, and the ideas carrying it are the deferred queue, printed at the start of
+every session. It is independent of the state, and it is not the `Deferred` state. See the
+deferred-queue-convention.
 
 ## The shape
 
@@ -35,7 +40,8 @@ Every idea carries a `**State:**` line, from the moment it is written:
   a direction.
 - **Active** — settled, and the work is expected. Where an idea starts when it settles something.
 - **Realized** — what the idea describes exists.
-- **Deferred** — kept deliberately, with no date and nobody working toward it.
+- **Deferred** — kept deliberately, with no date and nobody working toward it. **This is not the
+  `[deferred]` tag**, which means queued rather than parked.
 - **Suspended** — paused, not ended.
 - **Superseded** — another idea replaced it, and the two name each other.
 - **Abandoned** — dropped, by decision.
@@ -90,13 +96,18 @@ have.
 
 Related:
 
-- the working-state-artifacts-take-category-tags rule — the tags that say what an idea is
+- the a-record-takes-category-tags rule — the tags that say what an idea is
+- the deferred-queue-convention — the one reserved tag, and the queue it makes
 - the a-record-ends-with-its-state-in-upper-case rule — the filename suffix
 - the direction-and-sequencing-artifacts-take-a-log-entry rule — the log entry, whose name carries concepts this rule does not
 - the observations-convention — an observation, which is an idea and carries the promotion path to a rule
 - the file-names, working-state-artifacts-carry-a-provenance-footer, and plans-no-code-samples rules
-- `waytide/local/suspended/` in the Waytide repository — the decommissioned mode mechanism this replaces
+- the a-suspension-is-a-log-entry rule — the other `Suspended`, which is an act on something the
+  project did rather than a state on something it wanted
 
 ---
 
 Authored by Scott Bellware on Mon Aug 17 2026 at 11:40:35 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:24:07 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 2:11:33 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 2:47:19 PM PT

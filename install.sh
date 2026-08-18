@@ -34,8 +34,8 @@ repo="https://github.com/waytide/foundation.git"
 # on 2026-08-18. One directory replaces it, and the convention naming it is not yet written, so
 # there is still nothing here for the bootstrap to assert.
 #
-# The list is illustrative rather than exhaustive — it omits `migration/` and
-# `suspended/` too — and its claim is that these are working state rather than rules,
+# The list is illustrative rather than exhaustive, and its claim is that these
+# are working state rather than rules,
 # which survives without naming every one. Do not add the planning directories back.
 bootstrap() {
   cat <<'EOF'
@@ -70,8 +70,8 @@ the working directory, branch, and any uncommitted, untracked, or unpushed work.
 `waytide/` holds exactly two directories, splitting what came from outside from what
 is this project's own. `waytide/system/` is installed and never edited in place.
 `waytide/local/` is everything this project writes: `rules/` and `vocabulary.md`
-alongside the working state — `log/`, `deferred/`, `observations/`, `work-sessions/`,
-`loops/`, `experiments/`, and the project's planning directories — each worked with as
+alongside the working state — `logs/` (holding `log/`, `loops/`, and
+`work-sessions/`), `ideas/`, `implementations/`, and `migration/` — each worked with as
 its convention describes, and only `rules/` and `vocabulary.md` read as binding at
 session start.
 EOF
@@ -286,8 +286,40 @@ migrate_work_sessions() {
   fi
 
   mv "$old_dir" "$new_dir"
-  echo "Renamed waytide/local/sessions/ to waytide/local/work-sessions/ — the directory's current name."
+  echo "Renamed waytide/local/sessions/ to waytide/local/work-sessions/."
   echo "Commit the rename."
+}
+
+# Move a project's running records under waytide/local/logs/. The decision log, the loop
+# records, and the work session records sat directly under waytide/local/ until
+# 2026-08-18, beside the directories that state what is currently true. The
+# logs-directory rule groups them, and a rule cannot move a project's own files.
+#
+# This runs after migrate_work_sessions, so a project still holding the pre-2026-07-30
+# name reaches waytide/local/logs/work-sessions/ in two steps rather than needing a
+# third case here.
+#
+# It keeps the same narrow semantics: each directory moves only when the old location is
+# present and the new one is absent. Anything else is reported and left alone. Plain mv
+# rather than git mv, for records that were never committed.
+migrate_logs() {
+  for name in log loops work-sessions; do
+    old_dir="waytide/local/$name"
+    new_dir="waytide/local/logs/$name"
+
+    [ -d "$old_dir" ] || continue
+
+    if [ -d "$new_dir" ]; then
+      echo "Both $old_dir/ and $new_dir/ are present — neither is touched."
+      echo "$old_dir/ is the old location. Move its records into $new_dir/ and remove it."
+      continue
+    fi
+
+    mkdir -p waytide/local/logs
+    mv "$old_dir" "$new_dir"
+    echo "Moved $old_dir/ to $new_dir/ — the running records are grouped under logs/."
+    echo "Commit the move."
+  done
 }
 
 # 0. Print the bootstrap section and stop. Nothing is installed and nothing is placed,
@@ -317,3 +349,4 @@ place_settings_json
 # 3. Carry a project's own working state across the directory renames a rule change
 #    cannot reach.
 migrate_work_sessions
+migrate_logs
