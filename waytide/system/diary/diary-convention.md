@@ -41,8 +41,9 @@ to survive.
 datetime line, then the writer's prose. An entry takes a `**Tags:**` line where it is
 categorized, and a `**Summary:**` line where the summary says something the body does not. An
 entry is thinking rather than a report, so it carries no state line and no section beyond
-those. The datetime-stamp-line, diary-category-tags, omit-body-when-same-as-title, and
-diary-entries rules each state one part of that shape.
+those. The datetime-stamp-line, omit-body-when-same-as-title, and diary-entries rules each state one
+part of that shape, and the `foundation` package's working-state-artifacts-take-category-tags
+rule states the tag protocol, which is no longer the diary's own.
 
 **An entry carries the provenance footer**, like every other working-state artifact. See the
 foundation package's working-state-artifacts-carry-a-provenance-footer rule. The footer names
@@ -99,3 +100,4 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 10:56:57 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 12:31:47 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:10:10 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:54:56 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 10:13:43 PM PT

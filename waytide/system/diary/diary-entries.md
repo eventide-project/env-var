@@ -49,8 +49,9 @@ foundation package's file-names rule requires. Do not conflate the two.
   then the title and the prose, with nothing repeated.
 
 **The directive is *new entry*.** Where the writer opens with that phrase, write the entry by
-this rule and by the datetime-stamp-line, diary-category-tags, omit-body-when-same-as-title, and
-ask-for-entry-time-or-omit-it rules. Nothing else follows from it. Nothing beside the entry file
+this rule, by the datetime-stamp-line, omit-body-when-same-as-title, and
+ask-for-entry-time-or-omit-it rules, and by the `foundation` package's
+working-state-artifacts-take-category-tags rule. Nothing else follows from it. Nothing beside the entry file
 is written, and no index is maintained — see the timeline-view rule.
 
 **Dating default:** an entry is about **today** unless the writer signals otherwise. Where the
@@ -84,7 +85,7 @@ Related:
 - the identity-resolution-contract rule — how `<username>` is resolved
 - the diary-convention — the directory, the provenance footer, and what one entry is
 - the datetime-stamp-line rule — the datetime line under the title
-- the diary-category-tags rule — the `**Tags:**` line
+- the `foundation` package's working-state-artifacts-take-category-tags rule — the `**Tags:**` line and the tag protocol
 - the omit-body-when-same-as-title rule — the body dropped where the title says it already
 - the ask-for-entry-time-or-omit-it rule — where the writer gives no time
 - the timeline-view rule — the on-demand listing of the entries this writes
@@ -99,3 +100,4 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 1:05:44 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:10:10 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:01:46 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:54:56 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 10:13:43 PM PT
