@@ -45,8 +45,7 @@ repository. Do not delete a migration record on completion.
 
 Related:
 
-- the plans-convention — the plan that sequences work *within* this repository
-- the design-convention — a migration may realize a design, or may be mechanical enough to need none
+- the project's planning records — a migration sequences work that crosses *out of* this repository, where those sequence work within it, and a migration may realize a settled idea or be mechanical enough to need none
 - the file-names rule — the filename prefix
 - the working-state-artifacts-carry-a-provenance-footer rule
 
@@ -61,3 +60,4 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 8:18:59 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 10:50:46 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 10:31:36 PM PT

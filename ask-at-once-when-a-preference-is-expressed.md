@@ -29,7 +29,7 @@ Each is genuine, and the selection carries all three:
 
 - **A rule**, in `waytide/local/rules/`, with the matching `waytide/local/log/` entry the
   rules-convention requires.
-- **An observation**, in `waytide/local/observations/`, where the thinking has not stabilized.
+- **An observation**, in `waytide/local/ideas/`, where the thinking has not stabilized.
   The observations-convention prefers this where there is doubt. Promoting later is cheap, and
   retracting a premature rule is not.
 - **Neither**, where the engineer does not want it recorded. It is a real answer, and it is
@@ -69,3 +69,4 @@ Related:
 ---
 
 Authored by Scott Bellware on Fri Aug 14 2026 at 11:32:29 AM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 11:16:30 PM PT

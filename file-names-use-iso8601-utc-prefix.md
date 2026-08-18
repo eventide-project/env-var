@@ -9,6 +9,8 @@ The prefix is an **ISO 8601 datetime normalized to UTC**, followed by a dash-sep
 
 **Format:** `YYYY-MM-DDTHH-MM-SSZ-<name>.md`. The date and time are joined by `T`, and the trailing `Z` marks UTC. The time's colons are written as dashes for filesystem safety, as in `2026-07-01T20-40-00Z-some-name.md`. The name is dash-separated and lower-case.
 
+**The state suffix is the one exception to the lower case.** A record carrying a canonical `**State:**` line ends its name with that state word in **upper case**, after a dash — `2026-08-05T19-37-06Z-ooda-terminology-REFUTED.md`. The case is what separates the state from the subject, so the name does not read as a record *about* something refuted. See the a-record-ends-with-its-state-in-upper-case rule, which fixes the suffix and states what it costs. Nothing else about the name changes, and the prefix is untouched.
+
 **System rules do not take the prefix.** A rule in a distributed package (`foundation`, `language`, `testing`, …) is named by a dash-separated, lower-case name alone — `subject-first-commit-messages.md`, not `2026-…-subject-first-commit-messages.md`. A system rule is a curated, durable convention identified by *what it says*, not by when it was written. A datetime on it is noise and buries the rule's name.
 
 That is the distinction between the two kinds of rule: a **system rule** ships in a package and is timeless, so no prefix. A project's **own local rule** is a dated entry in that project's record, so it takes the prefix, like the project's log and deferred items.
@@ -32,3 +34,4 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 1:24:07 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
+Changed by Scott Bellware on Sun Aug 16 2026 at 2:54:58 AM PT

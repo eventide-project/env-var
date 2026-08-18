@@ -7,8 +7,10 @@ Every time you prompt the engineer to make a selection, a decision, or an answer
 **Offer an `Explain` option.** It is not a free-text option and does not duplicate the built-in one: that is how an engineer **answers** outside the options. This is how they ask what the question **means** before answering at all. An engineer who does not understand the options cannot produce a better one. So the two serve opposite halves of the moment responsibility transfers to them.
 
 - **What it does.** Selecting it is as if the engineer had asked for the question to be explained. It is answered with **a summary at the top followed by a normal level of explanation**. It is not a restatement of the options, and not the same framing a second time.
-- **The selection prompt is then displayed again, unchanged.** The explanation does not replace the decision. The same options are presented after it, so the engineer decides with the explanation in hand.
-- **Say that in the option's own description**, which is the sentence the engineer actually reads: *…then display this selection prompt again*. Not **put this question again** — *put* in the sense of *pose* is archaic, and an engineer meets the everyday sense first, where it says nothing about what will happen. **Display** names the act plainly, and **selection prompt** names the thing being displayed rather than leaving *question* to be resolved against the explanation that just preceded it.
+- **The selection prompt is then displayed again, with one substitution.** The explanation does not replace the decision. The same options are presented after it, so the engineer decides with the explanation in hand. The `Explain` option is the one thing that changes: on the second display it reads **`Explain briefly`**.
+- **`Explain briefly` answers with the summary alone** — the shortest statement of what the question decides, and nothing under it. The prompt is then displayed a third time, still carrying `Explain briefly`. No further rung is invented, and the option does not change again however many times it is selected.
+- **The second explanation is shorter rather than longer, and that is the point.** An engineer who selects `Explain` and then reaches for it again did not get what they needed from a normal-length explanation. Answering at that length repeats the attempt that already failed. The summary alone is a different cut at the question rather than more of the same. It is also the part the first explanation led with, so the engineer is given the one piece they may have read past.
+- **Say that in the option's own description**, which is the sentence the engineer actually reads: *…then display this selection prompt again*. Not **put this question again** — *put* in the sense of *pose* is archaic, and an engineer meets the everyday sense first, where it says nothing about what will happen. **Display** names the act plainly, and **selection prompt** names the thing being displayed rather than leaving *question* to be resolved against the explanation that just preceded it. **`Explain briefly`'s description says its own length** — *…in a sentence or two, then display this selection prompt again* — so the engineer knows they are asking for something shorter rather than the same answer a second time.
 - **It is offered on every prompt**, not only where the agent judges the question hard. That judgment is exactly what fails: an agent that could tell which of its questions were unclear would have written them clearly.
 - **It costs one of the four option slots.** The selection UI takes at most four, so a prompt carrying `Explain` has three for genuine candidates. Most prompts have two or three, so it rarely binds. Where one genuinely has four, drop the fourth rather than the `Explain` — an engineer who cannot read the question cannot weigh a fourth candidate either.
 - **Where it appears is not the agent's to choose.** The harness renders the built-in free-text answer last, so `Explain` sits among the supplied options rather than beneath it.
@@ -27,7 +29,11 @@ Making it an option rather than a judgment call is the point. The agent is the p
 
 Find at least two genuine candidates by surfacing the real underlying decision. Never pad with cosmetic variants.
 
-When `Explain` is selected, answer with a summary first and a normal level of explanation beneath it. Then display the same selection prompt again, unchanged. And word that option's own description *…then display this selection prompt again*, never *put this question again*. Reserve plain prose for statements, reports, and explanations that are **not** asking the engineer to choose.
+When `Explain` is selected, answer with a summary first and a normal level of explanation beneath it. Then display the same selection prompt again, with `Explain` replaced by `Explain briefly` and every other option unchanged.
+
+When `Explain briefly` is selected, answer with the summary alone and display the prompt again, carrying `Explain briefly` still. Do not add a third variant.
+
+Word each option's own description *…then display this selection prompt again*, never *put this question again*, and say the brief one's length in its description. Reserve plain prose for statements, reports, and explanations that are **not** asking the engineer to choose.
 
 Related:
 
@@ -51,3 +57,4 @@ Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
 Changed by Scott Bellware on Wed Aug 12 2026 at 1:12:44 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:06:30 PM PT
+Changed by Scott Bellware on Sun Aug 16 2026 at 1:04:10 AM PT

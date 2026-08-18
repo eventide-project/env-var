@@ -18,7 +18,7 @@ this package:
 - **`waytide/local/vocabulary.md`**. The project's own vocabulary, read with the rules and
   binding like them. Its terms and substitutions decide over every package's
   (`vocabulary-convention`). One file, no datetime prefix, and optional.
-- **`waytide/local/observations/`**. Working hypotheses and rule-candidates still under
+- **`waytide/local/ideas/`**. Working hypotheses and rule-candidates still under
   discovery. Not yet binding.
 - **`waytide/local/deferred/`**. Design changes postponed until the current task finishes.
   A queue, not a permanent record. It is **printed as a list of rows at the start of every
@@ -41,15 +41,16 @@ summary) and **next deferred item**.
 question. The harness supplies the free-text option, so the agent adds none of its own. It does
 add an **`Explain`** option, which is the opposite half of it. The free-text option is how an
 engineer answers outside the options. `Explain` is how they ask what the question means
-before answering.
+before answering. **On the re-displayed prompt it reads `Explain briefly` and answers with the
+summary alone.** An engineer reaching for it a second time did not get what they needed at a
+normal length, so answering at that length again repeats the attempt that failed.
 
 The rule lives here rather than in `design-by-efferent`, where it was written, because it governs **every** prompt. `foundation`'s own lifecycles put decisions through the interface, and so does the standalone `versioning` package. So a project installing `foundation` alone must receive the rule along with the instruction to follow it.
 
 Beyond the four core directories, foundation defines the **work-artifact** directories for
 planning and running changes:
 
-- `waytide/local/plans/` — implementation plans that sequence a settled design
-- `waytide/local/design/` — design docs that settle direction first
+- `waytide/local/ideas/` — the project's planning records, whatever its tags name them
 - `waytide/local/experiments/` — recorded experiments that test a question
 - `waytide/local/features/` — the lifecycle record of a feature
 - `waytide/local/work-sessions/` — the narrative record of a work session
@@ -58,9 +59,6 @@ planning and running changes:
   repository it left
 - `waytide/local/suspended/` — an **undo queue** for what the project stopped doing. The thing
   itself moves, carrying the return address needed to put it back
-
-Under the other modes, `waytide/local/intention/` and `waytide/local/aspiration/`, or
-`waytide/local/action/` and `waytide/local/orientation/`, stand in for the first two.
 
 **Experiments and features each carry a full branch lifecycle**, in the
 `experiment-lifecycle` and `feature-lifecycle` rules. That is their own branch, a
@@ -71,17 +69,45 @@ user-declared affirmation. A feature does none of those, ends
 completed/abandoned/superseded (or suspended), and is simply verified before it
 integrates.
 
-**How plans and designs *read*** is foundation's concern too, meaning their sections. Four
-rules carry it, and they were the `plan` package until it was included here on 2026-08-03:
+**The project's ideas** live in `waytide/local/ideas/`, one file per idea (`ideas-convention`).
+A design is an idea, and so is a plan, an aspiration, an intention, an orientation, an action, a
+specification, and an observation — what each one *is*, is a tag, and the tag set is open.
 
-- **An implementation plan's common elements read in a settled order** — Goals, Source designs,
-  Work sequences, Superseded plans, Architecture, Process notes, Tasks, among others the work
-  calls for. The order is settled. The set is not (`plan-document-format`).
-- **A design doc shares a common spine** — summary or premise, motivation, substantive sections,
-  dated **Settled** resolutions, and an **Out of Scope / Deferred** tail
-  (`design-document-format`).
+- **The shape is thin.** A title, a `**State:**` line, a `**Tags:**` line, and whatever the idea
+  has to say. A footer, a log entry, the ISO-8601-UTC prefix, and the state suffix. Nothing else
+  is required, because an idea that settles nothing has no resolutions and an idea that sequences
+  nothing has no tasks.
+- **Eight states**, one set for every idea: **Open**, **Active**, **Realized**, **Deferred**,
+  **Suspended**, **Superseded**, **Abandoned**, and **Lapsed**. `Open` and `Active` are the two
+  starting words. `Lapsed` and `Abandoned` differ in who acted — lapsing is what happens when
+  nobody decides and the work moves past the idea.
+- **Supersede rather than rewrite**, and amend by dated addition, so an idea reads as a history of
+  thinking rather than as whatever is current. A settled idea is reconciled, never regenerated
+  from the work downstream of it.
+
+It replaces four rules — two conventions and two document formats — decommissioned with the mode
+mechanism on 2026-08-18. Those fixed a spine for a design and an element order for a plan, and an
+idea that was neither had nowhere to sit.
+
 - **Plans contain no code samples**, and avoid committing to method or file names that are not
   yet decided (`plans-no-code-samples`).
+- **A record carrying a state line ends its filename with that state in upper case**
+  (`a-record-ends-with-its-state-in-upper-case`). It reaches the four records that carry one — an
+  experiment, a feature, a direction artifact, and a sequencing artifact — so a directory listing
+  answers which of them concluded, in a file tree, a shell, or an editor sidebar. The upper case
+  is the one stated exception to the file-names rule's lower-case name. The `**State:**` line
+  stays the only authoritative statement, the name is derived from it, and a state change renames
+  the file.
+- **Each artifact pairs with a log entry** — on creation, on each **Settled** resolution, and on
+  each change of state (`direction-and-sequencing-artifacts-take-a-log-entry`). A completed task
+  takes none, and neither does prose that settles nothing. It closes an asymmetry: four other
+  conventions already stated their own pairing, and these two rested on the decision log's
+  when-in-doubt clause.
+- **An experiment record and a feature record each pair with a log entry** too
+  (`experiment-and-feature-records-take-a-log-entry`), on creation and on each change of state. The
+  concluding entry is a **summary marker** where the work merged and **carries the substance**
+  where it did not — a refuted experiment's branch is deleted unmerged, so a record that lived only
+  there is unreachable, which a file deleted from `master` never is.
 - **A design section documenting a package dependency is titled "Package Dependency"**, never a
   bare "Dependency", which is overloaded (`package-dependency-heading`).
 
@@ -114,26 +140,37 @@ an observation, or neither. The two rules are only sound together: the first for
 preference, and the second is what keeps forbidding it from costing anything. A preference is not
 a rule until it is written, and every restatement of one is evidence that nothing carried it.
 
+**Work in a downstream project is never offered, and its pending state is not reported**
+(`downstream-work-is-never-offered`). A package change leaves every consuming project holding the
+previous version, and closing that gap is the engineer's instruction to give. The rule reaches
+**reporting** as well as asking, because that is where it fails: a trailing line naming what is
+unrefreshed or unpushed is a prompt whatever its grammar. Doing the work when asked, reporting it
+once done, and answering a question about downstream state are each unaffected.
+
+**A working-state artifact takes square-bracket category tags**
+(`working-state-artifacts-take-category-tags`) — a `**Tags:**` line for the whole artifact, or a
+`[tag]` prefixing one list item. Freeform and lower-case, with no controlled vocabulary and
+nothing derived from a **freeform** tag, which is what separates one from the `**State:**` line
+beside it. A **reserved** tag is one a rule names and states what follows from — the reserved set
+is small, each member findable in a rule, and the freeform space untouched around it.
+The decision log is the one exception, exempted for its one-line shape exactly as the provenance
+footer exempts it. The protocol was the `diary` package's until 2026-08-18, and it was lifted here
+because nothing in it was ever about diaries.
+
 **A historical record is edited for one reason only** — that it discloses what should not have
 been disclosed (`disclosure-is-the-one-reason-to-edit-a-historical-record`). The correction
 removes the disclosure and keeps every claim true by stating it at a lower resolution. It never
 makes the record say something that did not happen. The engineer is the authority on what
 counts, and the git history is not reached by the edit.
 
-**A project works in one of three modes**, chosen at its start through the selection
-interface (`a-project-works-in-a-mode-chosen-at-the-start`). Formal is the default and its planning
-artifacts are a **design** and a **plan**, in `waytide/local/design/` and `waytide/local/plans/`.
-Intuitive's are an **aspiration** and an **intention**, in `waytide/local/aspiration/` and
-`waytide/local/intention/`. OODA's are an **orientation** and an **action**, in
-`waytide/local/orientation/` and `waytide/local/action/`, drawn from the loop the
-`design-by-efferent` package already builds on.
+**The mode mechanism was decommissioned on 2026-08-18.** A project worked in one of three modes —
+formal, intuitive, or OODA — chosen at its start, and the mode decided what the two planning
+artifacts were called and where they lived. Six directories existed for one kind of work.
 
-**The conventions and document formats are
-identical in every mode.** The mode changes the vocabulary and the directory and no obligation,
-because the words a project plans in are load-bearing. The chosen mode is recorded as a local rule
-named `formal-mode`, `intuitive-mode`, or `ooda-mode`, written whichever mode is chosen. The
-planning directories are checked against it, so a deleted rule cannot silently revert a project. It
-does not change after the start.
+**One directory replaces it, `waytide/local/ideas/`, and the kind is a tag.** A design is an idea
+and an idea is a design. An aspiration is an idea tagged `[aspiration]`, and the kind set is open.
+The mode may now change mid-stream, which the mechanism forbade, because its two unanswered
+questions were both questions about directories.
 
 **A project does not name its downstream consumers** in its own files
 (`a-project-does-not-name-its-consumers`) — not in the installed packages, not in its own working
@@ -163,7 +200,7 @@ foundation  →  (nothing — the base every other package builds on)
 - **`git subtree` can only place files inside a package directory.** So a tool a consuming project runs has to live in some package. There is nowhere else for it to be delivered.
 - **It has to be a package that is always there.** Foundation is the only one — every other package includes it, so a project running Waytide at all has foundation.
 
-So `install.sh`, `refresh-packages.sh`, `session-start.sh`, `statusline.sh`, `report-unrecognized-mode.sh`, and `read-consuming-projects.sh` are here. The **authoring** tools are not. `install-all.sh`, `report-direct-commits.sh`, and `report-planning-directories-named-in-part.sh` sit unpackaged at the root of the composite repository. Only the composite publishes, and a consuming project never runs them.
+So `install.sh`, `refresh-packages.sh`, `session-start.sh`, `statusline.sh`, and `read-consuming-projects.sh` are here. The **authoring** tools are not. `install-all.sh` and `report-direct-commits.sh` sit unpackaged at the root of the composite repository. Only the composite publishes, and a consuming project never runs them.
 
 **`read-consuming-projects.sh` is packaged because it is not an authoring tool**, though it sat with them until 2026-08-07. It reports the Waytide projects **on this machine**, reading a per-machine registry at `~/.config/waytide/consuming-projects.toml`. So it is **machine-scoped** where the rest of this package is project-scoped. The engineer who wants it is anyone who installed Waytide into more than one project, rather than whoever maintains Waytide.
 
@@ -173,9 +210,9 @@ The authoring tools run **against the packages**. This one runs **beside project
 
 **It is here for now, and a package of its own is the likely next position.** `foundation` is where it reaches every project from, being the package every project has — not because discovery is foundational. A package of its own would carry it to the engineers who want it and no others. It would be the first Waytide package that is a **tool** rather than a set of rules.
 
-**`report-unrecognized-mode.sh`** reports a mode rule in `waytide/local/rules/` naming a mode the installed `a-project-works-in-a-mode-chosen-at-the-start` rule no longer defines. It is packaged rather than kept with the authoring tools because the file it checks is **the project's own**. A rename upstream reaches the packages and stops, since no refresh may rewrite a project's rules. So the drift is only visible from inside the project, and only the project's engineer can correct it.
-
-It reads the defined mode names out of the installed rule rather than carrying a list. So a mode added upstream needs no change to the script. Every consuming project on one machine was found in exactly this state on 2026-08-06, a mode having been renamed the day before.
+**`report-unrecognized-mode.sh` was decommissioned on 2026-08-18**, with the mode mechanism whose
+rule it read. It reported a mode rule in `waytide/local/rules/` naming a mode the installed rule no
+longer defined, and there is no such rule to read.
 
 **`refresh-packages.sh` also checks the bootstrap.** The root `AGENTS.md` is written by `install.sh`, belongs to no package, and is therefore the one activated file no `git subtree pull` can reach. So a refresh updates the packages beneath it and leaves it behind.
 
@@ -236,3 +273,18 @@ Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
 Changed by Scott Bellware on Wed Aug 12 2026 at 12:14:07 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 11:33:53 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:06:30 PM PT
+Changed by Scott Bellware on Fri Aug 14 2026 at 9:08:02 PM PT
+Changed by Scott Bellware on Sun Aug 16 2026 at 12:32:17 AM PT
+Changed by Scott Bellware on Sun Aug 16 2026 at 12:37:43 AM PT
+Changed by Scott Bellware on Sun Aug 16 2026 at 1:04:10 AM PT
+Changed by Scott Bellware on Sun Aug 16 2026 at 2:04:53 AM PT
+Changed by Scott Bellware on Sun Aug 16 2026 at 2:19:18 AM PT
+Changed by Scott Bellware on Sun Aug 16 2026 at 2:44:25 AM PT
+Changed by Scott Bellware on Sun Aug 16 2026 at 2:54:58 AM PT
+Changed by Scott Bellware on Sun Aug 16 2026 at 3:03:12 AM PT
+Changed by Scott Bellware on Sun Aug 16 2026 at 3:12:15 AM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 10:13:43 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 10:15:53 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 10:31:36 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 11:16:30 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 11:40:35 PM PT

@@ -92,7 +92,7 @@ waytide · master · uncommitted changes · untracked files · unpushed commits 
   is, it is the file most easily lost. Before this segment existed the line reported `uncommitted changes` over a tree where nothing had been modified at all. That was true on the axis the segment names, and still misleading: it sent the engineer looking for an edit that was not there.
 
   **An untracked file raises the two segments, deliberately.** `uncommitted changes` names the
-  **axis** — work that is not in the history — and an untracked file is on it. Narrowing that segment to tracked modifications would make the two of them a partition and cost the axis. An engineer scanning for whether anything at all is uncommitted would have to read two segments to answer one question. The overlap is the price of keeping one segment that
+  **axis** — work that is not in the history — and an untracked file is on it. Narrowing that segment to tracked modifications would make the two of them a partition and cost the axis. An engineer scanning for whether anything at all is uncommitted would have to read two segments to answer one question. The overlap is the cost of keeping one segment that
   answers it alone.
 
   **The unpushed commits segment** is the next state along the same axis. It is work that is
@@ -358,3 +358,4 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 10:08:33 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 10:21:45 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 1:12:44 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 9:45:19 PM PT
