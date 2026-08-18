@@ -1,0 +1,1 @@
+# This project's `intuitive-mode` local rule is decommissioned — it bound the project to an aspiration in `waytide/local/aspiration/` and an intention in `waytide/local/intention/` and held that a project's mode does not change after initiation; the mode mechanism was decommissioned upstream on 2026-08-18 and those directories no longer exist

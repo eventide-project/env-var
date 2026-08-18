@@ -1,0 +1,1 @@
+# The state of each migrated record is read from what the record itself says, and defaulted to `Active` for a planning record and `Open` for an observation where it says nothing — so a state here is a starting point for this project's engineer to correct rather than a judgment made from outside

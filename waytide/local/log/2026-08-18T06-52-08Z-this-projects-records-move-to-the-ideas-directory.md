@@ -1,0 +1,1 @@
+# This project's planning records and observations move to `waytide/local/ideas/`, each tagged `[aspiration]`, `[intention]`, or `[observation]` and carrying a `**State:**` line and the matching filename suffix
