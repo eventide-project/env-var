@@ -13,7 +13,15 @@ Engineers gravitate toward recounting their exploits — "Fixed the parser", "Ad
   transition without a reader reaching for the package specification. "Increased" holds
   even when a trailing segment resets, as it does here: what is increased is the version,
   not each segment.
-- **No 50-character limit** — let the first line run as long as it needs to state the subject clearly.
+
+**The subject's length is the commit-message-widths rule's**, which caps it at 50 characters and
+wraps the body at 72. This rule carried a *no 50-character limit* policy until 2026-08-18,
+licensing a first line as long as it needed. That policy is discontinued and the cap replaced it
+the same day.
+
+**The two rules pull against each other, and that is the point.** Naming the software and then its
+new state costs words a leading verb would not. Where the subject will not fit, the answer is to
+split the commit rather than to drop the subject and lead with a verb.
 
 **Why:** the log records the history of the software. It is scanned rather than read. Leading with the changed thing rather than the engineer's action is truer to what the log is for, and easier to review. It is the Eventide house style, and it composes with the commit-wording rule — "Task 9 is done" already states the fact, software-first.
 
@@ -23,6 +31,7 @@ Related:
 
 - the commit-says-task-is-done-not-mark-done rule
 - the no-Claude-coauthor rule
+- the commit-message-widths rule — the subject's 50 characters and the body's 72
 - the run-suite-before-commit rule
 
 ---
@@ -36,3 +45,5 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 10:08:33 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 11:56:19 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 11:58:01 PM PT
