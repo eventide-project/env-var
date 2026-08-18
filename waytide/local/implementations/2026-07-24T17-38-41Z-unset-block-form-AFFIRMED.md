@@ -1,5 +1,7 @@
 # Experiment — The block form of `unset`
 
+**Tags:** [experiment]
+
 ## Question
 
 Is the unset-with-block feature useful?

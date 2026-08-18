@@ -1,0 +1,1 @@
+# The Waytide packages are refreshed and this project's local records are migrated — the running records move under `waytide/local/logs/`, and the experiment, feature, and deferred records move to `implementations/` and `ideas/` under the conventions that replaced theirs
