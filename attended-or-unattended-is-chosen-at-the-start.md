@@ -129,7 +129,7 @@ Related:
 - the dbe-human-in-the-loop rule — why attention is placed at the hinges
 - the hinge-cycle rule — the hinges that run either way
 - the never-ask-to-start-test-first rule — which forbids asking about the method's substance, where this asks about its cadence
-- foundation's feature-lifecycle and experiment-lifecycle rules — the starts where the decision is put
+- foundation's implementation-lifecycle rule — the starts where the decision is put
 
 ---
 
@@ -154,3 +154,4 @@ Changed by Scott Bellware on Thu Aug 13 2026 at 8:22:31 AM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 9:41:07 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 9:45:19 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 10:31:36 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
