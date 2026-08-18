@@ -89,7 +89,7 @@ General, domain-less word substitutions. Each puts the literal term in place of 
 - **cut** is figurative in two senses, and each has its own substitution. As a **slice of scope**,
   say **increment** — the row above. As **making a branch**, say **created** or **branched from**:
   *this branch was created from `master`*, never *this branch was cut from `master`*. The
-  `foundation` experiment-lifecycle rule already writes *branched from*, so the literal term was in
+  `foundation` implementation-lifecycle rule already writes *branched from*, so the literal term was in
   use before the figure was noticed. The two senses share one word and nothing else, which is why
   the table carries two rows rather than one. **Neither is a discontinuation** — a discontinuation
   names one word and drops it, and each of these names a word to write instead.
@@ -173,3 +173,4 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 1:29:25 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:47:50 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 9:47:45 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:32:18 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
