@@ -32,6 +32,11 @@ runs the other way. The writer keeps it, and the agent reads it.
   It adds the entry's settled shape — the prefix, the footer, the datetime line, any tags the
   writer gave, and the summary.
 
+**The tag protocol is no longer this package's.** A diary entry takes square-bracket category
+tags, and so does every other working-state artifact — the rule moved to `foundation` on
+2026-08-18 as `working-state-artifacts-take-category-tags`. What stays here is where a diary
+entry's `**Tags:**` line sits, which is under the datetime line and above the summary.
+
 **Vocabulary** (`vocabulary.md`): three terms — **writer**, **diary**, and **diary entry** — and one
 substitution — `diary` rather than *journal*, *personal log*, or *personal journal*.
 
@@ -89,3 +94,4 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 10:59:11 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 10:59:41 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 12:54:20 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:54:56 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 10:13:43 PM PT

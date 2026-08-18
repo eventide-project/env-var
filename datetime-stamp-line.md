@@ -31,7 +31,7 @@ seconds. Place the line under the title, above any `**Tags:**` or `**Summary:**`
 Related:
 
 - the diary-entries rule — the filename stamp this is derived from, and its local time
-- the diary-category-tags rule — the `**Tags:**` line below it
+- the `foundation` package's working-state-artifacts-take-category-tags rule — the `**Tags:**` line below it, and the tag protocol every artifact shares
 - the omit-body-when-same-as-title rule — the body this line stands above
 
 ---
@@ -40,3 +40,4 @@ Authored by Scott Bellware on Fri Aug 14 2026 at 9:55:45 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 10:44:17 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:10:10 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:54:56 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 10:13:43 PM PT
