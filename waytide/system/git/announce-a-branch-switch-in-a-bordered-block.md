@@ -47,7 +47,7 @@ above and below are the settled one.
 - **Creating a branch** is a switch when the working tree moves to it. `git switch -c` prints the
   block, with `from` naming the base.
 - **A worktree** adds a working directory rather than moving this one. No switch occurs here, so
-  no block is printed. The experiment-lifecycle and feature-lifecycle rules govern that case.
+  no block is printed. The implementation-lifecycle rule governs that case.
 - **A merge, a commit, or a push** does not move the working tree. No block.
 
 **Why:** an agent reports what it did, and not where it stood. So a branch switch is the one operation whose effect is invisible in every later report. The engineer's own record of this session is the case. The agent switched to a parent experiment branch to edit a file, and stayed there after committing. The next instruction was read against a branch neither party had named. A
@@ -59,7 +59,7 @@ Print no block for a worktree, a merge, or a commit.
 
 Related:
 
-- the `foundation` experiment-lifecycle and feature-lifecycle rules — which require the working tree to end on the upstream branch, and which the block makes checkable
+- the `foundation` implementation-lifecycle rule — which require the working tree to end on the upstream branch, and which the block makes checkable
 - the run-suite-before-commit rule — the other thing confirmed before work is recorded
 
 ---
@@ -68,3 +68,4 @@ Authored by Scott Bellware on Sat Aug 8 2026 at 12:23:07 AM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
