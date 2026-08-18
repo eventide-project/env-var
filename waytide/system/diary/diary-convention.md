@@ -58,6 +58,37 @@ exception is disclosure, which the foundation package's disclosure rule governs.
 repository. A second writer on the project reads it, which is what makes it a record rather
 than a private note.
 
+**The commit message is `Diary: <subject>`.** The subject is the entry's, and nothing follows it.
+
+**It carried a parenthetical date until 2026-08-18**, in the form `Diary entry: <subject> (Tue Jun
+16 2026)`. The prefix cost 13 characters and the date 17 more, against a subject line the `git`
+package's commit-message-widths rule caps at 50. That left 20 characters for what the entry was
+about, and the date sat at the tail where truncation takes it first — so it was carried at the
+subject's expense and no reader saw it in a listing. The entry's filename holds the same date.
+
+**`Diary:` rather than `Diary entry:`** for the same budget. It costs 7 characters where the
+longer form cost 13, and it says the same thing to a reader scanning a log.
+
+**A subject that still exceeds 50 characters is truncated at the 50th, with an ellipsis.** The
+`git` package's commit-message-widths rule caps a subject there, and its two remedies are
+unavailable here: an entry is one commit, so there is nothing to split, and the subject is the
+writer's words, which the an-entry-is-the-writers-words rule bars the agent from shortening.
+
+**Truncating is not shortening.** The words are not rewritten, reordered, or paraphrased. The
+entry holds them in full, and the commit subject is a rendering of them that stops at the line's
+end and says so. The ellipsis is what says so, and it is why the cut is marked rather than silent.
+
+**It cuts at the 50th character and may land mid-word.** No word boundary is sought. A cut that
+retreats to the last space would lose up to another dozen characters of the writer's words to
+tidiness, and a reader who meets a fragment is already told by the ellipsis that the line
+continues elsewhere.
+
+```
+Diary: I added diary support (aka work logs) to W…
+Diary: I completed the basic implementation of Ev…
+Diary: Idea
+```
+
 **The directory may not exist, and its absence is ordinary.** A project that keeps no diary has
 no `waytide/local/diary/`, and nothing is wrong. So does a project whose other writers keep one
 and this writer does not. The convention names the directory whether or not it is there, so the
@@ -101,3 +132,5 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 12:31:47 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:10:10 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:54:56 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 10:13:43 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 12:18:34 AM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 12:29:06 AM PT
