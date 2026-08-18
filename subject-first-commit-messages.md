@@ -1,6 +1,6 @@
 # Write subject-first commit messages
 
-The subject of a commit message is **the software** — never the engineer. A commit log is a journal of the changes made to the software and their effects, not a personal journal of what the engineer did. So the first line leads with *the thing that changed and its new state*, stated as a fact in passive voice and indicative mood.
+The subject of a commit message is **the software** — never the engineer. A commit log is a record of the changes made to the software and their effects, not an account of what the engineer did. So the first line leads with *the thing that changed and its new state*, stated as a fact in passive voice and indicative mood.
 
 Engineers gravitate toward recounting their exploits — "Fixed the parser", "Added the tests", "Refactored the module". A leading verb, whether an imperative ("Fix…") or a past-tense report ("Fixed…"), puts the engineer's work first. The subject must put the software first.
 
@@ -47,3 +47,4 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:56:19 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:58:01 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 12:31:05 PM PT
