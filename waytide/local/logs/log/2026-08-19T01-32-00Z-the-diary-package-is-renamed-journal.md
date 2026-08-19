@@ -1,0 +1,1 @@
+# The `diary` package is renamed `journal` — `waytide/system/diary/` becomes `waytide/system/journal/`, and the subtree is removed and re-added rather than pulled, since a split's history depends on the prefix path
