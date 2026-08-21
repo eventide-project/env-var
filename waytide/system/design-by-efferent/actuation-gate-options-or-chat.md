@@ -68,7 +68,7 @@ Related:
 - present-every-prompt rules
 - the DBE vocabulary
 - the `testing` package's tdd-test-structure rule — where the actuation is bound to an explaining variable
-- the `code/ruby` package's no-inline-method-call-arguments rule — the same discipline in the library source
+- the `tools/ruby-lang` package's no-inline-method-call-arguments rule — the same discipline in the library source
 
 ---
 
@@ -83,3 +83,4 @@ Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
 Changed by Scott Bellware on Wed Aug 12 2026 at 1:12:44 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:06:30 PM PT
+Changed by Scott Bellware on Fri Aug 21 2026 at 8:40:26 AM PT
