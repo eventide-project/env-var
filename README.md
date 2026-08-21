@@ -54,16 +54,18 @@ design-by-efferent  →  foundation, language, testing
 Install with `git subtree`. It puts the files in your project's `waytide/system/` tree, committed alongside your code and read at session start:
 
 ```
-git subtree add  --prefix waytide/system/design-by-efferent https://github.com/waytide/design-by-efferent.git master --squash
-git subtree pull --prefix waytide/system/design-by-efferent https://github.com/waytide/design-by-efferent.git master --squash
+git subtree add  --prefix waytide/system/design-by-efferent git@github.com:waytide/design-by-efferent.git master --squash
+git subtree pull --prefix waytide/system/design-by-efferent git@github.com:waytide/design-by-efferent.git master --squash
 ```
+
+**Over HTTPS**, where no SSH key is registered, use `https://github.com/waytide/design-by-efferent.git` in place of the address above. A script takes `WAYTIDE_ORIGIN=https://github.com/waytide` for the same reason.
 
 It includes `foundation`, `language`, and `testing` — install those too, or run `waytide/system/design-by-efferent/install-dependencies.sh` from your project root.
 
 **Refresh from upstream** periodically to pull the latest rules:
 
 ```
-git subtree pull --prefix waytide/system/design-by-efferent https://github.com/waytide/design-by-efferent.git master --squash
+git subtree pull --prefix waytide/system/design-by-efferent git@github.com:waytide/design-by-efferent.git master --squash
 ```
 
 
