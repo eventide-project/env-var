@@ -52,16 +52,18 @@ language  →  foundation
 Install with `git subtree`. It puts the files in your project's `waytide/system/` tree, committed alongside your code and read at session start:
 
 ```
-git subtree add  --prefix waytide/system/language https://github.com/waytide/language.git master --squash
-git subtree pull --prefix waytide/system/language https://github.com/waytide/language.git master --squash
+git subtree add  --prefix waytide/system/language git@github.com:waytide/language.git master --squash
+git subtree pull --prefix waytide/system/language git@github.com:waytide/language.git master --squash
 ```
+
+**Over HTTPS**, where no SSH key is registered, use `https://github.com/waytide/language.git` in place of the address above. A script takes `WAYTIDE_ORIGIN=https://github.com/waytide` for the same reason.
 
 It includes `foundation` — install that too, or run `waytide/system/language/install-dependencies.sh` from your project root.
 
 **Refresh from upstream** periodically to pull the latest rules:
 
 ```
-git subtree pull --prefix waytide/system/language https://github.com/waytide/language.git master --squash
+git subtree pull --prefix waytide/system/language git@github.com:waytide/language.git master --squash
 ```
 
 
