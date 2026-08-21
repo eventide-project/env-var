@@ -31,8 +31,8 @@ else
 fi
 
 # A package is a directory carrying a README.md. That distinguishes a package
-# from a grouping directory: system/code/ has no README and is not a package,
-# system/code/ruby/ has one and is. Depth 2 finds a top-level package's
+# from a grouping directory: system/tools/ has no README and is not a package,
+# system/tools/ruby-lang/ has one and is. Depth 2 finds a top-level package's
 # README, depth 3 a grouped one's.
 packages=$(
   cd "$system" 2>/dev/null || exit 0
@@ -77,7 +77,7 @@ notice=$(printf 'Waytide installed at %s/ — %s %s: %s' \
 #
 # The state is read from the record's canonical "**State:** <state>" line. The state
 # words also appear throughout a record's prose, so only that line is authoritative;
-# a record without one is still in flight.
+# a record without one is still in progress.
 #
 # Prints "<n> <noun> open: <name> (<note>), ..." or nothing. Arguments: the
 # directory, the singular noun, the plural noun, then the concluded state words.
