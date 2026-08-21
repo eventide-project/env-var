@@ -24,8 +24,15 @@
 #     compares it against the project's AGENTS.md, so the text has one source here.
 set -e
 
+# The origin foundation is fetched from. Override it to install over HTTPS where no SSH
+# key is registered:
+#
+#   WAYTIDE_ORIGIN=https://github.com/waytide ./install.sh
+#
+origin=${WAYTIDE_ORIGIN:-git@github.com:waytide}
+
 prefix="waytide/system/foundation"
-repo="https://github.com/waytide/foundation.git"
+repo="$origin/foundation.git"
 
 # The bootstrap section written into the project-root AGENTS.md.
 #

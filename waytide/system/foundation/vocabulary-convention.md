@@ -6,7 +6,7 @@ commits, records, and dialogue.
 
 **A package gets a vocabulary only when it has a specialized vocabulary for its domain.** A
 package whose subject is written in ordinary words has none. The absence is correct rather than
-missing. `git`, `code`, and `code/ruby` have none. Five packages do.
+missing. `git` and `tools/ruby-lang` have none. Five packages do.
 
 ## What a vocabulary holds
 
@@ -122,3 +122,4 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 10:52:35 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:47:50 PM PT
+Changed by Scott Bellware on Fri Aug 21 2026 at 8:40:26 AM PT
