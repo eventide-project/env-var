@@ -9,9 +9,16 @@
 #
 set -e
 
+# The origin the packages are fetched from. Override it to install over HTTPS where no
+# SSH key is registered:
+#
+#   WAYTIDE_ORIGIN=https://github.com/waytide <this script>
+#
+origin=${WAYTIDE_ORIGIN:-git@github.com:waytide}
+
 add() {
   prefix="waytide/system/$1"
-  repo="https://github.com/waytide/$1.git"
+  repo="$origin/$1.git"
 
   if [ ! -d "$prefix" ]; then
     git subtree add --prefix "$prefix" "$repo" master --squash
