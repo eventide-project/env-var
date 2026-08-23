@@ -13,11 +13,26 @@ one kind names it because of that difference, and no other clause varies.
 - **Name it `experiment/<subject>` or `feature/<subject>`**, matching the tag. `<subject>` is a
   short dash-separated, lower-case name of what is under test or what is being built, named
   literally. Add a `-run-<n>` suffix only where an experiment actually has multiple runs.
+- **Where the work has a worktree, the name carries `worktree/`** — `feature/worktree/<subject>`
+  and `experiment/worktree/<subject>`. A branch checked out in a worktree cannot be checked out
+  again in the main working tree, and nothing in `git branch` says which those are. The segment
+  says it in the one listing where the question comes up.
+- **Adding a worktree to work already under way renames the branch**, and that act is already a
+  confirmed one the record carries. A name that says where the work is has to keep saying it, or
+  it is worse than a name that never claimed to.
 - **The upstream branch is not encoded in the name.** A branch can outlive a change of upstream
   target, so the record names it.
 - **Record the base — no tag.** The baseline is captured in the record as the base commit SHA and
   the ref it came from. A later run branches straight from the recorded commit. Tags would
   accumulate as clutter in `git tag` and on any remote, and the record already names the base.
+
+**The worktree segment is an exception to the upstream clause, and it is one deliberately.** The
+upstream target is kept out of the name because a name that goes stale misleads, and a worktree can
+be added or removed the same way. What separates them is where each fact is asked about. An
+upstream target is asked about when the work is merged, and the record is open at that moment. The
+existence of a worktree is asked about in `git branch`, where the record is not. So the one that
+has no other answer at the point of asking is the one the name carries — and the rename is what
+keeps it from becoming the stale name the other clause refuses.
 
 ## The working location, chosen at the start
 
@@ -30,8 +45,9 @@ with other work favours a worktree.
 > **Branch only** — Create the branch and switch this working tree to it. At the conclusion this
 > working tree switches back.
 >
-> **Branch and worktree** — Create the branch and check it out in a new worktree: a second working
-> directory at `<path>`. This working tree stays on `<upstream branch>`.
+> **Branch and worktree** — Create the branch as `<kind>/worktree/<subject>` and check it out in a
+> new worktree: a second working directory at `<path>`. This working tree stays on
+> `<upstream branch>`.
 >
 > **The current branch** — Build it where the working tree already is, creating nothing. There is
 > no branch to switch back to and nothing to merge.
@@ -186,3 +202,4 @@ Related:
 ---
 
 Authored by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
+Changed by Scott Bellware on Sun Aug 23 2026 at 3:34:20 AM PT
