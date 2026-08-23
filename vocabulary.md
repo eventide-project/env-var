@@ -68,6 +68,30 @@ scope** is *not here*.
 
 ### The rest
 
+- **distributable rule** — a rule that **ships in a package** and is installed into a consuming
+  project. It is named by a dash-separated, lower-case name and takes **no datetime prefix**,
+  because it is identified by what it says rather than by when it was written. A project receives
+  one by `git subtree`, and a refresh brings a change to it down. **STE: `distributable` is absent
+  from the STE dictionary. `distribute (v)` is not approved and gives APPLY (v), as in APPLY THE
+  LOAD, which is physical. `distribution (n)` is not approved and gives SUPPLY (n). `rule` is
+  absent. Technical noun, ETE agent artifacts.**
+- **local rule** — a rule a **project writes for itself**, in `waytide/local/rules/`. It takes the
+  ISO-8601-UTC datetime prefix, because it is a dated decision in that project's history rather
+  than a durable convention identified by its name. `waytide/local/` is never split or pushed, so a
+  local rule cannot leak upstream. **STE: `LOCAL (adj)` is approved, meaning *applicable to a given
+  location or position* — SET THE “LAT” KNOB TO THE LOCAL LATITUDE. Waytide's sense is belonging to
+  one project rather than to a position, so the word is reserved with its meaning fixed here per
+  the ete-fixes-the-meaning-of-a-word-in-its-category rule. `rule` is absent. Technical noun, ETE
+  agent artifacts.**
+  - **It is the fourth word ETE fixes the meaning of**, after `loop`, `mechanical`, and `level`.
+    That rule calls this the most expensive reservation ETE makes: a reader who meets an unknown
+    word knows they do not know it, and a reader who meets `local` believes they know it because
+    the dictionary told them.
+- **Neither of the two is `system rule`**, which the corpus also uses. `system rule` names **where
+  a rule sits** — under `waytide/system/` in a consuming project, or `system/` in the authoring
+  source. `distributable rule` names **how it travels**. Every distributable rule becomes a system
+  rule once it is installed, and the two words name different facts about it. `system rule` carries
+  no entry here.
 - **projection** — a **derived** artifact that reads a record **without destroying it**. A
   summary generated at read-time is a projection of the decision log. A work session record is a
   projection of the records it is reconstituted from. The term exists to name the alternative to
@@ -190,3 +214,4 @@ Changed by Scott Bellware on Tue Aug 18 2026 at 9:24:07 AM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 12:31:05 PM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 2:11:33 PM PT
+Changed by Scott Bellware on Sun Aug 23 2026 at 12:26:19 AM PT

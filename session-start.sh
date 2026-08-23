@@ -252,6 +252,55 @@ own_rules=${own:-waytide/local}
 instruction=$(printf 'Waytide is installed at %s/. Before your first substantive action in this session, read every rule file under %s/ and follow them — %s/foundation/ first, since it defines the system, then the other packages, including each package vocabulary.md, whose terms are binding and cannot be applied unread; not every package has one, and its absence is not a defect. Read the local rules this project adds as well, in %s/rules/, which are binding in the same way and which no package supplies; that directory may not exist yet, which is ordinary and not an error. Read this project'\''s own vocabulary too, the single file %s/vocabulary.md, whose terms and substitutions decide over every package'\''s; that file may not exist, which is ordinary and not an error. Read only those two beside the packages, unless an installed package'\''s own rule directs another read: the working directories next to them — logs, ideas, implementations, migration — are worked with as their own conventions describe and are not read as binding rules at session start. The read is unconditional: the apparent size of the first request is not a reason to defer it, because the size of the opening request predicts nothing about where the session goes. Open %s/foundation/initialization-rule.md ahead of every other rule file, and print what it carries at the head of the response that carries the rest of the read, per that rule. The response that opens that one file carries the tool call and nothing else: print no preamble there, and no account of what you are about to read, so what that rule carries is the first text of the read. Say nothing about it in any response — no name for it, no substitute word, no description standing in for one — and do not cite that rule by name. Once the rules are read, print the deferred queue as a list of rows, one row per item under %s/deferred/, per the print-the-deferred-queue-after-the-rule-read rule, and then wait for the engineer to make a request. The engineer may open with the command load waytide, which asks for exactly that and nothing more. Do not restate the session-start notice or print a package count; the announce-waytide-at-session-start rule reserves that to the harness.' \
   "$system" "$system" "$system" "$own_rules" "$own_rules" "$system" "$own_rules")
 
+# The package set, where the project has declared one. It goes to the agent and not into the
+# notice: the notice is displayed as plain text, and what is printed about a set is emphasized —
+# see the a-project-declares-its-package-set rule, which puts it in the startup content the agent
+# prints, where markdown renders.
+#
+# The record with the latest time prefix is the one that holds, which a plain sort gives, because
+# the prefix is ISO-8601-UTC and sorts lexically in time order.
+declaration=
+if [ -n "$own" ]; then
+  declaration=$(ls "$own"/*-package-set.md 2>/dev/null | sort | tail -1)
+fi
+
+if [ -n "$declaration" ]; then
+  # Read one plain text data attribute line. The leading list marker is optional, so a record may
+  # carry the lines as a list or as bare lines.
+  #
+  # The value is stripped of everything but the characters a package name and a separator need.
+  # This is interpolated into a JSON string by a printf with no escaping at all, so a double quote
+  # or a backslash reaching here would produce output the harness cannot parse and the whole
+  # notice would vanish with no error — the hazard the double-quote comment below records. A
+  # declaration is hand-written, so it is the one input here that is not this system's own output.
+  attribute() {
+    sed -n "s|^[[:space:]]*-\{0,1\}[[:space:]]*\*\*$1:\*\*[[:space:]]*\(.*\)$|\1|p" "$declaration" |
+      head -1 |
+      tr -cd 'A-Za-z0-9,./ _-'
+  }
+
+  declared=$(attribute 'Package set')
+  active=$(attribute 'Packages')
+  inactive=$(attribute 'Inactive')
+
+  # Both of the first two are required. A record naming a set but resolving to nothing would
+  # deactivate everything, which no engineer means by declaring one, so it is treated as no
+  # declaration at all rather than obeyed.
+  if [ -n "$declared" ] && [ -n "$active" ]; then
+    # The word for what is not active, when nothing is. Declaring a set that happens to cover
+    # everything installed is an ordinary thing to do, and "Inactive: " followed by nothing reads
+    # as a record with a piece missing.
+    if [ -z "$inactive" ]; then
+      inactive="none"
+    fi
+
+    set_instruction=$(printf ' This project has declared a package set: %s. The active packages are %s, and the deactivated ones are %s. Read every installed package'\''s rules as instructed above, deactivated ones included — the declaration governs which rules are applied and not which are read. Follow the active packages'\'' rules and withhold the deactivated ones. Print the package set in the startup content after the category line, per the initialization-rule and the a-project-declares-its-package-set rule.' \
+      "$declared" "$active" "$inactive")
+
+    instruction="${instruction}${set_instruction}"
+  fi
+fi
+
 hook_output=$(printf '"hookSpecificOutput": {"hookEventName": "SessionStart", "additionalContext": "%s"}' \
   "$instruction")
 

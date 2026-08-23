@@ -38,7 +38,12 @@ includes a time of day. Third is **purpose-over-category** (`rules-establish-a-m
 A rule's folder names the surface it acts on, not the purpose it serves.
 
 Foundation also provides project-wide commands: **status report** (a whole-project
-summary) and **next deferred item**.
+summary) and **next deferred item**. **A report counts a hidden record rather than listing it**
+(`status-report-format`), and that reaches a brief as much as the fixed report. Two kinds are
+hidden today: a record whose `**State:**` line reads `Suspended`, and a log entry carrying the
+`[suspended]` tag. The state marks something the project **wanted** and set aside; the tag marks
+something it **did** and stopped. The count is what makes either askable for — a record dropped
+entirely leaves a reader believing they have seen everything.
 
 **Every prompt to the engineer goes through the selection interface**
 (`present-every-prompt-through-askuserquestion`) — any selection, decision, or answer, never a prose
@@ -164,6 +169,14 @@ written the same day and superseded within it. The protocol was the
 `journal` package's until 2026-08-18, and it was lifted here
 because nothing in it was ever about journals.
 
+**A list of records presented on request is a table** (`a-record-list-is-a-table`) — the handle
+first with no heading, then the commit that created the record and the last to touch it, then the
+title, then one column for the fact that was asked about. A record showing the same SHA twice has
+not been touched since it was written. It reaches
+any record, and it does **not** reach the session-start deferred queue print, which its own rule
+fixes as rows because that one carries a one-line summary. Where a field runs to a sentence, rows
+are the form. The two are not in competition: they answer to the length of what is in them.
+
 **A historical record is edited for one reason only** — that it discloses what should not have
 been disclosed (`disclosure-is-the-one-reason-to-edit-a-historical-record`). The correction
 removes the disclosure and keeps every claim true by stating it at a lower resolution. It never
@@ -190,7 +203,9 @@ per-machine configuration under `~/.config/`, outside the repository.
 foundation defines the artifacts they all write into. It states **deferred**, **suspended**, and
 **out of scope** beside each other: *not yet*, *no longer*, *not here*. They are confused
 most where nothing distinguishes them, and defines **projection**, **reconcile**,
-**working-state artifact**, and **plain text data attribute line**. Its one substitution is **work
+**working-state artifact**, **plain text data attribute line**, **distributable rule**, and
+**local rule**. The last two name how a rule travels and whose it is, and neither is `system
+rule`, which names where it sits. Its one substitution is **work
 session record**, never bare "session record".
 
 This package includes no others — everything else includes it. It cites several, which is
@@ -311,3 +326,7 @@ Changed by Scott Bellware on Tue Aug 18 2026 at 3:04:41 PM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 4:22:08 PM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 4:41:26 PM PT
 Changed by Scott Bellware on Fri Aug 21 2026 at 9:36:21 AM PT
+Changed by Scott Bellware on Sun Aug 23 2026 at 12:23:26 AM PT
+Changed by Scott Bellware on Sun Aug 23 2026 at 12:59:23 AM PT
+Changed by Scott Bellware on Sun Aug 23 2026 at 1:01:04 AM PT
+Changed by Scott Bellware on Sun Aug 23 2026 at 1:07:00 AM PT
