@@ -31,8 +31,8 @@ else
 fi
 
 # A package is a directory carrying a README.md. That distinguishes a package
-# from a grouping directory: system/tools/ has no README and is not a package,
-# system/tools/ruby-lang/ has one and is. Depth 2 finds a top-level package's
+# from a grouping directory: system/ext/ has no README and is not a package,
+# system/ext/ruby-lang/ has one and is. Depth 2 finds a top-level package's
 # README, depth 3 a grouped one's.
 packages=$(
   cd "$system" 2>/dev/null || exit 0

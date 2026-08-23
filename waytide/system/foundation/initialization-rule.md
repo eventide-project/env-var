@@ -29,7 +29,7 @@ project gets by asking for no set at all, so a stanza reporting it says what the
 stanza already says, at the cost of four lines in a display printed every session.
 
 **It prints where `default` leaves something deactivated.** A project can hold a package that
-`default` does not name — `tools/ruby-lang` is one — and there the set is not the whole of what is
+`default` does not name — `ext/ruby-lang` is one — and there the set is not the whole of what is
 installed. The condition is that nothing is off, not that the name is `default`, and a suppressed
 stanza must never be the reason a deactivated package goes unmentioned.
 
@@ -42,7 +42,7 @@ it carries.
 
 ```
 *design-by-efferent*, **foundation**, **git**, **journal**, **language**, *testing*,
-*tools/ruby-lang*, **versioning**
+*ext/ruby-lang*, **versioning**
 package set: content
 (5 active of 8 installed)
 ```
@@ -231,3 +231,4 @@ Changed by Scott Bellware on Sun Aug 23 2026 at 3:44:10 AM PT
 Changed by Scott Bellware on Sun Aug 23 2026 at 3:49:30 AM PT
 Changed by Scott Bellware on Sun Aug 23 2026 at 3:56:40 AM PT
 Changed by Scott Bellware on Sun Aug 23 2026 at 3:46:13 AM PT
+Changed by Scott Bellware on Sun Aug 23 2026 at 1:12:05 PM PT
