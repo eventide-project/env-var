@@ -272,7 +272,7 @@ waytide/system/foundation/refresh-packages.sh
 
 **A package's repository is its installed path with the slashes flattened to dashes**, so a nested `group/name` publishes to `group-name`. **A package may declare a different one**, on a `**Repository:**` line in its `README.md` — the plain text data attribute form the rest of the system reads. `refresh-packages.sh` reads that line where it is present and derives the name where it is not, which is every package but one.
 
-The declaration exists because a repository name is met by people as well as by scripts. The Ruby package installs at `waytide/system/tools/ruby-lang/` and is published from `waytide/waytide-ruby`, which the flattening does not produce.
+The declaration exists because a repository name is met by people as well as by scripts. The Ruby package installs at `waytide/system/ext/ruby-lang/` and is published from `waytide/waytide-ruby`, which the flattening does not produce.
 
 It reports each package that moved and the rule files that changed in it. Those
 files are binding, and a silent refresh would be a change of behavior nobody saw. Name
@@ -330,3 +330,4 @@ Changed by Scott Bellware on Sun Aug 23 2026 at 12:23:26 AM PT
 Changed by Scott Bellware on Sun Aug 23 2026 at 12:59:23 AM PT
 Changed by Scott Bellware on Sun Aug 23 2026 at 1:01:04 AM PT
 Changed by Scott Bellware on Sun Aug 23 2026 at 1:07:00 AM PT
+Changed by Scott Bellware on Sun Aug 23 2026 at 1:12:05 PM PT

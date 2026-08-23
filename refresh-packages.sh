@@ -49,7 +49,7 @@ fi
 
 # A package is a directory carrying a README.md — the same test the session-start
 # notice uses.
-# Depth 2 finds a top-level package, depth 3 a grouped one such as tools/ruby-lang.
+# Depth 2 finds a top-level package, depth 3 a grouped one such as ext/ruby-lang.
 installed=$(
   cd waytide/system &&
     find . -mindepth 2 -maxdepth 3 -name README.md |
