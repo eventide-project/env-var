@@ -1,6 +1,6 @@
 # Waytide — git
 
-Commit conventions for a project's git history, and the one branch operation the agent announces.
+Commit conventions for a project's git history, the one branch operation the agent announces, and how a reference to a commit is read.
 
 The rules in this package govern how commits are made and worded:
 
@@ -19,6 +19,14 @@ The rules in this package govern how commits are made and worded:
 - **Subject-first commit messages**. The subject of the change leads, in
   passive voice and indicative mood ("Widget reconciliation is corrected"), so
   a scanned log surfaces what changed first.
+
+One rule governs how a commit is **read** rather than how it is made:
+
+- **A SHA names the work, not the commit**. When the engineer names a commit by its
+  SHA, they are asking about the substance it carries — the idea, the implementation, the
+  rule, the change to the code. Not the commit message, the file list, or the log entry.
+  Those are the answer when the question is about the commit itself, or when the commit's
+  whole content is a git operation.
 
 One rule governs a branch operation rather than a commit:
 
@@ -57,3 +65,4 @@ git subtree pull --prefix waytide/system/git git@github.com:waytide/git.git mast
 
 Waytide is licensed under the **Eventide Common Interest License**. It is source-available and free to use. It is not open source in the strict sense, since it does not permit modification. The license text is forthcoming and will be published in `LICENSE`.
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:58:01 PM PT
+Changed by Scott Bellware on Sun Aug 23 2026 at 12:15:22 AM PT
