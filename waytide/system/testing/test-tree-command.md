@@ -8,7 +8,7 @@ The problem it solves is repetition. Each test file re-declares the outer contex
 
 **A durable script is what makes the command reproducible** in every session, rather than a parser rebuilt from scratch each time. **Which script, and where it lives, is the project's stack's concern.** It runs that project's suite, suppresses that runner's narration, and parses that framework's output. None of that can be stated without naming a stack.
 
-For a Ruby project it is settled by the `tools/ruby-lang` package's rule on running the suite. This rule fixes what the tree *is* and where it is derived from. Producing it is settled where a stack is.
+For a Ruby project it is settled by the `ext/ruby-lang` package's rule on running the suite. This rule fixes what the tree *is* and where it is derived from. Producing it is settled where a stack is.
 
 **Why:** the de-duped tree is the readable, whole-suite view. It shows the feature and outcome structure at a glance, without the per-file repetition. Through the expanded dynamic names it also surfaces loop-generated cases.
 
@@ -18,7 +18,7 @@ Related:
 
 - the status-report (in `foundation`) and test-report commands
 - which include a shallower two-level context tree
-- — for a Ruby project — the `tools/ruby-lang` rule that settles the script
+- — for a Ruby project — the `ext/ruby-lang` rule that settles the script
 
 ---
 
@@ -31,3 +31,4 @@ Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 1:47:26 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
 Changed by Scott Bellware on Fri Aug 21 2026 at 8:40:26 AM PT
+Changed by Scott Bellware on Sun Aug 23 2026 at 1:12:05 PM PT

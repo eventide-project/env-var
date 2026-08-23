@@ -27,7 +27,7 @@ Keep each section tight.
 
 **How to apply:** on a test-report request, read the automated suite and render the sections from current state. Confirm membership by reading the files (actuation placement, assertion kind, loop fan-out) rather than asserting it. Derive the **hierarchy** differently from the rest. Run the suite and take the first two levels from its output, never from the `context "…"` declarations.
 
-Companion to the `lib-report` command in `tools/ruby-lang`, and to the `test-tree` command. That one produces the same tree at full depth, and states why it comes from a run. Neither report is written to a file.
+Companion to the `lib-report` command in `ext/ruby-lang`, and to the `test-tree` command. That one produces the same tree at full depth, and states why it comes from a run. Neither report is written to a file.
 
 ---
 
@@ -40,3 +40,4 @@ Changed by Scott Bellware on Tue Aug 11 2026 at 1:47:26 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 1:58:40 AM PT
 Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
 Changed by Scott Bellware on Fri Aug 21 2026 at 8:40:26 AM PT
+Changed by Scott Bellware on Sun Aug 23 2026 at 1:12:05 PM PT
