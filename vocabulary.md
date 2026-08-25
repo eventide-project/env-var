@@ -2,40 +2,21 @@
 
 The testing package's vocabulary: the terms it defines and the word substitutions it enforces, for controls-based test-writing. Binding — use these terms and swaps in tests, rules, prose, and dialogue.
 
-**Every word here is one of two things.** This holds for the terms below, and for the **Use**
-column of any substitutions table in this file.
+**Every word here is one of two things.** This holds for the terms below, and for the **Use** column of any substitutions table in this file.
 
-- **Approved** in the STE dictionary, and used with its approved meaning. Nothing further is required,
-  and the entry fixes the word against a neighbouring one rather than asking for permission.
-- **Reserved** as a technical noun or a technical verb, **in a category the entry names**. An STE
-  noun category is reserved under STE Rule 1.5 where the dictionary omits the word, and under STE
-  Rule 1.6 where it lists and refuses it. An STE verb category is reserved under STE Rule 1.12. An
-  ETE category is reserved under the ete-declares-its-own-categories rule. STE
-  Rule 1.8 requires a technical noun to be approved in the subject field, and this file is that
-  approval.
+- **Approved** in the STE dictionary, and used with its approved meaning. Nothing further is required, and the entry fixes the word against a neighbouring one rather than asking for permission.
+- **Reserved** as a technical noun or a technical verb, **in a category the entry names**. An STE noun category is reserved under STE Rule 1.5 where the dictionary omits the word, and under STE Rule 1.6 where it lists and refuses it. An STE verb category is reserved under STE Rule 1.12. An ETE category is reserved under the ete-declares-its-own-categories rule. STE Rule 1.8 requires a technical noun to be approved in the subject field, and this file is that approval.
 
-**A reserved word's entry states what the STE dictionary says about it.** The word is absent from
-the dictionary. Or the dictionary refuses it and gives an alternative. Or the dictionary approves it
-with a meaning Waytide does not use. The last of the three is governed by the
-ete-fixes-the-meaning-of-a-word-in-its-category rule, and it is the most expensive of them.
+**A reserved word's entry states what the STE dictionary says about it.** The word is absent from the dictionary. Or the dictionary refuses it and gives an alternative. Or the dictionary approves it with a meaning Waytide does not use. The last of the three is governed by the ete-fixes-the-meaning-of-a-word-in-its-category rule, and it is the most expensive of them.
 
-**The sequence for reserving a word is the a-word-is-reserved-in-six-steps rule**, in the
-`language` package's `ete/` directory.
+**The sequence for reserving a word is the a-word-is-reserved-in-six-steps rule**, in the `language` package's `ete/` directory.
 
-**Silence means different things in the two kinds of entry.** A **definition** with no STE note
-names a term absent from the STE dictionary, and reserves it. A definition exists to name a term,
-and a term names something in the subject field. A **substitution's Use word** with no STE note is
-**ordinary vocabulary**, which is not reserved and not rewritten. See the `language` package's
-ordinary-vocabulary-is-not-reserved-and-not-rewritten rule, and its
-waytide-keeps-its-word-where-the-ste-word-means-something-else rule.
+**Silence means different things in the two kinds of entry.** A **definition** with no STE note names a term absent from the STE dictionary, and reserves it. A definition exists to name a term, and a term names something in the subject field. A **substitution's Use word** with no STE note is **ordinary vocabulary**, which is not reserved and not rewritten. See the `language` package's ordinary-vocabulary-is-not-reserved-and-not-rewritten rule, and its waytide-keeps-its-word-where-the-ste-word-means-something-else rule.
 
 ## Terms
 
-- **controls** — the known, deterministic inputs a test is built from: the helpers that build example values, the example values themselves, and the pre-actuation setup that establishes them. A test reads **control → actuate → observe**. The conventions that hold the term in place — controls never "factories" / "fixtures" / "arrange", the `control_` variable prefix, and the "some" string value — are the package's control rules. **STE: absent from the STE dictionary as a plural. `CONTROL (n)` is approved, meaning
-something that controls, which is the singular sense this narrows. Technical noun, STE category 7,
-mathematical, scientific, engineering terms, and formulas.**
-- **precondition** — a bare `assert` or `refute` that is **not** a test. It is written to **document a factor that decides the test's outcome** where the test script does not express it. That factor is most often a property of a **control**, whose value is named rather than described. It documents by asserting, so the clarification is checked rather than merely claimed. It **qualifies** the test rather than preventing a regression: when a precondition fails, the test's result is *meaningless*, not wrong. It carries no name because its predicate reads inline as the name, and it sits immediately before what it qualifies. Its rule is the package's precondition rule. **STE: absent from the STE dictionary. Technical noun, STE category 7,
-mathematical, scientific, engineering terms, and formulas.**
+- **controls** — the known, deterministic inputs a test is built from: the helpers that build example values, the example values themselves, and the pre-actuation setup that establishes them. A test reads **control → actuate → observe**. The conventions that hold the term in place — controls never "factories" / "fixtures" / "arrange", the `control_` variable prefix, and the "some" string value — are the package's control rules. **STE: absent from the STE dictionary as a plural. `CONTROL (n)` is approved, meaning something that controls, which is the singular sense this narrows. Technical noun, STE category 7, mathematical, scientific, engineering terms, and formulas.**
+- **precondition** — a bare `assert` or `refute` that is **not** a test. It is written to **document a factor that decides the test's outcome** where the test script does not express it. That factor is most often a property of a **control**, whose value is named rather than described. It documents by asserting, so the clarification is checked rather than merely claimed. It **qualifies** the test rather than preventing a regression: when a precondition fails, the test's result is *meaningless*, not wrong. It carries no name because its predicate reads inline as the name, and it sits immediately before what it qualifies. **STE: absent from the STE dictionary. Technical noun, STE category 7, mathematical, scientific, engineering terms, and formulas.**
 
 ## Substitutions
 

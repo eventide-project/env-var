@@ -2,6 +2,10 @@
 
 Controls-based test-writing conventions. Not tied to a specific test-framework API.
 
+**What a run contains**
+- `test/` holds `automated/`, `interactive/`, or both. Only the automated tests run before a commit — an interactive test is the engineer's to run, and a report says which of the two ran (`tests-are-automated-or-interactive`).
+- A test file whose name begins with an underscore is **suspended** and is not run. The mark is a rename, the file is kept, and the pattern does not exclude it on its own (`a-suspended-test-file-is-named-with-a-leading-underscore`).
+
 **Structure and naming**
 - Actuate the concern once at the top. Assert each outcome in its own nested context (`tdd-test-structure`).
 - Context nesting mirrors the folder hierarchy. A single-case feature is one file named for the feature.
@@ -59,3 +63,4 @@ Waytide is licensed under the **Eventide Common Interest License**. It is source
 Changed by Scott Bellware on Sat Aug 8 2026 at 2:34:57 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
 Changed by Scott Bellware on Mon Aug 10 2026 at 10:58:52 PM PT
+Changed by Scott Bellware on Mon Aug 24 2026 at 12:59:35 PM PT
