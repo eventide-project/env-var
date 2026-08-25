@@ -2,7 +2,7 @@
 
 **Every piece of context meant to survive a session is written into `waytide/`.** The rules bind it, the working directories hold it, and git carries it. An agent memory store is not one of those places, and nothing that belongs in one of them is held in a store instead.
 
-**The artifacts are the ones this package already defines.** A binding convention is a rule in `waytide/local/rules/`. A decision is a one-line entry in `waytide/local/logs/log/`. Thinking that has not stabilized is an observation in `waytide/local/ideas/`. Direction and sequencing are the project's planning artifacts. Postponed work is a deferred item, and what the project stopped doing is suspended. Each has its own convention, and between them they hold what a project knows about itself.
+**The artifacts are the ones this package already defines.** A binding convention is a rule in `waytide/local/rules/`. A decision is a one-line entry in `waytide/local/logs/log/`. Thinking that has not stabilized is an observation in `waytide/local/ideas/`. An idea is where the project's planning goes. Postponed work is a deferred item, and what the project stopped doing is suspended. Each has its own convention, and between them they hold what a project knows about itself.
 
 **What this forbids is a store standing in for one of them.** A note about how this project's code is arranged, what was decided last week, or which approach was rejected belongs in an artifact. Holding it anywhere else is holding it where nobody reviews it.
 
@@ -20,7 +20,7 @@ It drifts, and its drift is silent. A note written in June contradicts a rule wr
 
 The cost of forbidding it is real and is bounded to one case. That is the preference not yet worth a rule, and the rule named above is what answers it. Without that rule this one would trade a silent store for a silent loss, which is not an improvement.
 
-**How to apply:** write durable project context into the artifact whose convention covers it. A rule, a log entry, an observation, a direction or sequencing artifact, a deferred item, or a suspended thing. Do not hold it in an agent memory store, and do not create one.
+**How to apply:** write durable project context into the artifact whose convention covers it. A rule, a log entry, an observation, an idea, or a suspended thing. Do not hold it in an agent memory store, and do not create one.
 
 Where a fact is about the engineer rather than the project, it is outside this rule. Where a preference is not yet a rule, ask about it at once rather than holding it.
 
@@ -39,3 +39,4 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 10:44:17 AM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 11:32:29 AM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:16:30 PM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT
+Changed by Scott Bellware on Tue Aug 25 2026 at 10:52:18 AM PT

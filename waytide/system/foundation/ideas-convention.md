@@ -1,8 +1,14 @@
 # `waytide/local/ideas/` — the project's ideas, one file per idea
 
-`waytide/local/ideas/` holds the project's **ideas**: the thinking that settles what the work should be and how it should go. A design is an idea. An idea is a design. So is a plan, an aspiration, an intention, an orientation, an action, a specification, and an observation.
+`waytide/local/ideas/` holds the project's **ideas**: the thinking that settles what the work should be and how it should go. **An idea is an idea**, and that is the whole of what a record here is.
 
-**What each one is, is a tag.** An aspiration is an idea tagged `[aspiration]`. The tags are the ordinary square-bracket tags every working-state artifact takes (see the a-record-takes-category-tags rule), and the set is open — a project writes the tag it needs.
+**A tag may describe an idea, and nothing about it is strict.** A design idea is tagged `[design]`, a plan idea `[plan]`, an aspiration `[aspiration]`. The tags are the ordinary square-bracket tags every working-state artifact takes (see the a-record-takes-category-tags rule), the set is open, and an idea may carry several or none at all.
+
+**No kind tag is assigned by default, and `[aspiration]` least of all.** It is written where an aspiration is what was asked for, and never as the dress a design idea is put in because something had to go on the line. An idea that nobody called anything carries no kind tag, and that is not an omission.
+
+**The tag describes and decides nothing.** No rule reads a kind tag, no report groups by one, and no filename derives from one. What the record *is* is in the record.
+
+**This is the last of the mode vocabulary, and it is gone with it.** A project once worked in one of three modes, and the mode fixed what a planning record was called — a design, an aspiration, or an orientation in one; a plan, an intention, or an action in another. The mechanism was decommissioned on 2026-08-18 and the six words outlived it as a tag set that still read as exhaustive.
 
 **No tag is reserved here, and none is read mechanically.** `[deferred]` marked work postponed until the current task finishes, and the ideas carrying it were a queue with a rule of its own. That convention was suspended on 2026-08-25 — what made it a queue was a session-start print and a command, and both are gone. The tag is freeform like any other, and what it used to carry is the two lines below.
 
@@ -27,7 +33,7 @@
 - **One file per idea**, named by the ISO-8601-UTC prefix (see the file-names rule), ending with its state in upper case (see the a-record-ends-with-its-state-in-upper-case rule).
 - **Frontmatter-free markdown.** A `# <title>`, then the `**State:**` line, then the `**Tags:**` line, then whatever the idea has to say.
 - **A provenance footer** ends the file (see the working-state-artifacts-carry-a-provenance-footer rule).
-- **A log entry** pairs with it on creation and on each change of state (see the direction-and-sequencing-artifacts-take-a-log-entry rule).
+- **A log entry** pairs with it on creation and on each change of state (see the an-idea-takes-a-log-entry rule).
 - **No code samples** (see the plans-no-code-samples rule).
 
 **Nothing else is required.** An idea that settles things records them as dated **Settled** resolutions and marks what it deliberately leaves out in an **Out of Scope / Deferred** tail. An idea that sequences work carries checkbox tasks stating behavior. An idea that does neither carries neither. **The four rules this replaces fixed a spine.** This one does not: an idea is thinking, and a shape imposed on thinking is ceremony wherever the thinking does not have it.
@@ -43,13 +49,16 @@ Every idea carries a `**State:**` line, from the moment it is written:
 - **Suspended** — paused, not ended.
 - **Superseded** — another idea replaced it, and the two name each other.
 - **Abandoned** — dropped, by decision.
+- **Stated** — an observation, and an observation only. It is the one state that never changes: an observation has no lifecycle, so it carries this word from the moment it is written and carries it for good. See the observations-convention.
 - **Lapsed** — it lost its relevance over time. **`Lapsed` and `Abandoned` differ in who acted:** abandoning is a decision, and lapsing is what happens when nobody decides and the work moves past the idea.
+
+**`Stated` is the third starting word and the only terminal one**, and an observation takes it alone. Every other idea takes one of the two below.
 
 **`Open` and `Active` are the two starting words**, and which one an idea takes says what kind of record it is being written as. Absence is not a state, and an idea without a line is a defect.
 
 **`Realized`, `Deferred`, and `Open` are taken back**, each returning to `Active` or to `Open` when the work resumes. The rest are not.
 
-**One word covers what two used to.** `Realized` replaces the pair `Realized` and `Implemented`, which distinguished a direction taken up from a sequence built. That distinction was dropped with the direction-and-sequencing pairing on 2026-08-18, and one word is what remains of it.
+**One word covers what two used to.** `Realized` replaces the pair `Realized` and `Implemented`, which distinguished a direction taken up from a sequence built. That distinction went with the mode vocabulary, and one word is what remains of it.
 
 ## Supersession
 
@@ -73,7 +82,7 @@ Related:
 
 - the a-record-takes-category-tags rule — the tags that say what an idea is
 - the a-record-ends-with-its-state-in-upper-case rule — the filename suffix
-- the direction-and-sequencing-artifacts-take-a-log-entry rule — the log entry, whose name carries concepts this rule does not
+- the an-idea-takes-a-log-entry rule — the log entry an idea takes
 - the observations-convention — an observation, which is an idea and carries the promotion path to a rule
 - the file-names, working-state-artifacts-carry-a-provenance-footer, and plans-no-code-samples rules
 - the a-suspension-is-a-log-entry rule — the other `Suspended`, which is an act on something the project did rather than a state on something it wanted
@@ -87,3 +96,5 @@ Changed by Scott Bellware on Tue Aug 18 2026 at 2:47:19 PM PT
 Changed by Scott Bellware on Mon Aug 24 2026 at 11:04:26 PM PT
 Changed by Scott Bellware on Mon Aug 24 2026 at 11:14:28 PM PT
 Changed by Scott Bellware on Mon Aug 24 2026 at 11:22:43 PM PT
+Changed by Scott Bellware on Tue Aug 25 2026 at 10:27:24 AM PT
+Changed by Scott Bellware on Tue Aug 25 2026 at 10:52:18 AM PT
