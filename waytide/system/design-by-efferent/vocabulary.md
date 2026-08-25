@@ -2,32 +2,16 @@
 
 The lexicon of **Design By Efferent** (DBE) — use this vocabulary, with these meanings, in code, tests, rules, designs, commits, and prose. This is the canonical glossary. The deeper docs defer to it.
 
-**Every word here is one of two things.** This holds for the terms below, and for the **Use**
-column of any substitutions table in this file.
+**Every word here is one of two things.** This holds for the terms below, and for the **Use** column of any substitutions table in this file.
 
-- **Approved** in the STE dictionary, and used with its approved meaning. Nothing further is required,
-  and the entry fixes the word against a neighbouring one rather than asking for permission.
-- **Reserved** as a technical noun or a technical verb, **in a category the entry names**. An STE
-  noun category is reserved under STE Rule 1.5 where the dictionary omits the word, and under STE
-  Rule 1.6 where it lists and refuses it. An STE verb category is reserved under STE Rule 1.12. An
-  ETE category is reserved under the ete-declares-its-own-categories rule. STE
-  Rule 1.8 requires a technical noun to be approved in the subject field, and this file is that
-  approval.
+- **Approved** in the STE dictionary, and used with its approved meaning. Nothing further is required, and the entry fixes the word against a neighbouring one rather than asking for permission.
+- **Reserved** as a technical noun or a technical verb, **in a category the entry names**. An STE noun category is reserved under STE Rule 1.5 where the dictionary omits the word, and under STE Rule 1.6 where it lists and refuses it. An STE verb category is reserved under STE Rule 1.12. An ETE category is reserved under the ete-declares-its-own-categories rule. STE Rule 1.8 requires a technical noun to be approved in the subject field, and this file is that approval.
 
-**A reserved word's entry states what the STE dictionary says about it.** The word is absent from
-the dictionary. Or the dictionary refuses it and gives an alternative. Or the dictionary approves it
-with a meaning Waytide does not use. The last of the three is governed by the
-ete-fixes-the-meaning-of-a-word-in-its-category rule, and it is the most expensive of them.
+**A reserved word's entry states what the STE dictionary says about it.** The word is absent from the dictionary. Or the dictionary refuses it and gives an alternative. Or the dictionary approves it with a meaning Waytide does not use. The last of the three is governed by the ete-fixes-the-meaning-of-a-word-in-its-category rule, and it is the most expensive of them.
 
-**The sequence for reserving a word is the a-word-is-reserved-in-six-steps rule**, in the
-`language` package's `ete/` directory.
+**The sequence for reserving a word is the a-word-is-reserved-in-six-steps rule**, in the `language` package's `ete/` directory.
 
-**Silence means different things in the two kinds of entry.** A **definition** with no STE note
-names a term absent from the STE dictionary, and reserves it. A definition exists to name a term,
-and a term names something in the subject field. A **substitution's Use word** with no STE note is
-**ordinary vocabulary**, which is not reserved and not rewritten. See the `language` package's
-ordinary-vocabulary-is-not-reserved-and-not-rewritten rule, and its
-waytide-keeps-its-word-where-the-ste-word-means-something-else rule.
+**Silence means different things in the two kinds of entry.** A **definition** with no STE note names a term absent from the STE dictionary, and reserves it. A definition exists to name a term, and a term names something in the subject field. A **substitution's Use word** with no STE note is **ordinary vocabulary**, which is not reserved and not rewritten. See the `language` package's ordinary-vocabulary-is-not-reserved-and-not-rewritten rule, and its waytide-keeps-its-word-where-the-ste-word-means-something-else rule.
 
 ## The one-liner
 
@@ -38,21 +22,21 @@ waytide-keeps-its-word-where-the-ste-word-means-something-else rule.
 | Term | Role | Meaning |
 |---|---|---|
 | **Design By Efferent** / **DBE** | the methodology | The name of the whole approach these rules, this lexicon, and the loop describe. A **design** discipline (tests drive design, not "development"), driven **by the efferent** — the use-site view. A variant *of* TDD (tests are the vehicle). The name foregrounds what makes it distinct: design driven from the efferent reference. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.** |
-| **loop** | the cycle | The DBE cycle — a *distributed* OODA loop (Boyd): the AI **observes** and **acts** (mechanized), the human **orients** and **decides** at the gates. Orientation — design judgment — is the irreplaceable phase, kept with the human. (See "The loop, as a distributed OODA cycle".) **STE: `LOOP (n)` is approved, meaning *a circular shape made in a flexible material*, which is not this. `loop (v)` is not approved and gives LOOP (n). Technical noun, ETE engineering, design, process, and method, with its meaning fixed here per the ete-fixes-the-meaning rule.** |
-| **cycle** | the unit of the loop | **One traversal of the loop**: a hinge surfaced, decided, and acted on. It is the unit a loop record is written in — one section per cycle, carrying that cycle's hinge, the options put at the gate, and the decision. See "cycle is scoped by what precedes it". **STE: `CYCLE (n)` is approved, meaning *one complete sequence of operation*, which names a machine's repetition rather than a design cycle. `cycle (v)` is not approved and gives CYCLE (n). Technical noun, ETE engineering, design, process, and method, with its meaning fixed here per the ete-fixes-the-meaning rule.** |
+| **loop** | the cycle | The DBE cycle — a *distributed* OODA loop (Boyd): the AI **observes** and **acts** (mechanized), the human **orients** and **decides** at the gates. Orientation — design judgment — is the irreplaceable phase, kept with the human. **STE: `LOOP (n)` is approved, meaning *a circular shape made in a flexible material*, which is not this. `loop (v)` is not approved and gives LOOP (n). Technical noun, ETE engineering, design, process, and method, with its meaning fixed here per the ete-fixes-the-meaning rule.** |
+| **cycle** | the unit of the loop | **One traversal of the loop**: a hinge surfaced, decided, and acted on. It is the unit a loop record is written in — one section per cycle, carrying that cycle's hinge, the options put at the gate, and the decision. **STE: `CYCLE (n)` is approved, meaning *one complete sequence of operation*, which names a machine's repetition rather than a design cycle. `cycle (v)` is not approved and gives CYCLE (n). Technical noun, ETE engineering, design, process, and method, with its meaning fixed here per the ete-fixes-the-meaning rule.** |
 | **hinge** | the object | A decision the design turns on — one that is **subtle** *and* **load-bearing**. Where the human's judgment belongs. **STE: absent from the STE dictionary as a noun. The STE dictionary lists `hinge (v)` and gives TURN for it. Waytide does not use the verb. Technical noun, ETE engineering, design, process, and method.** |
 | **attended** / **unattended** | the human's level of participation | Whether the loop **stops** at each hinge for the engineer (attended, the default) or the agent decides each hinge and generates through (unattended). Chosen at a feature's or experiment's start and held for its duration. **DBE is in effect either way** — the cradle, the efferent-first actuation, and the solubility standard hold in the two. Only the stopping changes. A batch-size trade: attention spent continuously against rework paid at the end. **STE: absent from the STE dictionary. Technical adjectives, ETE human-computer interaction.** |
-| **gate** | the mechanism | Where the loop stops and responsibility transfers to the human. The interrupt. The loop *waits* at a gate, and `gate` is a noun and never a verb. See `foundation`'s vocabulary for **transfer**, which is a verb and never a noun. **STE: absent from the STE dictionary in this sense. The standard lists `gate` in category 5 as an airport gate. Technical noun, ETE engineering, design, process, and method.** |
+| **gate** | the mechanism | Where the loop stops and responsibility transfers to the human. The interrupt. The loop *waits* at a gate, and `gate` is a noun and never a verb. It is the mirror of **transfer**, which is a verb and never a noun. **STE: absent from the STE dictionary in this sense. The standard lists `gate` in category 5 as an airport gate. Technical noun, ETE engineering, design, process, and method.** |
 | **deliberation** | the human's act | What the human does at a gate: weighs the hinge and decides. *Deliberate* = carefully weighed **and** intentional — the opposite of the AI's averaging. **STE: absent from the STE dictionary. Technical noun, ETE deliberation and speech.** |
 | **code generation** | what the agent produces between hinges | The code the agent writes straight through, without stopping. The complement of **deliberation**, which is what the human does at a gate, and the substance of what is **mechanical**. `product generation` in the `versioning` vocabulary is an unrelated term. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.** |
 | **mechanical** / **mechanics** | the complement | Everything that isn't a hinge — the AI generates it straight through. **STE: `MECHANICAL (adj)` is approved, meaning *related to or operated with a mechanism*, which is not this. Technical noun and technical adjective, ETE engineering, design, process, and method, with its meaning fixed here per the ete-fixes-the-meaning rule.** |
 | **subtle** (vs **crude**) | first mark of a hinge | The decision takes design judgment that isn't written in the code or tests — it lives in the person. Crude = a tool/pattern/answer you can read off the artifacts. (Per Bellware's subtle/crude-knowledge distinction: https://madabout.software/articles/subtle-knowledge-crude-knowledge/) **STE: absent from the STE dictionary. Technical adjective, ETE engineering, design, process, and method.** |
 | **cradle** | the constraint | The efferent test, held during code generation — it holds the implementation in position without gripping it rigid, steering toward solubility. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.** |
-| **efferent** | the perspective | Designing a unit from the use site (see the `language` vocabulary — the efferent term). DBE is the method built on designing from this view: the test is the first efferent reference, the interface designed from the efferent side. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.** |
-| **actuation** | the act | The invocation of the unit under test — the first efferent reference (see the `language` vocabulary — the actuation term). In DBE it is written before any implementation, forcing the interface to be designed from the use site, and is the first and highest-leverage gate. **STE: not approved. The STE dictionary gives OPERATION, which names the running of a thing rather than its invocation from a use site. Technical noun, ETE engineering, design, process, and method.** |
+| **efferent** | the perspective | Designing a unit from the use site. DBE is the method built on designing from this view: the test is the first efferent reference, the interface designed from the efferent side. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.** |
+| **actuation** | the act | The invocation of the unit under test — the first efferent reference. In DBE it is written before any implementation, forcing the interface to be designed from the use site, and is the first and highest-leverage gate. **STE: not approved. The STE dictionary gives OPERATION, which names the running of a thing rather than its invocation from a use site. Technical noun, ETE engineering, design, process, and method.** |
 | **observation** | the act of reading the outcome | What the test observes about the outcome of the actuation. An **assertion** is the mechanism by which an observation is implemented, not the thing itself. **STE: absent from the STE dictionary. `observe (v)` is not approved and gives MONITOR (v), which names watching rather than reading a result. Technical noun, ETE engineering, design, process, and method.** |
 | **load-bearing** | second mark of a hinge | Other work rests on the decision, so a wrong one spreads and sticks: cheap to fix now, costly later. **STE: absent from the STE dictionary. Technical adjective, ETE engineering, design, process, and method.** |
-| **solubility** | the quality | The general design-quality term (see the `language` package's solubility rule): how readily a unit dissolves into the reader's understanding. **In DBE it is the focus of the actuation hinge.** The particular expression of solubility is judged from the use site, which is the **efferent** view. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.** |
+| **solubility** | the quality | The general design-quality term: how readily a unit dissolves into the reader's understanding. **In DBE it is the focus of the actuation hinge.** The particular expression of solubility is judged from the use site, which is the **efferent** view. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.** |
 | **mean-bias** | the AI's failure mode | The AI's pull toward the average of the code it has seen — most of which is poorly designed. It acts on the human too: a single AI proposal put up for approval drags the human's judgment down toward that average. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.** |
 
 
@@ -70,23 +54,15 @@ The first result says *why there are options*. The second says *why the options 
 
 ## "Cycle" is scoped by what precedes it
 
-The word names three nested things, and **the word before it says which**. This is deliberate,
-and it is the one place this vocabulary lets a term carry more than one meaning:
+The word names three nested things, and **the word before it says which**. This is deliberate, and it is the one place this vocabulary lets a term carry more than one meaning:
 
-- **a cycle** — one traversal of the loop: a hinge surfaced, decided, acted on. The unit a
-  loop record is written in.
-- **the hinge cycle** — the five hinges in order, actuation through naming, for one outcome's
-  initial implementation (see the hinge-cycle rule). A hinge cycle is five cycles.
-- **the DBE cycle** — the loop itself, the whole distributed OODA cycle. Interchangeable with
-  **the loop**, which is the preferred term for it.
+- **a cycle** — one traversal of the loop: a hinge surfaced, decided, acted on. The unit a loop record is written in.
+- **the hinge cycle** — the five hinges in order, actuation through naming, for one outcome's initial implementation. A hinge cycle is five cycles.
+- **the DBE cycle** — the loop itself, the whole distributed OODA cycle. Interchangeable with **the loop**, which is the preferred term for it.
 
-**Bare "cycle" is always the smallest of the three.** The larger two are never written without
-their qualifier, so an unqualified cycle is one traversal and nothing else.
+**Bare "cycle" is always the smallest of the three.** The larger two are never written without their qualifier, so an unqualified cycle is one traversal and nothing else.
 
-**Why one word rather than three.** The three are the same shape at different scales — a
-traversal, a sequence of traversals for one outcome, and the whole. Naming them with unrelated
-words would hide that they nest. The qualifier carries the scale at the cost of a word. The alternative considered was to reserve "cycle" for the traversal and rename the other two. That
-is more edits for a distinction the qualifier already draws.
+**Why one word rather than three.** The three are the same shape at different scales — a traversal, a sequence of traversals for one outcome, and the whole. Naming them with unrelated words would hide that they nest. The qualifier carries the scale at the cost of a word. The alternative considered was to reserve "cycle" for the traversal and rename the other two. That is more edits for a distinction the qualifier already draws.
 
 ## "Load-bearing", explained
 
@@ -126,23 +102,15 @@ Together these give the **asymmetry that justifies the gate**. A load-bearing de
 
 **Implicit guidance = mechanical.** Boyd's loop has a fast path — *implicit guidance and control* — where action flows straight from orientation, bypassing explicit Decide. That is exactly **mechanical** code generation: once orientation is settled (the cradle set, solubility clear), the AI generates straight through. The **gate** — an explicit Decide — fires only at a **hinge**.
 
-**The four phase names are reserved, as nouns and as verbs.** `Observe`, `Orient`, `Decide`, and
-`Act` are John Boyd's words, quoted rather than coined. Waytide writes the noun in capitals for the
-phase and the verb in lower case for the act — *the AI observes and acts*. **The two forms are
-reserved**, settled 2026-08-09.
+**The four phase names are reserved, as nouns and as verbs.** `Observe`, `Orient`, `Decide`, and `Act` are John Boyd's words, quoted rather than coined. Waytide writes the noun in capitals for the phase and the verb in lower case for the act — *the AI observes and acts*. **The two forms are reserved**, settled 2026-08-09.
 
-**The STE dictionary lists all four as verbs and names a replacement for each.** It gives MONITOR
-for `observe`, POINT for `orient`, and SELECT for `decide`. For `act` it gives the guidance to
-use an accurate verb. None of the four nouns is in the STE dictionary. **Waytide keeps the two forms**, because
-replacing the verb would break the quotation and cost the reader Boyd's reference. See the
-`language` package's waytide-keeps-its-word-where-the-ste-word-means-something-else rule.
+**The STE dictionary lists all four as verbs and names a replacement for each.** It gives MONITOR for `observe`, POINT for `orient`, and SELECT for `decide`. For `act` it gives the guidance to use an accurate verb. None of the four nouns is in the STE dictionary. **Waytide keeps the two forms**, because replacing the verb would break the quotation and cost the reader Boyd's reference. See the `language` package's waytide-keeps-its-word-where-the-ste-word-means-something-else rule.
 
 **What does not transfer.** OODA is best known for its *adversarial, tempo* use — cycle faster than an opponent, get "inside" their loop, collapse their orientation. There is no adversary in DBE. Speed-as-weapon does not apply, and importing it would mislead. What transfers is the **structure** — the four phases and the primacy of Orient — not the **contest**.
 
 ## Substitutions
 
-A word not to write, and the word to write instead. When the impulse is a word in the
-**Don't use** column, write the **Use** term.
+A word not to write, and the word to write instead. When the impulse is a word in the **Don't use** column, write the **Use** term.
 
 | Use | Don't use | Meaning |
 |---|---|---|
@@ -155,8 +123,7 @@ A word not to write, and the word to write instead. When the impulse is a word i
 
 ## Discontinuations
 
-A word removed from use with nothing in its place. **This is not a substitution.** A substitution
-names two words. A discontinuation names one, because the concept went rather than the name.
+A word removed from use with nothing in its place. **This is not a substitution.** A substitution names two words. A discontinuation names one, because the concept went rather than the name.
 
 - **discriminator** — there is no test-noun. The test is just "is this a hinge?"
 - **capability-independent** — state it plainly. Subtlety is about the design, not the model.
@@ -215,3 +182,4 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 1:29:25 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 1:38:29 PM PT
 Changed by Scott Bellware on Fri Aug 14 2026 at 2:06:30 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 9:41:07 PM PT
+Changed by Scott Bellware on Mon Aug 24 2026 at 11:22:43 PM PT
