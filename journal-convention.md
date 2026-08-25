@@ -20,7 +20,9 @@
 
 **An entry carries the provenance footer**, like every other working-state artifact. See the foundation package's working-state-artifacts-carry-a-provenance-footer rule. The footer names who wrote it, which is what a journal kept by more than one writer needs.
 
-**An entry carries an `Authored by` line and no `Changed by` line.** It is a historical record, and a historical record is left as written. What the writer thought on a Tuesday is not corrected on the Thursday they change their mind. The later thought is a later entry. The one exception is disclosure, which the foundation package's disclosure rule governs.
+**An entry carries an `Authored by` line and no `Changed by` line.** It is a historical record, and a historical record is left as written. What the writer thought on a Tuesday is not corrected on the Thursday they change their mind. The later thought is a later entry.
+
+**Two things reach an entry that exists, and the footer stays as it is for both.** Disclosure, which the foundation package's disclosure rule governs, and a change the **writer** directs to their own entry, which the an-entry-is-the-writers-words rule governs. Each is recorded in the decision log rather than in the entry, which is what keeps the footer to one line and the entry reading as what was written.
 
 **The journal is committed with the project.** It is not ignored and it is not kept outside the repository. A second writer on the project reads it, which is what makes it a record rather than a private note.
 
@@ -75,3 +77,4 @@ Changed by Scott Bellware on Tue Aug 18 2026 at 12:18:34 AM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 12:29:06 AM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 12:31:05 PM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 2:47:19 PM PT
+Changed by Scott Bellware on Tue Aug 25 2026 at 11:29:39 AM PT
