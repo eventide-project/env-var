@@ -5,7 +5,9 @@ An **implementation record** pairs with a one-line entry in `waytide/local/logs/
 **The concluding entry takes one of two forms**, and which one is not a matter of taste. It is decided by whether the record itself is on `master`.
 
 - **Merged — the entry is a summary marker.** An affirmed experiment merges into its upstream branch, and a completed feature integrates. The record travels with it, so `master` holds the substance already. The entry names the record and its state and stops there.
-- **Not merged — the entry carries the substance.** A refuted, inconclusive, abandoned, or superseded experiment is never merged, and neither is an abandoned or superseded feature. The entry states the question or the intent, the verdict or the outcome, and what was found. The log is then the only durable trace on `master`.
+- **Not merged — the entry carries the finding, and only where there is one.** A refuted, inconclusive, abandoned, or superseded experiment is never merged, and neither is an abandoned or superseded feature. The log is then the only durable trace on `master`.
+  - **An experiment reached a verdict, and the verdict is the finding.** The entry states the question, the verdict, and what was found. That is knowledge the project has, produced by the run, and it survives the branch.
+  - **Abandoned work reached no verdict — it stopped.** The entry states the intent, that it was abandoned, and the reasoning given for stopping. It does **not** reproduce the plan, the increments, or the design the work produced. See the the-log-never-says-undone-work-was-done rule, which states why a careful tense is not enough.
 
 ## Why an unmerged record is not covered by git
 
@@ -43,7 +45,7 @@ Related:
 
 - the implementations-convention — the record, the two kinds, and the state words each takes
 - the implementation-lifecycle rule — the merge, and the branch deletion that makes an unmerged record unreachable
-- the direction-and-sequencing-artifacts-take-a-log-entry rule — the same shape for an idea, which is never on a branch that is deleted and so has no equivalent fork
+- the an-idea-takes-a-log-entry rule — the same shape for an idea, which is never on a branch that is deleted and so has no equivalent fork
 - the decision-log-convention — the entry's form, and the general trigger this makes specific
 
 ---
@@ -51,3 +53,4 @@ Related:
 Authored by Scott Bellware on Sun Aug 16 2026 at 3:12:15 AM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT
+Changed by Scott Bellware on Tue Aug 25 2026 at 10:59:12 AM PT

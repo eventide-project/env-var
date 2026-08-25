@@ -7,7 +7,7 @@
 **Two SHA columns follow the handle: the commit that created the record, and the last to touch it.** They are standing columns rather than chosen ones.
 
 ```
-|              | created   | changed   | aspiration                        | state  |
+|              | created   | changed   | idea                              | state  |
 |--------------|-----------|-----------|-----------------------------------|--------|
 | `2026-08-10` | `f0b7769` | `e137863` | A Generalized Description         | Active |
 | `2026-08-23` | `376e64a` | `376e64a` | Waytide for content and web       | Open   |
@@ -51,3 +51,4 @@ Related:
 Authored by Scott Bellware on Sun Aug 23 2026 at 12:22:25 AM PT
 Changed by Scott Bellware on Sun Aug 23 2026 at 1:07:00 AM PT
 Changed by Scott Bellware on Mon Aug 24 2026 at 11:04:26 PM PT
+Changed by Scott Bellware on Tue Aug 25 2026 at 10:52:18 AM PT

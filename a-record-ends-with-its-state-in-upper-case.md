@@ -8,11 +8,11 @@ Where a record carries a canonical `**State:**` line, its **filename** ends with
 2026-08-06T04-32-50Z-ooda-mode-COMPLETED.md
 ```
 
-**It reaches the four records that carry a state line** — an experiment record, a feature record, a direction artifact, and a sequencing artifact. Each convention fixes its own words, and this rule fixes only where the word is rendered.
+**It reaches every record that carries a state line** — an experiment record, a feature record, and an idea. Each convention fixes its own words, and this rule fixes only where the word is rendered.
 
 **A record with no state line takes no suffix**, which now reaches an experiment record and a feature record alone. Absence is the in-progress state in those two conventions, and the session-start notice is what reports them as open, so a name carrying no suffix is answered elsewhere.
 
-**A direction artifact and a sequencing artifact always carry a suffix.** Absence stopped being a state for them on 2026-08-16, when **Active** was added — precisely because this rule moved the state into the filename, where a missing suffix and an oversight look the same. That asymmetry is deliberate: the two records nothing reports are the two that must say so in their own names.
+**An idea always carries a suffix.** Absence stopped being a state for it on 2026-08-16, when **Active** was added — precisely because this rule moved the state into the filename, where a missing suffix and an oversight look the same. That asymmetry is deliberate: the record nothing reports is the one that must say so in its own name. **An observation's suffix is always `-STATED`**, since that is its one state.
 
 **The file's contents are unchanged.** The state is the `**State:**` line and nothing else, and the file still ends with its provenance footer. The suffix was appended to the contents until 2026-08-16, which put the same value in two places inside one artifact for no reader who was asking for it there.
 
@@ -44,7 +44,7 @@ Related:
 - the ideas-convention — the other record that carries a state line, and which carries one from the moment it is written
 - the file-names rule — the ISO-8601-UTC prefix and the lower-case name this takes an exception to
 - the rules-convention — referencing by name rather than path, and the reconciliation a rename obliges
-- the direction-and-sequencing-artifacts-take-a-log-entry rule — the log entry a state change also takes
+- the an-idea-takes-a-log-entry rule — the log entry a state change also takes
 
 ---
 
