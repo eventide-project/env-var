@@ -19,9 +19,7 @@ Related:
 
 - the record-rule-authorship-in-a-footer rule — the footer's format and the rule-file case
 - the decision-log-convention — the exempt one-line log
-- the artifact conventions that reference this one — implementations-convention,
-  ideas-convention, observations-convention, deferred-queue-convention, work-sessions-convention,
-  and DBE's loop-records
+- the artifact conventions that reference this one — implementations-convention, ideas-convention, observations-convention, work-sessions-convention, and DBE's loop-records
 
 ---
 
@@ -38,3 +36,4 @@ Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 10:31:36 PM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 9:24:07 AM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT
+Changed by Scott Bellware on Mon Aug 24 2026 at 11:14:28 PM PT
