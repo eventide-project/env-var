@@ -8,20 +8,11 @@ Engineers gravitate toward recounting their exploits — "Fixed the parser", "Ad
 - **"is corrected"** for a defect. **"is clarified"** for a refactor or readability change.
 - **Omit the verb for a new item.** "Widget tests", not "Widget tests are added".
 - **Rename form:** "Widget, rather than sprocket".
-- **Package version form:** "Package version is increased from 1.1.1 to 1.2.0" — the
-  message states the current version and the next one, so the log line carries the
-  transition without a reader reaching for the package specification. "Increased" holds
-  even when a trailing segment resets, as it does here: what is increased is the version,
-  not each segment.
+- **Package version form:** "Package version is increased from 1.1.1 to 1.2.0" — the message states the current version and the next one, so the log line carries the transition without a reader reaching for the package specification. "Increased" holds even when a trailing segment resets, as it does here: what is increased is the version, not each segment.
 
-**The subject's length is the commit-message-widths rule's**, which caps it at 50 characters and
-wraps the body at 72. This rule carried a *no 50-character limit* policy until 2026-08-18,
-licensing a first line as long as it needed. That policy is discontinued and the cap replaced it
-the same day.
+**The subject's length is the commit-message-widths rule's**, which caps it at 50 characters and wraps the body at 72. This rule carried a *no 50-character limit* policy until 2026-08-18, licensing a first line as long as it needed. That policy is discontinued and the cap replaced it the same day.
 
-**The two rules pull against each other, and that is the point.** Naming the software and then its
-new state costs words a leading verb would not. Where the subject will not fit, the answer is to
-split the commit rather than to drop the subject and lead with a verb.
+**The two rules pull against each other, and that is the point.** Naming the software and then its new state costs words a leading verb would not. Where the subject will not fit, the answer is to split the commit rather than to drop the subject and lead with a verb.
 
 **Why:** the log records the history of the software. It is scanned rather than read. Leading with the changed thing rather than the engineer's action is truer to what the log is for, and easier to review. It is the Eventide house style, and it composes with the commit-wording rule — "Task 9 is done" already states the fact, software-first.
 
