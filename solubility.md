@@ -13,8 +13,7 @@ The word is used as a general quality of a design. It is judged **by the reader*
 Related:
 
 - the name-literally-not-by-analogy rule — which uses solubility as its criterion
-- the `design-by-efferent` package's vocabulary — the term's role inside a specific method, where
-  solubility is the focus of the actuation hinge
+- the `design-by-efferent` package's vocabulary — the term's role inside a specific method, where solubility is the focus of the actuation hinge
 
 ---
 

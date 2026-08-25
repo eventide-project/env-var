@@ -1,22 +1,12 @@
 # Waytide's prose conforms to the STE writing rules
 
-ASD-STE100 holds 53 writing rules in nine sections. They bind Waytide's prose, its rules, its
-records, its commit messages, and the agent's answers. This rule holds the ones Waytide breaks
-most, and it grows as more are found in use.
+ASD-STE100 holds 53 writing rules in nine sections. They bind Waytide's prose, its rules, its records, its commit messages, and the agent's answers. This rule holds the ones Waytide breaks most, and it grows as more are found in use.
 
-**This rule is part of Eventide Technical English, or ETE** — Waytide's implementation
-of the standard. See the waytide-keeps-its-word-where-the-ste-word-means-something-else rule beside
-it, which states what ETE is and the order its two parts decide in.
+**This rule is part of Eventide Technical English, or ETE** — Waytide's implementation of the standard. See the waytide-keeps-its-word-where-the-ste-word-means-something-else rule beside it, which states what ETE is and the order its two parts decide in.
 
-**Three rules beside those two carry ETE's departures from the standard.** The
-ete-declares-its-own-categories rule adds five categories of Waytide's own. The
-ete-fixes-the-meaning-of-a-word-in-its-category rule lets a reserved word take the meaning its
-entry gives. The ordinary-vocabulary-is-not-reserved-and-not-rewritten rule leaves the ordinary
-words alone. Each names the STE rule it contradicts.
+**Three rules beside those two carry ETE's departures from the standard.** The ete-declares-its-own-categories rule adds five categories of Waytide's own. The ete-fixes-the-meaning-of-a-word-in-its-category rule lets a reserved word take the meaning its entry gives. The ordinary-vocabulary-is-not-reserved-and-not-rewritten rule leaves the ordinary words alone. Each names the STE rule it contradicts.
 
-**A phrase passes two checks, in this order.** Waytide's own vocabulary decides first. The
-standard decides second. In the two phrases worked below, Waytide's vocabulary caught the word before
-the standard did.
+**A phrase passes two checks, in this order.** Waytide's own vocabulary decides first. The standard decides second. In the two phrases worked below, Waytide's vocabulary caught the word before the standard did.
 
 ## The writing rules
 
@@ -35,10 +25,8 @@ the standard did.
 
 ### `swept across 20 files`
 
-- **`swept`** — the `language` vocabulary discontinues `sweep` for `conform`. The STE dictionary
-  replaces `sweep (v)` with `SCAN`, which does not carry the meaning either.
-- **`across`** — `ACROSS (prep)` is approved only as *from one side to the other*. STE Rule 1.3
-  restricts a word to its approved meanings. Write `in`.
+- **`swept`** — the `language` vocabulary discontinues `sweep` for `conform`. The STE dictionary replaces `sweep (v)` with `SCAN`, which does not carry the meaning either.
+- **`across`** — `ACROSS (prep)` is approved only as *from one side to the other*. STE Rule 1.3 restricts a word to its approved meanings. Write `in`.
 - **`was swept`** — the passive with a known agent, against STE Rule 3.6.
 - **the semicolon** in the sentence that held it, against STE Rule 8.1.
 
@@ -48,30 +36,19 @@ After: `` `gate` is a technical noun. Its verb form is `wait`. Twenty files conf
 
 ### `The two checks green`
 
-- **`green`** — the `testing` vocabulary substitutes `verified`. The word is also absent from the
-  dictionary.
-- **`The two`** — `the two (adj)` is not approved. The STE dictionary gives `THE TWO (TN)`, as in
-  `ATTACH THE TWO ENDS`.
+- **`green`** — the `testing` vocabulary substitutes `verified`. The word is also absent from the dictionary.
+- **`The two`** — `the two (adj)` is not approved. The STE dictionary gives `THE TWO (TN)`, as in `ATTACH THE TWO ENDS`.
 - **No verb** — against STE Rule 4.2.
 
 Before: `The two checks green`
 
-After: `The two checks are verified.` Or, to say what happened rather than name a state:
-`The two checks found no defect.`
+After: `The two checks are verified.` Or, to say what happened rather than name a state: `The two checks found no defect.`
 
-**`checks` survives.** `CHECK (n)` is approved, as in `DO A CHECK OF THE …`. Only `check (v)` is
-not approved, and the STE dictionary gives `MAKE SURE` for it.
+**`checks` survives.** `CHECK (n)` is approved, as in `DO A CHECK OF THE …`. Only `check (v)` is not approved, and the STE dictionary gives `MAKE SURE` for it.
 
-**Why:** the writing rules are where the standard reaches every sentence, and the STE dictionary is
-where it reaches a word at a time. A writer who reads only the STE dictionary keeps writing long
-passive sentences out of approved words. Each rule is recorded here as it is met in use, beside
-the phrase that met it. That makes a rule findable by the shape of the mistake, not by its
-number.
+**Why:** the writing rules are where the standard reaches every sentence, and the STE dictionary is where it reaches a word at a time. A writer who reads only the STE dictionary keeps writing long passive sentences out of approved words. Each rule is recorded here as it is met in use, beside the phrase that met it. That makes a rule findable by the shape of the mistake, not by its number.
 
-**How to apply:** check a phrase against Waytide's vocabulary first, then against the STE dictionary,
-then against the rules above. Write the active voice. Write all the words. Use no semicolon. Keep
-a descriptive sentence to 25 words and a procedural sentence to 20. When a new rule is met in use,
-add it to the table and add the phrase that met it.
+**How to apply:** check a phrase against Waytide's vocabulary first, then against the STE dictionary, then against the rules above. Write the active voice. Write all the words. Use no semicolon. Keep a descriptive sentence to 25 words and a procedural sentence to 20. When a new rule is met in use, add it to the table and add the phrase that met it.
 
 Related:
 

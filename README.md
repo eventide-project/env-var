@@ -14,25 +14,14 @@ How language is used: precisely. A word is not a label applied to a thought afte
 - **expand-abbreviations-on-first-use**. Spell out an abbreviation the first time it appears (full term, abbreviation in parentheses). Don't use unexplained shorthand.
 - **an-answer-is-a-list-and-prose-must-justify-itself**. An answer to the engineer is a list, and each item states a fact rather than narrating — no describing a decision, no unasked-for reason, no characterizing the work. Prose is written only where the answer is a sentence or two. Reasoning whose steps depend on each other takes a numbered list rather than prose, since an unordered list asserts its items are parallel. Where an expansion would add something, the answer ends by offering one.
 
-**Eventide Technical English (ETE)** — Waytide's implementation of ASD-STE100 Simplified Technical
-English — is in `ete/`. Five rules:
+**Eventide Technical English (ETE)** — Waytide's implementation of ASD-STE100 Simplified Technical English — is in `ete/`. Five rules:
 
-- **waytide-prose-conforms-to-the-ste-writing-rules**. Waytide's prose is written to the STE writing
-  rules, which fix sentence length, paragraph length, active voice, and the rest.
-- **waytide-keeps-its-word-where-the-ste-word-means-something-else**. The order the two parts decide
-  in. The STE dictionary decides first, and Waytide keeps its own word where the approved word means
-  something else.
-- **a-word-is-reserved-in-six-steps**. The sequence a writer runs to reserve a word: look it up,
-  ask what it names, decide noun or verb, try an STE category, fall to an ETE category, write the
-  entry.
-- **ete-declares-its-own-categories**. ETE adds five technical noun and verb categories to the
-  standard's twenty-two and four. This contradicts STE Rule 1.5 and STE Rule 1.12, each of which
-  closes its list.
-- **ete-fixes-the-meaning-of-a-word-in-its-category**. A word reserved in an ETE category takes the
-  meaning its entry into the ETE gives it, whether the dictionary omits the word, refuses it, or
-  approves it with a different meaning. This contradicts STE Rule 1.3.
-- **ordinary-vocabulary-is-not-reserved-and-not-rewritten**. ETE conforms its terminology and does
-  not conform its ordinary vocabulary. This contradicts STE Rule 1.1.
+- **waytide-prose-conforms-to-the-ste-writing-rules**. Waytide's prose is written to the STE writing rules, which fix sentence length, paragraph length, active voice, and the rest.
+- **waytide-keeps-its-word-where-the-ste-word-means-something-else**. The order the two parts decide in. The STE dictionary decides first, and Waytide keeps its own word where the approved word means something else.
+- **a-word-is-reserved-in-six-steps**. The sequence a writer runs to reserve a word: look it up, ask what it names, decide noun or verb, try an STE category, fall to an ETE category, write the entry.
+- **ete-declares-its-own-categories**. ETE adds five technical noun and verb categories to the standard's twenty-two and four. This contradicts STE Rule 1.5 and STE Rule 1.12, each of which closes its list.
+- **ete-fixes-the-meaning-of-a-word-in-its-category**. A word reserved in an ETE category takes the meaning its entry into the ETE gives it, whether the dictionary omits the word, refuses it, or approves it with a different meaning. This contradicts STE Rule 1.3.
+- **ordinary-vocabulary-is-not-reserved-and-not-rewritten**. ETE conforms its terminology and does not conform its ordinary vocabulary. This contradicts STE Rule 1.1.
 
 **Its vocabulary** — the terms the package defines and the substitutions it enforces — lives in `vocabulary.md`:
 

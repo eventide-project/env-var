@@ -2,46 +2,27 @@
 
 The language package's vocabulary: the terms it defines and the word substitutions it enforces. Binding — use these terms and swaps in code, tests, rules, designs, commits, and prose.
 
-**Every word here is one of two things.** This holds for the terms below, and for the **Use**
-column of any substitutions table in this file.
+**Every word here is one of two things.** This holds for the terms below, and for the **Use** column of any substitutions table in this file.
 
-- **Approved** in the STE dictionary, and used with its approved meaning. Nothing further is required,
-  and the entry fixes the word against a neighbouring one rather than asking for permission.
-- **Reserved** as a technical noun or a technical verb, **in a category the entry names**. An STE
-  noun category is reserved under STE Rule 1.5 where the dictionary omits the word, and under STE
-  Rule 1.6 where it lists and refuses it. An STE verb category is reserved under STE Rule 1.12. An
-  ETE category is reserved under the ete-declares-its-own-categories rule. STE
-  Rule 1.8 requires a technical noun to be approved in the subject field, and this file is that
-  approval.
+- **Approved** in the STE dictionary, and used with its approved meaning. Nothing further is required, and the entry fixes the word against a neighbouring one rather than asking for permission.
+- **Reserved** as a technical noun or a technical verb, **in a category the entry names**. An STE noun category is reserved under STE Rule 1.5 where the dictionary omits the word, and under STE Rule 1.6 where it lists and refuses it. An STE verb category is reserved under STE Rule 1.12. An ETE category is reserved under the ete-declares-its-own-categories rule. STE Rule 1.8 requires a technical noun to be approved in the subject field, and this file is that approval.
 
-**A reserved word's entry states what the STE dictionary says about it.** The word is absent from
-the dictionary. Or the dictionary refuses it and gives an alternative. Or the dictionary approves it
-with a meaning Waytide does not use. The last of the three is governed by the
-ete-fixes-the-meaning-of-a-word-in-its-category rule, and it is the most expensive of them.
+**A reserved word's entry states what the STE dictionary says about it.** The word is absent from the dictionary. Or the dictionary refuses it and gives an alternative. Or the dictionary approves it with a meaning Waytide does not use. The last of the three is governed by the ete-fixes-the-meaning-of-a-word-in-its-category rule, and it is the most expensive of them.
 
-**The sequence for reserving a word is the a-word-is-reserved-in-six-steps rule**, in the
-`language` package's `ete/` directory.
+**The sequence for reserving a word is the a-word-is-reserved-in-six-steps rule**, in the `language` package's `ete/` directory.
 
-**Silence means different things in the two kinds of entry.** A **definition** with no STE note
-names a term absent from the STE dictionary, and reserves it. A definition exists to name a term,
-and a term names something in the subject field. A **substitution's Use word** with no STE note is
-**ordinary vocabulary**, which is not reserved and not rewritten. See the `language` package's
-ordinary-vocabulary-is-not-reserved-and-not-rewritten rule, and its
-waytide-keeps-its-word-where-the-ste-word-means-something-else rule.
+**Silence means different things in the two kinds of entry.** A **definition** with no STE note names a term absent from the STE dictionary, and reserves it. A definition exists to name a term, and a term names something in the subject field. A **substitution's Use word** with no STE note is **ordinary vocabulary**, which is not reserved and not rewritten. See the `language` package's ordinary-vocabulary-is-not-reserved-and-not-rewritten rule, and its waytide-keeps-its-word-where-the-ste-word-means-something-else rule.
 
 The *principles* that govern word selection stay as rules — `name-literally-not-by-analogy`, `no-slang`, `communicate-plainly-name-the-thing`, `language-is-precise-here`. This file holds the settled lexicon those principles produce.
 
 ## Terms
 
-- **solubility** — how readily a unit dissolves and disappears smoothly into the reader's cognition and understanding. It is cognitive, and the ideal is immediate comprehension with minimal interpretive work. That is knowledge at a glance. The design-quality a unit is judged against, and the quality the name-literally test serves. It is a **load-bearing methodological principle, not merely a term** — its full treatment is the standalone `solubility` rule. It is glossed here only as the vocabulary reference. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.**
+- **solubility** — how readily a unit dissolves and disappears smoothly into the reader's cognition and understanding. It is cognitive, and the ideal is immediate comprehension with minimal interpretive work. That is knowledge at a glance. The design-quality a unit is judged against, and the quality the name-literally test serves. It is a **load-bearing methodological principle, not merely a term**. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.**
 - **efferent** — the use-site perspective: the view that conducts outward from the unit doing the using to the unit being used. **`caller`, and its compounds `caller-side`, `caller-first`, and `caller's-eye`, are the common software-development patois for this view.** A general design-vocabulary term. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.**
 - **Eventide Technical English (ETE)** — Waytide's implementation of ASD-STE100 Simplified Technical English: the STE dictionary and the STE writing rules, with Waytide's reserved terms and its substitutions, in the precedence the `ete/` rules state. **`Say it in ETE` is the instruction to write that way**, and it differs from `say it in STE`, which asks for the raw standard — that one forbids `efferent`, `cradle`, `hinge`, and every other term Waytide reserved. The rules are in `waytide/system/language/ete/`. **STE: absent from the STE dictionary, and approved here as a technical noun in the official documents, standards, and guidelines category, per STE Rules 1.5 and 1.8.**
 - **actuation** — the invocation of a unit from its use site. **STE: not approved. The STE dictionary gives OPERATION, which names the running of a thing rather than its invocation from a use site. Technical noun, ETE engineering, design, process, and method.**
 - **preserve** — to keep something that already exists, rather than putting it there or serving it. A rule preserves a mindset. Clarity is preserved. **Waytide did not coin it.** It is the word structural design and software design already use, kept because the extant term says the thing exactly, which is what the language-is-precise-here rule asks for. **STE: not approved. The STE dictionary gives PRESERVATION, a technical noun for a maintenance procedure, which does not carry this. Technical verb, ETE engineering, design, process, and method.**
-- **moot** — no longer bearing on anything, because circumstances moved rather than because a
-  judgment was reached. A moot question is one whose answer would change nothing now. It is the
-  adjective for the condition the state word **Lapsed** names in a record. **STE: absent from the
-  STE dictionary. Technical adjective, ETE engineering, design, process, and method.**
+- **moot** — no longer bearing on anything, because circumstances moved rather than because a judgment was reached. A moot question is one whose answer would change nothing now. It is the adjective for the condition the state word **Lapsed** names in a record. **STE: absent from the STE dictionary. Technical adjective, ETE engineering, design, process, and method.**
 
 ## Substitutions
 
@@ -80,31 +61,12 @@ General, domain-less word substitutions. Each puts the literal term in place of 
 
 ### Finer distinctions
 
-- **cost** and **effect** are not in conflict, and the difference is whether a cost is being
-  claimed. **effect** replaces *what it costs* where a change's result is being named and nothing
-  establishes it as a loss — the row above it exists because presuming a cost is the error there.
-  **cost** is the right word where something is genuinely given up and the giving up is the point,
-  as it is in a stated trade. Ask whether the sentence is naming a result or naming what a choice
-  gave up.
-- **cut** is figurative in two senses, and each has its own substitution. As a **slice of scope**,
-  say **increment** — the row above. As **making a branch**, say **created** or **branched from**:
-  *this branch was created from `master`*, never *this branch was cut from `master`*. The
-  `foundation` implementation-lifecycle rule already writes *branched from*, so the literal term was in
-  use before the figure was noticed. The two senses share one word and nothing else, which is why
-  the table carries two rows rather than one. **Neither is a discontinuation** — a discontinuation
-  names one word and drops it, and each of these names a word to write instead.
-- **evaluate** and **examine** are both in this table and do different work. Examining is
-  inspecting a thing to understand it. Evaluating is setting it beside a criterion and reaching a
-  verdict. A forecast item is examined by reading it and evaluated by putting it against what
-  happened.
-- **`score` carries an approved meaning Waytide does not use**, which is the most expensive case a
-  substitution meets. `scored (adj)` is not approved, and the STE dictionary's `SCORE (TN)` is a
-  groove or a scratch in a surface — *if the bearing race is scored, replace it*. A reader who
-  meets the word believes they know it. So the substitution is not only a preference for the
-  better word. It removes a false reading the dictionary itself supplies.
+- **cost** and **effect** are not in conflict, and the difference is whether a cost is being claimed. **effect** replaces *what it costs* where a change's result is being named and nothing establishes it as a loss — the row above it exists because presuming a cost is the error there. **cost** is the right word where something is genuinely given up and the giving up is the point, as it is in a stated trade. Ask whether the sentence is naming a result or naming what a choice gave up.
+- **cut** is figurative in two senses, and each has its own substitution. As a **slice of scope**, say **increment** — the row above. As **making a branch**, say **created** or **branched from**: *this branch was created from `master`*, never *this branch was cut from `master`*. The `foundation` implementation-lifecycle rule already writes *branched from*, so the literal term was in use before the figure was noticed. The two senses share one word and nothing else, which is why the table carries two rows rather than one. **Neither is a discontinuation** — a discontinuation names one word and drops it, and each of these names a word to write instead.
+- **evaluate** and **examine** are both in this table and do different work. Examining is inspecting a thing to understand it. Evaluating is setting it beside a criterion and reaching a verdict. A forecast item is examined by reading it and evaluated by putting it against what happened.
+- **`score` carries an approved meaning Waytide does not use**, which is the most expensive case a substitution meets. `scored (adj)` is not approved, and the STE dictionary's `SCORE (TN)` is a groove or a scratch in a surface — *if the bearing race is scored, replace it*. A reader who meets the word believes they know it. So the substitution is not only a preference for the better word. It removes a false reading the dictionary itself supplies.
 - **mediates.** The canonical form is the bare verb — *`X` mediates `Y`*, not *`X` mediates for `Y`*. "wrap"/"wrapper" reads as a generic decorator and hides the relationship. "mediates" names it exactly — the object stands between a user and the thing it fronts, providing access to it.
-- **efferent** replaces the patois in every sense. The perspective is efferent, and so is the unit
-  doing the using. A method has efferents, and a design has an efferent view.
+- **efferent** replaces the patois in every sense. The perspective is efferent, and so is the unit doing the using. A method has efferents, and a design has an efferent view.
 
 - **obsolete** is the fallback, not the goal. Reach for the exact word when there is one:
   - a reference whose target moved is **unresolvable**
@@ -116,13 +78,7 @@ General, domain-less word substitutions. Each puts the literal term in place of 
 - **sent to** frames a call as sending a message with arguments — an argument is *sent to* the method that receives it. "initialized with" and "passed to" are looser, mechanism-flavored phrasings for the same thing.
 - **actuation** governs the invocation *noun*. "To call a method" in the pure-mechanism sense, and "call it X" meaning to *name* it, are different uses — not covered. Use "actuation shape" for its shape, and "use site" for where it is invoked.
 - **activate** names what actually happens — a system is brought into force. "Switch on" borrows a light switch, and the borrowed image is wrong in the way that matters. A switch is binary, instantaneous, and reversible by the same gesture. Activating a system is a set of arrangements that can be partly in place. The same holds for **deactivate** over "switch off". This is not a preference for the longer word — "activate" is the extant term for the act, and the figure displaced it.
-- **A reference to part of an external standard names that standard.** Waytide has rules of its own, so a bare *Rule 1.7* leaves a reader to work out which system it belongs to. The numbering gives them nothing to work it out from. **The same holds for the standard's
-  dictionary**, because every `vocabulary.md` in Waytide is an approved-word dictionary for its
-  package, so *the dictionary* names four things at once. Write the standard's name first —
-  **STE Rule 1.7**, **STE Rules 1.5 through 1.13**, **the STE dictionary** — in prose, records,
-  commits, and dialogue alike. This is a rule about ambiguity rather than about a figure of
-  speech: neither word is wrong, and the reference is still incomplete without the name. A Waytide
-  rule needs no such prefix, being referred to by its name.
+- **A reference to part of an external standard names that standard.** Waytide has rules of its own, so a bare *Rule 1.7* leaves a reader to work out which system it belongs to. The numbering gives them nothing to work it out from. **The same holds for the standard's dictionary**, because every `vocabulary.md` in Waytide is an approved-word dictionary for its package, so *the dictionary* names four things at once. Write the standard's name first — **STE Rule 1.7**, **STE Rules 1.5 through 1.13**, **the STE dictionary** — in prose, records, commits, and dialogue alike. This is a rule about ambiguity rather than about a figure of speech: neither word is wrong, and the reference is still incomplete without the name. A Waytide rule needs no such prefix, being referred to by its name.
 
 - **land** is a figure in more than one use. As a question — "does that land?" — say a direct question ("is that right?"), per the row above. It is also a figure as an effect taking hold, or a change being deployed: "what landed", "the change landed", "it landed on master". Say **what changed**, **what was affected**, or **took effect**.
 
@@ -174,3 +130,4 @@ Changed by Scott Bellware on Fri Aug 14 2026 at 1:47:50 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 9:47:45 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:32:18 PM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
+Changed by Scott Bellware on Mon Aug 24 2026 at 11:22:43 PM PT
