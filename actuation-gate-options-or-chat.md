@@ -14,34 +14,17 @@ The form is deliberate. It is the operationalization of the two results the gate
 
 ## A candidate varies what the use site states
 
-**That is the whole test.** Two actuations are distinct candidates when a reader at the use site
-sees different words. Where the use site reads the same either way, the two are one candidate, and
-offering the two of them pads the gate.
+**That is the whole test.** Two actuations are distinct candidates when a reader at the use site sees different words. Where the use site reads the same either way, the two are one candidate, and offering the two of them pads the gate.
 
-**An omitted argument is a candidate.** `upload.(file)` beside `upload.(file, retries: 3)` is a
-real pair. The first makes the retry policy the object's own and leaves every use site identical.
-The second makes every use site state the count.
+**An omitted argument is a candidate.** `upload.(file)` beside `upload.(file, retries: 3)` is a real pair. The first makes the retry policy the object's own and leaves every use site identical. The second makes every use site state the count.
 
-**Whether a value reaches the use site is the
-efferent decision.** So an absent parameter is a decision about the interface rather than the lack of
-one. This is the case most easily discarded, because the shorter shape reads as the other one with
-something missing.
+**Whether a value reaches the use site is the efferent decision.** So an absent parameter is a decision about the interface rather than the lack of one. This is the case most easily discarded, because the shorter shape reads as the other one with something missing.
 
-**A chained construction is not an actuation.** `Upload.build(retries: 3).(file)` constructs and
-actuates in one expression. The actuation in it is `upload.(file)`, with the constructed object
-bound to an explaining variable on its own line. Construction is the **controls** hinge's concern,
-so a construction offered here takes a decision out of the hinge that owns it. The chain also
-leaves an intermediate unbound, against the way every test file is written.
+**A chained construction is not an actuation.** `Upload.build(retries: 3).(file)` constructs and actuates in one expression. The actuation in it is `upload.(file)`, with the constructed object bound to an explaining variable on its own line. Construction is the **controls** hinge's concern, so a construction offered here takes a decision out of the hinge that owns it. The chain also leaves an intermediate unbound, against the way every test file is written.
 
-**A varied receiver is not a candidate.** `Upload.(file, retries: 3)` beside
-`upload.(file, retries: 3)` is one shape reached two ways. Which interface carries the operation is
-a real question, and this hinge does not ask it.
+**A varied receiver is not a candidate.** `Upload.(file, retries: 3)` beside `upload.(file, retries: 3)` is one shape reached two ways. Which interface carries the operation is a real question, and this hinge does not ask it.
 
-**Why the test is worth stating.** The rule already refuses a cosmetic variant, and an agent that
-could tell a cosmetic variant from a real one would not have produced one. A named test gives the
-agent something to apply: hold the receiver constant, and ask what the use site states. Without it
-the gate fails in both directions at once. Three shapes are offered where one decision exists, and the
-omitted-argument shape is discarded as no shape at all.
+**Why the test is worth stating.** The rule already refuses a cosmetic variant, and an agent that could tell a cosmetic variant from a real one would not have produced one. A named test gives the agent something to apply: hold the receiver constant, and ask what the use site states. Without it the gate fails in both directions at once. Three shapes are offered where one decision exists, and the omitted-argument shape is discarded as no shape at all.
 
 **Why:** The actuation is the cradle and the highest-leverage hinge (human-in-the-loop rule, step 1: "the AI may propose the actuation… asks rather than averaging"). Concrete alternatives make the deliberation tractable, and they make the human produce the answer. The mandatory free-text option keeps the human above the AI's mean when the right actuation is one the AI couldn't produce. Together they let the AI carry the proposing work without pulling the human's judgment down to the mean.
 

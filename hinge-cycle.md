@@ -14,8 +14,7 @@ The fifth hinge, **naming**, is **deferred to the feature's close**. Per the fir
 
 ## The five are named before the first one is put
 
-**Before the first hinge, the agent gives a brief account of all five.** What a hinge is, the five
-in order with one line each, and what the loop does between them:
+**Before the first hinge, the agent gives a brief account of all five.** What a hinge is, the five in order with one line each, and what the loop does between them:
 
 > The work runs through five hinges. A hinge is a decision the design turns on, and the loop stops
 > at each one for you.
@@ -29,21 +28,13 @@ in order with one line each, and what the loop does between them:
 > The first three build the test. The fourth writes the code. The fifth is settled at the close.
 > Everything between the hinges I generate without stopping.
 
-**It is given once**, when the loop starts on a piece of work — not at each cycle and not at each
-outcome. A passage repeated at every hinge stops being read, which is the failure the
-announce-waytide-at-session-start rule names about a permanent line.
+**It is given once**, when the loop starts on a piece of work — not at each cycle and not at each outcome. A passage repeated at every hinge stops being read, which is the failure the announce-waytide-at-session-start rule names about a permanent line.
 
-**It does not apply under unattended work**, where no hinge is put to the engineer at all. There
-the plan takes its place (see the attended-or-unattended-is-chosen-at-the-start rule).
+**It does not apply under unattended work**, where no hinge is put to the engineer at all. There the plan takes its place (see the attended-or-unattended-is-chosen-at-the-start rule).
 
-**It comes after the participation decision, not before it.** That decision names no hinge on purpose,
-because it is asked at a feature's or an experiment's start and the engineer has met nothing yet.
-This account is where they meet the five, and it sits immediately ahead of the first one.
+**It comes after the participation decision, not before it.** That decision names no hinge on purpose, because it is asked at a feature's or an experiment's start and the engineer has met nothing yet. This account is where they meet the five, and it sits immediately ahead of the first one.
 
-**Why:** the actuation hinge asks for a decision. An engineer answering it does not otherwise
-know that four more follow, what those cover, or what happens in between. Without the account they
-weigh the actuation as though it were the whole of what is being asked. Every question the
-account would have answered arrives at a later hinge instead. One at a time, in the middle of another decision. Six lines given once removes all of them.
+**Why:** the actuation hinge asks for a decision. An engineer answering it does not otherwise know that four more follow, what those cover, or what happens in between. Without the account they weigh the actuation as though it were the whole of what is being asked. Every question the account would have answered arrives at a later hinge instead. One at a time, in the middle of another decision. Six lines given once removes all of them.
 
 **How responsibility transfers at every hinge:** where there are genuinely distinct options, present them **as options**. Where there is one, present that one the same way. **In the two cases, always offer the free-text option** — the human dictating outright, or a chat to work out the answer. Never pass a hinge without the human's acceptance. Every hinge is presented through the selection UI, whose built-in **Other** answer *is* the free-text option — see the present-every-prompt rule.
 
