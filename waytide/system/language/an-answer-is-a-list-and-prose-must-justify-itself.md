@@ -15,7 +15,7 @@ An answer to the engineer is a **list**. Prose is not forbidden, and it is not t
 
 ## A list item states a fact. It does not narrate
 
-**Narration is the failure the list form does not by itself prevent.** An answer can be a correct list of items every one of which describes the work rather than stating what is true. It reads as compliance while being the thing the rule exists to stop.
+**Narration is the failure the list form does not by itself prevent.** An answer can be a correct list, every list item of which describes the work rather than stating what is true. It reads as compliance while being the thing the rule exists to stop.
 
 **These are narration, and none of them belongs in an answer:**
 
@@ -26,13 +26,13 @@ An answer to the engineer is a **list**. Prose is not forbidden, and it is not t
 
 **The fact is what is left when those are removed.** *The rule names two stricter forms: the line on every list answer, or above a length threshold. Neither is adopted.* That is the same content with nothing said about it.
 
-**The test:** could the item be false? A fact can be. *The check is green*, *nine of thirteen scripts lack it*, *the branch is deleted* are all falsifiable. *This keeps the record honest* is not — it is a comment on a fact rather than a fact, and it is where narration hides.
+**The test:** could the list item be false? A fact can be. *The check is green*, *nine of thirteen scripts lack it*, *the branch is deleted* are all falsifiable. *This keeps the record honest* is not — it is a comment on a fact rather than a fact, and it is where narration hides.
 
 **Why the reasoning still belongs somewhere.** A rule, a record, and a commit message all carry why. Each is written to be read as a document and its reader came for the reasoning. **An answer is not one of those.** The engineer asked something, and reasoning they did not ask for is the agent taking their turn to think out loud. Where the reasoning is wanted, it is asked for — which is what the expansion line is for.
 
 ## Dependent reasoning takes an ordered list, not prose
 
-**An unordered list asserts that its items are parallel and independent.** Where a point follows *from* the point above it, that assertion is false, and the reader is left to recover a relationship the form denied.
+**An unordered list asserts that its list items are parallel and independent.** Where a point follows *from* the point above it, that assertion is false, and the reader is left to recover a relationship the form denied.
 
 **A numbered list asserts sequence.** So reasoning whose steps rest on each other is written `1.`, `2.`, `3.` — the dependence is carried by the form rather than escaping it.
 
@@ -59,9 +59,9 @@ For more detail than bullet points, ask for an expanded answer.
 
 **Why:** an agent produces prose without choosing to, and prose is where padding, editorializing, and unattributed back-references hide. A list forces each claim onto its own line, where a claim with nothing in it is visible as a line with nothing in it. The engineer this was settled with had stated the preference three times in a week before it was written down. A preference restated is a rule that has not been written, because every restatement is evidence the agent does not hold it between sessions. Inverting the burden, rather than expressing a preference, is what makes the difference survive a session boundary.
 
-**How to apply:** answer in a list. State facts in it. Remove any item that describes a decision or explains an unasked-for reason. Remove any item that characterizes the work, or reports what the agent did to be sure.
+**How to apply:** answer in a list. State facts in it. Remove any list item that describes a decision or explains an unasked-for reason. Remove any list item that characterizes the work, or reports what the agent did to be sure.
 
-Test each survivor by whether it could be false. Number the list where its items depend on each other, and leave it unordered where they do not.
+Test each survivor by whether it could be false. Number the list where its list items depend on each other, and leave it unordered where they do not.
 
 Write prose only where the answer is a sentence or two. Do not reach for it because an explanation was requested, or because the reasoning is connected. The first is not a justification, and the second is served by numbering. Where the answer left something out, end it with `For more detail than bullet points, ask for an expanded answer.` on its own line, and omit that line where the answer says all it has.
 
@@ -70,20 +70,3 @@ Related:
 - the communicate-plainly-name-the-thing rule — which governs the words inside the list and reaches conversation the same way this does
 - the language-is-precise-here premise
 - `foundation`'s present-every-prompt-through-askuserquestion rule — the selection interface, which is where a **question** goes — this rule governs an **answer**, and the two do not overlap
-
----
-
-Authored by Scott Bellware on Fri Aug 7 2026 at 12:55:09 PM PT
-Changed by Scott Bellware on Fri Aug 7 2026 at 1:02:58 PM PT
-Changed by Scott Bellware on Fri Aug 7 2026 at 1:10:48 PM PT
-Changed by Scott Bellware on Fri Aug 7 2026 at 1:28:11 PM PT
-Changed by Scott Bellware on Sun Aug 9 2026 at 6:06:52 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 8:18:59 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:43:08 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 10:48:55 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 1:12:44 AM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT

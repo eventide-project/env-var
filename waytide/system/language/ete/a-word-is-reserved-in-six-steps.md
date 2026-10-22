@@ -38,9 +38,3 @@ Related:
 - the waytide-keeps-its-word-where-the-ste-word-means-something-else rule — the order the dictionary and Waytide's vocabulary decide in
 - the foundation vocabulary-convention — which vocabulary the entry is written in
 - the foundation present-every-prompt-through-askuserquestion rule — how the decision is put
-
----
-
-Authored by Scott Bellware on Thu Aug 13 2026 at 12:52:39 PM PT
-Changed by Scott Bellware on Thu Aug 13 2026 at 1:08:26 PM PT
-Changed by Scott Bellware on Fri Aug 14 2026 at 12:11:32 PM PT

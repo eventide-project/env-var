@@ -16,9 +16,3 @@ Related:
 
 - the communicate-plainly-name-the-thing rule
 - the language-is-precise-here rule
-
----
-
-Authored by Scott Bellware on Wed Jul 22 2026 at 10 AM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT

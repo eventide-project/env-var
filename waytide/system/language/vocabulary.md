@@ -57,6 +57,7 @@ General, domain-less word substitutions. Each puts the literal term in place of 
 | **efferent** | "caller" | the use-site perspective, and the unit doing the using — see below |
 | **actuation** | "the call" (the call shape, the call site) | the invocation of a unit — the first efferent reference — see below |
 | **activate** / **deactivate** | "switch on" / "switch off" | bringing a system or mechanism into force, or taking it out of force — see below. **STE: `ACTIVATE (v)` is approved, and used with its approved meaning** |
+| **name who did it, and how** — *I ran `git mv`*, *the agent edited the Tags lines*, *you renamed it*, and where the contrast matters, *directly, not by the installer* | "by hand" | work done by a party and a means that are both named. The figure describes the work by a body part and leaves the actor out: asked *whose hand?*, it has no answer, and an agent has no hand at all. **STE: this row replaces a phrase rather than reserving a word, so no category applies** |
 | **the standard's name, then the part** — *STE Rule 1.7*, *the STE dictionary* | "Rule 1.7", "the dictionary" | a reference to any part of an external standard — see below. **STE: this row fixes a citation form rather than reserving a word, so no category applies** |
 
 ### Finer distinctions
@@ -131,3 +132,4 @@ Changed by Scott Bellware on Mon Aug 17 2026 at 9:47:45 PM PT
 Changed by Scott Bellware on Mon Aug 17 2026 at 11:32:18 PM PT
 Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
 Changed by Scott Bellware on Mon Aug 24 2026 at 11:22:43 PM PT
+Changed by Scott Bellware on Wed Oct 21 2026 at 2:57:52 PM PT
