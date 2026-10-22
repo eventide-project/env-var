@@ -39,16 +39,3 @@ Related:
 
 - the rules-convention and the reconcile entry in this package's vocabulary — where the standing rule is stated
 - the work-sessions-convention — the title format, an instance of the standing rule
-
----
-
-Authored by Scott Bellware on Tue Aug 4 2026 at 10:12:44 AM PT
-Changed by Scott Bellware on Sun Aug 9 2026 at 6:06:52 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 8:18:59 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 10:43:08 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 9:24:07 AM PT

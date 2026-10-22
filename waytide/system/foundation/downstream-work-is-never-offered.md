@@ -35,8 +35,3 @@ Related:
 - the implementation-lifecycle rule — the agent never raising the end of an experiment, the same failure through a different act
 - the announce-waytide-at-session-start rule — the notice, which is the harness's and reports only the project the session is in
 - this package's README — the refresh procedure itself, which is run on the engineer's instruction
-
----
-
-Authored by Scott Bellware on Sun Aug 16 2026 at 12:37:43 AM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT

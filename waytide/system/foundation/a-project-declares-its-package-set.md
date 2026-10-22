@@ -36,7 +36,7 @@
 
 ## What is printed, and where
 
-**The active packages are printed in the startup content the agent prints, after the category line.** They are not printed in the session-start notice. The notice is a `systemMessage` the harness displays as plain text, and the startup content is the agent's own text, which renders markdown — so the emphasis below is available in the one place and not in the other.
+**The active packages are printed by the agent, at the head of the response that carries the rule read.** They are not printed in the session-start notice or in the startup display. Those are `systemMessage`s the harness displays as plain text, and the agent's own text renders markdown — so the emphasis below is available in the one place and not in the others.
 
 **Every installed package is listed and none is hidden.** The active ones are bold and the deactivated ones are italic. The set's name follows the list — `package set: content` — and a count line closes it: `(5 active of 8 installed)`. The hidden-record rule does not reach this, because nothing here is withheld.
 
@@ -52,7 +52,7 @@
 
 **Why:** a project does not need every convention the system carries. A content project has no use for a design method meant for a unit of code, and until this existed the only remedy was to not install the package or to write a local rule saying it does not apply. The first cannot be undone in a session and the second is a hand-built stand-in for a mechanism. A declaration is a recorded project decision — committed, dated, and reviewable — which is what distinguishes it from an agent's in-the-moment judgment about what to bother with.
 
-**How to apply:** at session start, read the most recent `*-package-set.md` under `waytide/local/`. Read every installed package's rules as always, and follow only the active ones. Print the packages after the category line, active bold and deactivated italic, then the set's name, then the count line. Where the engineer declares a set during a session, write the record, then say that a restart is needed before the deactivated rules stop applying.
+**How to apply:** at session start, read the most recent `*-package-set.md` under `waytide/local/`. Read every installed package's rules as always, and follow only the active ones. Print the packages at the head of the response that carries the read, active bold and deactivated italic, then the set's name, then the count line. Where the engineer declares a set during a session, write the record, then say that a restart is needed before the deactivated rules stop applying.
 
 Related:
 
@@ -60,10 +60,3 @@ Related:
 - the initialization-rule — where the printed block is defined
 - the status-report-format rule — the hidden-record convention this deliberately does not use
 - the plain text data attribute line, as `**State:**` and `**Repository:**` already use it
-
----
-
-Authored by Scott Bellware on Sun Aug 23 2026 at 3:04:00 AM PT
-Changed by Scott Bellware on Sun Aug 23 2026 at 3:36:20 AM PT
-Changed by Scott Bellware on Sun Aug 23 2026 at 3:49:30 AM PT
-Changed by Scott Bellware on Sun Aug 23 2026 at 3:56:40 AM PT

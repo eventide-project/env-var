@@ -8,8 +8,8 @@ Foundation defines the four core artifact directories and how to work with them.
 
 - **`waytide/system/`** and **`waytide/local/rules/`**. Binding project rules, one per file, read and followed every session — the installed system packages in `waytide/system/`, the project's own local rules in `waytide/local/rules/`.
 - **`waytide/local/vocabulary.md`**. The project's own vocabulary, read with the rules and binding like them. Its terms and substitutions decide over every package's (`vocabulary-convention`). One file, no datetime prefix, and optional.
-- **`waytide/local/ideas/`**. Working hypotheses and rule-candidates still under discovery. Not yet binding.
-- **Work postponed mid-task is an ordinary idea** carrying a `**Waits for:**` line, and it may carry a `**Priority:**` rank (`ideas-convention`). It was a **deferred queue** with a convention, a reserved tag, a session-start print, and a command until 2026-08-25, when all four were suspended — what made it a queue was the print and the command, and the two lines are what remained.
+- **`waytide/local/items/`**. Working hypotheses and rule-candidates still under discovery. Not yet binding.
+- **Work postponed mid-task is an ordinary item** carrying a `**Waits for:**` line, and it may carry a `**Priority:**` rank (`items-convention`). It was a **deferred queue** with a convention, a reserved tag, a session-start print, and a command until 2026-08-25, when all four were suspended — what made it a queue was the print and the command, and the two lines are what remained.
 **The log records the reasoning for an abandonment, and never conveys that something was done when it was not** (`the-log-never-says-undone-work-was-done`). When work is abandoned its branch goes, which leaves the log as the only durable trace and makes it tempting to pour the branch into it. What belongs there is the decision to stop and the reason given for it. What does not is the plan, the increments, or the design that was never built. **A careful tense is not enough** — every sentence can be conditional, every claim true, and the entry still leaves a reader believing the project worked something out.
 
 - **`waytide/local/logs/`**. The **running records**, grouped (`logs-directory`) — records that accrue chronologically and are never revised, as against the directories that state what is currently true. It holds **`logs/log/`**, the decision log, one file per decision with a one-line title; **`logs/loops/`**, contributed by `design-by-efferent`; and **`logs/work-sessions/`**. The three sat directly under `waytide/local/` until 2026-08-18.
@@ -24,7 +24,7 @@ The rule lives here rather than in `design-by-efferent`, where it was written, b
 
 Beyond the four core directories, foundation defines the **work-artifact** directories for planning and running changes:
 
-- `waytide/local/ideas/` — the project's planning records, whatever its tags name them
+- `waytide/local/items/` — the project's planning records, whatever its tags name them
 - `waytide/local/implementations/` — the lifecycle record of an experiment or a feature
 - `waytide/local/migration/` — execution plans for transitions of content **across a repository boundary**, kept after the content has gone so the trail of where it went stays in the repository it left
 
@@ -32,25 +32,24 @@ Beyond the four core directories, foundation defines the **work-artifact** direc
 
 The four rules that stated this as two lifecycles were consolidated on 2026-08-18. They agreed on almost everything and had already drifted in their wording of the same clauses.
 
-**The project's ideas** live in `waytide/local/ideas/`, one file per idea (`ideas-convention`). **An idea is an idea.** A tag may describe one — `[design]`, `[plan]`, `[aspiration]` — and nothing about it is strict: the set is open, an idea may carry several or none, no rule reads a kind tag, and **none is assigned by default**. `[aspiration]` in particular is written where an aspiration was asked for, never as the dress a design idea is put in. The six words the mode mechanism fixed as a planning vocabulary outlived it as a tag set that read as exhaustive, and that is the last of the mode gone with them.
+**The project's items** live in `waytide/local/items/`, one file per item (`items-convention`). **An item is an item.** A tag may describe one — `[design]`, `[plan]`, `[aspiration]` — and nothing about it is strict: the set is open, an item may carry several or none, no rule reads a kind tag, and **none is assigned by default**. `[aspiration]` in particular is written where an aspiration was asked for, never as the dress a design item is put in. The six words the mode mechanism fixed as a planning vocabulary outlived it as a tag set that read as exhaustive, and that is the last of the mode gone with them.
 
-- **The shape is thin.** A title, a `**State:**` line, a `**Tags:**` line, and whatever the idea has to say. A footer, a log entry, the ISO-8601-UTC prefix, and the state suffix. Nothing else is required, because an idea that settles nothing has no resolutions and an idea that sequences nothing has no tasks.
-- **Nine states**, one set for every idea: **Open**, **Active**, **Realized**, **Deferred**, **Suspended**, **Superseded**, **Abandoned**, **Lapsed**, and **Stated**. **`Stated` is an observation's, and an observation's alone** — it is the one state that never changes, because an observation has no lifecycle (`observations-convention`). It is written when the observation is, and it stays. `Open` and `Active` are the two starting words. `Lapsed` and `Abandoned` differ in who acted — lapsing is what happens when nobody decides and the work moves past the idea.
-- **Supersede rather than rewrite**, and amend by dated addition, so an idea reads as a history of thinking rather than as whatever is current. A settled idea is reconciled, never regenerated from the work downstream of it.
+- **The shape is thin.** A title, a `**State:**` line, a `**Tags:**` line, and whatever the item has to say. A footer, a log entry, the ISO-8601-UTC prefix, and the state suffix. Nothing else is required, because an item that settles nothing has no resolutions and an item that sequences nothing has no tasks.
+- **Nine states**, one set for every item: **Open**, **Active**, **Realized**, **Deferred**, **Suspended**, **Superseded**, **Abandoned**, **Lapsed**, and **Stated**. **`Stated` is an observation's, and an observation's alone** — it is the one state that never changes, because an observation has no lifecycle (`observations-convention`). It is written when the observation is, and it stays. `Open` and `Active` are the two starting words. `Lapsed` and `Abandoned` differ in who acted — lapsing is what happens when nobody decides and the work moves past the item.
+- **Supersede rather than rewrite**, and amend by dated addition, so an item reads as a history of thinking rather than as whatever is current. A settled item is reconciled, never regenerated from the work downstream of it.
+- **When the work diverges from the plan, the work is definitive** (`when-the-work-diverges-from-the-plan-the-work-is-definitive`). A plan that did not predict what happened is not defective, and a divergence is not a pending reconciliation. A plan whose direction proves wrong is corrected, and the engineer may still amend one by dated addition.
 
-It replaces four rules — two conventions and two document formats — decommissioned with the mode mechanism on 2026-08-18. Those fixed a spine for a design and an element order for a plan, and an idea that was neither had nowhere to sit.
+It replaces four rules — two conventions and two document formats — decommissioned with the mode mechanism on 2026-08-18. Those fixed a spine for a design and an element order for a plan, and an item that was neither had nowhere to sit.
 
 - **Plans contain no code samples**, and avoid committing to method or file names that are not yet decided (`plans-no-code-samples`).
-- **A record carrying a state line ends its filename with that state in upper case** (`a-record-ends-with-its-state-in-upper-case`). It reaches every record that carries one — an experiment, a feature, and an idea — so a directory listing answers which of them concluded, in a file tree, a shell, or an editor sidebar. The upper case is the one stated exception to the file-names rule's lower-case name. The `**State:**` line stays the only authoritative statement, the name is derived from it, and a state change renames the file.
-- **Each idea pairs with a log entry** — on creation, on each **Settled** resolution, and on each change of state (`an-idea-takes-a-log-entry`). A completed task takes none, and neither does prose that settles nothing. **The entry names the record and what happened to it**, and never states an unbuilt direction in the indicative mood — the grammar the `git` package asks for is right for a change to the software and wrong for a record that only settles one. That reaches the commit subject the entry travels in. It closes an asymmetry: four other conventions already stated their own pairing, and these two rested on the decision log's when-in-doubt clause.
+- **A record carrying a state line ends its filename with that state in upper case** (`a-record-ends-with-its-state-in-upper-case`). It reaches every record that carries one — an experiment, a feature, and an item — so a directory listing answers which of them concluded, in a file tree, a shell, or an editor sidebar. The upper case is the one stated exception to the file-names rule's lower-case name. The `**State:**` line stays the only authoritative statement, the name is derived from it, and a state change renames the file.
+- **Each item pairs with a log entry** — on creation, on each **Settled** resolution, and on each change of state (`an-item-takes-a-log-entry`). A completed task takes none, and neither does prose that settles nothing. **The entry names the record and what happened to it**, and never states an unbuilt direction in the indicative mood — the grammar the `git` package asks for is right for a change to the software and wrong for a record that only settles one. That reaches the commit subject the entry travels in. It closes an asymmetry: four other conventions already stated their own pairing, and these two rested on the decision log's when-in-doubt clause.
 - **An implementation record pairs with a log entry** too (`implementation-records-take-a-log-entry`), on creation and on each change of state. The concluding entry is a **summary marker** where the work merged and **carries the substance** where it did not — a refuted experiment's branch is deleted unmerged, so a record that lived only there is unreachable, which a file deleted from `master` never is.
 - **A design section documenting a package dependency is titled "Package Dependency"**, never a bare "Dependency", which is overloaded (`package-dependency-heading`).
 
 They live here because foundation defines the artifacts they format. Held separately, the citation ran in both directions. Foundation named the `plan` package for the shape of documents foundation itself governs. Every rule in that package was addressed to directories only foundation creates.
 
-Other packages may contribute their own artifact directories (for example, design-by-efferent contributes `waytide/local/logs/loops/`). Foundation owns `rules`/`observations`/`deferred`/`log` and the `ideas`/`implementations`/`logs`/`migration` work-artifact directories.
-
-Foundation also settles **what a package dependency is**, in the `a-citation-is-not-a-dependency` rule. A rule may name another package's rule freely. That citation becomes a dependency only where the citing rule **will not work** without the cited package. Motivation is not the test, and a "standalone" claim is about what must be installed rather than about what a rule's prose may name.
+Other packages may contribute their own artifact directories (for example, design-by-efferent contributes `waytide/local/logs/loops/`). Foundation owns `rules`/`observations`/`deferred`/`log` and the `items`/`implementations`/`logs`/`migration` work-artifact directories.
 
 **A project's durable context lives in its committed artifacts, never in an agent memory store** (`project-context-lives-in-the-committed-artifacts`). The premise is the rules-convention's — the conventions are read fresh each session rather than recalled, and a store is recall. It reaches project context alone. A fact about the engineer rather than the project is machine-scoped, and per-machine configuration under `~/.config/` is where the `a-project-does-not-name-its-consumers` rule already sends one.
 
@@ -66,7 +65,7 @@ Foundation also settles **what a package dependency is**, in the `a-citation-is-
 
 **The mode mechanism was decommissioned on 2026-08-18.** A project worked in one of three modes — formal, intuitive, or OODA — chosen at its start, and the mode decided what the two planning artifacts were called and where they lived. Six directories existed for one kind of work.
 
-**One directory replaces it, `waytide/local/ideas/`, and the kind is a tag.** A design is an idea and an idea is a design. An aspiration is an idea tagged `[aspiration]`, and the kind set is open. The mode may now change mid-stream, which the mechanism forbade, because its two unanswered questions were both questions about directories.
+**One directory replaces it, `waytide/local/items/`, and the kind is a tag.** A design is an item and an item is a design. An aspiration is an item tagged `[aspiration]`, and the kind set is open. The mode may now change mid-stream, which the mechanism forbade, because its two unanswered questions were both questions about directories.
 
 **A project does not name its downstream consumers** in its own files (`a-project-does-not-name-its-consumers`) — not in the installed packages, not in its own working state. A consumer list inverts the dependency direction, drifts silently, and publishes other people's projects to everyone who reads the file. A project named because a **decision was about it** is unaffected. What a tool needs in order to reach the consuming projects lives in per-machine configuration under `~/.config/`, outside the repository.
 
@@ -84,12 +83,12 @@ foundation  →  (nothing — the base every other package builds on)
 
 ## Installing into a project
 
-**Foundation carries the tooling a consuming project runs**, and it is the only package that does. Two facts settle that, and they decide all five of its scripts rather than only the installer:
+**Foundation carries the tooling a consuming project runs**, and it is the only package that does. Two facts settle that, and they decide all six of its scripts rather than only the installer:
 
 - **`git subtree` can only place files inside a package directory.** So a tool a consuming project runs has to live in some package. There is nowhere else for it to be delivered.
 - **It has to be a package that is always there.** Foundation is the only one — every other package includes it, so a project running Waytide at all has foundation.
 
-So `install.sh`, `refresh-packages.sh`, `session-start.sh`, `statusline.sh`, and `read-consuming-projects.sh` are here. The **authoring** tools are not. `install-all.sh` and `report-direct-commits.sh` sit unpackaged at the root of the composite repository. Only the composite publishes, and a consuming project never runs them.
+So `install.sh`, `refresh-packages.sh`, `session-start.sh`, `startup-display.sh`, `statusline.sh`, and `read-consuming-projects.sh` are here. The **authoring** tools are not. `install-all.sh` and `report-direct-commits.sh` sit unpackaged at the root of the composite repository. Only the composite publishes, and a consuming project never runs them.
 
 **`read-consuming-projects.sh` is packaged because it is not an authoring tool**, though it sat with them until 2026-08-07. It reports the Waytide projects **on this machine**, reading a per-machine registry at `~/.config/waytide/consuming-projects.toml`. So it is **machine-scoped** where the rest of this package is project-scoped. The engineer who wants it is anyone who installed Waytide into more than one project, rather than whoever maintains Waytide.
 
@@ -199,3 +198,6 @@ Changed by Scott Bellware on Tue Aug 25 2026 at 9:37:58 AM PT
 Changed by Scott Bellware on Tue Aug 25 2026 at 10:27:24 AM PT
 Changed by Scott Bellware on Tue Aug 25 2026 at 10:52:18 AM PT
 Changed by Scott Bellware on Tue Aug 25 2026 at 10:59:12 AM PT
+Changed by Scott Bellware on Sat Oct 10 2026 at 10:22:31 AM PT
+Changed by Scott Bellware on Wed Oct 14 2026 at 9:08:35 PM PT
+Changed by Scott Bellware on Wed Oct 21 2026 at 9:37:27 AM PT

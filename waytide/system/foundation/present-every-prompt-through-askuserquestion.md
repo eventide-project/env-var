@@ -15,9 +15,9 @@ Every time you prompt the engineer to make a selection, a decision, or an answer
 - **It costs one of the four option slots.** The selection UI takes at most four, so a prompt carrying `Explain` has three for genuine candidates. Most prompts have two or three, so it rarely binds. Where one genuinely has four, drop the fourth rather than the `Explain` — an engineer who cannot read the question cannot weigh a fourth candidate either.
 - **Where it appears is not the agent's to choose.** The harness renders the built-in free-text answer last, so `Explain` sits among the supplied options rather than beneath it.
 
-**The UI requires at least two options. Do not manufacture cosmetic options to reach the floor.** When the shape looks pinned, look harder for the **real underlying decision** the engineer should make. That is an interface-contract decision, such as a keyword required against defaulting. It is also a return-type decision, or an identity-against-value decision.
+**The UI requires at least two options. Do not invent an option to reach the floor.** Present every genuine candidate the agent finds. Where it finds one, the second option is `Explain` — an account of that candidate.
 
-A genuine decision almost always has a real second candidate once examined. Surface it. The built-in "Other" then carries the answer the options do not contain, so the engineer is never boxed into the set.
+**The agent cannot establish that no other option exists**, only that it found no other genuine one. Its candidates are drawn from what it has seen, and the best answer is often one only the engineer can produce. So a search made to reach two options finds something whether or not it is real, and presents an absurdity as a viable choice. Do not search to fill the place, and do not say the lone candidate is the only possibility. The built-in "Other" then carries the answer the options do not contain, so the engineer is never boxed into the set.
 
 **Why:** the selection UI is what makes responsibility transfer legibly and the same way every time, and it already supplies the free-text option. Routing *all* prompts through it keeps the engineer's decision points consistent and easy to act on, and stops a decision from being buried inside prose. The two-option floor is a forcing function. It pushes toward finding the real decision rather than presenting a single proposal for approval. A single proposal puts the engineer in the position of ratifying an answer rather than producing one.
 
@@ -27,7 +27,7 @@ Making it an option rather than a judgment call is the point. The agent is the p
 
 **How to apply:** whenever you would ask the engineer to decide or answer. That covers a design decision, a "which approach", a confirmation to proceed or commit, and a clarification between interpretations. Use the selection UI, one option per genuine candidate, plus `Explain`. Never add a free-text option of your own.
 
-Find at least two genuine candidates by surfacing the real underlying decision. Never pad with cosmetic variants.
+Present the genuine candidates you find. Where there is one, put `Explain` beside it. Never invent an option to reach two, and never claim the one you found is the only one.
 
 When `Explain` is selected, answer with a summary first and a normal level of explanation beneath it. Then display the same selection prompt again, with `Explain` replaced by `Explain briefly` and every other option unchanged.
 
@@ -39,22 +39,3 @@ Related:
 
 - the `design-by-efferent` package's hinge-cycle and actuation-gate-options-or-chat rules — the gates this is the mechanism for, and the fuller account of why a gate offers alternatives rather than a single proposal
 - its vocabulary — where **mean-bias** is defined
-
----
-
-Authored by Scott Bellware on Fri Jul 3 2026 at 8 AM PT
-Changed by Scott Bellware on Wed Aug 5 2026 at 10:15:04 PM PT
-Changed by Scott Bellware on Wed Aug 5 2026 at 11:11:13 PM PT
-Changed by Scott Bellware on Sun Aug 9 2026 at 6:06:52 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 1:05:45 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 8:18:59 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 10:40:54 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 1:12:44 AM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
-Changed by Scott Bellware on Wed Aug 12 2026 at 1:12:44 PM PT
-Changed by Scott Bellware on Fri Aug 14 2026 at 2:06:30 PM PT
-Changed by Scott Bellware on Sun Aug 16 2026 at 1:04:10 AM PT

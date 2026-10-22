@@ -52,7 +52,8 @@ This project's Waytide system and working conventions live under `waytide/`,
 committed alongside the code and read at the start of each session.
 
 **At the start of a session, read every rule file under `waytide/system/` and
-`waytide/local/rules/`, and `waytide/local/vocabulary.md`, and follow them.**
+`waytide/local/rules/`, except each package's `source/` directory and `README.md`,
+and `waytide/local/vocabulary.md`, and follow them.**
 
 `waytide/system/` holds the installed system packages —
 `waytide/system/foundation/`, `waytide/system/language/`, and so on, including
@@ -78,7 +79,7 @@ the working directory, branch, and any uncommitted, untracked, or unpushed work.
 is this project's own. `waytide/system/` is installed and never edited in place.
 `waytide/local/` is everything this project writes: `rules/` and `vocabulary.md`
 alongside the working state — `logs/` (holding `log/`, `loops/`, and
-`work-sessions/`), `ideas/`, `implementations/`, and `migration/` — each worked with as
+`work-sessions/`), `items/`, `implementations/`, and `migration/` — each worked with as
 its convention describes, and only `rules/` and `vocabulary.md` read as binding at
 session start.
 EOF
@@ -100,7 +101,8 @@ place_agents_md() {
     echo "You already have an AGENTS.md at the project root."
     echo
     echo "Appending the Waytide bootstrap will add a section that tells the agent,"
-    echo "at the start of every session, to read every rule file under waytide/system/ and waytide/local/rules/,"
+    echo "at the start of every session, to read every rule file under waytide/system/ and waytide/local/rules/"
+    echo "(except each package's source/ directory and README.md),"
     echo "and waytide/local/vocabulary.md, and follow"
     echo "it. Those rules then OVERRIDE the agent's default behavior where they conflict"
     echo "(your explicit instructions still win). Your existing AGENTS.md content is left"
@@ -173,7 +175,8 @@ place_claude_md() {
   fi
 }
 
-# The .claude/settings.json content that makes the harness print the session-start notice.
+# The .claude/settings.json content that makes the harness print the session-start notice and,
+# on load waytide, the startup display.
 settings_json() {
   cat <<'EOF'
 {
@@ -187,6 +190,16 @@ settings_json() {
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "waytide/system/foundation/startup-display.sh"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
@@ -194,6 +207,23 @@ settings_json() {
     "command": "waytide/system/foundation/statusline.sh"
   }
 }
+EOF
+}
+
+# The one key a settings.json wired before the startup display existed is missing. It goes
+# inside the file's "hooks" object, beside "SessionStart".
+display_hook_json() {
+  cat <<'EOF'
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "waytide/system/foundation/startup-display.sh"
+          }
+        ]
+      }
+    ]
 EOF
 }
 
@@ -240,8 +270,21 @@ warn_ignored_settings_json() {
 # that adopting the status line replaces whatever status line they had configured.
 # Idempotent.
 place_settings_json() {
-  if [ -f .claude/settings.json ] && grep -q 'foundation/session-start.sh' .claude/settings.json; then
-    echo ".claude/settings.json already runs the Waytide session-start notice — left unchanged."
+  if [ -f .claude/settings.json ] && grep -q 'foundation/session-start.sh' .claude/settings.json &&
+     grep -q 'foundation/startup-display.sh' .claude/settings.json; then
+    echo ".claude/settings.json already runs the Waytide session-start notice and startup display — left unchanged."
+  elif [ -f .claude/settings.json ] && grep -q 'foundation/session-start.sh' .claude/settings.json; then
+    # Wired before the startup display existed. The agent no longer prints the display, so
+    # without this key the project shows none. The file is still not modified, for the reason
+    # given above.
+    echo ".claude/settings.json runs the Waytide session-start notice but not the startup display."
+    echo
+    echo "Without it, load waytide prints no display: the agent no longer prints one. Merge this"
+    echo "key into the 'hooks' object of your file yourself, beside 'SessionStart':"
+    echo
+    echo "----------------------------------------------------------------------"
+    display_hook_json
+    echo "----------------------------------------------------------------------"
   elif [ ! -f .claude/settings.json ]; then
     # No settings file yet — creating one takes nothing away, so do it directly.
     mkdir -p .claude
@@ -329,6 +372,49 @@ migrate_logs() {
   done
 }
 
+# Rename a project's waytide/local/ideas/ to waytide/local/items/. The record kind was
+# called an idea until 2026-10-21, and the directory was named for it. A rule change names
+# the new directory but cannot move a project's own files, so the installer does it.
+#
+# The same narrow semantics as the migrations above: it moves only when the old directory
+# is present and the new one absent, and anything else is reported and left alone. Plain mv
+# rather than git mv, for records that were never committed. Each moved record that carries
+# no tag is then tagged [idea].
+migrate_items() {
+  old_dir="waytide/local/ideas"
+  new_dir="waytide/local/items"
+
+  [ -d "$old_dir" ] || return 0
+
+  if [ -d "$new_dir" ]; then
+    echo "Both $old_dir/ and $new_dir/ are present — neither is touched."
+    echo "$old_dir/ is the old name. Move its records into $new_dir/ and remove it."
+    return 0
+  fi
+
+  mv "$old_dir" "$new_dir"
+
+  # An item that carries no tag takes [idea], per the items-convention: a Tags line is added under
+  # its State line. A record that already has a Tags line is untouched.
+  for record in "$new_dir"/*.md; do
+    [ -f "$record" ] || continue
+    awk '
+      /\*\*Tags:\*\*/ { tagged = 1 }
+      { line[NR] = $0 }
+      /\*\*State:\*\*/ && !state { state = NR }
+      END {
+        for (i = 1; i <= NR; i++) {
+          print line[i]
+          if (i == state && !tagged) print "- **Tags:** [idea]"
+        }
+      }
+    ' "$record" > "$record.tmp" && mv "$record.tmp" "$record"
+  done
+
+  echo "Moved $old_dir/ to $new_dir/ — the record kind is now called an item."
+  echo "Commit the move."
+}
+
 # 0. Print the bootstrap section and stop. Nothing is installed and nothing is placed,
 #    so this is safe to run anywhere, including from the authoring source. It exists so
 #    refresh-packages.sh can compare a project's AGENTS.md against the current text
@@ -357,3 +443,4 @@ place_settings_json
 #    cannot reach.
 migrate_work_sessions
 migrate_logs
+migrate_items

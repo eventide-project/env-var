@@ -222,8 +222,9 @@ elif [ "$bootstrap_state" = current ]; then
   cat <<'BOOTSTRAP'
 
 The root AGENTS.md matches the installed foundation's bootstrap. .claude/settings.json is
-not checked and is not a package either; if the session-start hook or status line stops
-working, `waytide/system/foundation/install.sh agents-md` places it again.
+not a package either, and is checked only for the startup display hook; if the
+session-start hook or status line stops working, `waytide/system/foundation/install.sh
+agents-md` places it again.
 BOOTSTRAP
 else
   cat <<'BOOTSTRAP'
@@ -234,6 +235,20 @@ comparison. It is not a package, so no refresh reaches it, and it may be behind 
 packages just refreshed. To regenerate it, delete AGENTS.md's Waytide section and run
 `waytide/system/foundation/install.sh agents-md`.
 BOOTSTRAP
+fi
+
+# A settings.json wired before the startup display existed lacks its hook. The refreshed
+# session-start.sh tells the agent not to print the display, so such a project would show
+# none at all, and the refresh is the moment that gap opens. It is checked here for the
+# same reason the bootstrap is: a reminder is not read, and a check is.
+if [ -f .claude/settings.json ] && [ -f waytide/system/foundation/startup-display.sh ] &&
+   ! grep -q 'foundation/startup-display.sh' .claude/settings.json; then
+  cat <<'DISPLAY'
+
+.claude/settings.json does not run the startup display, so load waytide prints no
+display: the refreshed rules leave it to a hook rather than to the agent. Run
+`waytide/system/foundation/install.sh agents-md`, which prints the key to merge.
+DISPLAY
 fi
 
 [ -z "$failed" ]

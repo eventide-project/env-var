@@ -42,7 +42,3 @@ Related:
 - the decision-log-convention — where the history goes instead
 - the `language` package's a-word-is-reserved-in-six-steps rule — the sequence that produces an entry, whose sixth step this constrains
 - the disclosure-is-the-one-reason-to-edit-a-historical-record rule — the log entry, which is a historical record and is left as written
-
----
-
-Authored by Scott Bellware on Mon Aug 24 2026 at 11:22:43 PM PT
