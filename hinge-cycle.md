@@ -28,7 +28,7 @@ The fifth hinge, **naming**, is **deferred to the feature's close**. Per the fir
 > The first three build the test. The fourth writes the code. The fifth is settled at the close.
 > Everything between the hinges I generate without stopping.
 
-**It is given once**, when the loop starts on a piece of work — not at each cycle and not at each outcome. A passage repeated at every hinge stops being read, which is the failure the announce-waytide-at-session-start rule names about a permanent line.
+**It is given once**, when the loop starts on a piece of work — not at each cycle and not at each outcome. A passage repeated at every hinge stops being read, which is the failure the initialization-rule names about a permanent line.
 
 **It does not apply under unattended work**, where no hinge is put to the engineer at all. There the plan takes its place (see the attended-or-unattended-is-chosen-at-the-start rule).
 
@@ -40,7 +40,7 @@ The fifth hinge, **naming**, is **deferred to the feature's close**. Per the fir
 
 **An option is the artifact, not a label for it.** The option reads `assert(retries == 3)` or `Controls::Upload.example(client: control_client, retries: 3)` — the line that would be written, shown as it would be written. A gloss may follow it where the difference between two candidates is not visible in the code alone. **A label standing in place of the artifact is not an option.** `Accept — assert the returned count against 3` asks the engineer to approve a description of a thing rather than to read the thing. The engineer is judging a design, and the design is in the characters.
 
-**So a hinge with one candidate is not an "accept" prompt.** It shows that candidate as its option, exactly as a hinge with three shows three, and selecting it is the acceptance. Nothing about the single case changes the form.
+**So a hinge with one candidate is not an "accept" prompt.** It shows that candidate as its option, exactly as a hinge with three shows three, and selecting it is the acceptance. Nothing about the single case changes the form. The selection UI takes no fewer than two options, and `Explain` fills the second place, per the present-every-prompt rule. The agent does not search for a second candidate to reach two.
 
 **What is still forbidden is manufacturing a second candidate** to avoid the appearance of a foregone conclusion. Not every hinge has real alternatives. The free-text option is what keeps a lone candidate from foreclosing the answer, since the best decision is often one only the human can produce. This generalizes the actuation-gate-options-or-chat rule, which states the same mechanism at the first gate.
 
@@ -52,7 +52,7 @@ The controls are a hinge in their own right. A non-discriminating example assert
 
 **How to apply:** Give the brief account of the five hinges once, ahead of the first one, and not again. Then run the five in order (naming deferred to the feature's close).
 
-At each hinge, present every genuine candidate as an option. Write it as the artifact itself rather than as a label for it. Present a lone candidate the same way. Always offer the free-text option.
+At each hinge, present every genuine candidate as an option. Write it as the artifact itself rather than as a label for it. Present a lone candidate the same way, beside `Explain`. Always offer the free-text option.
 
 What goes on screen at each hinge is the what-each-hinge-displays rule. That is the actuation as the anchor, and the contexts shown once.
 
@@ -67,21 +67,3 @@ Related:
 - the human-in-the-loop rule — actuation and solubility were the original two hinges. The implementation hinge is that solubility judgment made an explicit acceptance
 - the actuation-gate-options-or-chat rule — the same mechanism at the first gate
 - the one-outcome-at-a-time rule
-- the show-the-test-after-implementing rule
-
----
-
-Authored by Scott Bellware on Sun Jun 28 2026 at 8 AM PT
-Changed by Scott Bellware on Sun Aug 2 2026 at 6:37:11 PM PT
-Changed by Scott Bellware on Sun Aug 9 2026 at 8:21:33 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 1:05:45 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 8:18:59 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:43:08 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 10:35:55 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
-Changed by Scott Bellware on Wed Aug 12 2026 at 1:12:44 PM PT
-Changed by Scott Bellware on Fri Aug 14 2026 at 2:06:30 PM PT
