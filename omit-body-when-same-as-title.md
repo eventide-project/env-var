@@ -12,9 +12,3 @@ Related:
 
 - the journal-entries rule — the `**Summary:**` line omitted on the same ground
 - the datetime-stamp-line rule — the line that stays whatever else is dropped
-
----
-
-Authored by Scott Bellware on Fri Aug 14 2026 at 9:55:45 AM PT
-Changed by Scott Bellware on Fri Aug 14 2026 at 10:44:17 AM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 12:31:05 PM PT

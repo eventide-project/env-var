@@ -50,8 +50,6 @@ display-name = "Scott Bellware"
 
 **`.current-user` is unchanged, and it is not TOML.** It holds the username only, on one line. Trim surrounding whitespace and a trailing newline on read, and allow `#` comment lines. It selects a writer for one checkout and carries no presentation.
 
-**So the two files no longer share a reader.** They did until 2026-08-14, when each held a bare username. The user file gained a second value and `.current-user` did not, because a per-checkout override selects a person rather than renaming one.
-
 ## The display name resolves in this order (first match wins)
 
 1. **The project's `writers.toml`**, where it holds an entry for the resolved username.
@@ -105,13 +103,3 @@ Related:
 - the journal-convention — the per-writer directories `writers.toml` sits beside
 - the journal-entries rule — where `<username>` names the directory an entry is written in
 - the `foundation` package's a-project-does-not-name-its-consumers rule — the same `~/.config/` placement, taken for the same machine-scoped reason
-
----
-
-Authored by Scott Bellware on Fri Aug 14 2026 at 9:55:45 AM PT
-Changed by Scott Bellware on Fri Aug 14 2026 at 10:44:17 AM PT
-Changed by Scott Bellware on Fri Aug 14 2026 at 10:49:47 AM PT
-Changed by Scott Bellware on Fri Aug 14 2026 at 10:56:08 AM PT
-Changed by Scott Bellware on Fri Aug 14 2026 at 10:56:57 AM PT
-Changed by Scott Bellware on Fri Aug 14 2026 at 12:31:47 PM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 12:31:05 PM PT

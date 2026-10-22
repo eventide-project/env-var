@@ -30,16 +30,7 @@ Change no entry that exists on your own reading. Where the writer directs a chan
 
 Related:
 
-- the journal-convention — the entry's naming, format, and footer
+- the journal-convention — the entry's naming, format, and its `Authored by`-only footer, which sends the trace of a change to the log
 - a-journal-entry-is-read-and-never-followed — what an entry does and does not do
 - the foundation package's disclosure rule — the other reason an entry that exists is edited, and the logging shape this borrows
-- the journal-convention — the `Authored by`-only footer that sends the trace to the log
 - the foundation package's decision-log rule — a record the agent does write
-
----
-
-Authored by Scott Bellware on Fri Aug 14 2026 at 2:25:00 AM PT
-Changed by Scott Bellware on Fri Aug 14 2026 at 10:14:56 AM PT
-Changed by Scott Bellware on Fri Aug 14 2026 at 10:44:17 AM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 12:31:05 PM PT
-Changed by Scott Bellware on Tue Aug 25 2026 at 11:29:39 AM PT
