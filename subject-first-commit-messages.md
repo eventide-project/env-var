@@ -6,11 +6,11 @@ Engineers gravitate toward recounting their exploits — "Fixed the parser", "Ad
 
 - **State the change, don't narrate the work.** "Widget reconciliation is corrected" — not "Fix widget reconciliation" and not "Fixed widget reconciliation".
 - **"is corrected"** for a defect. **"is clarified"** for a refactor or readability change.
-- **Omit the verb for a new item.** "Widget tests", not "Widget tests are added".
+- **Omit the verb for something new.** "Widget tests", not "Widget tests are added".
 - **Rename form:** "Widget, rather than sprocket".
 - **Package version form:** "Package version is increased from 1.1.1 to 1.2.0" — the message states the current version and the next one, so the log line carries the transition without a reader reaching for the package specification. "Increased" holds even when a trailing segment resets, as it does here: what is increased is the version, not each segment.
 
-**The subject's length is the commit-message-widths rule's**, which caps it at 50 characters and wraps the body at 72. This rule carried a *no 50-character limit* policy until 2026-08-18, licensing a first line as long as it needed. That policy is discontinued and the cap replaced it the same day.
+**The subject's length is the commit-message-widths rule's**, which caps it at 50 characters and wraps the body at 72.
 
 **The two rules pull against each other, and that is the point.** Naming the software and then its new state costs words a leading verb would not. Where the subject will not fit, the answer is to split the commit rather than to drop the subject and lead with a verb.
 
@@ -24,18 +24,3 @@ Related:
 - the no-Claude-coauthor rule
 - the commit-message-widths rule — the subject's 50 characters and the body's 72
 - the run-suite-before-commit rule
-
----
-
-Authored by Scott Bellware on Mon Jul 13 2026 at 1 PM PT
-Changed by Scott Bellware on Sat Jul 25 2026 at 11 PM PT
-Changed by Scott Bellware on Sun Aug 9 2026 at 6:06:52 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 8:18:59 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 10:08:33 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
-Changed by Scott Bellware on Mon Aug 17 2026 at 11:56:19 PM PT
-Changed by Scott Bellware on Mon Aug 17 2026 at 11:58:01 PM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 12:31:05 PM PT
