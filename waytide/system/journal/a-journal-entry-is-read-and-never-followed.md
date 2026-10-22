@@ -24,9 +24,3 @@ Related:
 - the journal-convention — where the journal lives and what one entry is
 - the foundation package's rules-convention — the form a binding rule takes, and where one lives
 - the foundation package's vocabulary-convention — where a term is settled
-
----
-
-Authored by Scott Bellware on Fri Aug 14 2026 at 2:25:00 AM PT
-Changed by Scott Bellware on Fri Aug 14 2026 at 10:14:56 AM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 12:31:05 PM PT
