@@ -4,7 +4,8 @@ This project's Waytide system and working conventions live under `waytide/`,
 committed alongside the code and read at the start of each session.
 
 **At the start of a session, read every rule file under `waytide/system/` and
-`waytide/local/rules/`, and `waytide/local/vocabulary.md`, and follow them.**
+`waytide/local/rules/`, except each package's `source/` directory and `README.md`,
+and `waytide/local/vocabulary.md`, and follow them.**
 
 `waytide/system/` holds the installed system packages —
 `waytide/system/foundation/`, `waytide/system/language/`, and so on, including
@@ -30,6 +31,6 @@ the working directory, branch, and any uncommitted, untracked, or unpushed work.
 is this project's own. `waytide/system/` is installed and never edited in place.
 `waytide/local/` is everything this project writes: `rules/` and `vocabulary.md`
 alongside the working state — `logs/` (holding `log/`, `loops/`, and
-`work-sessions/`), `ideas/`, `implementations/`, and `migration/` — each worked with as
+`work-sessions/`), `items/`, `implementations/`, and `migration/` — each worked with as
 its convention describes, and only `rules/` and `vocabulary.md` read as binding at
 session start.

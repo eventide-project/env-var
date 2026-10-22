@@ -9,6 +9,16 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "waytide/system/foundation/startup-display.sh"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
