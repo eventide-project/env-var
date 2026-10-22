@@ -12,10 +12,3 @@ Related:
 
 - the `control_` test-variable prefix rule
 - the controls-not-fixtures conventions
-
----
-
-Authored by Scott Bellware on Mon Jun 29 2026 at 2 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
