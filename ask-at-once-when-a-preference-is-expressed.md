@@ -17,7 +17,7 @@
 Each is genuine, and the selection carries all three:
 
 - **A rule**, in `waytide/local/rules/`, with the matching `waytide/local/logs/log/` entry the rules-convention requires.
-- **An observation**, in `waytide/local/ideas/`, where the thinking has not stabilized. The observations-convention prefers this where there is doubt. Promoting later is cheap, and retracting a premature rule is not.
+- **An observation**, in `waytide/local/items/`, where the thinking has not stabilized. The observations-convention prefers this where there is doubt. Promoting later is cheap, and retracting a premature rule is not.
 - **Neither**, where the engineer does not want it recorded. It is a real answer, and it is taken without argument.
 
 **A preference the engineer declined to record is not asked about again in the same session.** The answer was given.
@@ -39,9 +39,3 @@ Related:
 - the rules-convention — the rule and its log entry
 - the observations-convention — the softer landing, preferred where there is doubt
 - the `language` package's an-answer-is-a-list-and-prose-must-justify-itself rule — the preference stated three times before it was written
-
----
-
-Authored by Scott Bellware on Fri Aug 14 2026 at 11:32:29 AM PT
-Changed by Scott Bellware on Mon Aug 17 2026 at 11:16:30 PM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT

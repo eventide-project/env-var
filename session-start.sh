@@ -237,25 +237,23 @@ notice="${notice}\\n\\nWaytide's rules are loaded before your first instruction 
 # authoring source is detected the same way the packages and the open-work scan are.
 own_rules=${own:-waytide/local}
 
-# The instruction names the initialization-rule as the first file to open, and it has to: what
-# that rule carries is printed at the head of the read, and the agent has read nothing at the
-# moment it prints. One rule file read ahead of the others is what supplies it. The block itself
-# is not carried here — it lives in that rule, where it is edited as prose rather than as a
-# doubled-backslash JSON literal.
+# A package's rules are compiled from its source/ directory, by compile.sh in the authoring
+# source. The compiled rules at the package root are what is read. The source rules and the
+# README.md are not: the first are the same rules with their footers, and the second
+# summarizes rules the read already carries.
 #
-# It also requires the response that opens that one file to carry no prose. The initialization-rule
-# cannot ask for this: the response in question is the one that reads it, so at the moment the
-# agent writes there, the rule is not yet in hand. This instruction is the only channel that
-# reaches the agent before any file is opened, which is the same reason it names the file at all.
-# Without the sentence the read opens on a line of narration standing in the one position that
-# rule reserves.
-instruction=$(printf 'Waytide is installed at %s/. Before your first substantive action in this session, read every rule file under %s/ and follow them — %s/foundation/ first, since it defines the system, then the other packages, including each package vocabulary.md, whose terms are binding and cannot be applied unread; not every package has one, and its absence is not a defect. Read the local rules this project adds as well, in %s/rules/, which are binding in the same way and which no package supplies; that directory may not exist yet, which is ordinary and not an error. Read this project'\''s own vocabulary too, the single file %s/vocabulary.md, whose terms and substitutions decide over every package'\''s; that file may not exist, which is ordinary and not an error. Read only those two beside the packages, unless an installed package'\''s own rule directs another read: the working directories next to them — logs, ideas, implementations, migration — are worked with as their own conventions describe and are not read as binding rules at session start. The read is unconditional: the apparent size of the first request is not a reason to defer it, because the size of the opening request predicts nothing about where the session goes. Open %s/foundation/initialization-rule.md ahead of every other rule file, and print what it carries at the head of the response that carries the rest of the read, per that rule. The response that opens that one file carries the tool call and nothing else: print no preamble there, and no account of what you are about to read, so what that rule carries is the first text of the read. Say nothing about it in any response — no name for it, no substitute word, no description standing in for one — and do not cite that rule by name. Once the rules are read, wait for the engineer to make a request. The engineer may open with the command load waytide, which asks for exactly that and nothing more. Do not restate the session-start notice or print a package count; the announce-waytide-at-session-start rule reserves that to the harness.' \
-  "$system" "$system" "$system" "$own_rules" "$own_rules" "$system")
+# The instruction does not ask the agent to print the startup display. The harness prints it, from
+# startup-display.sh, when the engineer types load waytide — see the initialization-rule. The
+# agent printed it until 2026-10-10, on an instruction here naming the initialization-rule as the
+# first file to open, and under a later model the display stopped reaching the engineer: it was
+# skipped, or written into the agent's thinking where it is not shown. Nothing reported either.
+instruction=$(printf 'Waytide is installed at %s/. Before your first substantive action in this session, read every rule file under %s/, except each package'\''s source/ directory and README.md, and follow them — %s/foundation/ first, since it defines the system, then the other packages, including each package vocabulary.md, whose terms are binding and cannot be applied unread; not every package has one, and its absence is not a defect. Read the local rules this project adds as well, in %s/rules/, which are binding in the same way and which no package supplies; that directory may not exist yet, which is ordinary and not an error. Read this project'\''s own vocabulary too, the single file %s/vocabulary.md, whose terms and substitutions decide over every package'\''s; that file may not exist, which is ordinary and not an error. Read only those two beside the packages, unless an installed package'\''s own rule directs another read: the working directories next to them — logs, items, implementations, migration — are worked with as their own conventions describe and are not read as binding rules at session start. The read is unconditional: the apparent size of the first request is not a reason to defer it, because the size of the opening request predicts nothing about where the session goes. Do not print the startup display the initialization-rule describes. The harness prints it. Once the rules are read, wait for the engineer to make a request. The engineer may open with the command load waytide, which asks for exactly that and nothing more. Do not restate the session-start notice or print a package count; the announce-waytide-at-session-start rule reserves that to the harness.' \
+  "$system" "$system" "$system" "$own_rules" "$own_rules")
 
 # The package set, where the project has declared one. It goes to the agent and not into the
 # notice: the notice is displayed as plain text, and what is printed about a set is emphasized —
-# see the a-project-declares-its-package-set rule, which puts it in the startup content the agent
-# prints, where markdown renders.
+# see the a-project-declares-its-package-set rule, which puts it at the head of the agent's
+# response that carries the read, where markdown renders.
 #
 # The record with the latest time prefix is the one that holds, which a plain sort gives, because
 # the prefix is ISO-8601-UTC and sorts lexically in time order.
@@ -294,7 +292,7 @@ if [ -n "$declaration" ]; then
       inactive="none"
     fi
 
-    set_instruction=$(printf ' This project has declared a package set: %s. The active packages are %s, and the deactivated ones are %s. Read every installed package'\''s rules as instructed above, deactivated ones included — the declaration governs which rules are applied and not which are read. Follow the active packages'\'' rules and withhold the deactivated ones. Print the package set in the startup content after the category line, per the initialization-rule and the a-project-declares-its-package-set rule.' \
+    set_instruction=$(printf ' This project has declared a package set: %s. The active packages are %s, and the deactivated ones are %s. Read every installed package'\''s rules as instructed above, deactivated ones included — the declaration governs which rules are applied and not which are read. Follow the active packages'\'' rules and withhold the deactivated ones. Print the package set at the head of the response that carries the read, per the a-project-declares-its-package-set rule.' \
       "$declared" "$active" "$inactive")
 
     instruction="${instruction}${set_instruction}"

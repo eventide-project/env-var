@@ -9,11 +9,11 @@
 **There is one form, and every record uses it.**
 
 - **The whole record** — the tags go on a dedicated `**Tags:**` line among the canonical lines at the head, **after `**State:**` where there is one**. Several tags are separated by spaces — `**Tags:** [idea] [decision]`.
-- **One list item** — the tag prefixes that item's text — `- [idea] My great idea is thus`.
+- **One list item** — the tag prefixes that list item's text — `- [idea] My great idea is thus`.
 
 **A record with no head gains one.** A decision log entry is a title and nothing else, so a `**Tags:**` line under its title is the entry's whole head. The decision-log-convention states that shape, and a tagged entry is two lines rather than one.
 
-**A leading-tag form was written on 2026-08-18 and superseded the same day.** It put a one-line record's tags inside its `# <title>` — `# [suspended] The rule is suspended, …` — on the reasoning that a short record had nowhere else to put them. It is discontinued. A second form buys a line saved and costs every reader and every search two shapes to know, and the tag is no longer in the field the rest of the system reads it from.
+The leading-tag form is discontinued. A second form buys a line saved and costs every reader and every search two shapes to know, and the tag is no longer in the field the rest of the system reads it from.
 
 **No record is excluded, and none is excluded by its shape.** Short, one-line, generated, or historical, a record that carries tags carries them on a `**Tags:**` line.
 
@@ -39,7 +39,7 @@
 
 **What it costs:** the `**Tags:**` line no longer means one thing. A reader who sees a tag cannot tell from the line alone whether a rule turns on it, and finding out means knowing which rules reserve tags. That is the price of one mechanism instead of two, and it is accepted rather than hidden.
 
-**Why:** categorization that costs nothing is categorization that gets done. A square-bracket tag is visible in a raw-text preview, found by an ordinary text search, and imposes no taxonomy anyone has to maintain. The alternative — a controlled vocabulary — has to be agreed before the first tag is written, and the writer who wants to mark something as an idea at that moment does not have it.
+**Why:** categorization that costs nothing is categorization that gets done. A square-bracket tag is visible in a raw-text preview, found by an ordinary text search, and imposes no taxonomy anyone has to maintain. The alternative — a controlled vocabulary — has to be agreed before the first tag is written, and the writer who wants to mark something as an item at that moment does not have it.
 
 **Freeform is the whole of the value here, and it is also the whole of the limit.** Two writers tagging the same thing `[idea]` and `[ideas]` have categorized nothing together. That is accepted rather than solved, because solving it costs the property the tags exist for.
 
@@ -56,14 +56,3 @@ Related:
 - the a-suspension-is-a-log-entry rule — `[suspended]`, the reserved tag the log carries
 - the working-state-artifacts-carry-a-provenance-footer rule — a separate obligation, which does exempt the log; a footer is lines the entry has nowhere to put, where a tag is not
 - this package's vocabulary — the plain text data attribute line
-
----
-
-Authored by Scott Bellware on Mon Aug 17 2026 at 10:13:43 PM PT
-Changed by Scott Bellware on Mon Aug 17 2026 at 10:15:53 PM PT
-Changed by Scott Bellware on Mon Aug 17 2026 at 10:39:52 PM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 12:31:05 PM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 2:11:33 PM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 2:47:19 PM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 3:04:41 PM PT

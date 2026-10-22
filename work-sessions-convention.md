@@ -3,7 +3,7 @@
 `waytide/local/logs/work-sessions/` holds **work session records**: the communicable, chronological narrative of a discrete work session between an engineer and Claude. A work session is a unit of the engineer's work. It may run a few hours, a whole day, or span more than a day. Its boundaries are the discrete piece of work, not a fixed clock.
 
 - **What a work session record is.** The **guided tour** of the work session — what was asked and what was concluded at each step, in order, with the settled vocabulary defined as it arises. It is written to be *read by a person*, so its job is orientation and reasoning, not truth-of-record.
-- **It is not the source of truth.** The durable records are: the binding rules (`waytide/system/`, `waytide/local/rules/`), the project's ideas (`waytide/local/ideas/`), the decision log (`waytide/local/logs/log/`), and the implementation records (`waytide/local/implementations/`). The work session record **points to** them throughout. They are authoritative, and the work session record is the narrative that ties them together and preserves the reasoning behind each fork.
+- **It is not the source of truth.** The durable records are: the binding rules (`waytide/system/`, `waytide/local/rules/`), the project's items (`waytide/local/items/`), the decision log (`waytide/local/logs/log/`), and the implementation records (`waytide/local/implementations/`). The work session record **points to** them throughout. They are authoritative, and the work session record is the narrative that ties them together and preserves the reasoning behind each fork.
 - **When it is written.** At the close of a work session that produced substantial dialogue, decisions, or discovery worth a durable narrative — on the engineer's request, or when the agent recognizes the work session has accumulated such work and proposes recording it. A trivial work session needs no record. The work session record is not a per-session obligation.
 - **How the recording is asked.** When the agent raises the question of recording a work session, it puts the decision through the **AskUserQuestion** selection UI, not a free-text prose question. It offers three options, each naming it a **work session record**: **write a new work session record** for the work, **append the previous work session record**, or **don't write a work session record**. The engineer's selection decides it. **The prompt always says "work session"** — the directory is `work-sessions/`, a work session here is a unit of the engineer's work, and the shortened form invites the reader to supply some other sense of "session". (A direct instruction from the engineer to write or append a record needs no such prompt — the question isn't being asked.)
 - **Naming.** A work session record is a dated working-state artifact, so it takes the ISO-8601-UTC filename prefix (see the file-names rule): `YYYY-MM-DDTHH-MM-SSZ-<name>.md`.
@@ -23,7 +23,7 @@ Titled `# Work Session — <name> (<date>)`, it reads in this order. **Records w
 
 ## Reconcile the settled direction once the record is written
 
-**This section says *design* throughout for readability, and means whichever settled idea the work session bears on.** A design is an idea, and an idea is a design — the kind is a tag rather than a class. Nothing in this section depends on which kind it carries.
+**This section says *design* throughout for readability, and means whichever settled item the work session bears on.** A design is an item, and an item is a design — the kind is a tag rather than a class. Nothing in this section depends on which kind it carries.
 
 **After the record is written, put the design to the engineer through the AskUserQuestion selection UI.** Does what this work session produced change the design, or has the design fallen behind it? Three genuine options — **update the design**, **the design stands**, or **no design bears on this work session**.
 
@@ -37,7 +37,7 @@ Titled `# Work Session — <name> (<date>)`, it reads in this order. **Records w
 
 A narrative work session record preserves that arc as a communicable whole. It points to the durable records rather than restating them. So it stays a route through the records rather than a second source of truth. The format lives here, with the directory convention, the same way the experiment and loop-record formats live with theirs.
 
-It was written here rather than in the `plan` package on one ground. A work session record is a record of the *past*, while a plan and a design look forward. That package was included in `foundation` on 2026-08-03, so the distinction no longer decides where a format lives. It is still the reason a work session record is not shaped like a plan.
+**A work session record is not shaped like a plan.** It records the *past*, while a plan and a design look forward.
 
 **How to apply:** at a substantial work session's close, write a work session record here. It narrates the work session chronologically per the shape above. It defines the settled vocabulary, and points to the durable records it produced. It ends with a provenance footer in the record-rule-authorship-in-a-footer format.
 
@@ -47,45 +47,10 @@ Once the record is written, put the **design reconciliation** through the same U
 
 Related:
 
-- the implementations-convention and the ideas-convention — the sibling artifact conventions
+- the implementations-convention and the items-convention — the sibling artifact conventions
 - the record-rule-authorship-in-a-footer rule — the footer's format
 - the present-every-prompt-through-askuserquestion rule — why every prompt goes through the selection UI
 - the decision-log rule
 - the observations rule
 - the logs-directory rule — the running records this sits among
-
----
-
-Authored by Scott Bellware on Wed Jul 22 2026 at 8 PM PT
-Changed by Scott Bellware on Wed Jul 22 2026 at 8 PM PT
-Changed by Scott Bellware on Wed Jul 22 2026 at 10 PM PT
-Changed by Scott Bellware on Mon Jul 27 2026 at 2:30:44 PM PT
-Changed by Scott Bellware on Thu Jul 30 2026 at 10:27:32 AM PT
-Changed by Scott Bellware on Thu Jul 30 2026 at 10:43:27 AM PT
-Changed by Scott Bellware on Fri Jul 31 2026 at 11:37:12 PM PT
-Changed by Scott Bellware on Sat Aug 1 2026 at 4:34:12 PM PT
-Changed by Scott Bellware on Mon Aug 3 2026 at 1:42:18 PM PT
-Changed by Scott Bellware on Mon Aug 3 2026 at 2:36:41 PM PT
-Changed by Scott Bellware on Mon Aug 3 2026 at 2:41:55 PM PT
-Changed by Scott Bellware on Tue Aug 4 2026 at 12:05:31 AM PT
-Changed by Scott Bellware on Wed Aug 5 2026 at 1:03:00 AM PT
-Changed by Scott Bellware on Wed Aug 5 2026 at 10:57:02 AM PT
-Changed by Scott Bellware on Wed Aug 5 2026 at 11:16:34 AM PT
-Changed by Scott Bellware on Wed Aug 5 2026 at 12:13:51 PM PT
-Changed by Scott Bellware on Wed Aug 5 2026 at 9:32:50 PM PT
-Changed by Scott Bellware on Wed Aug 5 2026 at 10:15:04 PM PT
-Changed by Scott Bellware on Sat Aug 8 2026 at 2:32:48 PM PT
-Changed by Scott Bellware on Sun Aug 9 2026 at 6:06:52 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 8:18:59 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:43:08 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 10:40:54 PM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
-Changed by Scott Bellware on Mon Aug 17 2026 at 10:31:36 PM PT
-Changed by Scott Bellware on Mon Aug 17 2026 at 11:16:30 PM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 9:24:07 AM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 1:41:52 PM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 5:26:42 PM PT
+- the when-the-work-diverges-from-the-plan-the-work-is-definitive rule — the ordinary answer to the design reconciliation, where the work has only gone further than the design foresaw

@@ -98,8 +98,3 @@ Related:
 - the design-by-efferent attended-or-unattended-is-chosen-at-the-start and hinge-cycle rules
 - the announce-waytide-at-session-start rule — the notice reporting what has not concluded
 - the `git` run-suite-before-commit and announce-a-branch-switch-in-a-bordered-block rules
-
----
-
-Authored by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
-Changed by Scott Bellware on Sun Aug 23 2026 at 3:34:20 AM PT

@@ -8,11 +8,11 @@ Where a record carries a canonical `**State:**` line, its **filename** ends with
 2026-08-06T04-32-50Z-ooda-mode-COMPLETED.md
 ```
 
-**It reaches every record that carries a state line** — an experiment record, a feature record, and an idea. Each convention fixes its own words, and this rule fixes only where the word is rendered.
+**It reaches every record that carries a state line** — an implementation record, whether an experiment or a feature, and an item. Each convention fixes its own words, and this rule fixes only where the word is rendered.
 
-**A record with no state line takes no suffix**, which now reaches an experiment record and a feature record alone. Absence is the in-progress state in those two conventions, and the session-start notice is what reports them as open, so a name carrying no suffix is answered elsewhere.
+**A record with no state line takes no suffix**, which now reaches an implementation record alone. Absence is the in-progress state in the implementations-convention, and the session-start notice is what reports them as open, so a name carrying no suffix is answered elsewhere.
 
-**An idea always carries a suffix.** Absence stopped being a state for it on 2026-08-16, when **Active** was added — precisely because this rule moved the state into the filename, where a missing suffix and an oversight look the same. That asymmetry is deliberate: the record nothing reports is the one that must say so in its own name. **An observation's suffix is always `-STATED`**, since that is its one state.
+**An item always carries a suffix.** Absence stopped being a state for it on 2026-08-16, when **Active** was added — precisely because this rule moved the state into the filename, where a missing suffix and an oversight look the same. That asymmetry is deliberate: the record nothing reports is the one that must say so in its own name. **An observation's suffix is always `-STATED`**, since that is its one state.
 
 **The file's contents are unchanged.** The state is the `**State:**` line and nothing else, and the file still ends with its provenance footer. The suffix was appended to the contents until 2026-08-16, which put the same value in two places inside one artifact for no reader who was asking for it there.
 
@@ -26,7 +26,7 @@ Where a record carries a canonical `**State:**` line, its **filename** ends with
 
 **The name is derived from the line and changes only when it changes.** Where the two disagree the line is right, and the name is stale.
 
-**So a state change renames the file.** A record reaching a new word is renamed with `git mv`, and a reversible word taken back — **Realized** when a design expands, **Deferred** when the work is taken up — renames it to **ACTIVE**.
+**So a state change renames the file.** A record reaching a new word is renamed with `git mv`, and a reversible word taken back — **Realized**, **Deferred**, **Open**, or a work item's **Done**, as the items-convention sets out — renames it to the state the item returns to, **ACTIVE** or **OPEN**.
 
 **A renamed file breaks a path recorded elsewhere.** That is the cost the rules-convention names when it says to reference a rule by its name rather than its path. Here the mitigation is the same as everywhere: historical records are left as written and a reader who follows an unresolvable path uses git, and **live** artifacts that cite the record are reconciled at the rename.
 
@@ -36,20 +36,12 @@ The cost is a filename that mutates over a record's life, which is real and is w
 
 **How to apply:** when a record reaches a state word, write the `**State:**` line and rename the file so its name ends with that word in upper case, after a dash.
 
-When the state changes, rename it again. When a reversible state word is taken back, rename it to **ACTIVE**. Reconcile the live artifacts that cite the old name, and leave historical records as written. Give no suffix to an experiment or feature record carrying no state line, and add none to any file's contents.
+When the state changes, rename it again. When a reversible state word is taken back, rename it to the state the record returns to, **ACTIVE** or **OPEN**. Reconcile the live artifacts that cite the old name, and leave historical records as written. Give no suffix to an implementation record carrying no state line, and add none to any file's contents.
 
 Related:
 
 - the implementations-convention — the record whose state line is absent while the work is under way, and the words each kind takes
-- the ideas-convention — the other record that carries a state line, and which carries one from the moment it is written
+- the items-convention — the other record that carries a state line, and which carries one from the moment it is written
 - the file-names rule — the ISO-8601-UTC prefix and the lower-case name this takes an exception to
 - the rules-convention — referencing by name rather than path, and the reconciliation a rename obliges
-- the an-idea-takes-a-log-entry rule — the log entry a state change also takes
-
----
-
-Authored by Scott Bellware on Sun Aug 16 2026 at 2:44:25 AM PT
-Changed by Scott Bellware on Sun Aug 16 2026 at 2:54:58 AM PT
-Changed by Scott Bellware on Sun Aug 16 2026 at 3:03:12 AM PT
-Changed by Scott Bellware on Mon Aug 17 2026 at 10:31:36 PM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
+- the an-item-takes-a-log-entry rule — the log entry a state change also takes
