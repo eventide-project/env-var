@@ -14,11 +14,3 @@ Related:
 
 - the name-literally-not-by-analogy rule — which uses solubility as its criterion
 - the `design-by-efferent` package's vocabulary — the term's role inside a specific method, where solubility is the focus of the actuation hinge
-
----
-
-Authored by Scott Bellware on Thu Jul 16 2026 at 8 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 10:52:35 PM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 1:12:44 AM PT
-Changed by Scott Bellware on Thu Aug 13 2026 at 8:22:31 AM PT
