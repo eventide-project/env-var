@@ -27,7 +27,7 @@
 
 **A project with no `test/automated/` is ordinary too**, and its consequence is worth stating: the pre-commit run has nothing to run. That is not a failure and is not reported as one. The commit decision is then weighed on what the project does have, and run-suite-before-commit is satisfied vacuously rather than violated.
 
-**Waytide's own composite repository is in that second state** as of 2026-08-24. Its three tests install packages from real repositories over the network and drive an installer that writes a project tree, so each is interactive. It has no automated suite at all.
+**Waytide's own composite repository was in that second state** from 2026-08-24 to 2026-10-10. Its three interactive tests install packages from real repositories over the network and drive an installer that writes a project tree, so each is interactive. It had no automated suite at all until 2026-10-10, when `test/automated/startup-display.sh` became its first automated test. That test runs a hook script on a fixed input and compares the output, with no network access and no person in the run.
 
 **Why:** a suite is trusted in proportion to what happens when it is red. A run that sometimes needs a person, sometimes reaches a network, and sometimes cannot be judged by its exit status is a run whose failures get explained rather than fixed. Separating the two by directory keeps the automated suite mechanically true — it passes or it does not — and gives the tests that genuinely need a person a place to be, rather than being deleted for not fitting.
 
@@ -45,7 +45,3 @@ Related:
 - the `git` run-suite-before-commit rule — the pre-commit run this fixes the membership of. It is a citation rather than a dependency: this rule states what the directories are and who runs each, and it applies whole in a project that does not install the `git` package
 - the `design-by-efferent` dbe-human-in-the-loop rule — where the engineer's attention is spent, and the reason it is not spent by a machine's schedule
 - the `language` an-answer-is-a-list-and-prose-must-justify-itself rule — the form the run report takes
-
----
-
-Authored by Scott Bellware on Mon Aug 24 2026 at 12:59:35 PM PT

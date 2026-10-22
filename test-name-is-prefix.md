@@ -21,12 +21,4 @@ Counter-examples, where "Is" is not used:
 Related:
 
 - the test-structure rule and the `control_` test-variable prefix rule — in this package
-- the "sent to" entry in the Word Substitutions rule — in `language`
-
----
-
-Authored by Scott Bellware on Fri Jun 26 2026 at 2 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 1:47:26 AM PT
+- the "sent to" entry in the `language` vocabulary

@@ -34,10 +34,6 @@ Related:
 
 - the tests-are-automated-or-interactive rule — the other thing that decides what a run contains
 - the `foundation` a-suspension-is-a-log-entry rule — the other sense of the word, which this is not
-- the `foundation` ideas-convention — the `Suspended` state, whose sense this takes
+- the `foundation` items-convention — the `Suspended` state, whose sense this takes
 - the `foundation` vocabulary — *deferred*, *suspended*, and *out of scope*, stated beside each other
 - the `git` run-suite-before-commit rule — the run this narrows the membership of
-
----
-
-Authored by Scott Bellware on Mon Aug 24 2026 at 12:59:35 PM PT
