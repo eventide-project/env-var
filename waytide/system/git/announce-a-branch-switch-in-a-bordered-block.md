@@ -45,11 +45,3 @@ Related:
 
 - the `foundation` implementation-lifecycle rule — which require the working tree to end on the upstream branch, and which the block makes checkable
 - the run-suite-before-commit rule — the other thing confirmed before work is recorded
-
----
-
-Authored by Scott Bellware on Sat Aug 8 2026 at 12:23:07 AM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
