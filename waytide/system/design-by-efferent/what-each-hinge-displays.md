@@ -22,7 +22,7 @@ It is *also* a function of what the observation then reads about the result. So 
 
 **The implementation is shown before the loop moves on from its hinge.** The implementation hinge is where **solubility** is judged, and an awkward implementation is the tell that the actuation is wrong. That tell is in the code. Showing the run alone reports that the behavior arrived, and withholds the thing the judgment is made on. The engineer would then be asked for a solubility verdict on an artifact they have not seen.
 
-The implementation leads, because it is what the hinge is about. The test and the feature's output are shown with it. See the show-the-test-after-implementing and show-feature-test-output-after-implementation-hinge rules.
+The implementation leads, because it is what the hinge is about. The test and the feature's output are shown with it. See the show-feature-test-output-after-implementation-hinge rule.
 
 **Why:** each hinge is a distinct deliberation, and what is on screen decides what can be deliberated. Too little and the human is asked to judge something in isolation that has no meaning in isolation. The load-bearing linkage (do *these* controls, fed into *this* actuation, produce a result *this* observation reads, and does the whole thing exercise the outcome?) then has to be reconstructed mentally.
 
@@ -36,17 +36,6 @@ Related:
 
 - the hinge-cycle rule — the sequence, the acceptance mechanism, and the requirement that an option be the artifact rather than a label
 - the first-turn rule — the three test hinges produce turn one
-- the show-the-test-after-implementing and show-feature-test-output-after-implementation-hinge rules — what accompanies the implementation at hinge 4
+- the show-feature-test-output-after-implementation-hinge rule — the feature's test output that accompanies the implementation at hinge 4
 - the folder-mirroring rule
 - the test-block-is-assertion-only rule
-
----
-
-Authored by Scott Bellware on Thu Jul 16 2026 at 8 PM PT
-Changed by Scott Bellware on Sun Aug 9 2026 at 8:21:33 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 8:18:59 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:43:08 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 10:53:55 PM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT

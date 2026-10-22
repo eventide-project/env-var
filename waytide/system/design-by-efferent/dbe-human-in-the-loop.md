@@ -11,7 +11,7 @@ Division of labor: the human owns the efferent design — what the actuation loo
 The loop, by turn:
 
 1. **Human sets the cradle — the actuation.** The actuation is the contract and the highest-leverage hinge. The AI may propose it, but the human holds edit and veto power *specifically on the actuation*. When the efferent shape is uncertain, the AI asks rather than averaging toward common code.
-2. **AI writes turn one — the test file only.** The human deliberates the *actuation*, not the test mechanics — does it read as soluble use? Fix the cradle now if not. It is cheapest before any implementation exists.
+2. **The three test hinges produce turn one.** The actuation, the observation, and the controls are each put to the human in turn, per the hinge-cycle rule, and the test file is assembled once all three are accepted. **The whole test file is never produced at an earlier hinge**, unless the engineer chose unattended work at the start, where the agent decides each hinge and generates through (see the attended-or-unattended-is-chosen-at-the-start rule). The human deliberates whether the actuation reads as soluble use, not the test mechanics. Fix the cradle now if not. It is cheapest before any implementation exists.
 3. **AI generates the implementation inside the cradle, straight through**, and runs the test to *confirm* (verification, not the green half of a ceremony). The human deliberates the unit's solubility. If it only works by forcing an awkward actuation, the fix goes to the cradle, not the implementation.
 4. **Loop by outcome.** Name the next distinct outcome of the same single actuation. The AI adds an inner `context` and extends the implementation just enough. The human deliberates solubility again.
 5. **Exit on solubility, not coverage.** The stopping criterion is that the unit has dissolved into the reader's understanding, not an assertion count.
@@ -27,13 +27,3 @@ Related:
 - the hinge-cycle rule — the two original hinges grown to five
 - the test-structure rule
 - the DBE vocabulary
-
----
-
-Authored by Scott Bellware on Sat Jun 20 2026 at 11 AM PT
-Changed by Scott Bellware on Sat Aug 8 2026 at 2:21:56 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 10:56:35 PM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 2:41:09 AM PT
-Changed by Scott Bellware on Thu Aug 13 2026 at 8:22:31 AM PT

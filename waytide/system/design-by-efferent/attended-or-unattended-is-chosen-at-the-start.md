@@ -54,7 +54,7 @@ with these options:
 
 **The plan is a list.** Use an ordered list where each step rests on the one above it. Use a bullet list where the steps are independent. This is the `language` package's an-answer-is-a-list-and-prose-must-justify-itself rule, applied to a plan.
 
-**Write the plan in ETE.** That is Eventide Technical English: the STE dictionary and the STE writing rules, with Waytide's reserved terms. Short sentences. Active voice. No semicolon. One idea in each item. The STE dictionary does not approve `hinge`, `actuation`, `cradle`, or `solubility`. A plan written in the raw standard could not name any of them. See the `language` package's ste rules.
+**Write the plan in ETE.** That is Eventide Technical English: the STE dictionary and the STE writing rules, with Waytide's reserved terms. Short sentences. Active voice. No semicolon. One idea in each list item. The STE dictionary does not approve `hinge`, `actuation`, `cradle`, or `solubility`. A plan written in the raw standard could not name any of them. See the `language` package's ETE rules, in `ete/`.
 
 **This is not a planning record.** `foundation` governs the project's planning records, which are written to a directory and kept. This plan is presented in the response, before the agent generates, and it is not written to a file.
 
@@ -79,28 +79,3 @@ Related:
 - the hinge-cycle rule — the hinges that run either way
 - the never-ask-to-start-test-first rule — which forbids asking about the method's substance, where this asks about its cadence
 - foundation's implementation-lifecycle rule — the starts where the decision is put
-
----
-
-Authored by Scott Bellware on Sun Aug 2 2026 at 1:04:45 PM PT
-Changed by Scott Bellware on Sat Aug 8 2026 at 2:21:56 PM PT
-Changed by Scott Bellware on Sat Aug 8 2026 at 2:32:48 PM PT
-Changed by Scott Bellware on Sat Aug 8 2026 at 8:06:54 PM PT
-Changed by Scott Bellware on Sun Aug 9 2026 at 6:02:16 PM PT
-Changed by Scott Bellware on Sun Aug 9 2026 at 6:04:16 PM PT
-Changed by Scott Bellware on Sun Aug 9 2026 at 6:06:52 PM PT
-Changed by Scott Bellware on Sun Aug 9 2026 at 8:21:33 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 8:18:59 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 9:29:23 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 10:35:55 PM PT
-Changed by Scott Bellware on Mon Aug 10 2026 at 11:41:53 PM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 1:12:44 AM PT
-Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
-Changed by Scott Bellware on Wed Aug 12 2026 at 6:24:18 AM PT
-Changed by Scott Bellware on Thu Aug 13 2026 at 8:22:31 AM PT
-Changed by Scott Bellware on Mon Aug 17 2026 at 9:41:07 PM PT
-Changed by Scott Bellware on Mon Aug 17 2026 at 9:45:19 PM PT
-Changed by Scott Bellware on Mon Aug 17 2026 at 10:31:36 PM PT
-Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
