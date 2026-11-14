@@ -1,0 +1,69 @@
+# Slasher — testing
+
+Controls-based test-writing conventions. Not tied to a specific test-framework API.
+
+**What a run contains**
+- `test/` holds `automated/`, `interactive/`, or both. Only the automated tests run before a commit — an interactive test is the engineer's to run, and a report says which of the two ran (`tests-are-automated-or-interactive-and-only-the-automated-run-before-a-commit`).
+- A test file whose name begins with an underscore is **suspended** and is not run. The mark is a rename, the file is kept, and the pattern does not exclude it on its own (`a-test-file-named-with-a-leading-underscore-is-suspended`).
+- **`/test` runs the automated suite, and `/test interactive` runs the one interactive test named**, and each report says what ran and no more (`a-test-run-asked-for-runs-the-automated-suite-or-the-interactive-test-named`).
+
+**Structure and naming**
+- Actuate the concern once at the top. Assert each outcome in its own nested context (`a-test-actuates-its-concern-once-and-asserts-each-outcome-in-its-own-context`).
+- Context nesting mirrors the folder hierarchy. A single-case feature is one file named for the feature.
+- A high-level context names a **behavior**, never a method. The requirement is firm at the top and relaxes with depth, so a deeper context that describes an implementation element may name it. A unit's root test takes no second-level context and lives at `test/automated/<unit>.rb`.
+- A feature's normal path and each of its exceptional paths are **separate files** — an exceptional path cannot share the normal path's single actuation.
+- A `test` block holds only the assertion. Every operand is an explaining variable declared in the enclosing context.
+- Name a test "Is …" only for a value-equals-comparator assertion. A raised-error outcome is named "Fails" (or "Doesn't fail"), its condition promoted to a context.
+- A predicate method's context is "`<Name>` Predicate". Enclose a test in a context only when it needs local instrumentation.
+
+**Controls**
+- Local variables built by a control take the `control_` prefix. A control's string value starts with "some".
+- The known inputs — the helpers, the values, and the setup phase — are **controls**, never factories, fixtures, or "arrange".
+
+**Preconditions**
+- A **precondition** is a bare `assert`/`refute` that is not a test. It **documents a factor that decides the test's outcome** where the script doesn't express it — most often a property of a control, whose value is named rather than described.
+- It documents by **asserting**, so the clarification is checked rather than claimed. It qualifies the test rather than preventing a regression, so a failed one makes the result meaningless rather than wrong.
+- Its predicate reads **inline**, with no explaining variable — the stated exception to the assertion-only rule — and it sits immediately before what it qualifies.
+
+**What to test**
+- Assert an error's message only when it is the sole way to confirm the correct error was raised.
+- Don't test the platform — a transparent pass-through has nothing of ours at risk.
+
+**Vocabulary** (`vocabulary.md`): the terms **controls** and **precondition**, and the testing-domain substitutions — verified (not green), prevent (not guard, for a test).
+
+**Commands**: `test-report` (classify the suite) and `test-tree` (print a normalized de-duped context tree).
+
+Includes `foundation`, `language`.
+
+```
+testing  →  foundation, language
+```
+
+## Installing into a project
+
+Install with `git subtree`. It puts the files in your project's `slasher/system/` tree, committed alongside your code and read at session start:
+
+```
+git subtree add  --prefix slasher/system/testing git@github.com:slasher-bot/testing.git master --squash
+git subtree pull --prefix slasher/system/testing git@github.com:slasher-bot/testing.git master --squash
+```
+
+**Over HTTPS**, where no SSH key is registered, use `https://github.com/slasher-bot/testing.git` in place of the address above. A script takes `SLASHER_ORIGIN=https://github.com/slasher-bot` for the same reason.
+
+It includes `foundation` and `language` — install those too, or run `slasher/system/testing/install-dependencies.sh` from your project root.
+
+**Refresh from upstream** periodically to pull the latest rules:
+
+```
+git subtree pull --prefix slasher/system/testing git@github.com:slasher-bot/testing.git master --squash
+```
+
+
+## License
+
+Slasher is licensed under the **Eventide Common Interest License**. It is source-available and free to use. It is not open source in the strict sense, since it does not permit modification. The license text is forthcoming and will be published in `LICENSE`.
+Changed by Scott Bellware on Sat Aug 8 2026 at 2:34:57 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 10:58:52 PM PT
+Changed by Scott Bellware on Mon Aug 24 2026 at 12:59:35 PM PT
+Changed by Scott Bellware on Mon Nov 2 2026 at 8:54:25 PM PT
