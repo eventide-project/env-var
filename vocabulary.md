@@ -1,0 +1,218 @@
+# Language — Vocabulary
+
+The language package's vocabulary: the terms it defines and the word substitutions it enforces. Binding — use these terms and swaps in code, tests, rules, designs, commits, and prose.
+
+**Every word here is approved in the STE dictionary, or reserved in a category its entry names.** The a-vocabulary-file-holds-terms-substitutions-and-discontinuations-and-each-word-is-approved-or-reserved rule sets out what each means, what a reserved word's entry states, and what silence means in an entry.
+
+The *principles* that govern word selection stay as rules — `name-concepts-literally-not-by-analogy-code-or-jargon`, `no-slang`, `communicate-plainly-and-name-the-actual-thing`, `language-is-used-precisely-here-and-words-are-load-bearing`. This file holds the settled lexicon those principles produce.
+
+## Terms
+
+- **solubility** — how readily a unit dissolves and disappears smoothly into the reader's cognition and understanding. It is cognitive, and the ideal is immediate comprehension with minimal interpretive work. That is knowledge at a glance. The design-quality a unit is judged against, and the quality the name-literally test serves. It is a **load-bearing methodological principle, not merely a term**. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.**
+- **efferent** — the use-site perspective: the view that conducts outward from the unit doing the using to the unit being used. **`caller`, and its compounds `caller-side`, `caller-first`, and `caller's-eye`, are the common software-development patois for this view.** A general design-vocabulary term. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.**
+- **Eventide Technical English (ETE)** — Slasher's implementation of ASD-STE100 Simplified Technical English: the STE dictionary and the STE writing rules, with Slasher's reserved terms and its substitutions, in the precedence the `ete/` rules state. **`Say it in ETE` is the instruction to write that way**, and it differs from `say it in STE`, which asks for the raw standard — that one forbids `efferent`, `cradle`, `hinge`, and every other term Slasher reserved. The rules are in `slasher/system/language/source/ete/`. **STE: absent from the STE dictionary, and approved here as a technical noun in the official documents, standards, and guidelines category, per STE Rules 1.5 and 1.8.**
+- **actuation** — the invocation of a unit from its use site. **STE: not approved. The STE dictionary gives OPERATION, which names the running of a thing rather than its invocation from a use site. Technical noun, ETE engineering, design, process, and method.**
+- **preserve** — to keep something that already exists, rather than putting it there or serving it. A rule preserves a mindset. Clarity is preserved. **Slasher did not coin it.** It is the word structural design and software design already use, kept because the extant term says the thing exactly, which is what the language-is-used-precisely-here-and-words-are-load-bearing rule asks for. **STE: not approved. The STE dictionary gives PRESERVATION, a technical noun for a maintenance procedure, which does not carry this. Technical verb, ETE engineering, design, process, and method.**
+- **moot** — no longer bearing on anything, because circumstances moved rather than because a judgment was reached. A moot question is one whose answer would change nothing now. It is the adjective for the condition the state word **Obsolete** names in a record. **STE: absent from the STE dictionary. Technical adjective, ETE engineering, design, process, and method.**
+
+## Substitutions
+
+General, domain-less word substitutions. Each puts the literal term in place of a slang, imported-jargon, or figurative one. Each puts the unambiguous term in place of one that leaves a reader to guess which system it belongs to. When the impulse is a word in the **Don't use** column, write the **Use** term. (Domain-specific swaps live in their own package's vocabulary — `verified`/`prevent` in `testing`.)
+
+| Use | Don't use | Meaning |
+|---|---|---|
+| **normal path** | "happy path" | the ordinary, non-error course through a method or feature. The raising cases are "error cases" / "exceptional cases", and the course through one is the **exceptional path** — never "sad path", and never "exception path". **STE: `normal (adj)` is not approved and gives USUAL (adj), and `path` is absent. Technical noun, ETE engineering, design, process, and method** |
+| **conform** (or *reconcile* / *propagate* where more exact) | "sweep" | bringing code or prose into line with a convention. **STE: not approved.** The STE dictionary gives AGREE, which does not carry it |
+| **convey** (or plainly "pass … through") | "thread" | a value passed through layers of methods / APIs. **STE: not approved.** The STE dictionary gives MOVE |
+| **increment** | "cut" | a bounded slice of scope delivered as a step — and see below for the word's other sense. **STE: `INCREMENT (n)` is approved, meaning one of a sequence, which names a step in a series rather than a slice of scope. Technical noun, ETE engineering, design, process, and method, with its meaning fixed here** |
+| **created** / **branched from** | "cut" (a branch) | bringing a git branch into existence from a base — see below. **STE: `create (v)` is not approved and gives MAKE (v), which does not carry branching from a base. Technical verb, ETE engineering, design, process, and method** |
+| **install packages** / "the installed bundle" | "vendor" | a plain installation of gem/package dependencies. **STE: `INSTALL (v)` is approved, and used with its approved meaning** |
+| **scenario** | "arm" | one variant or case a method or feature handles. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method** |
+| a direct question — **"is that right?"**, "does that work?" | "does that land?" | a plain question, not dressed up — and see below for "land" in other uses |
+| **effect** | "what it costs" | the result or consequences of a change, named neutrally rather than presumed a cost. **STE: `EFFECT (n)` is approved, and used with its approved meaning. `effect (v)` is not approved and gives DO (v), and Slasher does not use the verb** |
+| **examine** | "decode" | working through or inspecting something to understand it. **STE: `EXAMINE (v)` is approved, and used with its approved meaning** |
+| **evaluate** / **evaluated** | "score" / "scored" | judging a thing against a criterion and reaching a verdict — a forecast item against what happened, a result against what it claims — see below. **STE: `evaluate (v)` is not approved. The STE dictionary gives EXAMINE (v), and MAKE AN ANALYSIS for its own example *Evaluate the test results*. Technical verb, ETE deliberation and speech** |
+| **start** | "pick up" | beginning work on something — a task, a deferred item, or other queued work. **STE: `START (n)` and `START (v)` are approved, and used with their approved meanings** |
+| **justified** / **justifiable** | "earns its keep" / "earns its place" | a thing being worth having. The figure is a lodger paying rent, and it says nothing about why the thing is worth having. |
+| **selection** / **decision** | "choice" | what the engineer picks at a prompt is a **selection**, and the matter being settled is a **decision**. **STE: `choice (n)` is not approved. The STE dictionary gives SELECTION (n), whose approved meaning is the action or result of choosing.** |
+| **required** | "owed" | what a rule asks of a thing. The figure is a debt, and a rule is not a creditor. |
+| **cost** | "price" | what a trade gives up, where the giving up is real and stated — see below for how this sits with the **effect** row above. The figure in "price" is a bargain struck, which adds a seller and an agreed sum to a sentence that has neither |
+| **in progress** | "in flight" | work that has been started and has not concluded. The figurative sense is an aircraft between takeoff and landing, and it says nothing the literal phrase does not. **STE: `progress` is not approved as a noun or a verb, and gives CONTINUE (v), which names carrying on rather than a state. Technical adjective, ETE engineering, design, process, and method** |
+| **dash-separated, lower-case** | "kebab-case" | a name written in lower-case with its words joined by dashes. **STE: `dash` is absent, and `case (n)` is not approved and gives CONDITION (n). Technical adjective, ETE engineering, design, process, and method** |
+| **name** | "slug" | the descriptive part of a filename. **STE: `NAME (n)` is approved, and used with its approved meaning** |
+| **discontinue** | "retire" | taking a word or a rule out of use. **STE: not approved.** The STE dictionary gives STOP, whose approved meanings are terminal, and a discontinued word did not end |
+| **engineer** | "developer" | the person the work is done with and for — at the loop, at a hinge, and as the reader the terminology is conveyed to. **STE: absent from the STE dictionary. Technical noun, STE category 11, professional roles, individuals, groups, organizations, and geopolitical entities** |
+| **mediates** | "wrap" / "wrapper" | an object that provides access to another through itself — see below. **STE: absent from the STE dictionary, and `mediate` is absent too. Technical verb, ETE engineering, design, process, and method** |
+| **obsolete** (or a more exact word) | "dead" | something no longer in force or in use — see below. **STE: absent from the STE dictionary. Technical adjective, ETE engineering, design, process, and method** |
+| **sent to** | "initialized with" / "passed to" | a value passed into a method or initializer — see below. **STE: `SEND (v)` is approved, meaning to cause a thing to go to a place, and Slasher means a value reaching a method. Technical verb, ETE engineering, design, process, and method, with its meaning fixed here** |
+| **efferent** | "caller" | the use-site perspective, and the unit doing the using — see below |
+| **actuation** | "the call" (the call shape, the call site) | the invocation of a unit — the first efferent reference — see below |
+| **activate** / **deactivate** | "switch on" / "switch off" | bringing a system or mechanism into force, or taking it out of force — see below. **STE: `ACTIVATE (v)` is approved, and used with its approved meaning** |
+| **name who did it, and how** — *I ran `git mv`*, *the agent edited the Tags lines*, *you renamed it*, and where the contrast matters, *directly, not by the installer* | "by hand" | work done by a party and a means that are both named. The figure describes the work by a body part and leaves the actor out: asked *whose hand?*, it has no answer, and an agent has no hand at all. **STE: this row replaces a phrase rather than reserving a word, so no category applies** |
+| **the standard's name, then the part** — *STE Rule 1.7*, *the STE dictionary* | "Rule 1.7", "the dictionary" | a reference to any part of an external standard — see below. **STE: this row fixes a citation form rather than reserving a word, so no category applies** |
+| **smaller** | "shorter" | of a size: having fewer characters, words, or lines. *Shorter* is said of time, as of a read that takes less time |
+
+### Finer distinctions
+
+- **cost** and **effect** are not in conflict, and the difference is whether a cost is being claimed. **effect** replaces *what it costs* where a change's result is being named and nothing establishes it as a loss — the row above it exists because presuming a cost is the error there. **cost** is the right word where something is genuinely given up and the giving up is the point, as it is in a stated trade. Ask whether the sentence is naming a result or naming what a choice gave up.
+- **cut** is figurative in two senses, and each has its own substitution. As a **slice of scope**, say **increment** — the row above. As **making a branch**, say **created** or **branched from**: *this branch was created from `master`*, never *this branch was cut from `master`*. The `foundation` an-implementation-runs-on-a-branch-to-a-declared-end rule already writes *branched from*, so the literal term was in use before the figure was noticed. The two senses share one word and nothing else, which is why the table carries two rows rather than one. **Neither is a discontinuation** — a discontinuation names one word and drops it, and each of these names a word to write instead.
+- **evaluate** and **examine** are both in this table and do different work. Examining is inspecting a thing to understand it. Evaluating is setting it beside a criterion and reaching a verdict. A forecast item is examined by reading it and evaluated by putting it against what happened.
+- **`score` carries an approved meaning Slasher does not use**, which is the most expensive case a substitution meets. `scored (adj)` is not approved, and the STE dictionary's `SCORE (TN)` is a groove or a scratch in a surface — *if the bearing race is scored, replace it*. A reader who meets the word believes they know it. So the substitution is not only a preference for the better word. It removes a false reading the dictionary itself supplies.
+- **mediates.** The canonical form is the bare verb — *`X` mediates `Y`*, not *`X` mediates for `Y`*. "wrap"/"wrapper" reads as a generic decorator and hides the relationship. "mediates" names it exactly — the object stands between a user and the thing it fronts, providing access to it.
+- **efferent** replaces the patois in every sense. The perspective is efferent, and so is the unit doing the using. A method has efferents, and a design has an efferent view.
+
+- **obsolete** is the fallback, not the goal. Reach for the exact word when there is one:
+  - a reference whose target moved is **unresolvable**
+  - a rule no longer in force is **discontinued** or **superseded**
+  - a branch that can only go one way **has nothing to decide**
+  - an assignment that never happens **never fires**
+
+   "dead" over-dramatizes — nothing died, and the drama distorts judgment, making routine tidying read as urgent repair.
+- **sent to** frames a call as sending a message with arguments — an argument is *sent to* the method that receives it. "initialized with" and "passed to" are looser, mechanism-flavored phrasings for the same thing.
+- **actuation** governs the invocation *noun*. "To call a method" in the pure-mechanism sense, and "call it X" meaning to *name* it, are different uses — not covered. Use "actuation shape" for its shape, and "use site" for where it is invoked.
+- **activate** names what actually happens — a system is brought into force. "Switch on" borrows a light switch, and the borrowed image is wrong in the way that matters. A switch is binary, instantaneous, and reversible by the same gesture. Activating a system is a set of arrangements that can be partly in place. The same holds for **deactivate** over "switch off". This is not a preference for the longer word — "activate" is the extant term for the act, and the figure displaced it.
+- **A reference to part of an external standard names that standard.** Slasher has rules of its own, so a bare *Rule 1.7* leaves a reader to work out which system it belongs to. The numbering gives them nothing to work it out from. **The same holds for the standard's dictionary**, because every `vocabulary.md` in Slasher is an approved-word dictionary for its package, so *the dictionary* names four things at once. Write the standard's name first — **STE Rule 1.7**, **STE Rules 1.5 through 1.13**, **the STE dictionary** — in prose, records, commits, and dialogue alike. This is a rule about ambiguity rather than about a figure of speech: neither word is wrong, and the reference is still incomplete without the name. A Slasher rule needs no such prefix, being referred to by its name.
+
+- **land** is a figure in more than one use. As a question — "does that land?" — say a direct question ("is that right?"), per the row above. It is also a figure as an effect taking hold, or a change being deployed: "what landed", "the change landed", "it landed on master". Say **what changed**, **what was affected**, or **took effect**.
+
+**Applying it:** when the impulse is a **Don't use** word, write the **Use** term. That holds in names, prose, comments, commit messages, logs, loop records, and dialogue. When a new substitution is settled, add a row here.
+
+## Compressed
+
+## The language package's vocabulary
+
+1. The principles that govern word selection stay as rules: `name-concepts-literally-not-by-analogy-code-or-jargon`, `no-slang`, `communicate-plainly-and-name-the-actual-thing`, and `language-is-used-precisely-here-and-words-are-load-bearing`. This file holds the lexicon they produce.
+
+## Terms
+
+1. **solubility** — how readily a unit dissolves and disappears smoothly into the reader's cognition and understanding. It is cognitive. The ideal is immediate comprehension with minimal interpretive work: knowledge at a glance. It is the design quality a unit is judged against, and the quality the name-literally test serves. It is a load-bearing methodological principle, not merely a term.
+2. **efferent** — the use-site perspective: the view that conducts outward from the unit doing the using to the unit being used. `caller`, and its compounds `caller-side`, `caller-first`, and `caller's-eye`, are the common software-development patois for this view. A general design-vocabulary term.
+3. **Eventide Technical English (ETE)** — its rules are in `slasher/system/language/source/ete/`.
+4. **actuation** — the invocation of a unit from its use site.
+5. **preserve** — to keep something that already exists, rather than putting it there or serving it. A rule preserves a mindset. Clarity is preserved. It is the extant word of structural design and software design, not a Slasher coinage.
+6. **moot** — no longer bearing on anything, because circumstances moved rather than because a judgment was reached. A moot question is one whose answer would change nothing now. It is the adjective for the condition the state word **Obsolete** names in a record.
+
+## Substitutions
+
+1. Each substitution puts the literal term in place of a slang, imported-jargon, or figurative one, and the unambiguous term in place of one that leaves a reader to guess which system it belongs to.
+2. A substitution holds in names, prose, comments, commit messages, logs, loop records, and dialogue.
+3. When a new substitution is settled, add a row to the table.
+
+| Use | Don't use | Meaning |
+|---|---|---|
+| **normal path** | "happy path" | the ordinary, non-error course through a method or feature. The raising cases are "error cases" or "exceptional cases", and the course through one is the **exceptional path**, never "sad path" or "exception path". |
+| **conform** (or *reconcile* / *propagate* where more exact) | "sweep" | bringing code or prose into line with a convention. |
+| **convey** (or "pass … through") | "thread" | a value passed through layers of methods or APIs. |
+| **increment** | "cut" | a bounded slice of scope delivered as a step. |
+| **created** / **branched from** | "cut" (a branch) | bringing a git branch into existence from a base. |
+| **install packages** / "the installed bundle" | "vendor" | a plain installation of gem or package dependencies. |
+| **scenario** | "arm" | one variant or case a method or feature handles. |
+| a direct question — **"is that right?"**, "does that work?" | "does that land?" | a plain question, not dressed up |
+| **effect** | "what it costs" | the result or consequences of a change, named neutrally rather than presumed a cost. |
+| **examine** | "decode" | working through or inspecting something to understand it. |
+| **evaluate** / **evaluated** | "score" / "scored" | judging a thing against a criterion and reaching a verdict, as a forecast item against what happened. |
+| **start** | "pick up" | beginning work on something: a task, a deferred item, or other queued work. |
+| **justified** / **justifiable** | "earns its keep" / "earns its place" | a thing being worth having |
+| **selection** / **decision** | "choice" | what the engineer picks at a prompt is a **selection**, and the matter being settled is a **decision**. |
+| **required** | "owed" | what a rule asks of a thing |
+| **cost** | "price" | what a trade gives up, where the giving up is real and stated |
+| **in progress** | "in flight" | work that has been started and has not concluded. |
+| **dash-separated, lower-case** | "kebab-case" | a name written in lower-case with its words joined by dashes. |
+| **name** | "slug" | the descriptive part of a filename. |
+| **discontinue** | "retire" | taking a word or a rule out of use. |
+| **engineer** | "developer" | the person the work is done with and for: at the loop, at a hinge, and as the reader the terminology is conveyed to. |
+| **mediates** | "wrap" / "wrapper" | an object that provides access to another through itself. |
+| **obsolete** (or a more exact word) | "dead" | something no longer in force or in use. |
+| **sent to** | "initialized with" / "passed to" | a value passed into a method or initializer. |
+| **efferent** | "caller" | the use-site perspective, and the unit doing the using |
+| **actuation** | "the call" (the call shape, the call site) | the invocation of a unit, the first efferent reference |
+| **activate** / **deactivate** | "switch on" / "switch off" | bringing a system or mechanism into force, or taking it out of force. |
+| **name who did it, and how** — *I ran `git mv`*, *the agent edited the Tags lines*, *you renamed it*, and where the contrast matters, *directly, not by the installer* | "by hand" | work done by a party and a means that are both named. |
+| **the standard's name, then the part** — *STE Rule 1.7*, *the STE dictionary* | "Rule 1.7", "the dictionary" | a reference to any part of an external standard. |
+| **smaller** | "shorter" | of a size: having fewer characters, words, or lines. *Shorter* is said of time, as of a read that takes less time |
+
+## Finer distinctions
+
+1. Use **effect** where a change's result is named and nothing establishes it as a loss. Use **cost** where something is given up and the giving up is the point, as in a stated trade. Ask whether the sentence names a result or names what a choice gave up.
+2. **cut** has two senses, each with its own substitution. As a slice of scope, write **increment**. As making a branch, write **created** or **branched from**: *this branch was created from `master`*, never *this branch was cut from `master`*.
+3. Neither **cut** substitution is a discontinuation. Each names a word to write instead.
+4. **examine** is inspecting a thing to understand it. **evaluate** is setting it beside a criterion and reaching a verdict. A forecast item is examined by reading it and evaluated by putting it against what happened.
+5. Do not write `score` for evaluating. `scored (adj)` is not approved, and the STE dictionary's `SCORE (TN)` is a groove or a scratch in a surface.
+6. Write **mediates** as the bare verb: *`X` mediates `Y`*, not *`X` mediates for `Y`*. The object stands between a user and the thing it fronts, providing access to it.
+7. **efferent** replaces the patois in every sense. The perspective is efferent, and so is the unit doing the using. A method has efferents, and a design has an efferent view.
+8. **obsolete** is the fallback. Use the exact word where there is one:
+   - a reference whose target moved is **unresolvable**
+   - a rule no longer in force is **discontinued** or **superseded**
+   - a branch that can only go one way **has nothing to decide**
+   - an assignment that never happens **never fires**
+9. **sent to** frames a call as sending a message with arguments: an argument is *sent to* the method that receives it.
+10. **actuation** governs the invocation noun only. "To call a method" in the pure-mechanism sense, and "call it X" meaning to name it, are not covered. Write "actuation shape" for its shape, and "use site" for where it is invoked.
+11. **activate** names a system brought into force. Write **activate** over "switch on" and **deactivate** over "switch off".
+12. A reference to part of an external standard names that standard first: **STE Rule 1.7**, **STE Rules 1.5 through 1.13**, **the STE dictionary**. This holds in prose, records, commits, and dialogue alike. A Slasher rule needs no prefix, being referred to by its name.
+13. **land** is a figure in more than one use. As a question, "does that land?", write a direct question, "is that right?". As an effect taking hold or a change being deployed, "what landed", "the change landed", "it landed on master", write **what changed**, **what was affected**, or **took effect**.
+
+## Compression
+
+- 2026-10-29, compressed: 16276 → 12750 characters; checked: 92 directives, 87 kept, 5 less precise, 0 lost; 2 repairs, re-checked: 68 directives, 67 kept, 1 less precise, 0 lost; what is still not kept was judged reasons or background
+- 2026-10-29, revised: the head line saying every word is approved or reserved is left out of the compressed text, at the engineer's direction, since the a-packages-vocabulary-holds-its-terms-and-the-most-specific-one-decides rule states it in the read
+- 2026-10-29, revised: the lines naming the vocabulary and saying it is binding are left out of the compressed text, at the engineer's direction; the loader names the file, and the a-packages-vocabulary-holds-its-terms-and-the-most-specific-one-decides rule says every vocabulary binds
+- 2026-10-29, revised: the definition of *solubility* is restored, at the engineer's direction, since a vocabulary entry keeps its term's meaning
+- 2026-10-30, revised: the substitution *smaller* for *shorter*, of a size, is added at the engineer's direction, as one table row in the full text and the compressed text alike; checked: 95 directives, 87 kept, 3 less precise, 5 lost, the new row kept; the losses are the opening lines left out on purpose and the repetitions phase 9 removed, whose origins are pre-loaded
+- 2026-11-05, revised: each entry's STE note is left out of the compressed text, at the engineer's direction; it matters only when a word is reserved or an entry written, and the full text keeps it
+
+---
+
+Authored by Scott Bellware on Wed Jul 22 2026 at 3 PM PT
+Changed by Scott Bellware on Wed Jul 22 2026 at 7 PM PT
+Changed by Scott Bellware on Thu Jul 30 2026 at 5:04:19 PM PT
+Changed by Scott Bellware on Sat Aug 1 2026 at 5:59:32 PM PT
+Changed by Scott Bellware on Sat Aug 8 2026 at 12:17:44 AM PT
+Changed by Scott Bellware on Sat Aug 8 2026 at 2:08:29 PM PT
+Changed by Scott Bellware on Sat Aug 8 2026 at 2:32:48 PM PT
+Changed by Scott Bellware on Sat Aug 8 2026 at 2:34:57 PM PT
+Changed by Scott Bellware on Sat Aug 8 2026 at 8:06:54 PM PT
+Changed by Scott Bellware on Sat Aug 8 2026 at 10:50:31 PM PT
+Changed by Scott Bellware on Sun Aug 9 2026 at 2:01:57 PM PT
+Changed by Scott Bellware on Sun Aug 9 2026 at 4:53:01 PM PT
+Changed by Scott Bellware on Sun Aug 9 2026 at 5:23:03 PM PT
+Changed by Scott Bellware on Sun Aug 9 2026 at 5:50:23 PM PT
+Changed by Scott Bellware on Sun Aug 9 2026 at 6:06:52 PM PT
+Changed by Scott Bellware on Sun Aug 9 2026 at 6:56:40 PM PT
+Changed by Scott Bellware on Sun Aug 9 2026 at 7:25:35 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 1:50:33 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 6:14:48 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 8:18:59 PM PT
+Changed by Scott Bellware on Mon Aug 10 2026 at 10:52:35 PM PT
+Changed by Scott Bellware on Tue Aug 11 2026 at 12:34:07 AM PT
+Changed by Scott Bellware on Tue Aug 11 2026 at 3:22:51 AM PT
+Changed by Scott Bellware on Tue Aug 11 2026 at 4:06:18 AM PT
+Changed by Scott Bellware on Tue Aug 11 2026 at 5:06:31 AM PT
+Changed by Scott Bellware on Wed Aug 12 2026 at 6:24:18 AM PT
+Changed by Scott Bellware on Wed Aug 12 2026 at 7:22:16 AM PT
+Changed by Scott Bellware on Wed Aug 12 2026 at 9:24:38 AM PT
+Changed by Scott Bellware on Wed Aug 12 2026 at 12:14:07 PM PT
+Changed by Scott Bellware on Thu Aug 13 2026 at 8:22:31 AM PT
+Changed by Scott Bellware on Thu Aug 13 2026 at 9:04:18 AM PT
+Changed by Scott Bellware on Thu Aug 13 2026 at 9:31:07 AM PT
+Changed by Scott Bellware on Thu Aug 13 2026 at 10:12:33 AM PT
+Changed by Scott Bellware on Thu Aug 13 2026 at 10:31:52 AM PT
+Changed by Scott Bellware on Thu Aug 13 2026 at 11:18:04 AM PT
+Changed by Scott Bellware on Thu Aug 13 2026 at 12:52:39 PM PT
+Changed by Scott Bellware on Thu Aug 13 2026 at 1:08:26 PM PT
+Changed by Scott Bellware on Fri Aug 14 2026 at 11:53:50 AM PT
+Changed by Scott Bellware on Fri Aug 14 2026 at 1:19:04 PM PT
+Changed by Scott Bellware on Fri Aug 14 2026 at 1:29:25 PM PT
+Changed by Scott Bellware on Fri Aug 14 2026 at 1:47:50 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 9:47:45 PM PT
+Changed by Scott Bellware on Mon Aug 17 2026 at 11:32:18 PM PT
+Changed by Scott Bellware on Tue Aug 18 2026 at 9:02:44 AM PT
+Changed by Scott Bellware on Mon Aug 24 2026 at 11:22:43 PM PT
+Changed by Scott Bellware on Wed Oct 21 2026 at 2:57:52 PM PT
+Changed by Scott Bellware on Thu Oct 29 2026 at 11:02:45 AM PT
+Changed by Scott Bellware on Thu Oct 29 2026 at 11:55:34 AM PT
+Changed by Scott Bellware on Thu Oct 29 2026 at 12:04:03 PM PT
+Changed by Scott Bellware on Thu Oct 29 2026 at 12:41:44 PM PT
+Changed by Scott Bellware on Fri Oct 30 2026 at 12:45:47 AM PT
+Changed by Scott Bellware on Fri Oct 30 2026 at 1:48:35 PM PT
+Changed by Scott Bellware on Thu Nov 5 2026 at 9:09:28 PM PT
+Changed by Scott Bellware on Thu Nov 5 2026 at 9:33:19 PM PT
