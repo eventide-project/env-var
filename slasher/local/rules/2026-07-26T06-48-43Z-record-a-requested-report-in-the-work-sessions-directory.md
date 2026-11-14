@@ -1,19 +1,19 @@
-# A report the developer asks for is recorded in `waytide/local/work-sessions/`
+# A report the engineer asks for is recorded in `slasher/local/logs/work-sessions/`
 
-When the developer asks for a **report** — a status report, a test report, a test tree, a
+When the engineer asks for a **report** — a status report, a test report, a test tree, a
 lib report, or any other on-demand report command — print it in the response as usual, then
-**ask the developer whether to save it**. On confirmation, the same content is written to a
-file in `waytide/local/work-sessions/`. A report is not printed and discarded by default, and it is not
+**ask the engineer whether to save it**. On confirmation, the same content is written to a
+file in `slasher/local/logs/work-sessions/`. A report is not printed and discarded by default, and it is not
 saved without being asked either.
 
-- **Which reports.** Every on-demand report the developer requests. The named ones are the
+- **Which reports.** Every on-demand report the engineer requests. The named ones are the
   status report, the test report, the test tree, and the lib report; the rule is not
   limited to those.
 - **The confirmation goes through the selection UI.** Ask through `AskUserQuestion`, never
   as a prose question — one option to save it, one to leave it unsaved. Do not add an
   escape option of your own; the interface's built-in free-text choice is the escape (see
   the `design-by-efferent` package's present-every-prompt rule). Ask **after** the report is
-  rendered, so the developer decides with the report in front of them rather than in the
+  rendered, so the engineer decides with the report in front of them rather than in the
   abstract.
 - **Filename.** A dated working-state artifact, so it takes the ISO-8601-UTC prefix:
   `YYYY-MM-DDTHH-MM-SSZ-<report-name>.md` — for example
@@ -41,11 +41,11 @@ described is gone.
 **Why the confirmation:** not every report is worth keeping. Many are asked in passing — a
 suite count checked mid-task, a tree glanced at while naming a test — and saving those
 fills the directory with snapshots nobody will compare. Which reports become part of the
-record is a judgment about what will matter later, and that judgment is the developer's. The
+record is a judgment about what will matter later, and that judgment is the engineer's. The
 prompt also comes after the report is rendered, when its contents are visible, so the
 decision is made on the actual report rather than on the intention to produce one.
 
-**Why `waytide/local/work-sessions/`:** the developer directed this directory. It is the home of the
+**Why `slasher/local/logs/work-sessions/`:** the engineer directed this directory. It is the home of the
 records written to be read by a person rather than consulted as truth-of-record, which is
 what a report is — a rendering for a reader, pointing at the durable files it was derived
 from. Note that it means the directory holds two kinds of document: session records, which
@@ -55,7 +55,7 @@ shape.
 
 **How to apply:** on a report request, render the report per its own format rule and print
 it. Then ask through the selection UI whether to save it. On confirmation, write the same
-content to `waytide/local/work-sessions/` with a UTC-prefixed filename, a titled heading, and a
+content to `slasher/local/logs/work-sessions/` with a UTC-prefixed filename, a titled heading, and a
 provenance footer; on a decline, print nothing further and leave no file. Do not revise a
 recorded report later — produce a new one. Related: foundation's `status-report-format` and
 `work-sessions-convention`, the `design-by-efferent` package's present-every-prompt rule
@@ -69,3 +69,4 @@ recorded report later — produce a new one. Related: foundation's `status-repor
 Authored by Scott Bellware on Sat Jul 25 2026 at 11 PM PT
 Changed by Scott Bellware on Sat Jul 25 2026 at 11 PM PT
 Changed by Scott Bellware on Sun Aug 2 2026 at 9:50:35 AM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 1:45:25 PM PT

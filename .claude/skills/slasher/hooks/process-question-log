@@ -1,0 +1,29 @@
+#!/bin/sh
+# Run foundation's process-question-log.sh for the plugin's hook, after each AskUserQuestion.
+#
+# Invocation:
+#
+#   ${CLAUDE_PLUGIN_ROOT}/hooks/process-question-log
+#
+# Nobody types this. The plugin's hooks/hooks.json names it, and the harness runs it, with the
+# hook's input on standard input. The line is recorded because a script whose invocation is not
+# written down is one nobody can reproduce when the wiring breaks.
+#
+# The entries go to the project's log: slasher/local/logs/log/ in a consuming project,
+# local/logs/log/ in the Slasher authoring source.
+
+project=${CLAUDE_PROJECT_DIR:-.}
+
+if [ -d "$project/slasher/system" ]; then
+  system=$project/slasher/system
+  local=$project/slasher/local
+else
+  system=$project/system
+  local=$project/local
+fi
+
+script=$system/foundation/process-question-log.sh
+[ -x "$script" ] || exit 0
+[ -d "$local/logs/log" ] || exit 0
+
+exec "$script" "$local/logs/log"

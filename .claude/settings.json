@@ -1,28 +1,6 @@
 {
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "sh waytide/system/foundation/session-start.sh"
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "waytide/system/foundation/startup-display.sh"
-          }
-        ]
-      }
-    ]
-  },
   "statusLine": {
     "type": "command",
-    "command": "sh waytide/system/foundation/statusline.sh"
+    "command": "slasher/system/foundation/statusline.sh"
   }
 }
