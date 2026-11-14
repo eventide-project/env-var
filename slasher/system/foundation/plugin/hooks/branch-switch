@@ -1,0 +1,44 @@
+#!/bin/sh
+# Run the git package's branch-switch.sh for the plugin's hooks, before and after each shell
+# command.
+#
+# Invocation:
+#
+#   ${CLAUDE_PLUGIN_ROOT}/hooks/branch-switch before
+#   ${CLAUDE_PLUGIN_ROOT}/hooks/branch-switch after
+#
+# Nobody types these. The plugin's hooks/hooks.json names them, and the harness runs them, with
+# the hook's input on standard input. The lines are recorded because a script whose invocation is
+# not written down is one nobody can reproduce when the wiring breaks.
+#
+# The script is the git package's, so this does nothing where that package is not installed or
+# is deactivated in the latest package set. The system is found from the project root: in
+# slasher/system/ in a consuming project, in system/ in the Slasher authoring source. The script
+# runs in the directory the command ran in, which the hook's input names, so it reads the branch
+# of the repository the command worked in.
+
+project=${CLAUDE_PROJECT_DIR:-.}
+
+if [ -d "$project/slasher/system" ]; then
+  system=$project/slasher/system
+  local=$project/slasher/local
+else
+  system=$project/system
+  local=$project/local
+fi
+
+script=$system/git/branch-switch.sh
+[ -x "$script" ] || exit 0
+
+declaration=$(ls "$local"/*-package-set.md 2>/dev/null | sort | tail -1)
+if [ -n "$declaration" ] &&
+  sed -n 's|^[[:space:]]*-\{0,1\}[[:space:]]*\*\*Inactive:\*\*[[:space:]]*\(.*\)$|\1|p' "$declaration" |
+    head -1 | tr ',' '\n' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' | grep -qx git; then
+  exit 0
+fi
+
+event=$(cat)
+directory=$(printf '%s' "$event" | sed -n 's/.*"cwd"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p')
+[ -n "$directory" ] && [ -d "$directory" ] && cd "$directory"
+
+printf '%s' "$event" | exec "$script" "$@"

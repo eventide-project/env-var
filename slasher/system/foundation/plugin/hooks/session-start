@@ -1,0 +1,22 @@
+#!/bin/sh
+# Run foundation's session-start.sh for the plugin's hook.
+#
+# Invocation:
+#
+#   ${CLAUDE_PLUGIN_ROOT}/hooks/session-start
+#
+# Nobody types that. The plugin's hooks/hooks.json names it, and the harness runs it, with the
+# hook's input on standard input. The line is recorded because a script whose invocation is not
+# written down is one nobody can reproduce when the wiring breaks.
+#
+# The plugin sits in the project's .claude/skills/, so the script moves to the project root and
+# finds the system there: slasher/system/ in a consuming project, system/ in the Slasher
+# authoring source. Checked in that order, as foundation's own scripts check it.
+
+cd "${CLAUDE_PROJECT_DIR:-.}" || exit 0
+
+if [ -d slasher/system ]; then
+  exec slasher/system/foundation/session-start.sh "$@"
+fi
+
+exec system/foundation/session-start.sh "$@"
