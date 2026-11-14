@@ -1,0 +1,26 @@
+#!/bin/sh
+# Run foundation's private-session.sh for the plugin's hook, on each prompt.
+#
+# Invocation:
+#
+#   ${CLAUDE_PLUGIN_ROOT}/hooks/private-session
+#
+# Nobody types this. The plugin's hooks/hooks.json names it, and the harness runs it, with the
+# hook's input on standard input. The line is recorded because a script whose invocation is not
+# written down is one nobody can reproduce when the wiring breaks.
+#
+# The state files sit outside every repository, one to a session, in
+# ~/.local/state/slasher/private-sessions/. The time is the clock's, in seconds since the epoch.
+
+project=${CLAUDE_PROJECT_DIR:-.}
+
+if [ -d "$project/slasher/system" ]; then
+  system=$project/slasher/system
+else
+  system=$project/system
+fi
+
+script=$system/foundation/private-session.sh
+[ -x "$script" ] || exit 0
+
+exec "$script" "$HOME/.local/state/slasher/private-sessions" "$(date +%s)"
