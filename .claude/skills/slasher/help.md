@@ -39,13 +39,17 @@ ITEMS
                                    List items in a state
                                    <state>: any item state, or "current"
                                    (Open, Active, and Implementation)
+  /item status [<item>]            The item's state, what exists, and what
+                                   is left. <item>: a number from the last
+                                   list, a datetime, or words from the
+                                   title. With none, the Active item
 
   /item start, /start              Open, or Recorded for a goal or an
                                    aspiration -> Active
   /item complete, /complete        -> the kind's concluding state:
-                                   Realized, Done, Corrected, or Resolved
+                                   Realized, Completed, Corrected, or
+                                   Resolved
   /item realize, /realize          -> Realized
-  /item done, /done                -> Done ([work] and [rework] items)
   /item defer, /defer              -> Deferred (kept to do later)
   /item suspend, /suspend          -> Suspended
   /item discontinue, /discontinue  -> Discontinued (no plan to do it)
@@ -74,8 +78,12 @@ FEATURES
 
   /feature new                     Create its branch and an Open record
   /feature new with phases         Create it, asking for its phases
-  /feature status                  Phases, current phase, and its goal
-  /feature start, /start           Open -> Active
+  /feature status [<feature>]      Phases, state, what exists, and
+                                   what is left. <feature>: a number
+                                   from the last list, a datetime, or
+                                   words from the title
+  /feature start, /start           Open -> Active, or, where none is
+                                   Open, create one Active
   /feature complete, /complete     -> Completed, or asks which state
                                    where there is a forecast
   /feature affirm, /affirm         -> Affirmed (engineer's declaration only)
@@ -94,7 +102,7 @@ FEATURES
   /feature help                    Print this command's help
 
   Either kind opens with a question or an intent. A forecast is
-  stated at the start where you give one, and the verdict is asked
+  stated when it is created, where you give one, and the verdict is asked
   when the work completes.
 
 EXPERIMENTS
@@ -103,8 +111,13 @@ EXPERIMENTS
 
   /experiment new                  Create its branch and an Open record
   /experiment new with phases      Create it, asking for its phases
-  /experiment status               Phases, current phase, and its goal
-  /experiment start, /start        Open -> Active
+  /experiment status [<experiment>]
+                                   Phases, state, what exists, and
+                                   what is left. <experiment>: a number
+                                   from the last list, a datetime, or
+                                   words from the title
+  /experiment start, /start        Open -> Active, or, where none is
+                                   Open, create one Active
   /experiment complete, /complete  -> Completed, or asks which state
                                    where there is a forecast
   /experiment affirm, /affirm      -> Affirmed (engineer's declaration only)
@@ -128,7 +141,9 @@ PHASE
   its own sub branch.
 
   /phase, /phase current           The current phase, its goal, and its branch
-  /phase add <name>                Add a phase after the last
+  /phase status                    The phases, the current one emphasized,
+                                   and its goal
+  /phase new <name>                Create a phase after the last
   /phase start                     Start the next phase
   /phase complete                  -> Completed, merged into the implementation
   /phase affirm                    -> Affirmed (engineer's declaration only)
@@ -136,7 +151,7 @@ PHASE
                                    not realized)
   /phase inconclusive              -> Inconclusive
 
-  Whether a phase states a forecast is asked when it is added.
+  Whether a phase states a forecast is asked when it is created.
   A phase with one is asked the verdict question when it completes.
 
   /phases                          List the phases, the current one emphasized
@@ -156,19 +171,20 @@ PROCESS
   /c [<n>]                         An alias of /current
   /recent                          Brief summary of recent work, and what's
                                    next
-  /.                               An alias of /recent
+  /?                               An alias of /recent
+  /status [<record>]               The status of the work under way, or of
+                                   the item, feature, or experiment named
 
   /next                            Proceed to the next step in the current
                                    multi-step process or with the action
                                    that the agent is suggesting, or resume
                                    interrupted work
   /proceed                         An alias of /next
-  /..                              An alias of /next
+  /.                               An alias of /next
   /next?                           "What are we doing?" or "what's next?"
                                    The next step in the current multi-step
                                    process, or the step that has been
                                    interrupted.
-  /?                               An alias of /next?
 
   /unattended <request>            Carry out the request on the agent's own,
                                    after a plan is proposed
@@ -178,13 +194,10 @@ PROCESS
                                    question
   /aa                              An alias of /ask-again
 
-  /copy-last-line                  Copy the last line of the previous reply
-                                   to the clipboard
-  /cll                             An alias of /copy-last-line
-
-  /idk [<words>]                   Say "I don't know" to the agent's last
-                                   question. The agent explains it, gives
-                                   its recommendation, and asks it again
+  /pros-and-cons [<words>]         Give each option of the agent's last
+                                   question with its pros and cons. Then
+                                   /ask-again puts the question again
+  /??                              An alias of /pros-and-cons
 
   /estimate-confidence             The agent's confidence of proceeding
                                    unattended from where the work stands
@@ -206,6 +219,29 @@ LOG
 
   /log help                        Print this command's help
 
+RECORD
+  These commands print or copy the path of, print, or open the most recent
+  principal record, and open any record by name.
+
+  /record                          Print the record's path
+  /record copy                     Copy the record's path to the clipboard
+  /record print                    Print the record's contents
+  /record open                     Open the record in its default application
+  /open <record>                   Open the record named in its default
+                                   application. <record>: an ordinal from
+                                   the last list, a handle, a path, or
+                                   words from its title
+  /record help                     Print this command's help
+
+RECORDS
+  The records line ends a reply that wrote a record, with the full path of the
+  record it is about.
+
+  /records, /records show          Print every record the previous reply
+                                   wrote. A reply prints its principal
+                                   record alone
+  /records help                    Print this command's help
+
 JOURNAL
   The journal is the writer's own record of what they think, either stored with
   the project or kept in a private journal.
@@ -224,16 +260,19 @@ PRIVATE
   Anything given to /private is recorded only in the private directory,
   outside the project's repository, and is read only on command.
 
+  /private                         Start a private session, whose records
+                                   all go to the private directory
+  /private end                     End the private session. After 4 minutes
+                                   with no prompt, the agent asks whether
+                                   to continue it or end it
   /private <file path>             Copy the file to the private directory
   /private item <words>            Write a private item
   /private log <words>             Write a private log entry
   /private journal <words>         Write a private journal entry
   /private session <instruction>   Carry out the instruction in a private
-                                   session, whose records all go to the
-                                   private directory
-  /private session end             End the private session. After 4 minutes
-                                   with no prompt, the agent asks whether
-                                   to continue it or end it
+                                   session
+  /private session end             End the private session, as /private end
+                                   does
   /private read <name>             Read a private record
   /private list [<kind>]           List the private records
   /private help                    Print this command's help
@@ -242,7 +281,7 @@ BRAINSTORMING
   Brainstorming records points as they are said, freeform in no order, and
   organizes them when the writer is done.
 
-  /brainstorm, /brainstorm begin   Begin brainstorming
+  /brainstorm, /brainstorm start   Start brainstorming
   /brainstorm end                  End it, and organize what was said into a
                                    [brainstorm] item
   /brainstorm suspend              Suspend the brainstorm
@@ -266,10 +305,14 @@ TESTS
   /test help                       Print this command's help
 
 PUSH
-  This command pushes the current branch to its remote, and never forces.
+  These commands commit the work and push the current branch to its remote,
+  and never force.
 
   /push                            Push the current branch to its upstream
   /p                               An alias of /push
+  /commit-and-push                 Run the suite, commit the work, then push
+                                   the current branch
+  /cp                              An alias of /commit-and-push
   /push help                       Print this command's help
 
 PROJECTS
@@ -289,46 +332,42 @@ RELEASE
   /release                         Choose the next version
   /release help                    Print this command's help
 
-PACKAGES
-  These commands manage the installed packages: which are active, refreshing
+PACKAGE
+  These commands manage the installed packages: which are active, updating
   them, and installing Slasher.
 
   /package activate <package>      Activate an installed package
   /package deactivate <package>    Deactivate an installed package
-  /package refresh [<package>...]  Refresh installed packages
+  /package update [<package>...]   Update installed packages
   /package install                 Install Slasher
   /install [<set or packages>]     Install Slasher where it is not installed
 
   /package-set                     Show the active package set
   /package-set <set or packages>   Declare the package set
 
+  /package help                    Print this command's help
+
+PACKAGES
+  These commands list the installed packages, update them, and act on one
+  package.
+
   /packages                        List the installed packages, whether
                                    each is active, and what each is
-  /packages refresh [<package>...]
-                                   An alias of /package refresh
-  /packages <package> [<act>]      Act on one package. <act>: refresh,
+  /packages update [<package>...]  An alias of /package update
+  /packages <package> [<act>]      Act on one package. <act>: update,
                                    activate, or deactivate. With no act,
                                    asks which
 
-  /package help                    Print this command's help
+  /packages help                   Print this command's help
 
 LANGUAGE
   These commands work on language: reserving a word, ETE, Slasher's
   implementation of STE and its extensions, and clarifying language, often the
   agent's.
 
-  /clarify                         Explain the previous answer again using
-                                   what the agent knows of the engineer's
-                                   understanding
-  /??                              An alias of /clarify
-
   /expand                          Expand the previous answer
   /brief [<request>]               Answer the request in brief, or give the
                                    previous answer again in brief
-
-  /reprint-and-review [<file>]     Print the draft as it now stands, then a
-                                   review of it
-  /rr [<file>]                     An alias of /reprint-and-review
 
   /reserve <word>                  Reserve a word, in six steps
 

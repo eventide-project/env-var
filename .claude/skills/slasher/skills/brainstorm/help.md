@@ -2,7 +2,7 @@ BRAINSTORMING
   Brainstorming records points as they are said, freeform in no order, and
   organizes them when the writer is done.
 
-  /brainstorm, /brainstorm begin   Begin brainstorming
+  /brainstorm, /brainstorm start   Start brainstorming
   /brainstorm end                  End it, and organize what was said into a
                                    [brainstorm] item
   /brainstorm suspend              Suspend the brainstorm

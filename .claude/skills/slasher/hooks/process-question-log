@@ -9,7 +9,7 @@
 # hook's input on standard input. The line is recorded because a script whose invocation is not
 # written down is one nobody can reproduce when the wiring breaks.
 #
-# The entries go to the project's log: slasher/local/logs/log/ in a consuming project,
+# The entries go to the project's log: slasher/local/logs/log/ in a Slasher project,
 # local/logs/log/ in the Slasher authoring source.
 
 project=${CLAUDE_PROJECT_DIR:-.}
