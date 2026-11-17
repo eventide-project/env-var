@@ -11,7 +11,7 @@ Division of labor: the human owns the efferent design — what the actuation loo
 The loop, by turn:
 
 1. **Human sets the cradle — the actuation.** The actuation is the contract and the highest-leverage hinge. The AI may propose it, but the human holds edit and veto power *specifically on the actuation*. When the efferent shape is uncertain, the AI asks rather than averaging toward common code.
-2. **The three test hinges produce turn one.** The actuation, the observation, and the controls are each put to the human in turn, per the the-hinge-cycle-is-actuation-observation-controls-implementation-and-naming rule, and the test file is assembled once all three are accepted. **The whole test file is never produced at an earlier hinge**, unless the engineer chose unattended work at the start, where the agent decides each hinge and generates through (see the attended-or-unattended-is-chosen-when-the-work-is-started rule). The human deliberates whether the actuation reads as soluble use, not the test mechanics: the testing framework and the ceremonies of using it. The actuation, observation, and controls, as well as the naming of things, are the test's content, not its mechanics. Fix the cradle now if not. It is cheapest before any implementation exists.
+2. **The three test hinges produce turn one.** The actuation, the observation, and the controls are each put to the human in turn, per the the-hinge-cycle-is-actuation-observation-controls-implementation-and-naming rule, and the test file is assembled once all three are accepted. **The whole test file is never produced at an earlier hinge**, unless the engineer chose unattended work at the start, where the agent decides each hinge and generates through (see the attended-or-unattended-is-chosen-when-the-work-is-created rule). The human deliberates whether the actuation reads as soluble use, not the test mechanics: the testing framework and the ceremonies of using it. The actuation, observation, and controls, as well as the naming of things, are the test's content, not its mechanics. Fix the cradle now if not. It is cheapest before any implementation exists.
 3. **AI generates the implementation inside the cradle, straight through**, and runs the test to *confirm* (verification, not the green half of a ceremony). The human deliberates the unit's solubility. If it only works by forcing an awkward actuation, the fix goes to the cradle, not the implementation.
 4. **Loop by outcome.** Name the next distinct outcome of the same single actuation. The AI adds an inner `context` and extends the implementation just enough. The human deliberates solubility again.
 5. **Exit on solubility, not coverage.** The stopping criterion is that the unit has dissolved into the reader's understanding, not an assertion count.
@@ -43,7 +43,7 @@ The loop, by turn:
 5. **The three test hinges produce turn one.** Put the actuation, the observation, and the controls to the human in turn, per the the-hinge-cycle-is-actuation-observation-controls-implementation-and-naming rule.
 6. Assemble the test file once all three are accepted.
 7. Never produce the whole test file at an earlier hinge.
-8. The exception is when the engineer chose unattended work at the start. Then the agent decides each hinge and generates through (see the attended-or-unattended-is-chosen-when-the-work-is-started rule).
+8. The exception is when the engineer chose unattended work at the start. Then the agent decides each hinge and generates through (see the attended-or-unattended-is-chosen-when-the-work-is-created rule).
 9. The human deliberates whether the actuation reads as soluble use, not the test mechanics: the testing framework and the ceremonies of using it. The actuation, observation, and controls, as well as the naming of things, are the test's content, not its mechanics.
 10. If it does not, fix the cradle now, before any implementation exists.
 11. **AI generates the implementation inside the cradle, straight through.**
@@ -97,3 +97,4 @@ Changed by Scott Bellware on Sun Oct 25 2026 at 4:25:53 PM PT
 Changed by Scott Bellware on Mon Oct 26 2026 at 3:45:31 PM PT
 Changed by Scott Bellware on Tue Oct 27 2026 at 2:06:51 PM PT
 Changed by Scott Bellware on Tue Oct 27 2026 at 2:29:24 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 4:42:17 PM PT

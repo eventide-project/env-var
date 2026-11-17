@@ -8,17 +8,17 @@ Source: system/design-by-efferent/source/advance-one-outcome-at-a-time-and-stop-
 4. Do not batch-generate multiple test files in one pass.
 5. Generate one outcome's test, then stop at its gate.
 6. Proceed only on the human's go. Under unattended work, the loop does not stop at the gates. It still advances one outcome at a time.
-7. Finishing the work means naming the test.
-8. A test left with an empty, unnamed outcome context is unfinished.
+7. Concluding the work means naming the test.
+8. A test left with an empty, unnamed outcome context is not concluded.
 9. The closing step ascribes the test's name.
 10. Name one test at a time.
 11. At the naming gate, present candidate outcome-context names, as every hinge presents its candidates. The AI does not name the test on its own.
 12. See the the-hinge-cycle-is-actuation-observation-controls-implementation-and-naming rule for the mechanism and its reasons.
 13. Build one outcome's test at a time.
 14. After each test, stop at each of its hinges (see the the-hinge-cycle-is-actuation-observation-controls-implementation-and-naming rule) and wait.
-15. Under unattended work, chosen at the start, the agent decides each hinge itself and does not stop (see the attended-or-unattended-is-chosen-when-the-work-is-started rule).
+15. Under unattended work, chosen at the start, the agent decides each hinge itself and does not stop (see the attended-or-unattended-is-chosen-when-the-work-is-created rule).
 16. Never write several test files at once, in either mode.
-17. To finish an unnamed test, present candidate names as options through the selection UI.
+17. To conclude an unnamed test, present candidate names as options through the selection UI.
 18. Then apply the name the human chose or dictated.
 
 # DBE is a design tool, not a testing ritual
@@ -68,7 +68,7 @@ Source: system/design-by-efferent/source/test-first-is-the-default-so-never-ask-
 3. Do not otherwise put the test-first decision to the human.
 4. The answer is always yes unless told otherwise.
 5. If the human wants a task started another way, they will give a different instruction.
-6. When the next task is clear, begin it test-first without asking.
+6. When the next task is clear, start it test-first without asking.
 7. You may offer the next-task selection if useful.
 8. Never frame the next-task selection as a test-first/not question.
 9. Deviate from test-first only on an explicit instruction to do so.
@@ -80,7 +80,7 @@ Source: system/design-by-efferent/source/test-first-is-the-default-so-never-ask-
 3. Attended or unattended is a different question. It asks how often the loop stops, not what it builds.
 4. The choice neither confirms nor declines the method.
 5. A question with a genuinely situational answer is a decision, not a settled default. This rule does not forbid asking it.
-6. See the attended-or-unattended-is-chosen-when-the-work-is-started rule.
+6. See the attended-or-unattended-is-chosen-when-the-work-is-created rule.
 
 # The human deliberates the hinges, never the pass/fail bar
 
@@ -107,7 +107,7 @@ Source: system/design-by-efferent/source/the-human-deliberates-the-hinges-never-
 5. **The three test hinges produce turn one.** Put the actuation, the observation, and the controls to the human in turn, per the the-hinge-cycle-is-actuation-observation-controls-implementation-and-naming rule.
 6. Assemble the test file once all three are accepted.
 7. Never produce the whole test file at an earlier hinge.
-8. The exception is when the engineer chose unattended work at the start. Then the agent decides each hinge and generates through (see the attended-or-unattended-is-chosen-when-the-work-is-started rule).
+8. The exception is when the engineer chose unattended work at the start. Then the agent decides each hinge and generates through (see the attended-or-unattended-is-chosen-when-the-work-is-created rule).
 9. The human deliberates whether the actuation reads as soluble use, not the test mechanics: the testing framework and the ceremonies of using it. The actuation, observation, and controls, as well as the naming of things, are the test's content, not its mechanics.
 10. If it does not, fix the cradle now, before any implementation exists.
 11. **AI generates the implementation inside the cradle, straight through.**

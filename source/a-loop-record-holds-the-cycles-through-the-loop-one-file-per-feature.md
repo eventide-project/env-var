@@ -9,7 +9,7 @@
 **Format:**
 - Filename per the ISO 8601 UTC datetime prefix convention: `YYYY-MM-DDTHH-MM-SSZ-<feature-name>.md`.
 - A `# Loop record — <feature>` title and a one-paragraph summary of the feature.
-- **The mode, declared at the top** — **attended** or **unattended** (see the attended-or-unattended-is-chosen-when-the-work-is-started rule). It is stated once, because it changes how every cycle below is read.
+- **The mode, declared at the top** — **attended** or **unattended** (see the attended-or-unattended-is-chosen-when-the-work-is-created rule). It is stated once, because it changes how every cycle below is read.
 - One section per **cycle**, in order. Each cycle records:
   - **Hinge** — the subtle, load-bearing decision the AI determined.
   - **Options** — the candidates put to the engineer at the gate (or "none — no gate", explicitly, when a hinge was handled without stopping. Surfacing a skipped gate is part of the record's value).
@@ -39,7 +39,7 @@
 
 1. Name the file per the ISO 8601 UTC datetime prefix convention: `YYYY-MM-DDTHH-MM-SSZ-<feature-name>.md`.
 2. Begin with a `# Loop record — <feature>` title and a one-paragraph summary of the feature.
-3. Declare the mode at the top, as **attended** or **unattended**, per the attended-or-unattended-is-chosen-when-the-work-is-started rule.
+3. Declare the mode at the top, as **attended** or **unattended**, per the attended-or-unattended-is-chosen-when-the-work-is-created rule.
 4. State the mode once.
 5. Write one section per cycle, in order.
 6. Each cycle records a **Hinge**: the subtle, load-bearing decision the AI determined.
@@ -117,3 +117,4 @@ Changed by Scott Bellware on Mon Oct 26 2026 at 3:45:31 PM PT
 Changed by Scott Bellware on Tue Oct 27 2026 at 2:29:24 PM PT
 Changed by Scott Bellware on Tue Oct 27 2026 at 10:02:10 PM PT
 Changed by Scott Bellware on Fri Nov 6 2026 at 8:47:18 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 4:42:17 PM PT

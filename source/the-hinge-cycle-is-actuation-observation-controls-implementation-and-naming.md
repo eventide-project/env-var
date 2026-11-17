@@ -32,7 +32,7 @@ The fifth hinge, **naming**, is **deferred to the feature's close**. Per the fir
 
 **It is given once**, when the loop starts on a piece of work — not at each cycle and not at each outcome. A passage repeated at every hinge stops being read, which is the failure the the-startup-display-prints-as-the-session-starts rule names about a permanent line.
 
-**It does not apply under unattended work**, where no hinge is put to the engineer at all. There the plan takes its place (see the attended-or-unattended-is-chosen-when-the-work-is-started rule).
+**It does not apply under unattended work**, where no hinge is put to the engineer at all. There the plan takes its place (see the attended-or-unattended-is-chosen-when-the-work-is-created rule).
 
 **It comes after the participation decision, not before it.** That decision names no hinge on purpose, because it is asked at a feature's or an experiment's start and the engineer has met nothing yet. This account is where they meet the five, and it sits immediately ahead of the first one.
 
@@ -40,7 +40,7 @@ The fifth hinge, **naming**, is **deferred to the feature's close**. Per the fir
 
 **How responsibility transfers at every hinge:** where there are genuinely distinct options, present them **as options**. Where there is one, present that one the same way. Never pass a hinge without the human's acceptance. Every hinge is presented through the selection UI — see the present-every-prompt-to-the-engineer-through-the-selection-ui rule.
 
-**An option is the artifact, not a label for it.** The option reads `assert(retries == 3)` or `Controls::Upload.example(client: control_client, retries: 3)` — the line that would be written, shown as it would be written. A gloss may follow it where the difference between two candidates is not visible in the code alone. **A label standing in place of the artifact is not an option.** `Accept — assert the returned count against 3` asks the engineer to approve a description of a thing rather than to read the thing. The engineer is judging a design, and the design is in the characters.
+**An option is the artifact, not a label for it.** The option reads `assert(retries == 3)` or `Controls::Upload.example(client: control_client, retries: 3)` — the line that would be written, shown as it would be written. A gloss may follow it where the difference between two candidates is not visible in the code alone. **A label standing in place of the artifact is not an option.** `Accept — assert the returned count against 3` asks the engineer to approve a description of a thing rather than to read the thing. The engineer is judging a design, and the design is in the characters. **Where the artifact runs past one line, it is shown in the chat and in the option's preview.** It is shown as the `foundation` package's present-every-prompt-to-the-engineer-through-the-selection-ui rule shows a code example, under a label. The option's label is that label, and its description is the artifact's key line. The artifact is still on screen, so the label does not stand in place of it.
 
 **So a hinge with one candidate is not an "accept" prompt.** It shows that candidate as its option, exactly as a hinge with three shows three, and selecting it is the acceptance. Nothing about the single case changes the form. The agent does not search for a second candidate to reach two.
 
@@ -65,13 +65,13 @@ This is the **initial**-implementation cycle for one outcome. Looping to further
 ## Compressed
 
 1. Building the initial implementation of an outcome runs a cycle of five hinges, in the order below.
-2. Hand each hinge to the human separately. Get it accepted before moving to the next.
+2. Hand each hinge to the human separately, through the selection UI. Do not slip one hinge in under another's gate. Get it accepted before moving to the next.
 3. **Actuation** is the unit's efferent shape: name, arguments, arity, return.
 4. **Observation** is what is asserted about the result. That covers value-equality vs. identity vs. a raised error, and what the explaining variable is compared against.
 5. What the test reads is the side effect the actuation produces. A returned value is one such effect, a case rather than the rule.
 6. An actuation that returns nothing still produces an effect somewhere. One that returns a value frequently produces others beside it.
 7. The observation hinge asks which effect the test reads, and how it reads it. It does not assume the return.
-8. **Controls** are the example constants the test is built from. That covers control form, nested vs. top-level, inner constants, Array vs. Hash seeding, and literals vs. controls.
+8. **Controls** are the example constants the test is built from. That covers control form, nested vs. top-level, inner constants, Array vs. Hash seeding, and literals vs. controls. The controls are a hinge in their own right, and their example must discriminate.
 9. **Implementation** is the code that satisfies the test.
 10. The implementation hinge always has two candidates. One is the complete implementation written directly. The other is the red/green/refactor cycle (see the at-the-implementation-hinge-the-engineer-chooses-a-direct-implementation-or-red-green-refactor rule).
 11. **Naming** is the outcome `context` that names what the observation establishes (the test's name).
@@ -88,11 +88,11 @@ This is the **initial**-implementation cycle for one outcome. Looping to further
 22. Settle the outcome taxonomy deliberately, as a design artifact. Do not treat it as a label applied after the fact.
 23. Where a hinge has genuinely distinct options, present them as options.
 24. Never pass a hinge without the human's acceptance.
-25. An option is the artifact, not a label for it. It is the line that would be written, shown as it would be written.
+25. An option is the artifact, not a label for it. It is the line that would be written, shown as it would be written. Where it runs past one line, show it in the chat under a label and in the option's preview, as the `foundation` present-every-prompt-to-the-engineer-through-the-selection-ui rule shows a code example. The option takes the label, and the artifact's key line as its description.
 26. For example, the option reads `assert(retries == 3)` or `Controls::Upload.example(client: control_client, retries: 3)`.
 27. A gloss may follow an option where the difference between two candidates is not visible in the code alone.
 28. A label standing in place of the artifact is not an option. For example, `Accept — assert the returned count against 3` is not an option.
-29. A hinge with one candidate is not an "accept" prompt. It shows that candidate as its option, exactly as a hinge with three shows three.
+29. A hinge with one candidate is not an "accept" prompt. It shows that candidate as its option, exactly as a hinge with three shows three. Do not search for, or manufacture, a second candidate to reach two or to avoid the look of a foregone conclusion.
 30. Selecting the lone candidate is the acceptance. Nothing about the single case changes the form.
 31. This generalizes the the-actuation-gate-offers-candidate-actuations-as-options rule, which states the same mechanism at the first gate.
 32. What goes on screen at each hinge is the each-hinge-displays-the-actuation-as-its-anchor-and-the-contexts-once rule. That is the actuation as the anchor, and the contexts shown once.
@@ -117,7 +117,7 @@ This is the **initial**-implementation cycle for one outcome. Looping to further
 
 4. Give the account once, when the loop starts on a piece of work.
 5. Do not repeat it at each cycle or at each outcome.
-6. The account does not apply under unattended work, where no hinge is put to the engineer. There the plan takes its place (see the attended-or-unattended-is-chosen-when-the-work-is-started rule).
+6. The account does not apply under unattended work, where no hinge is put to the engineer. There the plan takes its place (see the attended-or-unattended-is-chosen-when-the-work-is-created rule).
 7. Give the account after the participation decision, not before it.
 8. Place the account immediately ahead of the first hinge.
 9. The participation decision names no hinge, on purpose.
@@ -129,8 +129,11 @@ This is the **initial**-implementation cycle for one outcome. Looping to further
 - 2026-10-29, revised: the `Explain` option and every statement about the free-text option are removed, at the engineer's direction; checked: 42 directives, 38 kept, 1 less precise, 3 lost; what is not kept was left out on purpose, in this revision or an earlier one, or is stated in the pre-loaded present-every-prompt-to-the-engineer-through-the-selection-ui rule
 - 2026-11-08, revised: the first candidate is a full implementation, not a working implementation, a term swap the engineer settled; not re-checked
 - 2026-11-11, revised: the first candidate is a complete implementation, not a full implementation, a term swap the engineer settled; not re-checked
+- 2026-11-15, revised: an artifact longer than one line is shown in the chat and in the option's preview; checked: 33 directives, 28 kept, 3 less precise, 2 lost, 3 repairs; re-checked: 33 directives, 32 kept, 1 less precise, 0 lost. Left less precise: the naming is settled as the outcome taxonomy, which one checker judged kept, and the body says the same
 
 ## History
+
+Until Sun Nov 15 2026 the rule did not say how an artifact longer than one line is shown at a hinge.
 
 Until Wed Nov 11 2026 the implementation hinge's first candidate was named the full implementation. The engineer renamed it the complete implementation.
 
@@ -187,3 +190,5 @@ Changed by Scott Bellware on Thu Oct 29 2026 at 1:40:05 PM PT
 Changed by Scott Bellware on Wed Nov 4 2026 at 11:37:47 AM PT
 Changed by Scott Bellware on Sun Nov 8 2026 at 2:04:31 PM PT
 Changed by Scott Bellware on Wed Nov 11 2026 at 1:34:22 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 4:42:17 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 4:26:49 PM PT
