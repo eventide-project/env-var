@@ -22,8 +22,8 @@
 # Never let a notice break a session start.
 set +e
 
-# Locate the system: slasher/system/ in a consuming project, system/
-# in the Slasher authoring source. Checked in that order — a consuming project
+# Locate the system: slasher/system/ in a Slasher project, system/
+# in the Slasher authoring source. Checked in that order — a Slasher project
 # may have a system/ directory of its own.
 if [ -d slasher/system ]; then
   system=slasher/system
@@ -72,92 +72,7 @@ fi
 notice=$(printf 'Slasher installed at %s/ — %s %s: %s' \
   "$system" "$count" "$noun" "$list")
 
-# Report work that has not reached a concluded state. An implementation is never
-# left silently open (the an-implementation-runs-on-a-branch-to-a-declared-end rule), but nothing otherwise
-# brings an open one to attention: the working directories under slasher/ are not read at session
-# start, and work done in a worktree leaves no trace in the main working tree at
-# all — it stays on the upstream branch, so even the branch name gives nothing away.
-#
-# The state is read from the record's canonical "**State:** <state>" line. The state
-# words also appear throughout a record's prose, so only that line is authoritative.
-# Active is the in-progress state. A record without a line is reported too, since it
-# has not concluded.
-#
-# Prints "<n> <noun> open: <name> (<note>), ..." or nothing. Arguments: the
-# directory, the singular noun, the plural noun, then the concluded state words.
-report_open() {
-  directory=$1
-  singular=$2
-  plural=$3
-  shift 3
-
-  [ -d "$directory" ] || return 0
-
-  names=
-  open_count=0
-
-  for record in "$directory"/*.md; do
-    [ -f "$record" ] || continue
-
-    # The line is ordinarily a list item in the record's setup block, so an
-    # optional leading dash is allowed.
-    state=$(
-      sed -n \
-        's|^[[:space:]]*-\{0,1\}[[:space:]]*\*\*State:\*\*[[:space:]]*\([A-Za-z]*\).*|\1|p' \
-        "$record" |
-        tail -1
-    )
-
-    concluded=
-    for word in "$@"; do
-      if [ "$state" = "$word" ]; then
-        concluded=yes
-        break
-      fi
-    done
-    [ -z "$concluded" ] || continue
-
-    case "$state" in
-      Open)
-        note=open
-        ;;
-      Active)
-        note=active
-        ;;
-      Suspended)
-        note=suspended
-        ;;
-      '')
-        note='no state recorded'
-        ;;
-      *)
-        note=$state
-        ;;
-    esac
-
-    # The name is the filename without its datetime prefix and without its state suffix,
-    # which an open record carries as -OPEN, -ACTIVE, or -SUSPENDED.
-    name=$(
-      basename "$record" .md |
-        sed -e 's|^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}T[0-9]\{2\}-[0-9]\{2\}-[0-9]\{2\}Z-||' \
-          -e 's|-[A-Z][A-Z]*$||'
-    )
-
-    open_count=$((open_count + 1))
-    names="${names}${names:+, }${name} (${note})"
-  done
-
-  [ "$open_count" -gt 0 ] || return 0
-
-  noun=$plural
-  if [ "$open_count" = "1" ]; then
-    noun=$singular
-  fi
-
-  printf '%s %s open: %s' "$open_count" "$noun" "$names"
-}
-
-# Locate the project's own working state: slasher/local/ in a consuming project,
+# Locate the project's own working state: slasher/local/ in a Slasher project,
 # local/ in the Slasher authoring source — the same two-layout check the packages get.
 if [ -d slasher/local ]; then
   own=slasher/local
@@ -167,32 +82,10 @@ else
   own=
 fi
 
-implementations=
-
-if [ -n "$own" ]; then
-  # One directory, one call. The concluded words are the union of the two kinds':
-  # any implementation may reach a verdict or Completed, and may be abandoned or
-  # superseded. A deferred, discontinued, or obsolete implementation is not current work,
-  # so it is not reported. Open and Suspended are deliberately absent — an open
-  # implementation has its branch, and a suspended one is paused rather than concluded,
-  # and both are still reported.
-  implementations=$(
-    report_open "$own/implementations" implementation implementations \
-      Affirmed Refuted Inconclusive Completed Abandoned Superseded Discontinued Deferred Obsolete
-  )
-fi
-
-# Literal backslash-ns, so the JSON string carries line breaks the harness renders — not
-# actual newlines, which would be invalid inside a JSON string. A blank line sets the open
-# implementations apart from the install line.
-if [ -n "$implementations" ]; then
-  notice="${notice}\\n\\n${implementations}"
-fi
-
 # The notice has no close of its own. The startup display's load line, printed after it, says
 # when the rules load and that /load loads them now. A close here said the same until
-# 2026-11-04, and the notice ends with what it reports: the install, and any experiment or
-# feature left open.
+# 2026-11-04, and the notice ends with what it reports: the install. It named the open
+# experiments and features until 2026-11-14, and the status line's second line shows them now.
 
 # The read instruction, carried to the agent rather than to the engineer. It goes in
 # additionalContext, not in the notice: the notice is rendered for a person, and an
@@ -212,8 +105,8 @@ fi
 # being corrected. A project with no local rules yet is the ordinary case, not an error, and a
 # fixed instruction is one string rather than one per project layout.
 #
-# The path defaults to the consuming-project layout, which is what an install produces; the
-# authoring source is detected the same way the packages and the open-work scan are.
+# The path defaults to the layout of a Slasher project, which is what an install produces; the
+# authoring source is detected the same way the packages are.
 own_rules=${own:-slasher/local}
 
 # A package's rules are compiled from its source/ directory, by compile.sh in the authoring
@@ -326,8 +219,11 @@ else
     notice="${display}\\n\\n${notice}"
   fi
 
+  # The load line is left out where Claude Code was started with /load, as in `claude /load`,
+  # since the rules are already loading. started-with-load.sh fails wherever it cannot tell,
+  # and the line then prints.
   load_line=$(sh "$system/foundation/startup-display.sh" load-line 2>/dev/null)
-  if [ -n "$load_line" ]; then
+  if [ -n "$load_line" ] && ! sh "$system/foundation/started-with-load.sh" 2>/dev/null; then
     notice="${notice}\\n\\n${load_line}"
   fi
 fi

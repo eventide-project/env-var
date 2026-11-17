@@ -4,19 +4,19 @@
 
 **A command domain's rows live beside its skill, in `command-table-rows.md`.** A command domain is a group of root commands that share one heading, one description, and one help command in the Slasher help. Its row names the domain's help command, and its description is the one under that heading. A domain with no root command of its own name has a skill named for the domain, as `/process` for PROCESS and `/language` for LANGUAGE, and its rows live beside that skill. A package carries the rows of the domains it holds, as `imap` carries `/email`'s.
 
-**One row to a domain, and a few root commands have rows of their own.** `/features` has a row below `/feature`, `/experiments` below `/experiment`, `/decision` below `/log`, `/note` below `/decision`, `/notes` below `/note`, and `/packages` below `/package`, each in its domain's rows file. `/clarify, /??`, `/idk`, `/ask-again, /aa`, `/estimate-confidence, /%`, `/unattended, /!`, `/shortcuts, /sc, /:`, and `/load` have rows of their own, beside their skills, in that order at the bottom of the table. The PHASE domain has no row. Write no other root command, alias, or subcommand into a row.
+**One row to a domain, and a few root commands have rows of their own.** `/features` has a row below `/feature`, `/experiments` below `/experiment`, `/decision` below `/log`, `/note` below `/decision`, and `/notes` below `/note`, each in its domain's rows file. `/pros-and-cons, /??`, `/ask-again, /aa`, `/estimate-confidence, /%`, `/unattended, /!`, `/shortcuts, /sc, /:`, and `/load` have rows of their own, beside their skills, in that order at the bottom of the table. The PHASE domain has no row. Write no other root command, alias, or subcommand into a row.
 
 **A description may open with *These commands*, as the help does.** No description opens with *This command*. Keep each row in line with the help: when a domain's heading, its help command, or its description changes in the help, change its row in the same commit.
 
-**The table's top rows are foundation's.** `plugin/command-table-header.md` holds the heading and the rows that open the table: `/slasher help`, then each command with a shortcut alias. Their order is `/commands, /;`, `/recent, /.`, `/current, /', /c`, `/next, /proceed, /..`, and `/next?, /?`. A command of another package with a shortcut alias has its row beside its skill, as `/push, /p` in the `git` package, and `/reprint-and-review, /rr` in the `language` package.
+**The table's top rows are foundation's.** `plugin/command-table-header.md` holds the heading and the rows that open the table: `/slasher help`, then each command with a shortcut alias, and `/next?`. Their order is `/commands, /;`, `/recent, /?`, `/current, /', /c`, `/next, /proceed, /.`, and `/next?`. A command of another package with a shortcut alias has its row beside its skill, as `/push, /p` in the `git` package, and `/print-and-review, /pr` in the `prose` package.
 
-**A row with a shortcut alias names the command first and the alias after it, as `/recent, /.`.** A command with an alias and a shortcut names the alias, then the shortcut last, as `/next, /proceed, /..`. A command with two shortcuts names both, in the order they were given, as `/current, /', /c`. This holds in the full table and in the startup table alike.
+**A row with a shortcut alias names the command first and the alias after it, as `/recent, /?`.** A command with an alias and a shortcut names the alias, then the shortcut last, as `/next, /proceed, /.`. A command with two shortcuts names both, in the order they were given, as `/current, /', /c`. This holds in the full table and in the startup table alike.
 
 **The help's order is the table's order.** `plugin/help-order` lists the domains in the order the help and the table both follow. A domain it does not list follows, in name order. Add a new domain to it where its row belongs.
 
 **A shortcut alias changes three files together.** Change its row in `command-table-header.md` or beside its skill, its row in `plugin/shortcuts.md`, and `plugin/command-table-startup.md` where it names the alias, in the same commit. `plugin/shortcuts.md` is foundation's, and lists another package's shortcut too, as `/p`.
 
-**The startup table's four rows stand in `plugin/command-table-startup.md`.** The `/slasher help` row also names `/help`. The `/commands, /;` row reads *Print the list of Slasher commands*. The `/recent, /.` row takes `/recent`'s description from the help. The `/current, /', /c` row reads *Lists the current items, features, and experiments.* The plugin build writes the sentence below them, naming every other command, so the sentence is never written by hand.
+**The startup table's four rows stand in `plugin/command-table-startup.md`.** The `/slasher help` row also names `/help`. The `/commands, /;` row reads *Print the list of Slasher commands*. The `/recent, /?` row takes `/recent`'s description from the help. The `/current, /', /c` row reads *Lists the current items, features, and experiments.* The plugin build writes the sentence below them, naming every other command, so the sentence is never written by hand.
 
 **Each table is followed by the help line:** *Type /help for all of Slasher's help, or /<command> help for one command's.* The plugin build adds it.
 
@@ -25,6 +25,18 @@
 **How to apply:** when you write or change a command, its help, or a shortcut alias, change its row in its domain's `command-table-rows.md`, or foundation's plugin files for the top rows and the shortcuts, and run `./compile.sh` so the plugin's tables are rebuilt.
 
 ## History
+
+Until Mon Nov 16 2026 the rows of their own began with `/clarify, /??` and `/idk`, ahead of `/ask-again, /aa`. Both commands were removed, and `/pros-and-cons, /??` took their place.
+
+Until Mon Nov 16 2026 `/packages` had a row below `/package`, in the `/package` rows file. The engineer made `/packages` a command domain of its own.
+
+Until Sun Nov 15 2026 the shortcut of `/print-and-review` was `/rr`. The engineer changed it to `/pr`.
+
+Until Sun Nov 15 2026 the `/print-and-review, /rr` row was the `/reprint-and-review, /rr` row. The engineer renamed the command.
+
+Until Sun Nov 15 2026 the `/reprint-and-review, /rr` row was in the `language` package. The engineer moved the command to the `prose` package.
+
+Until Sun Nov 15 2026 the shortcut of `/recent` was `/.`, the shortcut of `/next` was `/..`, and the shortcut of `/next?` was `/?`. The engineer made `/?` the shortcut of `/recent` and `/.` the shortcut of `/next`, and left `/next?` with none.
 
 Until Fri Nov 13 2026 the `/shortcuts` row read `/shortcuts, /sc`. The engineer added `/:`.
 
@@ -91,3 +103,9 @@ Changed by Scott Bellware on Fri Nov 13 2026 at 3:02:14 PM PT
 Changed by Scott Bellware on Fri Nov 13 2026 at 3:39:16 PM PT
 Changed by Scott Bellware on Fri Nov 13 2026 at 4:16:43 PM PT
 Changed by Scott Bellware on Fri Nov 13 2026 at 4:43:31 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 1:29:39 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 3:09:34 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 3:12:02 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 3:14:22 PM PT
+Changed by Scott Bellware on Mon Nov 16 2026 at 12:41:19 PM PT
+Changed by Scott Bellware on Mon Nov 16 2026 at 3:11:33 PM PT

@@ -16,7 +16,7 @@ A change to a package leaves every project that installed it holding the previou
 
 **Reporting what was done, after doing it.** A report of work just carried out is a result. A report of work not carried out is a prompt. That is the whole line, and it is legible in every case: ask whether the sentence describes something that happened.
 
-**Answering a question about downstream state.** *Are the consuming projects up to date* is a question, and it is answered plainly and in full. What is forbidden is raising it unbidden.
+**Answering a question about downstream state.** *Are the Slasher projects up to date* is a question, and it is answered plainly and in full. What is forbidden is raising it unbidden.
 
 **The session-start notice.** It reports the open experiments and features of the project the session is in, it is emitted by the harness rather than the agent, and it names no other repository. See the the-harness-announces-slashers-installation-and-the-agent-never-prints-the-notice rule.
 
@@ -58,7 +58,7 @@ Carry out any of that when the engineer asks for it, and report what happened on
 3. Reporting what was done, after doing it.
 4. A report of work carried out is a result. A report of work not carried out is a prompt.
 5. To tell them apart, ask whether the sentence describes something that happened.
-6. Answering a question about downstream state, such as *Are the consuming projects up to date*, plainly and in full.
+6. Answering a question about downstream state, such as *Are the Slasher projects up to date*, plainly and in full.
 7. Raising downstream state unbidden stays forbidden.
 8. The session-start notice. The harness emits it, it reports only on the current project, and it names no other repository. See the the-harness-announces-slashers-installation-and-the-agent-never-prints-the-notice rule.
 
@@ -69,6 +69,8 @@ Carry out any of that when the engineer asks for it, and report what happened on
 - 2026-10-28, revised: Why points removed, solubility 62 → 67, clarity 0.68 → 0.70; checked: 15 directives, 14 kept, 1 less precise, 0 lost
 
 ## History
+
+Until Sun Nov 15 2026 this rule said "consuming project" for a Slasher project, and named the registry `consuming-projects.toml` and its reader `read-consuming-projects.sh` where it named them.
 
 Until Sun Oct 25 2026 this rule was named downstream-work-is-never-offered.
 
@@ -88,3 +90,4 @@ Changed by Scott Bellware on Sun Oct 25 2026 at 4:21:44 PM PT
 Changed by Scott Bellware on Sun Oct 25 2026 at 4:21:53 PM PT
 Changed by Scott Bellware on Tue Oct 27 2026 at 2:29:24 PM PT
 Changed by Scott Bellware on Fri Nov 6 2026 at 8:47:18 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 11:44:42 PM PT

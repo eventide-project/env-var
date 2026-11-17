@@ -2,7 +2,7 @@
 
 **Trigger:** When a session starts, or the engineer types its first prompt, or when changing the startup display or its script
 
-The things below are printed verbatim, in two parts. **The session-start part** prints as the session starts: the title and the copyright and license ahead of the session-start notice, and the load line after it, last. **The loading part** prints on the session's first prompt, whatever the prompt is, since that is when the rules are read: the loading line, then the figure. Five things are always printed, in the order this file gives them. After a compaction the session-start part is not printed, and one line stands in its place, per the the-harness-announces-slashers-installation-and-the-agent-never-prints-the-notice rule. The package set is printed only where the project has declared one, and it prints after the loading part, whatever its place in this file.
+The things below are printed verbatim, in two parts. **The session-start part** prints as the session starts: the title and the copyright and license ahead of the session-start notice, and the load line after it, last. **The loading part** prints on the session's first prompt, whatever the prompt is, since that is when the rules are read: the loading line, then the figure. Five things are printed, in the order this file gives them. The load line is left out where Claude Code was started with `/load`, and the other four always print. After a compaction the session-start part is not printed, and one line stands in its place, per the the-harness-announces-slashers-installation-and-the-agent-never-prints-the-notice rule. The package set is printed only where the project has declared one, and it prints after the loading part, whatever its place in this file.
 
 **The harness prints the five, and the agent prints none of them.** As the session starts, the Slasher plugin's `SessionStart` hook runs `slasher/system/foundation/session-start.sh`, which prints the title and the copyright and license ahead of the session-start notice, and the load line after it, in the one `systemMessage`. It takes the title and the license from `startup-display.sh message`, and the load line from `startup-display.sh load-line`, each of which prints its blocks alone. On every prompt, the plugin's `UserPromptSubmit` hook runs `slasher/system/foundation/startup-display.sh`, which prints the loading part as a `systemMessage` on the session's first prompt and nothing after. An agent can skip a display it is told to print, or write it into its thinking, where it is not shown, and nothing reports either. A display the harness prints does not depend on the agent following an instruction.
 
@@ -99,6 +99,8 @@ Then **one blank line**, then the block, which ends the loading part:
 
 **The load line says when the rules load, and how to load them now.** It ends the session-start message, after the notice, so it is what the engineer reads last before typing. It states the one fact the engineer needs before the first prompt: the rules load on that prompt, whatever it is, and `/load` loads them with no other request. The session-start notice has no close of its own, because this line says what a close said. The plugin that prints it carries the `/load` skill, so the command it names is always available.
 
+**The load line is left out where Claude Code was started with `/load`.** Started as `claude /load`, the rules load on that prompt, so a line telling the engineer to enter `/load` tells them nothing. The harness gives a hook no record of how Claude Code was started, so `session-start.sh` runs `started-with-load.sh`, which reads the command lines of the processes above it and finds the one that is Claude Code. Its prompt counts as `/load` where it is `/load` or `/slasher:load` with no `help` after it, or `load rules`. Where the script finds no Claude Code process, as in the desktop app or the cloud, or any other prompt, the load line prints. A wrong answer either way costs one line of the display and nothing else.
+
 **It says *Slasher's rules*.** It stands under a title, a copyright, and a license, none of which is a sentence, so it names its subject itself.
 
 **The loading line says what the wait is.** It prints on the first prompt, as the read starts, and the response that carries the read loads every installed package's rules. That is a wait an engineer sees. The line names it rather than leaving a pause unexplained, and the figure under it fills the wait.
@@ -131,7 +133,7 @@ Then **one blank line**, then the block, which ends the loading part:
 
 ## Compressed
 
-1. The display prints verbatim in two parts. The session-start part prints as the session starts: the title and the copyright and license ahead of the session-start notice, and the load line after it, last. The loading part, the loading line and then the figure, prints on the session's first prompt, whatever it is. These five are always printed, in this file's order.
+1. The display prints verbatim in two parts. The session-start part prints as the session starts: the title and the copyright and license ahead of the session-start notice, and the load line after it, last. The loading part, the loading line and then the figure, prints on the session's first prompt, whatever it is. These five are printed, in this file's order. The load line is left out where Claude Code was started with `/load`.
 2. The package set is printed only where the project has declared one, after the loading part.
 3. The harness prints both parts. The agent prints none of them.
 4. As the session starts, the Slasher plugin's `SessionStart` hook runs `slasher/system/foundation/session-start.sh`, which prints the title and the copyright and license ahead of the session-start notice and the load line after it, in one `systemMessage`. It takes them from `startup-display.sh message` and `startup-display.sh load-line`, each of which prints its blocks alone.
@@ -207,7 +209,7 @@ Copyright © 2026 Scott Bellware
 Slasher's rules will load on the first prompt, or enter: /load
 ```
 
-51. The load line states that the rules load on the first prompt, whatever it is, and that `/load` loads them now. It names its subject, *Slasher's rules*, itself. The plugin that prints it carries the `/load` skill, so the command it names is always available.
+51. The load line states that the rules load on the first prompt, whatever it is, and that `/load` loads them now. It names its subject, *Slasher's rules*, itself. The plugin that prints it carries the `/load` skill, so the command it names is always available. `session-start.sh` leaves it out where `started-with-load.sh` finds that Claude Code was started with `/load` or `/slasher:load` with no `help` after it, or with `load rules`. Where the script finds no Claude Code process, the line prints.
 52. The session-start notice has no close of its own. The load line says what a close said.
 53. The loading part opens with the loading line, which names the wait for the read:
 
@@ -273,8 +275,11 @@ Slasher is pre-loading its rules... this could take a minute
 - 2026-11-08, revised: the session-start part is not printed after a compaction, as point 60; not re-checked
 - 2026-11-08, revised: the title reads *Slasher: Human in the Loop Harness*, wording the engineer gave; not re-checked
 - 2026-11-12, revised: the loading line reads *Slasher is pre-loading its rules... this could take a minute*, wording the engineer gave; not re-checked
+- 2026-11-14, revised: the load line is left out where Claude Code was started with `/load`, as points 1 and 51; not re-checked
 
 ## History
+
+Until Sat Nov 14 2026 the load line printed at every session start, including one started with `/load`.
 
 Until Thu Nov 12 2026 the loading line read *Slasher is pre-loading its rules...*
 
@@ -392,3 +397,4 @@ Changed by Scott Bellware on Sat Nov 7 2026 at 6:20:24 PM PT
 Changed by Scott Bellware on Sun Nov 8 2026 at 5:25:11 PM PT
 Changed by Scott Bellware on Sun Nov 8 2026 at 11:05:51 PM PT
 Changed by Scott Bellware on Thu Nov 12 2026 at 10:39:02 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 3:19:02 PM PT

@@ -6,7 +6,7 @@
 
 **As the engineer stated it:** An "/unattended" command that executes the request autonomously
 
-**The agent shows a plan first, and waits for it to be accepted.** It presents the plan through the selection interface, as the `design-by-efferent` package's attended-or-unattended-is-chosen-when-the-work-is-started rule describes: the question opens *Accept the plan?*, the plan is its list, and the options are *Accept* and *Revise*. On *Revise*, it revises the plan as directed and shows it again. Nothing is generated until the plan is accepted. This is the one wait before the work.
+**The agent shows a plan first, and waits for it to be accepted.** It presents the plan through the selection interface, as the `design-by-efferent` package's attended-or-unattended-is-chosen-when-the-work-is-created rule describes: the question opens *Accept the plan?*, the plan is its list, and the options are *Accept* and *Revise*. On *Revise*, it revises the plan as directed and shows it again. Nothing is generated until the plan is accepted. This is the one wait before the work.
 
 **Once the plan is accepted, the agent decides every question itself.** That covers a choice between candidates, a design decision, a wording, a confirmation to proceed, and a commit on any branch but `master`. Each decision is recorded where its convention records it, as the agent's decision with its reasoning, not as though the engineer was asked.
 
@@ -40,7 +40,7 @@ Until Sun Nov 8 2026 the agent chose whether an unattended feature reached a ver
 
 Related:
 
-- the `design-by-efferent` package's attended-or-unattended-is-chosen-when-the-work-is-started rule — the plan's form, and unattended work in a feature
+- the `design-by-efferent` package's attended-or-unattended-is-chosen-when-the-work-is-created rule — the plan's form, and unattended work in a feature
 - the an-implementation-runs-on-a-branch-to-a-declared-end rule — a feature's start, which the agent decides here
 - the `git` package's run-the-test-suite-after-changes-before-considering-whether-to-commit rule — the commit on `master` that still waits
 - the present-every-prompt-to-the-engineer-through-the-selection-ui rule — the prompts the agent decides instead of putting
@@ -49,3 +49,4 @@ Related:
 
 Authored by Scott Bellware on Sat Nov 7 2026 at 1:17:43 AM PT
 Changed by Scott Bellware on Sun Nov 8 2026 at 9:36:25 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 4:42:17 PM PT

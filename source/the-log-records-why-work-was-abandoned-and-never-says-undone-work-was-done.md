@@ -12,7 +12,7 @@
 
 **Where no reason was given, the entry says so and invents none.** An agent's reading of why the engineer stopped is not the engineer's reason.
 
-**What it does not carry is the unfinished work.** Not the plan that was never executed, not the increments that were never run, not the design that was never built. Those were produced on a branch that is gone, and reproducing them in the log makes the project appear to hold as settled knowledge what it holds as nothing at all.
+**What it does not carry is the work that was not concluded.** Not the plan that was never executed, not the increments that were never run, not the design that was never built. Those were produced on a branch that is gone, and reproducing them in the log makes the project appear to hold as settled knowledge what it holds as nothing at all.
 
 ## Why the mood is not enough
 
@@ -43,7 +43,7 @@ Write no reason that was not given. Do not reproduce the plan, the increments, o
 3. Write no reason that was not given. An agent's reading of why the engineer stopped is not the engineer's reason.
 4. Say plainly that nothing merged.
 5. Say plainly where the work was.
-6. Do not carry the unfinished work: not the unexecuted plan, the unrun increments, or the unbuilt design.
+6. Do not carry the work that was not concluded: not the unexecuted plan, the unrun increments, or the unbuilt design.
 7. Where an entry needs more than a line, it takes a body, as the the-log-holds-one-file-per-entry-with-a-one-line-title rule describes.
 
 ## Why the mood is not enough
@@ -57,8 +57,11 @@ Write no reason that was not given. Do not reproduce the plan, the increments, o
 
 - 2026-10-24, compressed: compression 0.55, change 0.79, solubility 39 → 75, clarity 0.29 → 0.67, 12 directives, 12 kept, 0 less precise, 0 lost, after 1 repair, re-checked kept
 - 2026-10-28, revised: Why points removed, solubility 75 → 68, clarity 0.67 → 0.57; checked: 10 directives, 10 kept, 0 less precise, 0 lost
+- 2026-11-15, revised: *conclude* replaces *finish*; not re-checked
 
 ## History
+
+Until Sun Nov 15 2026 this rule said *finish* where it now says *conclude*. The begin, start, end, conclude work item settled that *conclude* replaces *finish*.
 
 Until Sun Oct 25 2026 this rule was named the-log-never-says-undone-work-was-done and titled "The log records the reasoning for an abandonment, and never conveys that something was done when it was not".
 
@@ -87,3 +90,4 @@ Changed by Scott Bellware on Mon Oct 26 2026 at 5:41:58 PM PT
 Changed by Scott Bellware on Mon Oct 26 2026 at 5:55:37 PM PT
 Changed by Scott Bellware on Tue Oct 27 2026 at 2:06:51 PM PT
 Changed by Scott Bellware on Tue Oct 27 2026 at 2:29:24 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 5:36:24 PM PT

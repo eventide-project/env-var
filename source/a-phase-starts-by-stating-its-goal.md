@@ -1,6 +1,6 @@
 # When an implementation's phase starts, its goal is stated, and the phases are listed with the current one marked
 
-**Trigger:** When starting a phase of an experiment or a feature, or when the engineer asks for the current phase or the list of phases, as with `/experiment status` or `/feature status`
+**Trigger:** When starting a phase of an experiment or a feature, or when the engineer asks for the current phase or the list of phases, as with `/experiment status`, `/feature status`, or `/phase status`
 
 **At the start of an experiment's or a feature's phase, state the goal of the phase to the engineer, before its work.** The goal is the phase's question or its intent, whichever it has, whatever the implementation's kind. For a question, the goal is what the phase is to establish. For an intent, it is what the phase is to build. Either way, say how it serves the implementation's question or intent.
 
@@ -22,7 +22,7 @@
 
 **How to apply:** when a phase starts, state its goal before its work, in the response that starts it. Say what the phase is to establish, or for an intent what it is to build, and how that serves the implementation's question or intent. List the implementation's phases in the record's order, and mark the current one.
 
-**`/experiment status` and `/feature status` print the implementation's phases in the record's order, with the current phase emphasized, and the current phase's goal.** Where the implementation has no phases, they print its question or its intent, and its state.
+**`/experiment status`, `/feature status`, and `/phase status` print the implementation's phases in the record's order, with the current phase emphasized, and the current phase's goal.** Where the implementation has no phases, they print its question or its intent, and its state.
 
 ## Compressed
 
@@ -32,7 +32,7 @@
 4. State the goal and the list at each phase's start, not only when the record is written. The record's naming of the phases, and a phase's forecast, do not stand in for them.
 5. When the engineer asks for the current phase, as with `/phase` or `/phase current`, print its goal and its branch.
 6. When the engineer asks for the phases, as with `/phases`, list them in the record's order, with the current phase emphasized.
-7. `/experiment status` and `/feature status` print the phases in the record's order, the current one emphasized, and the current phase's goal. Without phases, they print the implementation's question or intent, and its state.
+7. `/experiment status`, `/feature status`, and `/phase status` print the phases in the record's order, the current one emphasized, and the current phase's goal. Without phases, they print the implementation's question or intent, and its state.
 
 ## Compression
 
@@ -43,8 +43,11 @@
 - 2026-11-02, revised: the current phase and the phases are printed on request; checked: 11 directives, 11 kept, 0 less precise, 0 lost
 - 2026-11-03, revised: /experiment status and /feature status are named; checked: 14 directives, 14 kept, 0 less precise, 0 lost
 - 2026-11-08, revised: a phase with a forecast states it, as the forecast becomes a question asked when a phase is added; not re-checked
+- 2026-11-15, revised: `/phase status` prints what `/feature status` prints, as point 7; not re-checked
 
 ## History
+
+Until Sun Nov 15 2026 `/phase` had no `status` subcommand.
 
 Until Mon Nov 2 2026 the status commands were not named.
 
@@ -67,3 +70,4 @@ Changed by Scott Bellware on Thu Oct 29 2026 at 10:41:02 PM PT
 Changed by Scott Bellware on Mon Nov 2 2026 at 8:34:36 PM PT
 Changed by Scott Bellware on Tue Nov 3 2026 at 10:38:55 AM PT
 Changed by Scott Bellware on Sun Nov 8 2026 at 9:49:53 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 5:23:50 PM PT

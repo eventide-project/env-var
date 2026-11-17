@@ -22,6 +22,18 @@ Reserve plain prose for statements, reports, and explanations that are **not** a
 
 **As the engineer stated it:** Desist from presenting the selection UI in a loop automatically. It doesn't provide opportunity for the user to digest. And: I want the original question put to the user automatically, but not the repeat of the question if the user escapes the selection UI.
 
+## A question's code examples are shown in the chat before the selection
+
+**Where a question has code examples, print each one in the chat before the selection.** Put each example in a fenced code block with a language tag, and keep its indentation. Give each a short label, such as *Candidate A*, above its block.
+
+**The selection follows in the same response, with the same labels.** Each option's label is its example's label. Its description is the example's key line, the line that tells it apart from the others.
+
+**Where the question is single-select, put each example in its option's preview too.** Text printed before a question may not be on screen while the question is open. The preview is shown beside the options.
+
+**As James Hughes stated it, in the Eventide Slack:** "When a question has code examples, show each example in the chat before you open the option picker. Use a fenced Markdown code block with a language tag. Keep the original indentation. Give each example a short label and use the same label in the picker. Always show the labeled examples and the picker at the same time."
+
+**Why:** the selection UI renders no markdown. Code in an option's description loses its highlighting and its line breaks, so a few lines of code read as one. The chat renders markdown. The cost is that the code no longer sits directly beneath its option.
+
 ## Compressed
 
 1. Every time you prompt the engineer for a selection, a decision, or an answer, present it through the selection UI, the `AskUserQuestion` tool.
@@ -37,6 +49,12 @@ Reserve plain prose for statements, reports, and explanations that are **not** a
 11. Keep plain prose for statements, reports, and explanations that do not ask the engineer to choose.
 12. Where the engineer escapes a selection, by refusing it, stopping it to clarify, or interrupting it, do not put it again on your own. Say where the work stopped, and wait. Put it again when the engineer asks, as with `/ask-again` or `/aa`, or after a clarification they asked for. Put the next question the work reaches without waiting.
 
+## Code examples
+
+1. Where a question has code examples, print each one in the chat before the selection, in a fenced code block with a language tag, its indentation kept, under a short label.
+2. Put the selection in the same response. Each option's label is its example's label, and its description is the example's key line, the line that tells it apart from the others.
+3. Where the question is single-select, also put each example in its option's preview, since text printed before a question may not be on screen while it is open.
+
 ## Compression
 
 - 2026-10-24, compressed: compression 0.56, change 0.78, solubility 33 → 69, clarity 0.54 → 0.85, 28 directives, 28 kept, 0 less precise, 0 lost, after 2 repairs, re-checked kept
@@ -49,8 +67,11 @@ Reserve plain prose for statements, reports, and explanations that are **not** a
 - 2026-11-11, revised: `/ask-again` and `/..` are named as how the engineer asks; not re-checked
 - 2026-11-11, revised: the shortcut alias `/..` becomes `/,`, a swap the engineer settled; not re-checked
 - 2026-11-11, revised: the shortcut alias `/,` becomes `/aa`, a swap the engineer settled; not re-checked
+- 2026-11-15, revised: a question's code examples are shown in the chat, labeled, and in each option's preview; checked: 24 directives, 23 kept, 1 less precise, 0 lost, 1 repair; re-checked: 24 directives, 23 kept, 1 less precise, 0 lost. Left less precise: the quoted words against putting the selection in a loop, which the body applies only to an escaped selection, and which one checker judged kept
 
 ## History
+
+Until Sun Nov 15 2026 the rule did not say how a question's code examples are shown. James Hughes proposed it in the Eventide Slack, and the engineer built it.
 
 Until Wed Nov 11 2026 the rule named `/..` as the shortcut alias of `/ask-again`.
 
@@ -109,3 +130,4 @@ Changed by Scott Bellware on Wed Nov 11 2026 at 12:30:49 AM PT
 Changed by Scott Bellware on Wed Nov 11 2026 at 10:33:27 AM PT
 Changed by Scott Bellware on Wed Nov 11 2026 at 10:37:48 AM PT
 Changed by Scott Bellware on Wed Nov 11 2026 at 10:48:44 AM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 4:26:49 PM PT

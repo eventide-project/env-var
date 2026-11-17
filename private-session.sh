@@ -3,9 +3,9 @@
 #
 #   private-session.sh <state-directory> <now>
 #
-# Reads a UserPromptSubmit event on standard input. A prompt of /private session, or
-# /slasher:private session, starts a private session by writing the session's state file, named
-# for the session, in <state-directory>. /private session end removes it.
+# Reads a UserPromptSubmit event on standard input. A bare /private, or /private session, with or
+# without the /slasher: prefix, starts a private session by writing the session's state file,
+# named for the session, in <state-directory>. /private end, or /private session end, removes it.
 #
 # The state file holds the time of the session's last prompt, in seconds since the epoch. Each
 # prompt in a private session writes <now> there. Where more than 4 minutes passed since the last
@@ -32,11 +32,14 @@ EVENT
 state=$state_directory/$session_id
 [ -n "$session_id" ] || exit 0
 
+# Trailing spaces are dropped, so "/private " reads as a bare /private.
+prompt=$(printf '%s' "$prompt" | sed 's/[[:space:]]*$//')
+
 case $prompt in
-  "/private session end"*|"/slasher:private session end"*)
+  "/private end"|"/slasher:private end"|"/private session end"*|"/slasher:private session end"*)
     rm -f "$state"
     exit 0 ;;
-  "/private session"*|"/slasher:private session"*)
+  "/private"|"/slasher:private"|"/private session"*|"/slasher:private session"*)
     mkdir -p "$state_directory"
     printf '%s\n' "$now" > "$state"
     exit 0 ;;

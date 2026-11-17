@@ -2,7 +2,7 @@
 
 **Trigger:** When the engineer types `/estimate-confidence` or `/%`, or asks for the agent's confidence of proceeding unattended
 
-**`/estimate-confidence` gives the agent's confidence of finishing the work under way on its own, from where the work stands.** `/%` is its alias. The work is the one the conversation is on, found as `/next?` finds it. Where that is not clear, ask which, through the selection interface. Where no work is under way, say so.
+**`/estimate-confidence` gives the agent's confidence of concluding the work under way on its own, from where the work stands.** `/%` is its alias. The work is the one the conversation is on, found as `/next?` finds it. Where that is not clear, ask which, through the selection interface. Where no work is under way, say so.
 
 **Give five figures, each the agent's own estimate for this work, made when the command is typed.** Each figure is followed by its fixed sentence, in parentheses:
 
@@ -22,6 +22,8 @@
 
 ## History
 
+Until Sun Nov 15 2026 this rule said *finish* where it now says *conclude*. The begin, start, end, conclude work item settled that *conclude* replaces *finish*.
+
 Until Thu Nov 12 2026 the command's alias was `/#`. The engineer changed it to `/%`, and `/#` became the alias of `/unattended`.
 
 For part of Wed Nov 11 2026, the command's alias was `/%`. The engineer reverted it to `/#`.
@@ -34,7 +36,7 @@ Until Tue Nov 10 2026 the command's alias was `/#`. The engineer removed it, and
 
 Related:
 
-- the design-by-efferent attended-or-unattended-is-chosen-when-the-work-is-started rule — the figures, as they are first asked at the start of the work
+- the design-by-efferent attended-or-unattended-is-chosen-when-the-work-is-created rule — the figures, as they are first asked at the start of the work
 - the next-takes-the-next-step-of-the-work-under-way rule — how the work under way is found
 
 ---
@@ -46,3 +48,5 @@ Changed by Scott Bellware on Tue Nov 10 2026 at 11:18:35 AM PT
 Changed by Scott Bellware on Wed Nov 11 2026 at 12:58:17 PM PT
 Changed by Scott Bellware on Wed Nov 11 2026 at 1:03:09 PM PT
 Changed by Scott Bellware on Thu Nov 12 2026 at 11:48:54 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 4:42:17 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 5:36:24 PM PT

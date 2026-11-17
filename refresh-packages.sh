@@ -1,7 +1,7 @@
 #!/bin/sh
 # Refresh the installed Slasher packages from their component repositories.
 #
-# Run from the root of the consuming project.
+# Run from the root of the Slasher project.
 #
 # Usage:
 #   slasher/system/foundation/refresh-packages.sh               refresh every installed package
@@ -22,7 +22,7 @@ origin=${SLASHER_ORIGIN:-git@github.com:slasher-bot}
 # --- Preconditions ---------------------------------------------------------
 
 if [ ! -d .git ]; then
-  echo "Run this from the root of the consuming project (no .git here)." >&2
+  echo "Run this from the root of the Slasher project (no .git here)." >&2
   exit 1
 fi
 
@@ -178,7 +178,7 @@ fi
 
 # The bootstrap is not a package, so no subtree pull touches it, and it falls behind the
 # packages it activates. This used to print a reminder saying so; on 2026-08-06 every
-# consuming project's bootstrap was found stale anyway, which is what a reminder is worth.
+# Slasher project's bootstrap was found stale anyway, which is what a reminder is worth.
 # So it is checked rather than mentioned: the refresh is the moment the drift is created,
 # and it is the moment nobody has to remember.
 bootstrap_state=unchecked

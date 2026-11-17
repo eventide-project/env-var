@@ -15,7 +15,7 @@
 # names another file in its place, so a test can use its own.
 #
 # <name> prints the root of the project in the machine's registry whose
-# directory has that name, as read-consuming-projects.sh lists them. Where no
+# directory has that name, as list-projects.sh lists them. Where no
 # registered project has that name, or more than one has, it prints nothing
 # and exits non-zero.
 
@@ -42,7 +42,7 @@ case $1 in
     name=$1
 
     resolved=$(
-      "$(dirname "$0")/read-consuming-projects.sh" |
+      "$(dirname "$0")/list-projects.sh" |
         while IFS= read -r registered; do
           if [ "$(basename "$registered")" = "$name" ]; then
             printf '%s\n' "$registered"

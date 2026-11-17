@@ -58,9 +58,10 @@ Related:
 
 - the the-log-holds-one-file-per-entry-with-a-one-line-title rule — the entry's form, and committing it
 - the a-log-entry-recording-an-engineers-decision-is-tagged-decision rule — the `[decision]` tag
-- the design-by-efferent attended-or-unattended-is-chosen-when-the-work-is-started rule — *Human in the loop* and *Accept the plan?*, both process questions
+- the design-by-efferent attended-or-unattended-is-chosen-when-the-work-is-created rule — *Human in the loop* and *Accept the plan?*, both process questions
 
 ---
 
 Authored by Scott Bellware on Fri Nov 6 2026 at 2:13:43 AM PT
 Changed by Scott Bellware on Fri Nov 6 2026 at 8:47:18 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 4:42:17 PM PT

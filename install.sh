@@ -6,7 +6,7 @@
 # a CLAUDE.md that imports it (Claude Code reads CLAUDE.md, not AGENTS.md), the Slasher plugin
 # in .claude/skills/slasher/, whose SessionStart hook prints the startup display and the
 # session-start notice, and a .claude/settings.json whose status line keeps the system on screen.
-# Run from the root of the consuming project. This script lives inside the package it
+# Run from the root of the Slasher project. This script lives inside the package it
 # installs, so once foundation is present it is invoked by its path from that root — not
 # as `./install.sh`, which would name a file in the project root that is not there.
 #
@@ -18,6 +18,10 @@
 #   slasher/system/foundation/install.sh agents-md
 #     Place the bootstrap files only, foundation already being installed. The composite
 #     install-all.sh uses this, so the bootstrap logic lives in one place rather than two.
+#
+#   slasher/system/foundation/install.sh [agents-md] --append-agents-md
+#     As above, and where the project already has an AGENTS.md without the bootstrap,
+#     append the bootstrap to it without asking.
 #
 #   slasher/system/foundation/install.sh bootstrap
 #     Print the AGENTS.md bootstrap section and exit, placing nothing. refresh-packages.sh
@@ -110,6 +114,12 @@ place_agents_md() {
     # No root AGENTS.md yet — creating one takes nothing away, so do it directly.
     bootstrap > AGENTS.md
     echo "Created AGENTS.md with the Slasher bootstrap."
+  elif [ "$append_agents_md" = yes ]; then
+    # An AGENTS.md you maintain already exists, and the answer to append was given in
+    # advance, with --append-agents-md, so nothing is asked.
+    printf '\n' >> AGENTS.md
+    bootstrap >> AGENTS.md
+    echo "Appended the Slasher bootstrap to AGENTS.md, as --append-agents-md asked."
   else
     # An AGENTS.md you maintain already exists. Explain the effect, show the exact
     # text, and ask before touching it — never append silently.
@@ -130,7 +140,7 @@ place_agents_md() {
     echo
     if [ ! -t 0 ]; then
       echo "Not running interactively, so AGENTS.md was NOT modified."
-      echo "Re-run this in a terminal to be prompted, or paste the section above yourself."
+      agents_md_unanswered=yes
       return 0
     fi
     printf 'Append this to your AGENTS.md now? [y/N] '
@@ -257,6 +267,12 @@ place_settings_json() {
     echo "'SessionStart' entry that runs slasher/system/foundation/session-start.sh and the"
     echo "'UserPromptSubmit' entry that runs slasher/system/foundation/startup-display.sh. Keep"
     echo "'statusLine'. Remove 'hooks' itself if nothing is left in it."
+  elif [ -f .claude/settings.json ] && grep -q 'waytide/system/foundation/statusline.sh' .claude/settings.json; then
+    # Wired before Waytide was renamed Slasher. The script moved with waytide/, so the status
+    # line runs nothing until the command names the new path.
+    echo ".claude/settings.json runs the status line from waytide/system/foundation/statusline.sh,"
+    echo "which moved with waytide/. Change that command yourself to"
+    echo "slasher/system/foundation/statusline.sh."
   elif [ -f .claude/settings.json ] && grep -q 'foundation/statusline.sh' .claude/settings.json; then
     echo ".claude/settings.json already runs the Slasher status line — left unchanged."
   elif [ ! -f .claude/settings.json ]; then
@@ -294,8 +310,25 @@ place_plugin() {
 # copy of every package under slasher/system/, and every other move below reads slasher/local/.
 #
 # The same narrow semantics as the moves below: it moves only when waytide/ is present and
-# slasher/ absent, and anything else is reported and left alone. Plain mv rather than git mv, for
-# records that were never committed.
+# slasher/ absent, and anything else is reported and left alone.
+#
+# In a git repository the move is committed, because each package's subtree history is keyed by
+# its prefix, and migrate_packages adds the packages again under the new one, which needs the move
+# in history first. So a tree with uncommitted changes to tracked files is refused. git mv moves
+# the tracked files and carries an untracked one along without staging it. Outside a repository,
+# and for a waytide/ git does not track, a plain mv.
+# Change the project's .gitignore lines that name waytide/ to name slasher/, as part of the move.
+# A line that ignores a path under waytide/ stops matching once the folder moves, so what it kept
+# out of the repository, such as a journal kept in a repository of its own, would be taken in by
+# the next broad add. A leading ! or / is kept. Plain text, so unlike settings.json it is edited.
+migrate_gitignore() {
+  [ -f .gitignore ] || return 0
+  grep -q '^!\{0,1\}/\{0,1\}waytide/' .gitignore || return 0
+  sed 's|^\(!\{0,1\}/\{0,1\}\)waytide/|\1slasher/|' .gitignore > .gitignore.tmp
+  mv .gitignore.tmp .gitignore
+  echo "Changed .gitignore's waytide/ lines to slasher/."
+}
+
 migrate_layout() {
   [ -d waytide ] || return 0
 
@@ -305,7 +338,24 @@ migrate_layout() {
     return 0
   fi
 
-  mv waytide slasher
+  if git rev-parse --is-inside-work-tree > /dev/null 2>&1 &&
+     [ -n "$(git ls-files waytide | head -1)" ]; then
+    if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
+      echo "waytide/ is not moved: the working tree has uncommitted changes to tracked files."
+      echo "Commit or stash them, and run the installer again."
+      exit 1
+    fi
+    git mv waytide slasher
+    migrate_gitignore
+    [ -f .gitignore ] && git add .gitignore
+    git commit -q -m "waytide/ is moved to slasher/"
+    echo "Moved waytide/ to slasher/, and committed the move — Waytide is renamed Slasher."
+  else
+    mv waytide slasher
+    migrate_gitignore
+    echo "Moved waytide/ to slasher/ — Waytide is renamed Slasher."
+    echo "Commit the move."
+  fi
 
   # The installer may have been run as waytide/system/foundation/install.sh, so the folder it
   # runs from has just moved.
@@ -313,9 +363,54 @@ migrate_layout() {
     waytide/*) here="slasher/${here#waytide/}" ;;
     ./waytide/*) here="./slasher/${here#./waytide/}" ;;
   esac
+}
 
-  echo "Moved waytide/ to slasher/ — Waytide is renamed Slasher."
-  echo "Commit the move."
+# Add each package again under slasher/system/, where it was only ever added under
+# waytide/system/. git subtree finds a package's last pull by the prefix its squash commits name,
+# so after the move a pull under the new prefix fails with "was never added". Removing the package
+# and adding it again writes a squash commit for the new prefix. A package's repository is found
+# as refresh-packages.sh finds it: the README's **Repository:** line, or the path with each
+# slash as a dash. Each removal is committed, and the add commits itself.
+migrate_packages() {
+  [ -d slasher/system ] || return 0
+  git rev-parse --is-inside-work-tree > /dev/null 2>&1 || return 0
+
+  packages=$(
+    cd slasher/system &&
+      find . -mindepth 2 -maxdepth 3 -name README.md |
+        sed 's|^\./||; s|/README\.md$||' |
+        sort
+  )
+
+  for package in $packages; do
+    if [ -n "$(git log -1 --format=%H --grep="^git-subtree-dir: slasher/system/$package\$")" ]; then
+      continue
+    fi
+    if [ -z "$(git log -1 --format=%H --grep="^git-subtree-dir: waytide/system/$package\$")" ]; then
+      continue
+    fi
+
+    repository=$(
+      sed -n 's|^[[:space:]]*\*\*Repository:\*\*[[:space:]]*\([A-Za-z0-9._-]*\).*|\1|p' \
+        "slasher/system/$package/README.md" 2>/dev/null |
+        head -1
+    )
+    [ -n "$repository" ] || repository=$(printf '%s' "$package" | tr '/' '-')
+
+    # A .DS_Store is ignored, so git rm leaves it, and the folder with it, and git subtree add
+    # then refuses a prefix that exists. Finder writes it, and it holds nothing of the package's.
+    find "slasher/system/$package" -name .DS_Store -delete
+    git rm -r -q "slasher/system/$package"
+    git commit -q -m "$package is removed, to be added again under slasher/system/"
+    if [ -e "slasher/system/$package" ]; then
+      echo "slasher/system/$package still holds files git does not track:"
+      find "slasher/system/$package" -type f
+      echo "Move or remove them, and run the installer again."
+      exit 1
+    fi
+    git subtree add -q --prefix "slasher/system/$package" "$origin/$repository.git" master --squash
+    echo "Added $package again under slasher/system/, so a refresh finds it."
+  done
 }
 
 # Move this machine's waytide folders to the slasher names: the configuration under ~/.config,
@@ -511,6 +606,130 @@ migrate_note_tag() {
   fi
 }
 
+# Retag a project's work items [work]. A piece of work to be done was tagged [work-item] until
+# 2026-10-29, and the engineer settled then that the installer converts a project's items. Only the
+# Tags line changes. The same narrow semantics as migrate_note_tag.
+migrate_work_tag() {
+  items_dir="slasher/local/items"
+  [ -d "$items_dir" ] || return 0
+
+  migrated=0
+  for item in "$items_dir"/*.md; do
+    [ -f "$item" ] || continue
+    grep -q '^\(- \)\{0,1\}\*\*Tags:\*\*.*\[work-item\]' "$item" || continue
+    sed '/^\(- \)\{0,1\}\*\*Tags:\*\*/s/\[work-item\]/[work]/' "$item" > "$item.tmp"
+    mv "$item.tmp" "$item"
+    migrated=$((migrated + 1))
+  done
+
+  if [ "$migrated" -gt 0 ]; then
+    echo "Retagged $migrated item(s) from [work-item] to [work]."
+    echo "Commit the change."
+  fi
+}
+
+# Make a project's Open notes Recorded. A note's one state is Recorded, but an observation could
+# be Open before observations became notes on 2026-11-11, and migrate_note_tag retags it without
+# touching its state. So an item tagged [note] whose file ends -OPEN is renamed -RECORDED, and its
+# State line changes with it. The same narrow semantics as migrate_observation_state.
+migrate_note_state() {
+  items_dir="slasher/local/items"
+  [ -d "$items_dir" ] || return 0
+
+  migrated=0
+  for open in "$items_dir"/*-OPEN.md; do
+    [ -f "$open" ] || continue
+    grep -q '^\(- \)\{0,1\}\*\*Tags:\*\*.*\[note\]' "$open" || continue
+    recorded="${open%-OPEN.md}-RECORDED.md"
+    if [ -e "$recorded" ]; then
+      echo "Both $open and $recorded are present — neither is touched."
+      continue
+    fi
+    sed 's/^\(\(- \)\{0,1\}\*\*State:\*\*\) Open$/\1 Recorded/' "$open" > "$recorded"
+    rm "$open"
+    migrated=$((migrated + 1))
+  done
+
+  if [ "$migrated" -gt 0 ]; then
+    echo "Made $migrated note(s) Recorded — a note's one state."
+    echo "Commit the change."
+  fi
+}
+
+# Make a project's Done items Completed. A work item and a rework item concluded Done until
+# 2026-11-14, when Completed, the word a feature and an experiment conclude with, took its place.
+# So an item whose file ends -DONE is renamed -COMPLETED, and its State line changes with it. The
+# same narrow semantics as migrate_note_state.
+migrate_work_state() {
+  items_dir="slasher/local/items"
+  [ -d "$items_dir" ] || return 0
+
+  migrated=0
+  for done in "$items_dir"/*-DONE.md; do
+    [ -f "$done" ] || continue
+    completed="${done%-DONE.md}-COMPLETED.md"
+    if [ -e "$completed" ]; then
+      echo "Both $done and $completed are present — neither is touched."
+      continue
+    fi
+    sed 's/^\(\(- \)\{0,1\}\*\*State:\*\*\) Done$/\1 Completed/' "$done" > "$completed"
+    rm "$done"
+    migrated=$((migrated + 1))
+  done
+
+  if [ "$migrated" -gt 0 ]; then
+    echo "Made $migrated item(s) Completed — a work item's concluding state, which was Done."
+    echo "Commit the change."
+  fi
+}
+
+# Take the state out of a project's record file names. An item's or an implementation record's
+# file name ended with its state in upper case, as -OPEN or -COMPLETED, until 2026-11-16, so a
+# state change renamed the file and broke every link to it. The State line is the only statement
+# of the state, and a rule change cannot rename a project's own files, so the installer does it.
+# A name is lower-case, so a last segment in upper case is the state.
+#
+# The same narrow semantics as the migrations above: a record moves only when its new name is
+# absent, and a clash is reported and left alone. Its content does not change. This runs after
+# them, since each of them finds a record by its suffix.
+migrate_record_names() {
+  migrated=0
+  for directory in slasher/local/items slasher/local/implementations; do
+    [ -d "$directory" ] || continue
+    for suffixed in "$directory"/*-*.md; do
+      [ -f "$suffixed" ] || continue
+      name=$(printf '%s\n' "$suffixed" | sed -n 's/-[A-Z][A-Z]*\.md$/.md/p')
+      [ -n "$name" ] || continue
+      # Two names that differ only in their state would take one name. Neither is moved.
+      stem=${name%.md}
+      siblings=0
+      for sibling in "$stem"-*.md; do
+        case ${sibling#"$stem"-} in
+          *[!A-Z]*.md|.md) ;;
+          *) siblings=$((siblings + 1)) ;;
+        esac
+      done
+      if [ "$siblings" -gt 1 ]; then
+        echo "More than one $stem-<STATE>.md is present — none is touched."
+        echo "Reconcile them, and keep one."
+        continue
+      fi
+      if [ -e "$name" ]; then
+        echo "Both $suffixed and $name are present — neither is touched."
+        echo "The name ending in a state is the old name. Reconcile the two and remove it."
+        continue
+      fi
+      mv "$suffixed" "$name"
+      migrated=$((migrated + 1))
+    done
+  done
+
+  if [ "$migrated" -gt 0 ]; then
+    echo "Renamed $migrated record(s) without the state at the end of the name — the State line alone holds it."
+    echo "Commit the rename."
+  fi
+}
+
 # 0. Print the bootstrap section and stop. Nothing is installed and nothing is placed,
 #    so this is safe to run anywhere, including from the authoring source. It exists so
 #    refresh-packages.sh can compare a project's AGENTS.md against the current text
@@ -520,12 +739,23 @@ if [ "$1" = "bootstrap" ]; then
   exit 0
 fi
 
+# --append-agents-md answers in advance the question asked where the project already has an
+# AGENTS.md: append the bootstrap to it.
+append_agents_md=no
+agents_md_unanswered=no
+for argument in "$@"; do
+  case $argument in
+    --append-agents-md) append_agents_md=yes ;;
+  esac
+done
+
 # Carry a project's waytide/ to slasher/ before anything reads or writes either.
 migrate_layout
 migrate_machine
 
 # 1. Install (or refresh) the foundation rules — skipped in agents-md-only mode.
 if [ "$1" != "agents-md" ]; then
+  migrate_packages
   if [ ! -d "$prefix" ]; then
     git subtree add --prefix "$prefix" "$repo" master --squash
   fi
@@ -549,3 +779,17 @@ migrate_logs
 migrate_items
 migrate_observation_state
 migrate_note_tag
+migrate_note_state
+migrate_work_tag
+migrate_work_state
+migrate_record_names
+
+# 4. An existing AGENTS.md left unchanged because no one was there to answer leaves the rules
+#    unloaded, so the run says so last, where it is seen, and fails.
+if [ "$agents_md_unanswered" = yes ]; then
+  echo
+  echo "AGENTS.md was NOT modified, so Slasher's rules will not load."
+  echo "Run it again with --append-agents-md to append the bootstrap,"
+  echo "or in a terminal to be asked."
+  exit 1
+fi

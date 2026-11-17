@@ -4,7 +4,7 @@
 
 - **What a work session record is.** The **guided tour** of the work session — what was asked and what was concluded at each step, in order, with the settled vocabulary defined as it arises. It is written to be *read by a person*, so its job is orientation and reasoning, not truth-of-record.
 - **It is not the source of truth.** The durable records are: the binding rules (`slasher/system/`, `slasher/local/rules/`), the project's items (`slasher/local/items/`), the log (`slasher/local/logs/log/`), and the implementation records (`slasher/local/implementations/`). The work session record **points to** them throughout. They are authoritative, and the work session record is the narrative that ties them together and preserves the reasoning behind each fork.
-- **When it is written.** At the close of a work session that produced substantial dialogue, decisions, or discovery worth a durable narrative — on the engineer's request, or when the agent recognizes the work session has accumulated such work and proposes recording it. A trivial work session needs no record. The work session record is not a per-session obligation. **The agent also proposes recording at a conclusion it carries out:** when it concludes a feature, an experiment, or a phase, or takes an item to Done, Realized, Abandoned, or Superseded. Each is a discrete act the agent takes, so the proposal cannot be missed there.
+- **When it is written.** At the end of a work session that produced substantial dialogue, decisions, or discovery worth a durable narrative — on the engineer's request, or when the agent recognizes the work session has accumulated such work and proposes recording it. A trivial work session needs no record. The work session record is not a per-session obligation. **The agent also proposes recording at a conclusion it carries out:** when it concludes a feature, an experiment, or a phase, or takes an item to Completed, Realized, Abandoned, or Superseded. Each is a discrete act the agent takes, so the proposal cannot be missed there.
 - **How the recording is asked.** When the agent raises the question of recording a work session, it puts the decision through the **AskUserQuestion** selection UI, not a free-text prose question. It offers three options, each naming it a **work session record**: **write a new work session record** for the work, **amend the previous work session record**, or **don't write a work session record**. The amend option names the previous record in a few words, as in *Amend the previous work session record, "Checkout payments"*, so the engineer knows which record it is. The engineer's selection decides it. **The prompt says "work session"** — the directory is `work-sessions/`, a work session here is a unit of the engineer's work, and the shortened form invites the reader to supply some other sense of "session". (A direct instruction from the engineer to write or amend a record needs no such prompt — the question isn't being asked.)
 - **Naming.** A work session record is a dated working-state artifact, so it takes the ISO-8601-UTC filename prefix (see the file-names rule): `YYYY-MM-DDTHH-MM-SSZ-<name>.md`.
 
@@ -12,7 +12,7 @@
 
 Titled `# Work Session — <name> (<date>)`, it reads in this order. **Records written before 2026-08-03 are titled `# Session — …`** and keep those titles. A record states what it stated when it was written. Retitling it would edit a historical record to suit a later convention.
 
-- **Opening summary** — a short paragraph naming what the work session *was*: its arc (began as X, became Y, ended with Z).
+- **Opening summary** — a short paragraph naming what the work session *was*: its arc (started as X, became Y, ended with Z).
 - **Framing note** — that this is the communicable record / guided tour, and that the durable records are the source of truth the narrative points to.
 - **Chronological body** — numbered sections (`## 1.`, `## 2.`, …) walking the work session in order. Each states what was asked and concluded at that step, with settled vocabulary defined as it arises, and inline pointers to the durable records the step produced.
 - **Takeaways** — the settled conclusions, compressed to a few bullets.
@@ -27,7 +27,7 @@ A narrative work session record preserves that arc as a communicable whole. It p
 
 **A work session record is not shaped like a plan.** It records the *past*, while a plan and a design look forward.
 
-**How to apply:** at a substantial work session's close, write a work session record here. It narrates the work session chronologically per the shape above. It defines the settled vocabulary, and points to the durable records it produced. It ends with a provenance footer in the record-a-rules-authorship-in-a-provenance-footer format.
+**How to apply:** at a substantial work session's end, write a work session record here. It narrates the work session chronologically per the shape above. It defines the settled vocabulary, and points to the durable records it produced. It ends with a provenance footer in the record-a-rules-authorship-in-a-provenance-footer format.
 
 When *you* raise the question of recording, rather than being told to, put it through the AskUserQuestion selection UI. It carries the three options, each naming a **work session record**: a new one, amending the previous one, named in a few words, or none. Let the engineer's selection decide.
 
@@ -44,10 +44,10 @@ When *you* raise the question of recording, rather than being told to, put it th
 9. The durable records are the binding rules (`slasher/system/`, `slasher/local/rules/`), the items (`slasher/local/items/`), the log (`slasher/local/logs/log/`), and the implementation records (`slasher/local/implementations/`).
 10. The record points to the durable records throughout. It does not restate them.
 11. The record keeps the reasoning behind each fork in the work. It ties the durable records together as a narrative and keeps the arc.
-12. Write a record at the close of a work session that produced substantial dialogue, decisions, or discovery worth keeping as a narrative.
+12. Write a record at the end of a work session that produced substantial dialogue, decisions, or discovery worth keeping as a narrative.
 13. Write it when the engineer asks. Or propose it when the agent sees the work session has built up such work.
 14. A trivial work session needs no record. A record is not required for every session.
-15. Also propose it when the agent concludes a feature, an experiment, or a phase, or takes an item to Done, Realized, Abandoned, or Superseded.
+15. Also propose it when the agent concludes a feature, an experiment, or a phase, or takes an item to Completed, Realized, Abandoned, or Superseded.
 16. When the agent raises the question of recording, it asks through the AskUserQuestion selection UI, not as a prose question. The prompt offers three options, each naming a **work session record**: **write a new work session record**, **amend the previous work session record**, or **don't write a work session record**. The amend option names the previous record in a few words.
 17. The engineer's selection decides.
 18. The prompt says "work session", never the shortened "session".
@@ -59,7 +59,7 @@ When *you* raise the question of recording, rather than being told to, put it th
 1. Title the record `# Work Session — <name> (<date>)`.
 2. Records written before 2026-08-03 are titled `# Session — …`. Keep those titles. Do not retitle them.
 3. The parts appear in the order below.
-4. **Opening summary**: a short paragraph naming what the work session was, as its arc. For example, it began as X, became Y, and ended with Z.
+4. **Opening summary**: a short paragraph naming what the work session was, as its arc. For example, it started as X, became Y, and ended with Z.
 5. **Framing note**: states that this is the communicable record, or guided tour. It states that the durable records it points to are the source of truth.
 6. **Chronological body**: numbered sections (`## 1.`, `## 2.`, …) walking the work session in order.
 7. Each section states what was asked and concluded at that step.
@@ -83,8 +83,14 @@ When *you* raise the question of recording, rather than being told to, put it th
 - 2026-11-07, revised: the design reconciliation asked after a record is written is removed, as the engineer directed; checked: 36 directives, 35 kept, 1 less precise, 0 lost, 1 repair, restoring that the recording question is asked through the selection UI; re-checked: 36 directives, 36 kept, 0 less precise, 0 lost
 - 2026-11-07, revised: the second option reads *amend the previous work session record* and names that record in a few words, and a direct instruction is to write or amend; checked: 40 directives, 40 kept, 0 less precise, 0 lost
 - 2026-11-11, revised: an observation item is a note, a term the engineer settled; not re-checked
+- 2026-11-14, revised: *started* replaces *began*, and Completed replaces Done in point 15; not re-checked
+- 2026-11-15, revised: a record is written at a work session's end, where it said close, as point 12; not re-checked
 
 ## History
+
+Until Sun Nov 15 2026 this rule said a record is written at a work session's *close*, where it now says its *end*. The begin, start, end, conclude work item settled that a work session ends.
+
+Until Sat Nov 14 2026 this rule said a work session *began* as something, where it now says *started*, and named Done among the states that prompt a work session record. The begin, start, end, conclude work item settled *start* as the standard word, and Completed as a work item's concluding state.
 
 Until Wed Nov 11 2026 this rule named an observation, tagged `[observation]`, where it now names a note, tagged `[note]`.
 
@@ -181,3 +187,5 @@ Changed by Scott Bellware on Fri Nov 6 2026 at 8:47:18 PM PT
 Changed by Scott Bellware on Sat Nov 7 2026 at 2:26:13 AM PT
 Changed by Scott Bellware on Sat Nov 7 2026 at 11:56:50 AM PT
 Changed by Scott Bellware on Wed Nov 11 2026 at 10:44:56 AM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 4:03:08 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 5:31:35 PM PT
