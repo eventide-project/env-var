@@ -39,7 +39,7 @@ Source: system/language/source/an-answer-is-a-list-and-prose-must-justify-itself
 2. A list whose items are narration fails this rule, even when the list form is correct.
 3. Do not describe a decision as a decision. Examples: *the judgment is left as a judgment on purpose*, *this was recorded as a new entry rather than by rewriting the old one*, *the option was declined*.
 4. Do not explain why something is as it is, unless asked. Examples: *so a later reader knows what tightening would mean*, *which is what keeps the record honest*, *for the same reason the other rule gives*.
-5. Do not characterize the work or its result. Examples: *the miss is instructive*, *worth noting*, *this is the substantive part*, *cleanly*, *correctly*.
+5. Do not characterize the work or its result. The writing-states-the-evidence-and-the-reader-draws-the-conclusion rule names the forms.
 6. Do not report the agent's process. Examples: *I checked*, *verified rather than assumed*, *rather than trusting the composite's copy*.
 7. State the fact that is left once those are removed. Example: *The rule names two stricter forms: the line on every list answer, or above a length threshold. Neither is adopted.*
 8. Test each list item by asking whether it could be false. Remove it if it could not.
@@ -301,3 +301,18 @@ Source: system/language/source/solubility-is-how-readily-a-unit-dissolves-into-t
 12. "Clean" and "elegant" describe how the code reads to someone who already understands it.
 13. Use "solubility" wherever the concern is how readily a unit is understood: in prose, rules, designs, commits, and dialogue.
 14. Judge it from the reader by asking what interpretive work the unit costs them. Aim design work at solubility, and use it as the criterion when a design is judged.
+
+# Writing states the evidence, and the reader draws the conclusion
+
+Source: system/language/source/writing-states-the-evidence-and-the-reader-draws-the-conclusion.md
+
+1. Write the facts that support a conclusion, and leave the conclusion to the reader.
+2. Do not tell the reader what to think of the facts where the facts can speak for themselves.
+3. Forms that draw the conclusion for the reader include *clearly*, *obviously*, *this shows that*, and *this demonstrates*.
+4. Forms that characterize the work or its result include *the miss is instructive*, *worth noting*, *this is the substantive part*, *cleanly*, and *correctly*.
+5. Where a conclusion is the point, such as a verdict asked for or a recommendation, state it as the conclusion, and give the facts it rests on.
+6. This holds for the agent's answers and Slasher's records, and for content under review, where a passage that breaks it is a finding.
+
+**Why:** a reader told what to conclude either defers or argues, and neither weighs the evidence. A fact the reader can check lets the reader conclude, and a characterization adds a judgment the reader cannot check.
+
+**How to apply:** before sending an answer or writing a record, remove each word that tells the reader what to think of a fact, and keep the fact. In a review of content, flag such a passage, as the `prose` package's criteria rule does.

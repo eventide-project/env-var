@@ -21,7 +21,7 @@ An answer to the engineer is a **list**. Prose is not forbidden, and it is not t
 
 - **Describing a decision as a decision** — *the judgment is left as a judgment on purpose*, *this was recorded as a new entry rather than by rewriting the old one*, *the option was declined*.
 - **Explaining why something is as it is**, unasked — *so a later reader knows what tightening would mean*, *which is what keeps the record honest*, *for the same reason the other rule gives*.
-- **Characterizing the work or its result** — *the miss is instructive*, *worth noting*, *this is the substantive part*, *cleanly*, *correctly*.
+- **Characterizing the work or its result**, as the writing-states-the-evidence-and-the-reader-draws-the-conclusion rule names it.
 - **Reporting the agent's process** — *I checked*, *verified rather than assumed*, *rather than trusting the composite's copy*.
 
 **The fact is what is left when those are removed.** *The rule names two stricter forms: the line on every list answer, or above a length threshold. Neither is adopted.* That is the same content with nothing said about it.
@@ -91,7 +91,7 @@ Write prose only where the answer is a sentence or two. Do not reach for it beca
 2. A list whose items are narration fails this rule, even when the list form is correct.
 3. Do not describe a decision as a decision. Examples: *the judgment is left as a judgment on purpose*, *this was recorded as a new entry rather than by rewriting the old one*, *the option was declined*.
 4. Do not explain why something is as it is, unless asked. Examples: *so a later reader knows what tightening would mean*, *which is what keeps the record honest*, *for the same reason the other rule gives*.
-5. Do not characterize the work or its result. Examples: *the miss is instructive*, *worth noting*, *this is the substantive part*, *cleanly*, *correctly*.
+5. Do not characterize the work or its result. The writing-states-the-evidence-and-the-reader-draws-the-conclusion rule names the forms.
 6. Do not report the agent's process. Examples: *I checked*, *verified rather than assumed*, *rather than trusting the composite's copy*.
 7. State the fact that is left once those are removed. Example: *The rule names two stricter forms: the line on every list answer, or above a length threshold. Neither is adopted.*
 8. Test each list item by asking whether it could be false. Remove it if it could not.
@@ -143,8 +143,11 @@ For more detail than bullet points, ask for an expanded answer.
 - 2026-11-07, revised: the expansion line ends every answer the agent compressed, list or prose, and is no longer the agent's judgment; re-checked: 24 directives, 23 kept, 1 less precise, 0 lost, 0 repairs. Left less precise: the bans on a single bullet and on two bullets for a two-clause answer, which *Such an answer takes no list* carries
 - 2026-11-07, revised: a brief explanation always ends with the expansion line, and another answer only where the agent judges an expansion would add something; checked: 25 directives, 23 kept, 1 less precise, 1 lost, 1 repair: the ban on a single bullet, or two bullets for a two-clause answer, restored to the compressed text; re-checked: 25 directives, 24 kept, 1 less precise, 0 lost. Left less precise: the line left off reports and confirmations, which *an answer that says all it has* carries
 - 2026-11-11, revised: `/brief` answers a request in brief, or gives the previous answer again in brief; checked: 29 directives, 28 kept, 1 less precise, 0 lost, 0 repairs. Left less precise, from before this change: the line left off reports and confirmations, which *an answer that says all it has* carries
+- 2026-11-16, revised: the examples of characterizing the work moved to the writing-states-the-evidence-and-the-reader-draws-the-conclusion rule; checked: 50 directives, 49 kept, 1 less precise, 0 lost. Left less precise, from before this change: the expansion line left off a report and a confirmation, named only as an answer that says all it has
 
 ## History
+
+Until Mon Nov 16 2026 this rule gave its own examples of characterizing the work. They moved to the writing-states-the-evidence-and-the-reader-draws-the-conclusion rule, so they are stated once.
 
 Until Wed Nov 11 2026 no command asked for an answer in brief. An answer was asked for in brief by opening the request with *Brief:*.
 
@@ -158,6 +161,7 @@ Until Sun Oct 25 2026 this rule was titled "An answer is a list. Prose must just
 
 Related:
 
+- the writing-states-the-evidence-and-the-reader-draws-the-conclusion rule — the forms that characterize the work
 - the communicate-plainly-and-name-the-actual-thing rule — which governs the words inside the list and reaches conversation the same way this does
 - the language-is-used-precisely-here-and-words-are-load-bearing rule premise
 - `foundation`'s present-every-prompt-to-the-engineer-through-the-selection-ui rule — the selection interface, which is where a **question** goes — this rule governs an **answer**, and the two do not overlap
@@ -191,3 +195,4 @@ Changed by Scott Bellware on Tue Nov 3 2026 at 10:38:55 AM PT
 Changed by Scott Bellware on Sat Nov 7 2026 at 12:22:04 AM PT
 Changed by Scott Bellware on Sat Nov 7 2026 at 12:30:08 AM PT
 Changed by Scott Bellware on Wed Nov 11 2026 at 3:08:14 PM PT
+Changed by Scott Bellware on Mon Nov 16 2026 at 6:15:56 PM PT
