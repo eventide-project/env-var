@@ -62,7 +62,7 @@ Name the record in the entry, and say what happened to it. State what the record
 4. Write the entry on the item's creation.
 5. Write the entry on each dated `Settled` resolution added after the item is created.
 6. Write the entry on each change of the item's `**State:**` line.
-7. A change of state is the line reaching any state word the items rule names: Open, Active, a concluding state such as Realized, Done, Corrected, Resolved, or Completed, or Deferred, Suspended, Discontinued, Superseded, Abandoned, or Obsolete.
+7. A change of state is the line reaching any state word the items rule names: Open, Active, a concluding state such as Realized, Corrected, Resolved, or Completed, or Deferred, Suspended, Discontinued, Superseded, Abandoned, or Obsolete.
 8. A change of state is also the line taking a state back, by resume.
 9. A design and a note are `Recorded` and never move, so each takes a creation entry only.
 10. Do not log a completed checkbox task, because it carries out a direction already settled.
@@ -98,8 +98,11 @@ Name the record in the entry, and say what happened to it. State what the record
 - 2026-11-09, revised: any state the items rule names, and any state taken back by resume, is a change of state; not re-checked
 - 2026-11-09, checked: 17 directives, 17 kept, 0 less precise, 0 lost
 - 2026-11-11, revised: an observation item is a note, a term the engineer settled; not re-checked
+- 2026-11-14, revised: Done is no longer a concluding state named in point 7; not re-checked
 
 ## History
+
+Until Sat Nov 14 2026 the concluding states named here included Done.
 
 Until Wed Nov 11 2026 this rule named an observation, tagged `[observation]`, where it now names a note, tagged `[note]`.
 
@@ -183,3 +186,4 @@ Changed by Scott Bellware on Mon Nov 9 2026 at 3:13:33 PM PT
 Changed by Scott Bellware on Mon Nov 9 2026 at 9:00:03 PM PT
 Changed by Scott Bellware on Mon Nov 9 2026 at 9:33:14 PM PT
 Changed by Scott Bellware on Wed Nov 11 2026 at 10:44:56 AM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 4:02:34 PM PT

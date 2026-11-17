@@ -13,7 +13,7 @@
 #
 # The script is the git package's, so this does nothing where that package is not installed or
 # is deactivated in the latest package set. The system is found from the project root: in
-# slasher/system/ in a consuming project, in system/ in the Slasher authoring source. The script
+# slasher/system/ in a Slasher project, in system/ in the Slasher authoring source. The script
 # runs in the directory the command ran in, which the hook's input names, so it reads the branch
 # of the repository the command worked in.
 

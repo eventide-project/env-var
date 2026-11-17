@@ -16,7 +16,7 @@
 
 **As the engineer later stated it:** change an observation's "stated" state to "recorded".
 
-**A note carries `**State:** Recorded` from the moment it is written**, and it carries that word for the rest of its life. Its filename ends `-RECORDED`.
+**A note carries `**State:** Recorded` from the moment it is written**, and it carries that word for the rest of its life. Its filename carries no state.
 
 **It carries no `**Why this state:**` line.** That line said how settled the thinking was. Where a record has one state and cannot leave it, there is nothing to account for.
 
@@ -31,7 +31,7 @@
 ## The shape
 
 - **When to use:** the material is worth keeping and binds nothing: a hypothesis under discovery, a method or definition the engineer has not ratified as a convention, a finding, or a remark. When in doubt between a rule and a note, prefer a note. Writing a rule later is cheap, and retracting a premature rule is not.
-- **Format:** the same frontmatter-free markdown as rules: a `# <title>`, a `**State:** Recorded` line, a `**Tags:**` line carrying `[note]`, then the content in prose. The filename follows the ISO-8601-UTC prefix convention (see the file-names rule) and ends `-RECORDED`.
+- **Format:** the same frontmatter-free markdown as rules: a `# <title>`, a `**State:** Recorded` line, a `**Tags:**` line carrying `[note]`, then the content in prose. The filename follows the ISO-8601-UTC prefix convention (see the file-names rule) and carries no state.
 - **Provenance footer:** end the file with the `Authored by … / Changed by …` footer, like every working-state artifact.
 - **Recording one:** add the file, and add a matching one-line entry to `slasher/local/logs/log/` noting it was recorded as a note.
 
@@ -41,7 +41,7 @@ Giving a note the **states every other item takes** would be the cost of holding
 
 `Recorded` says what happened to a note, and it stays true: the thinking was written down and kept. `RECORD (v)` is approved in the STE dictionary, meaning *to make notes of and keep data to use subsequently*, and it is used with that meaning. The line still reads as a state, so a directory listing answers the same question for a note that it answers for every other record.
 
-**How to apply:** record a remark worth keeping here, tagged `[note]`, with `**State:** Recorded` and a filename ending `-RECORDED`. Write no `**Why this state:**` line. Never change the state.
+**How to apply:** record a remark worth keeping here, tagged `[note]`, with `**State:** Recorded` and a filename with no state. Write no `**Why this state:**` line. Never change the state.
 
 Write a later note where the thinking moves, and leave the earlier one as written. Where a rule is written from the same thinking, leave the note as written too.
 
@@ -62,7 +62,7 @@ Lines 1–8 below are the opening statements, which come before any section head
 
 1. A note carries `**State:** Recorded` from the moment it is written.
 2. It keeps that state for the rest of its life.
-3. Its filename ends `-RECORDED`.
+3. Its filename carries no state.
 4. It carries no `**Why this state:**` line.
 5. A note has no lifecycle.
 6. It is never realized, abandoned, obsolete, superseded, or suspended.
@@ -82,7 +82,7 @@ Lines 1–8 below are the opening statements, which come before any section head
 4. The file starts with a `# <title>`, then a `**State:** Recorded` line.
 5. Next comes a `**Tags:**` line carrying `[note]`, then the content in prose.
 6. The filename follows the ISO-8601-UTC prefix convention (see the file-names rule).
-7. The filename ends `-RECORDED`.
+7. The filename carries no state.
 8. **Provenance footer:** end the file with the `Authored by … / Changed by …` footer, like every working-state artifact.
 9. **Recording one:** add the file.
 10. Add a matching one-line entry to `slasher/local/logs/log/`, noting it was recorded as a note.
@@ -100,8 +100,11 @@ Lines 1–8 below are the opening statements, which come before any section head
 - 2026-10-30, revised: lapsed is renamed obsolete; checked: 27 directives, 27 kept, 0 less precise, 0 lost
 - 2026-11-06, revised: promotion removed; checked: 22 directives, 20 kept, 1 less precise, 1 lost, 0 repairs. Left as they are: the less precise one lacks only the reason the observation stays as written, that it is the discovery record, and the lost one is the STE meaning of `RECORD (v)`, a reason for the state's word. The compressed text carries no reasons
 - 2026-11-11, revised: an observation becomes a note, any remark worth keeping, and the word observation is left to Design By Efferent; checked: 19 directives, 18 kept, 1 less precise, 0 lost, 1 repair, re-checked: 19 kept
+- 2026-11-16, revised: a note's filename carries no state, which the engineer settled; checked: 21 directives, 21 kept, 0 less precise, 0 lost
 
 ## History
+
+Until Mon Nov 16 2026 a note's filename ended `-RECORDED`.
 
 Until Wed Nov 11 2026 a note was an observation, tagged `[observation]`, and this rule was named an-observation-is-a-working-hypothesis-whose-one-state-recorded-never-changes. An observation was a working hypothesis, definition, or method not yet binding, a rule-candidate surfaced during open-ended discovery. `/observation`, `/observe`, and `/item observation` recorded one. The engineer settled that observation items become note items, that a note is any remark worth keeping, and that the word *observation* stays with Design By Efferent.
 
@@ -121,7 +124,7 @@ Related:
 
 - the the-items-directory-holds-one-file-per-item rule — the states a note does not take, and the state requirement it satisfies
 - the a-projects-binding-rules-are-recorded-in-its-packages-and-its-local-rules-directory rule — where a rule goes
-- the a-record-carrying-a-state-line-ends-its-filename-with-the-state-in-upper-case rule — the `-RECORDED` filename suffix
+- the a-records-file-name-carries-no-state rule — a file name with no state
 - the the-log-holds-one-file-per-entry-with-a-one-line-title rule — the entry that records one
 - the `design-by-efferent` vocabulary — where an observation is defined
 
@@ -162,3 +165,4 @@ Changed by Scott Bellware on Fri Oct 30 2026 at 1:48:29 PM PT
 Changed by Scott Bellware on Fri Nov 6 2026 at 12:45:17 AM PT
 Changed by Scott Bellware on Fri Nov 6 2026 at 8:47:18 PM PT
 Changed by Scott Bellware on Wed Nov 11 2026 at 10:44:10 AM PT
+Changed by Scott Bellware on Mon Nov 16 2026 at 6:36:15 PM PT

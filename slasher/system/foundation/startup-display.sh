@@ -26,8 +26,8 @@
 # Never let the display break a prompt.
 set +e
 
-# Locate the system: slasher/system/ in a consuming project, system/ in the Slasher authoring
-# source. Checked in that order — a consuming project may have a system/ directory of its own.
+# Locate the system: slasher/system/ in a Slasher project, system/ in the Slasher authoring
+# source. Checked in that order — a Slasher project may have a system/ directory of its own.
 if [ -d slasher/system ]; then
   system=slasher/system
 elif [ -d system ] && [ -d system/foundation ]; then

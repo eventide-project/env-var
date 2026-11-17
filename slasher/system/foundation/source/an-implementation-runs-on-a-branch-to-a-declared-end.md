@@ -1,6 +1,6 @@
 # An implementation runs on a branch to a declared end
 
-**Trigger:** When starting, adding a worktree to, suspending, or concluding an experiment or feature implementation
+**Trigger:** When creating, starting, adding a worktree to, suspending, or concluding an experiment or feature implementation
 
 - **Solubility:** 21
 - **Original rank:** 6 of 106
@@ -8,15 +8,15 @@
 
 An implementation is bounded work with a lifecycle. It runs on a branch created for it, it is designed through the five hinges, and it reaches one of a fixed set of declared states. It is never left silently open.
 
-**Whether the work states a forecast decides the parts that differ while it runs, and whether it reaches a verdict is asked at its end. The tag decides neither.** Either kind opens with a question or an intent. A forecast is stated at the start only where the engineer gives one. Only work with a forecast is asked the verdict question, and the engineer can conclude any work with a verdict word (see the the-implementations-directory-holds-one-record-per-implementation rule). Every clause below that names work with a forecast, or work with or without a verdict, names it because of those two. No clause varies by kind. The tag names the branch and the record, and nothing else.
+**Whether the work states a forecast decides the parts that differ while it runs, and whether it reaches a verdict is asked at its end. The tag decides neither.** Either kind opens with a question or an intent. A forecast is stated when the implementation is created only where the engineer gives one. Only work with a forecast is asked the verdict question, and the engineer can conclude any work with a verdict word (see the the-implementations-directory-holds-one-record-per-implementation rule). Every clause below that names work with a forecast, or work with or without a verdict, names it because of those two. No clause varies by kind. The tag names the branch and the record, and nothing else.
 
 **As the engineer stated it:** change features and experiments so that both can have either an intent or a question.
 
 ## The branch
 
-**`new` writes the record `Open`, then creates the branch.** `start` makes the record `Active` when the work starts.
+**`new` writes the record `Open`, then creates the branch.** `start` makes the record `Active` when the work starts. Where no implementation is in place, `start` creates it as `new` does, and writes the record `Active`.
 
-**The first record is committed on the upstream branch before the implementation branch is created.** `new` writes the record `Open`, with its log entry, and commits both on the upstream branch, `master` in the ordinary case. Then it creates the implementation branch from that commit. The implementation branch's copy of the record takes every update made during the work. Its first update records the base, the commit holding the first record, which that record cannot name itself. The upstream branch's copy stays as first written until the work merges, so the upstream branch shows the implementation as current while it runs. Where the working location is the current branch, the record is written there, and there is no second copy.
+**The first record is committed on the upstream branch before the implementation branch is created.** `new` writes the record `Open`, or `start` writes it `Active` where it creates the implementation, with its log entry, and commits both on the upstream branch, `master` in the ordinary case. Then it creates the implementation branch from that commit. The implementation branch's copy of the record takes every update made during the work. Its first update records the base, the commit holding the first record, which that record cannot name itself. The upstream branch's copy stays as first written until the work merges, so the upstream branch shows the implementation as current while it runs. Where the working location is the current branch, the record is written there, and there is no second copy.
 
 **As the engineer stated it:** When an implementation starts, an initial implementation record should be recorded on master. Then the branch is made, and the branch's version takes updates added during the course of the implementation, but the initial record remains on master
 
@@ -30,7 +30,7 @@ An implementation is bounded work with a lifecycle. It runs on a branch created 
 
 ## An implementation in phases
 
-**An experiment or a feature may run in phases.** Each phase is a question or an intent of its own that serves the implementation's. The record names the phases and their order at the start, and, as each phase starts, the commit it branched from. **Whether a phase states a forecast is asked when it is added**, whatever its implementation chose, with the options the implementation's forecast question has: *No forecast*, then *State a forecast*. A phase with a forecast states it before its work, and a phase without one states none. **A phase with a forecast is asked the verdict question when its work is complete**, with the implementation's three options. A phase without one concludes Completed, unasked. **As the engineer stated it:** chosen per phase.
+**An experiment or a feature may run in phases.** Each phase is a question or an intent of its own that serves the implementation's. The record names the phases and their order when the implementation is created, and, as each phase starts, the commit it branched from. **Whether a phase states a forecast is asked when it is created, by `/phase new`**, whatever its implementation chose, with the options the implementation's forecast question has: *No forecast*, then *State a forecast*. A phase with a forecast states it before its work, and a phase without one states none. **A phase with a forecast is asked the verdict question when its work is complete**, with the implementation's three options. A phase without one concludes Completed, unasked. **As the engineer stated it:** chosen per phase.
 
 **As the engineer stated it:** features should have phases as well.
 
@@ -42,9 +42,9 @@ An implementation is bounded work with a lifecycle. It runs on a branch created 
 - **The implementation concludes after its phases**, and only then merges to its upstream branch. A phase's commits reach no other branch.
 - **One phase runs at a time, in the order the record names**, each starting from the implementation's branch as the phases before it left it.
 
-## The working location, chosen at the start
+## The working location, chosen when the implementation is created
 
-**Put it through the selection interface at every start, with no standing default.** The trade is situational: work that resolves in a sitting favours branch only, and work that has to coexist with other work favours a worktree.
+**Put it through the selection interface each time an implementation is created, with no standing default.** The trade is situational: work that resolves in a sitting favours branch only, and work that has to coexist with other work favours a worktree.
 
 **Each option states what it creates:**
 
@@ -70,17 +70,17 @@ An implementation is bounded work with a lifecycle. It runs on a branch created 
 
 **The working location changes on two triggers, and only by adding a worktree.** One is external: other work arrives that the engineer intends to work alongside this. One is internal — the work is **escalated**, judged to need more isolation than the single working tree gives it, having proved larger than it was taken for. Either way the addition is confirmed and recorded, the record **gains a line** rather than having its original rewritten, and the conclusion dispatches on the current location. Collapsing a worktree back has no motivation and is not done.
 
-## The human's level of participation, chosen at the start
+## The human's level of participation, chosen when the implementation is created
 
-**Attended or unattended, put through the selection interface beside the working location.** Attended is the default. See the design-by-efferent attended-or-unattended-is-chosen-when-the-work-is-started rule, which states why the two sit at one gate and what changes between them.
+**Attended or unattended, put through the selection interface beside the working location.** Attended is the default. See the design-by-efferent attended-or-unattended-is-chosen-when-the-work-is-created rule, which states why the two sit at one gate and what changes between them.
 
-## The forecast at the start, and the verdict at the end
+## The forecast at creation, and the verdict at the end
 
-**At the start, ask whether the work states a forecast, beside the working location and the participation, and record the answer as a confirmation.** A forecast is what is expected to happen, stated before the work. Its two options read *No forecast*, then *State a forecast*, in that order. Where the engineer states one, write it in the record. Where the working location is the current branch, do not ask: work there states none. Whether the work states a forecast follows neither the kind nor whether it opens with a question or an intent.
+**When the implementation is created, ask whether the work states a forecast, beside the working location and the participation, and record the answer as a confirmation.** A forecast is what is expected to happen, stated before the work. Its two options read *No forecast*, then *State a forecast*, in that order. Where the engineer states one, write it in the record. Where the working location is the current branch, do not ask: work there states none. Whether the work states a forecast follows neither the kind nor whether it opens with a question or an intent.
 
-**At the end, ask the verdict question of work with a forecast, and of no other work.** It is asked when the work is complete, through the selection interface, and recorded as a confirmation. **Its two options read, in these words and in this order:** *Conclude without an engineer's verdict*, then *Conclude with an engineer's verdict*. A verdict is the engineer's declaration, so the options name whose it is. Work concluded without a verdict ends Completed. Work concluded with one ends Affirmed, Refuted, or Inconclusive, on the engineer's declaration. Work without a forecast is not asked. `complete` concludes it Completed, and the engineer can conclude it Affirmed, Refuted, or Inconclusive instead.
+**At the end, ask the verdict question of work with a forecast, and of no other work.** It is asked when the work is complete, through the selection interface, and recorded as a confirmation. **Its two options read, in these words and in this order:** *Conclude without an engineer's verdict*, then *Conclude with an engineer's verdict*. A verdict is the engineer's declaration, so the options name whose it is. Work concluded without a verdict concludes Completed. Work concluded with one concludes Affirmed, Refuted, or Inconclusive, on the engineer's declaration. Work without a forecast is not asked. `complete` concludes it Completed, and the engineer can conclude it Affirmed, Refuted, or Inconclusive instead.
 
-**A third option reads *What's a verdict?*** Selecting it explains, in a sentence or two, that a verdict is the engineer's declaration that the work is Affirmed, Refuted, or Inconclusive, against the forecast stated before the work, and that work without a verdict ends Completed. The question is then asked again, with the same three options.
+**A third option reads *What's a verdict?*** Selecting it explains, in a sentence or two, that a verdict is the engineer's declaration that the work is Affirmed, Refuted, or Inconclusive, against the forecast stated before the work, and that work without a verdict concludes Completed. The question is then asked again, with the same three options.
 
 **The verdict waits for the end because what the work shows is known only then.** A forecast keeps the verdict possible without deciding it.
 
@@ -110,7 +110,7 @@ An implementation is bounded work with a lifecycle. It runs on a branch created 
 
 **Do not offer to conclude, affirm, refute, or merge it.** Not as a next step, not as an option among others, and not as a precondition for something else. The precondition form is the one that slips through: *this cannot be published until it merges* states a true fact and points at the ending. Report what is settled and what is open, and stop there.
 
-**The length of work with a forecast is the engineer's judgment** and is not readable from how much work the branch holds. An agent that has just finished a stretch of work sees a natural stopping point where the engineer sees a question still open. The prompt would arrive at the moment the agent's view is narrowest.
+**The length of work with a forecast is the engineer's judgment** and is not readable from how much work the branch holds. An agent that has just concluded a stretch of work sees a natural stopping point where the engineer sees a question still open. The prompt would arrive at the moment the agent's view is narrowest.
 
 **This does not reach work without a forecast**, which has no verdict to press toward and whose completion is the ordinary conclusion of main-line work.
 
@@ -120,15 +120,15 @@ An implementation is bounded work with a lifecycle. It runs on a branch created 
 
 **What the watch rests on, stated plainly:** the branch name, which the status line carries every turn, and a judgment of whether the work at hand serves the recorded question or intent. Only the first is mechanical, and a missed detection produces nothing at all — no alarm, no artifact, just the divergence. It is a practice, not a guarantee.
 
-**Under a worktree there is nothing to diverge and nothing to notice.** The main working tree stays on the upstream branch and the implementation leaves no trace in it, so the configuration that isolates best is the one that most easily loses track. That is what the **session-start notice** answers, reporting every implementation that has not concluded.
+**Under a worktree there is nothing to diverge and nothing to notice.** The main working tree stays on the upstream branch and the implementation leaves no trace in it, so the configuration that isolates best is the one that most easily loses track. That is what the status line's second line answers, naming the branch of an implementation that has not concluded, in any worktree.
 
-**There is no counterpart for work without a forecast.** Other work during it is ordinary rather than a problem, so there is nothing to detect. Work being forgotten is covered by the same notice.
+**There is no counterpart for work without a forecast.** Other work during it is ordinary rather than a problem, so there is nothing to detect. Work being forgotten is covered by the same line.
 
 **Why:** an experiment and a feature share one lifecycle: the branch, the working location, the participation decision, the declared end, the confirmations, the conclusion in the main working tree, and the confirmed branch deletion. What differs is the forecast, the verdict, the merge gate, the affirmation, the current-branch option, and the drift watch — and every one of those follows from whether the work is judged against a forecast. Whether it states one is decided at the start, and whether it is judged is decided at the end.
 
 Stating the shared lifecycle once and conditioning six clauses on the verdict choice is smaller than stating it twice, and it makes the asymmetry legible instead of leaving a reader to diff two rules to find it.
 
-**How to apply:** branch for every implementation, named for its tag. Record the upstream branch, the branch, and the base. Ask the working location, the participation level, and whether the work states a forecast at the start, through the selection interface, and record all three. Offer the current branch last, and ask no forecast there. Ask the verdict question at the end, of work with a forecast only. Before work that reaches a verdict merges, write on its branch the rules and changes master needs to conform to it.
+**How to apply:** branch for every implementation, named for its tag. Record the upstream branch, the branch, and the base. Ask the working location, the participation level, and whether the work states a forecast when the implementation is created, through the selection interface, and record all three. Offer the current branch last, and ask no forecast there. Ask the verdict question at the end, of work with a forecast only. Before work that reaches a verdict merges, write on its branch the rules and changes master needs to conform to it.
 
 Follow DBE inside. End in a declared state. Copy affirmed work's log into the project's log and merge where it produced implementation. Verify work without a verdict before integrating and add no gate at the merge.
 
@@ -139,12 +139,12 @@ Raise no ending for work with a forecast. Leave the engineer on the upstream bra
 1. An implementation runs on its own branch, designed through the five hinges by DBE, to a declared state.
 2. It is never left silently open.
 3. Whether the work states a forecast decides the parts that differ while it runs. Whether it reaches a verdict is asked at its end. The tag names the record and the branch, and decides nothing else.
-4. Either kind opens with a question or an intent. A forecast is stated at the start only where the engineer gives one. Only work with a forecast is asked the verdict question, and the engineer can conclude any work with a verdict word (see the the-implementations-directory-holds-one-record-per-implementation rule).
+4. Either kind opens with a question or an intent. A forecast is stated when the implementation is created only where the engineer gives one. Only work with a forecast is asked the verdict question, and the engineer can conclude any work with a verdict word (see the the-implementations-directory-holds-one-record-per-implementation rule).
 5. A clause below names work with a forecast, or with or without a verdict, only because of that difference. Every other clause holds for all.
 
 ## The branch
 
-1. `new` writes the record `Open`, then creates the branch. `start` makes it `Active`.
+1. `new` writes the record `Open`, then creates the branch. `start` makes it `Active`. Where no implementation is in place, `start` creates it as `new` does, and writes the record `Active`.
 2. Name it `experiment/<subject>` or `feature/<subject>`, matching the tag.
 3. The subject is short, lower-case, and dash-separated, and names literally what is tested or built.
 4. Add `-run-<n>` only where the work has more than one run.
@@ -158,15 +158,15 @@ Raise no ending for work with a forecast. Leave the engineer on the upstream bra
 12. Record the branch, its upstream, and its base. Record the base as its commit SHA and the ref it came from.
 13. Make no git tag for the base.
 14. A later run branches from the recorded commit.
-15. Except on the current branch, `new` commits the first record, `Open`, and its log entry on the upstream branch, `master` in the ordinary case, then creates the implementation branch from that commit.
+15. Except on the current branch, `new`, or `start` where it creates the implementation, commits the first record, `Open` or `Active`, and its log entry on the upstream branch, `master` in the ordinary case, then creates the implementation branch from that commit.
 16. Make every later update to the record on the implementation branch. The first records the base, the commit that holds the first record, which that record cannot name. Leave the upstream branch's copy as first written until the work merges.
 17. Where the working location is the current branch, write the record there. There is no second copy.
 
 ## Phases
 
 1. An experiment or a feature may run in phases. Each phase is a question or an intent that serves the implementation's.
-2. The record names the phases and their order at the start, and, as each phase starts, the commit it branched from.
-3. When a phase is added, ask whether it states a forecast, whatever its implementation chose: *No forecast*, then *State a forecast*. A phase with a forecast states it before its work. When its work is complete, ask it the verdict question, with the implementation's three options. A phase without a forecast is not asked.
+2. The record names the phases and their order when the implementation is created, and, as each phase starts, the commit it branched from.
+3. When a phase is created, by `/phase new`, ask whether it states a forecast, whatever its implementation chose: *No forecast*, then *State a forecast*. A phase with a forecast states it before its work. When its work is complete, ask it the verdict question, with the implementation's three options. A phase without a forecast is not asked.
 4. A phase's branch is the implementation's branch, a dot, and the phase's name: `experiment/rule-reduction.flattening`, `feature/worktree/skills.slash-commands`.
 5. Git refuses a slash here, because no branch can sit beneath another branch's name.
 6. A `worktree/` segment carries into each phase's name.
@@ -186,7 +186,7 @@ Raise no ending for work with a forecast. Leave the engineer on the upstream bra
 
 ## The working location
 
-1. Put the working location through the selection interface at every start, with no default.
+1. Put the working location through the selection interface each time an implementation is created, with no default.
 2. Each option states what it creates:
 
 > **Branch only** — Create the branch and switch this working tree to it. At the conclusion this
@@ -221,18 +221,18 @@ Raise no ending for work with a forecast. Leave the engineer on the upstream bra
 
 1. Put attended or unattended through the selection interface beside the working location.
 2. Attended is the default.
-3. The design-by-efferent attended-or-unattended-is-chosen-when-the-work-is-started rule states why the two sit at one gate, and what changes between them.
+3. The design-by-efferent attended-or-unattended-is-chosen-when-the-work-is-created rule states why the two sit at one gate, and what changes between them.
 4. Record both choices.
 
 ## The forecast and the verdict
 
-1. At the start, ask whether the work states a forecast, through the selection interface, beside the working location and the participation. Its options read *No forecast*, then *State a forecast*, in that order. Record the answer as a confirmation, and write a stated forecast in the record.
+1. When the implementation is created, ask whether the work states a forecast, through the selection interface, beside the working location and the participation. Its options read *No forecast*, then *State a forecast*, in that order. Record the answer as a confirmation, and write a stated forecast in the record.
 2. Do not ask it where the working location is the current branch. Work there states no forecast.
 3. Whether the work states a forecast follows neither the kind nor whether it opens with a question or an intent.
 4. At the end, when the work is complete, ask the verdict question of work with a forecast, and of no other work. Record the answer as a confirmation.
 5. Its two options read, in these words and in this order: *Conclude without an engineer's verdict*, then *Conclude with an engineer's verdict*.
-6. Work concluded without a verdict ends Completed. Work concluded with one ends Affirmed, Refuted, or Inconclusive, on the engineer's declaration. Work without a forecast is not asked. `complete` concludes it Completed, and the engineer can conclude it with a verdict word instead.
-7. A third option reads *What's a verdict?* Selecting it explains, in a sentence or two, that a verdict is the engineer's declaration that the work is Affirmed, Refuted, or Inconclusive, against the forecast stated before the work, and that work without a verdict ends Completed.
+6. Work concluded without a verdict concludes Completed. Work concluded with one concludes Affirmed, Refuted, or Inconclusive, on the engineer's declaration. Work without a forecast is not asked. `complete` concludes it Completed, and the engineer can conclude it with a verdict word instead.
+7. A third option reads *What's a verdict?* Selecting it explains, in a sentence or two, that a verdict is the engineer's declaration that the work is Affirmed, Refuted, or Inconclusive, against the forecast stated before the work, and that work without a verdict concludes Completed.
 8. Then ask the question again, with the same three options.
 
 ## The end
@@ -281,7 +281,7 @@ Raise no ending for work with a forecast. Leave the engineer on the upstream bra
 3. Neither recourse ends the implementation, and the engineer's intent decides.
 4. The watch rests on the branch name in the status line and on a judgment of whether the work serves the recorded question or intent.
 5. The watch is a practice, not a guarantee.
-6. Under a worktree there is nothing to watch. The session-start notice reports every implementation that has not concluded.
+6. Under a worktree there is nothing to watch. The status line's second line names the branch of an implementation that has not concluded, in any worktree.
 7. Work without a forecast has no watch, since starting other work during it is ordinary.
 
 ## Compression
@@ -308,8 +308,26 @@ Raise no ending for work with a forecast. Leave the engineer on the upstream bra
 - 2026-11-09, revised: new creates the branch and writes the record Open, supersession needs no suspension, and any work can take a verdict word; not re-checked
 - 2026-11-09, checked: 103 directives, 102 kept, 1 less precise, 0 lost. Left less precise: that the verdict question goes through the selection interface, which its fixed options imply
 - 2026-11-13, revised: the first record is committed on the upstream branch before the implementation branch is created, and the branch's copy takes the later updates; the new points checked: 15 directives, 11 kept, 2 less precise, 2 lost, 2 repairs; re-checked: 9 directives, 7 kept, 1 less precise, 1 lost, 2 repairs, not re-checked after. Left lost: that the upstream branch shows the implementation as current while it runs, a reason, which stays in the body
+- 2026-11-14, revised: the status line's second line, not the session-start notice, answers a worktree's lack of trace; checked: 158 directives, 157 kept, 1 less precise, 0 lost, 1 repair, naming the branch and any worktree; re-checked: 158 directives, 158 kept, 0 less precise, 0 lost
+- 2026-11-14, revised: work *concludes* in a state, where it *ended* in one, as point 6 of the forecast and the verdict; not re-checked
+- 2026-11-14, revised: `start` creates an implementation Active where none is in place, as points 1 and 15 of the branch; not re-checked
+- 2026-11-14, revised: the opening questions are asked when the implementation is created, not at the start; not re-checked
+- 2026-11-15, revised: a phase is created by `/phase new`, where it was added, as point 3 of the phases; not re-checked
+- 2026-11-15, revised: *conclude* replaces *finish*; not re-checked
 
 ## History
+
+Until Sun Nov 15 2026 this rule said *finish* where it now says *conclude*. The begin, start, end, conclude work item settled that *conclude* replaces *finish*.
+
+Until Sun Nov 15 2026 a phase was added, by `/phase add`. The begin, start, end, conclude work item settled `/phase new`, so a phase is created by `new`, as a feature and an experiment are.
+
+Until Sat Nov 14 2026 this rule said the opening questions were asked *at the start*, where it now says *when the implementation is created*. The begin, start, end, conclude work item settled that *start* means only the work starting.
+
+Until Sat Nov 14 2026 only `new` created an implementation. The begin, start, end, conclude work item settled that `start`, where no implementation is in place, creates one and writes it Active.
+
+Until Sat Nov 14 2026 this rule said work *ends* Completed, Affirmed, Refuted, or Inconclusive, where it now says *concludes*. The begin, start, end, conclude work item settled *conclude* as the word for reaching a final state.
+
+Until Sat Nov 14 2026 the session-start notice reported every implementation that had not concluded, and this rule named it as what answers a worktree's lack of trace. The engineer removed that line from the notice.
 
 Until Fri Nov 13 2026 the first record was written on the implementation branch, and the upstream branch had no record of the implementation until the work merged.
 
@@ -344,8 +362,8 @@ Until Mon Oct 26 2026 this rule restated why attended or unattended sits at one 
 Related:
 
 - the the-implementations-directory-holds-one-record-per-implementation rule — the record, the tags, and the state words
-- the design-by-efferent attended-or-unattended-is-chosen-when-the-work-is-started and the-hinge-cycle-is-actuation-observation-controls-implementation-and-naming rules
-- the the-harness-announces-slashers-installation-and-the-agent-never-prints-the-notice rule — the notice reporting what has not concluded
+- the design-by-efferent attended-or-unattended-is-chosen-when-the-work-is-created and the-hinge-cycle-is-actuation-observation-controls-implementation-and-naming rules
+- the the-harness-announces-slashers-installation-and-the-agent-never-prints-the-notice rule — the status line naming the implementation under way
 - the `git` run-the-test-suite-after-changes-before-considering-whether-to-commit and announce-a-branch-switch-in-a-bordered-block rules
 - the a-phase-starts-by-stating-its-goal rule — what is said when a phase starts
 
@@ -398,3 +416,9 @@ Changed by Scott Bellware on Sun Nov 8 2026 at 9:49:53 PM PT
 Changed by Scott Bellware on Mon Nov 9 2026 at 9:01:01 PM PT
 Changed by Scott Bellware on Mon Nov 9 2026 at 9:33:14 PM PT
 Changed by Scott Bellware on Fri Nov 13 2026 at 4:37:42 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 2:50:59 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 4:02:57 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 4:33:10 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 4:41:56 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 5:13:11 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 5:36:24 PM PT

@@ -35,8 +35,12 @@ done
 
 for directory in $directories; do
   IFS=$old_ifs
-  for record in "$directory"/*-OPEN.md "$directory"/*-ACTIVE.md "$directory"/*-SUSPENDED.md; do
+  for record in "$directory"/*.md; do
     [ -f "$record" ] || continue
+
+    # The State line is the only statement of the state. An Open, Active, or Suspended
+    # implementation is current.
+    grep -Eq '^(- )?\*\*State:\*\* (Open|Active|Suspended)$' "$record" || continue
     branch=$(sed -n 's/^- \*\*Implementation branch:\*\* `\(.*\)`$/\1/p' "$record")
     [ -n "$branch" ] || continue
 

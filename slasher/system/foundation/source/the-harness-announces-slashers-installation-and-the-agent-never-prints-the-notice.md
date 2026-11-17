@@ -14,23 +14,13 @@ A project running Slasher announces the system's presence through **three surfac
 Slasher installed at slasher/system/ — 5 packages: foundation, language, testing, design-by-efferent, git
 ```
 
-  Below the install line, after a blank line, the notice reports **experiments and features that have not concluded**. They take one further line together, when there are any:
-
-```
-Slasher installed at slasher/system/ — 5 packages: foundation, language, testing, design-by-efferent, git
-
-3 implementations open: gate-forecasting (no state recorded), shipped-test-tree-script (suspended), upload-retries (suspended)
-```
-
   **The notice carries no mark of its own.** The startup display, which holds the mark, leads the same message, ahead of the notice. `session-start.sh` takes it from `startup-display.sh message`. See the the-startup-display-prints-as-the-session-starts rule.
 
   A mark stands for the system being brought into force, and a hook runs before the session. So this was the one surface that could only ever show it at a moment when nothing was being loaded. The mismatch was already written into the notice's own wording, which says **installed** and never *loaded* for exactly that reason.
 
   **The move took a hazard with it.** The mark's backslashes had to be doubled here. The notice is interpolated into a JSON string by `printf` with no escaping, and a lone backslash begins a JSON escape sequence. `\_` is not a valid one, the harness fails to parse the output, and **the notice disappears with no error at all**. That constraint is now off the art entirely. It still governs everything else this hook emits, and the load line's no-quotation-marks rule below is the same hazard arriving through a different character.
 
-  Each record under `slasher/local/implementations/` is read for its canonical `**State:**` line (see the the-implementations-directory-holds-one-record-per-implementation rule). An implementation whose state is **Affirmed**, **Refuted**, **Inconclusive**, **Completed**, **Abandoned**, or **Superseded** has concluded, whatever its kind. Those are not reported. **Active**, **Suspended**, and a record carrying no state line are. When every implementation has concluded that line is absent entirely, so the notice grows only when there is something open.
-
-  **Why the notice carries it.** The lifecycle requires that an implementation never be left silently open, but nothing was enforcing that in every session. The working directories under `slasher/` are not read at session start, so an open experiment goes unnoticed unless something names it. An experiment worked in a **worktree** leaves no trace at all in the main working tree, which stays on the upstream branch. So not even the branch name gives it away. The configuration that best isolates an experiment is the one that most easily loses track of it.
+  **The notice reports the install and nothing more.** It names no experiment or feature. An implementation that has not concluded is shown by the status line's second line, below, for the whole session, and `/current` lists every one.
 
 - **A status line.** `slasher/system/foundation/statusline.sh` keeps the system's presence on screen for the whole session, alongside the working directory and git branch. The fact then stays available instead of scrolling away:
 
@@ -51,7 +41,7 @@ slasher · master · uncommitted changes · untracked files · unpushed commits 
 
   The middle dot between the engineer's own segments is unaffected. The two marks now differ from each other. That is what makes the trailing segment read as an annotation on the line rather than another segment in it.
 
-  **The uncommitted changes segment** appears only when the working tree has something not committed. That is a modified tracked file, a staged change, or an untracked file that is not ignored. All three are uncommitted, and the untracked case is the point rather than noise. A file left untracked is usually one that should be added or ignored. Absence is the clean signal, as it is for the notice's open experiments and features. It is words rather than a mark on the branch — `master*` is the conventional form and means nothing until a reader is taught it.
+  **The uncommitted changes segment** appears only when the working tree has something not committed. That is a modified tracked file, a staged change, or an untracked file that is not ignored. All three are uncommitted, and the untracked case is the point rather than noise. A file left untracked is usually one that should be added or ignored. Absence is the clean signal. It is words rather than a mark on the branch — `master*` is the conventional form and means nothing until a reader is taught it.
 
   **The untracked files segment** names the one of those three states whose remedy differs. A modified tracked file is committed. An untracked file is added or ignored, and until it is, it is the file most easily lost. Before this segment existed the line reported `uncommitted changes` over a tree where nothing had been modified at all. That was true on the axis the segment names, and still misleading: it sent the engineer looking for an edit that was not there.
 
@@ -67,7 +57,7 @@ slasher · master · uncommitted changes · untracked files · unpushed commits 
 
 - **A startup display, in two parts.** As the session starts, the session-start part frames the notice: the title and the copyright and license ahead of it, and the load line after it, last. The loading part, the loading line and then the figure, prints on the session's first prompt, whatever it is: the plugin's `UserPromptSubmit` hook runs `slasher/system/foundation/startup-display.sh` on every prompt, and it prints on the first only. Both read them from the the-startup-display-prints-as-the-session-starts rule, which governs the display.
 
-The notice and the display are wired by the hooks of the Slasher plugin, in `.claude/skills/slasher/`, which `install.sh` assembles in the consuming project. The status line is wired by a committed `.claude/settings.json`, which `install.sh` places too, because a plugin cannot set the main status line.
+The notice and the display are wired by the hooks of the Slasher plugin, in `.claude/skills/slasher/`, which `install.sh` assembles in the Slasher project. The status line is wired by a committed `.claude/settings.json`, which `install.sh` places too, because a plugin cannot set the main status line.
 
 - **The hook also carries the read instruction to the agent, on a separate channel.** The `SessionStart` hook emits two things, addressed to two different readers. The **notice** goes in `systemMessage`, which the harness renders for the engineer. The **instruction to read the rules** goes in `hookSpecificOutput.additionalContext`, which reaches the agent's context and is never displayed. They are not the same text, because they are not for the same reader. The engineer does not need an instruction addressed to the agent restated every session.
 
@@ -75,7 +65,7 @@ The notice and the display are wired by the hooks of the Slasher plugin, in `.cl
 
   **What it does not do is verify the read.** Nothing here can: the hook runs before the session and cannot observe what the agent then does. It removes one specific excuse — the instruction being buried in a prose file the agent may not open — and no more. The verification remains what it has always been, the work honoring the rules.
 
-- **The notice has no close of its own.** It ends with what it reports: the install, and any experiment or feature left open. The startup display's load line, printed after it in the same message, says when the rules load and that `/load` loads them now. See the the-startup-display-prints-as-the-session-starts rule.
+- **The notice has no close of its own.** It ends with what it reports: the install. The startup display's load line, printed after it in the same message, says when the rules load and that `/load` loads them now. It is left out where Claude Code was started with `/load`. See the the-startup-display-prints-as-the-session-starts rule.
 
   **Something the engineer types is required, whatever it says.** Nothing the hook supplies can execute on its own, since an agent produces nothing until the engineer speaks. So the read cannot happen before some first message exists. What the line settles is only what that first message should be.
 
@@ -118,7 +108,7 @@ The notice and the display are wired by the hooks of the Slasher plugin, in `.cl
 
 **After a compaction, the instruction opens with one more sentence.** The hook runs again when the context is compacted, and it reads the event's source from its input. Where the source is `compact`, the instruction first says that the rules read at the start now survive only as the compaction's summary, which does not hold them, and that the loader is to be run again before the next act. Without that sentence, the instruction given at the start reads as already done: the summary says the read happened, and most sessions went on from the summary. A start, a resume, and a clear get the instruction unchanged.
 
-**After a compaction, the engineer sees one line in place of the startup display and the notice:** `Context compacted. Slasher is reloading its rules.` The session is already under way, so the title, the copyright and license, the install line, the open line, and the load line tell the engineer nothing new. The load line would also be wrong, since the agent reads the rules again without `/load`. The line says what the session does next, as the read instruction does, and reports no read, so it is no exception to *installed, never loaded*.
+**After a compaction, the engineer sees one line in place of the startup display and the notice:** `Context compacted. Slasher is reloading its rules.` The session is already under way, so the title, the copyright and license, the install line and the load line tell the engineer nothing new. The load line would also be wrong, since the agent reads the rules again without `/load`. The line says what the session does next, as the read instruction does, and reports no read, so it is no exception to *installed, never loaded*.
 
 **The instruction carries the core rules after it, so they hold from the session's start, before the read.** `foundation/core-rules` names them, and the hook adds each as the loader prints it, under a line saying they hold before the read, which still runs in full. A hook can give the agent at most 10,000 characters, and Claude Code saves anything longer to a file the agent is not asked to read. So the core holds only the rules that shape the first answer, and the whole of what the hook gives the agent stays within 10,000 characters. The core rules hold quotation marks and backslashes, which the hook escapes, unlike the notice, which carries none.
 
@@ -147,7 +137,7 @@ What it never silenced was the read instruction itself — quieting a display mu
 
 The two failures have one source: the party being announced was also the announcer. Moving the notice to the harness removes the dependence on agent compliance. It puts the message outside the response body, where it neither competes with an answer nor hides inside one. The ordering problem disappears with it. That is whether the notice precedes the first response, and a hook runs before the session rather than inside it.
 
-**How to apply:** wire the notice and the display through the Slasher plugin's `SessionStart` and `UserPromptSubmit` hooks, and the status line through `.claude/settings.json`, each pointing at its foundation script. `install.sh` does this for a consuming project. Never print a session-start notice as an agent.
+**How to apply:** wire the notice and the display through the Slasher plugin's `SessionStart` and `UserPromptSubmit` hooks, and the status line through `.claude/settings.json`, each pointing at its foundation script. `install.sh` does this for a Slasher project. Never print a session-start notice as an agent.
 
 Keep the mark out of the notice's own text — the startup display carries it, ahead of the notice, and the the-startup-display-prints-as-the-session-starts rule governs it. Keep the scripts reading the real directories rather than asserting a list. Keep the notice claiming **installation** rather than a load. The word has to stay inside what a pre-session hook can observe.
 
@@ -178,34 +168,28 @@ Keep the engineer's own segments separated by the middle dot. Set the trailing S
 
 ```
 Slasher installed at slasher/system/ — 5 packages: foundation, language, testing, design-by-efferent, git
-
-3 implementations open: gate-forecasting (no state recorded), shipped-test-tree-script (suspended), upload-retries (suspended)
 ```
 
 2. The install line enumerates what is on disk.
 3. A directory carrying a `README.md` is a package, which tells a grouped package from the grouping directory above it.
 4. Nothing prints a fixed list.
-5. The open line, after a blank line below the install line, names experiments and features that have not concluded, read from each record's `**State:**` line under `slasher/local/implementations/`.
-6. An implementation that is Affirmed, Refuted, Inconclusive, Completed, Abandoned, or Superseded has concluded, whatever its kind.
-7. One that is Active, Suspended, or carries no state line is reported.
-8. With nothing open, the open line is absent.
-9. The open line exists because an implementation must never be left silently open. One worked in a worktree leaves no trace in the main working tree.
-10. The notice has no close of its own. It ends with what it reports. The startup display's load line, after it in the same message, says when the rules load and that `/load` loads them now.
-11. Something the engineer types is required in any case, since the agent produces nothing until the engineer speaks.
-12. This gives up a contentless foil word whose only effect came through the hook's channel. So that channel is no longer testable from ordinary use.
-13. The trade of observability for legibility is deliberate.
-14. The notice says `installed`, never `loaded`.
-15. A hook runs before the session. It can observe that the packages are on disk and the configuration is live, and not that any rule was read.
-16. The read instruction describes what the session does next, and reports no read.
-17. Call it the session-start notice, not the load notice.
-18. The status line reports the system active, a claim about the configuration rather than the agent.
-19. The notice is plain text. The harness renders `systemMessage` literally, so markup reaches the engineer as punctuation.
-20. The notice carries no mark of its own. The startup display, which holds it, leads the same message, taken from `startup-display.sh message` (see the the-startup-display-prints-as-the-session-starts rule).
-21. Put no quotation marks, and no lone backslash, in anything the hook emits.
-22. `printf` interpolates the notice and the instruction into a JSON string with no escaping.
-23. A double quote ends the string, and a lone backslash begins an invalid escape.
-24. Either way the harness fails to parse the output, and the notice disappears with no error.
-25. After a compaction, one line stands in place of the startup display and the notice: `Context compacted. Slasher is reloading its rules.` It says what the session does next, and reports no read.
+5. The notice reports the install and nothing more. It names no experiment or feature. The status line's second line shows one that has not concluded, and `/current` lists every one.
+6. The notice has no close of its own. It ends with what it reports. The startup display's load line, after it in the same message, says when the rules load and that `/load` loads them now. It is left out where Claude Code was started with `/load`.
+7. Something the engineer types is required in any case, since the agent produces nothing until the engineer speaks.
+8. This gives up a contentless foil word whose only effect came through the hook's channel. So that channel is no longer testable from ordinary use.
+9. The trade of observability for legibility is deliberate.
+10. The notice says `installed`, never `loaded`.
+11. A hook runs before the session. It can observe that the packages are on disk and the configuration is live, and not that any rule was read.
+12. The read instruction describes what the session does next, and reports no read.
+13. Call it the session-start notice, not the load notice.
+14. The status line reports the system active, a claim about the configuration rather than the agent.
+15. The notice is plain text. The harness renders `systemMessage` literally, so markup reaches the engineer as punctuation.
+16. The notice carries no mark of its own. The startup display, which holds it, leads the same message, taken from `startup-display.sh message` (see the the-startup-display-prints-as-the-session-starts rule).
+17. Put no quotation marks, and no lone backslash, in anything the hook emits.
+18. `printf` interpolates the notice and the instruction into a JSON string with no escaping.
+19. A double quote ends the string, and a lone backslash begins an invalid escape.
+20. Either way the harness fails to parse the output, and the notice disappears with no error.
+21. After a compaction, one line stands in place of the startup display and the notice: `Context compacted. Slasher is reloading its rules.` It says what the session does next, and reports no read.
 
 ## The read instruction
 
@@ -275,7 +259,7 @@ slasher · master · uncommitted changes · untracked files · unpushed commits 
 
 1. The committed Slasher plugin, `.claude/skills/slasher/`, wires the notice and the display through its `SessionStart` and `UserPromptSubmit` hooks.
 2. A committed `.claude/settings.json` wires the status line, since a plugin cannot set the main status line.
-3. `install.sh` assembles the plugin and places `.claude/settings.json` in a consuming project.
+3. `install.sh` assembles the plugin and places `.claude/settings.json` in a Slasher project.
 4. `install.sh` warns when git ignores `.claude/settings.json` or the plugin and the file is not tracked, and prints how to correct it.
 5. The fix is `.claude/*` with `!.claude/settings.json` and `!.claude/skills/`, since git cannot re-include a file inside an excluded directory.
 6. The fix keeps `.claude/settings.local.json` ignored.
@@ -324,8 +308,16 @@ slasher · master · uncommitted changes · untracked files · unpushed commits 
 - 2026-11-08, revised: after a compaction the notice is one line in place of the startup display, as point 25 of the session-start notice; not re-checked
 - 2026-11-09, revised: the second status line takes an Open implementation too; not re-checked
 - 2026-11-09, checked: 85 directives, 81 kept, 3 less precise, 1 lost. The directive left lost is when the rule applies, which its Trigger line carries. The three less precise are in text this revision did not change
+- 2026-11-14, revised: the notice reports the install and nothing more, and the open line is removed; checked: 134 directives, 129 kept, 4 less precise, 1 lost, 1 repair, naming `/current`; re-checked: 134 directives, 128 kept, 6 less precise, 0 lost. Left less precise, none touched by this revision: that the loading part reads from the startup display rule, that the instruction names nothing else beside the packages, that the compaction's summary does not hold the rules, the authoring source's `system/`, the removed `SLASHER_QUIET`, and that `session-start.sh instruction` prints the instruction alone, as plain text
+- 2026-11-14, revised: point 6 says the load line is left out where Claude Code was started with `/load`; not re-checked
 
 ## History
+
+Until Sun Nov 15 2026 this rule said "consuming project" for a Slasher project, and named the registry `consuming-projects.toml` and its reader `read-consuming-projects.sh` where it named them.
+
+Until Sat Nov 14 2026 the load line followed the notice at every session start, including one started with `/load`.
+
+Until Sat Nov 14 2026 the notice carried an open line, after a blank line below the install line. It named each experiment and feature that had not concluded, as `1 implementation open: refresh-after-publish (open)`. The engineer removed it, since the status line's second line shows the implementation under way.
 
 Until Mon Nov 9 2026 the status line's second line named an Active or Suspended implementation only, since an implementation took no Open state.
 
@@ -481,3 +473,6 @@ Changed by Scott Bellware on Sat Nov 7 2026 at 12:35:33 PM PT
 Changed by Scott Bellware on Sun Nov 8 2026 at 5:25:11 PM PT
 Changed by Scott Bellware on Mon Nov 9 2026 at 9:04:16 PM PT
 Changed by Scott Bellware on Mon Nov 9 2026 at 9:33:14 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 2:50:59 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 3:19:02 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 11:44:42 PM PT

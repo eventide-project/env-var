@@ -24,7 +24,7 @@ The engineer is the authority on what counts. This rule governs what is **writte
 
 ## Where the operational need goes instead
 
-A tool sometimes genuinely has to reach the consuming projects — to survey them, or to drive a refresh over them. What it reads is **per-machine configuration outside the repository**, under `~/.config/`. So the constraint holds without depending on a `.gitignore` staying correct. And the list is what it actually is: one engineer's machine, not a fact about the project.
+A tool sometimes genuinely has to reach the Slasher projects — to survey them, or to drive a refresh over them. What it reads is **per-machine configuration outside the repository**, under `~/.config/`. So the constraint holds without depending on a `.gitignore` staying correct. And the list is what it actually is: one engineer's machine, not a fact about the project.
 
 The tool itself is committed and names no consumer. It reads the configuration. That separation is what lets the tooling be shared while the list stays local.
 
@@ -58,7 +58,7 @@ A decision may have been about that project, and its name is there for that. Lea
 
 ## Where the operational need goes instead
 
-1. Where a tool must reach the consuming projects, such as to survey or refresh them, it reads per-machine configuration outside the repository.
+1. Where a tool must reach the Slasher projects, such as to survey or refresh them, it reads per-machine configuration outside the repository.
 2. That configuration lives under `~/.config/`, not in a gitignored file inside the repository.
 3. Commit the tool. It names no consumer and only reads the configuration.
 
@@ -68,6 +68,8 @@ A decision may have been about that project, and its name is there for that. Lea
 - 2026-10-28, revised: Why points removed, solubility 83 → 84, clarity 0.86 → 0.89; checked: 17 directives, 17 kept, 0 less precise, 0 lost
 
 ## History
+
+Until Sun Nov 15 2026 this rule said "consuming project" for a Slasher project, and named the registry `consuming-projects.toml` and its reader `read-consuming-projects.sh` where it named them.
 
 Until Sun Oct 25 2026 this rule was named a-project-does-not-name-its-consumers.
 
@@ -96,3 +98,4 @@ Changed by Scott Bellware on Mon Oct 26 2026 at 6:45:53 PM PT
 Changed by Scott Bellware on Tue Oct 27 2026 at 2:06:51 PM PT
 Changed by Scott Bellware on Tue Oct 27 2026 at 2:29:24 PM PT
 Changed by Scott Bellware on Fri Nov 6 2026 at 8:47:18 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 11:44:42 PM PT

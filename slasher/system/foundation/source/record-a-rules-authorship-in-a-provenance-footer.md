@@ -31,7 +31,7 @@ Changed by <other name> on <datetime>
 - **Earlier lines keep the form they were written in.** Footers written before the time carried minutes and seconds stay at hour resolution. An earlier line is never rewritten, and the minutes of a past edit are not recoverable — so the two forms coexist in the same footer. Only new lines take the full time.
 - **The name** is the contributor's name, as in their git identity.
 
-**Why in the file, not just git history:** a package is installed into a consuming project by `git subtree`. That does not carry the composite repo's per-file history into that project. So `git blame` / `git log` there cannot show who authored a rule. An in-file footer travels with the file, so authorship is legible wherever the rule is read — which is where review and accountability need it.
+**Why in the file, not just git history:** a package is installed into a Slasher project by `git subtree`. That does not carry the composite repo's per-file history into that project. So `git blame` / `git log` there cannot show who authored a rule. An in-file footer travels with the file, so authorship is legible wherever the rule is read — which is where review and accountability need it.
 
 **How to apply:** when authoring a new rule, end it with a `---` divider. Add an `Authored by <name> on <local datetime>` line. When changing an existing rule, append a `Changed by <name> on <local datetime>` line to its footer. Write its time to seconds.
 
@@ -78,6 +78,8 @@ Changed by <other name> on <datetime>
 
 ## History
 
+Until Sun Nov 15 2026 this rule said "consuming project" for a Slasher project, and named the registry `consuming-projects.toml` and its reader `read-consuming-projects.sh` where it named them.
+
 Until Sun Oct 25 2026 this rule was named record-rule-authorship-in-a-footer.
 
 Related:
@@ -102,3 +104,4 @@ Changed by Scott Bellware on Mon Oct 26 2026 at 3:22:08 PM PT
 Changed by Scott Bellware on Mon Oct 26 2026 at 6:45:53 PM PT
 Changed by Scott Bellware on Tue Oct 27 2026 at 2:06:51 PM PT
 Changed by Scott Bellware on Tue Oct 27 2026 at 2:29:24 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 11:44:42 PM PT

@@ -4,8 +4,12 @@ FEATURES
 
   /feature new                     Create its branch and an Open record
   /feature new with phases         Create it, asking for its phases
-  /feature status                  Phases, current phase, and its goal
-  /feature start, /start           Open -> Active
+  /feature status [<feature>]      Phases, state, what exists, and
+                                   what is left. <feature>: a number
+                                   from the last list, a datetime, or
+                                   words from the title
+  /feature start, /start           Open -> Active, or, where none is
+                                   Open, create one Active
   /feature complete, /complete     -> Completed, or asks which state
                                    where there is a forecast
   /feature affirm, /affirm         -> Affirmed (engineer's declaration only)
@@ -24,5 +28,5 @@ FEATURES
   /feature help                    Print this command's help
 
   Either kind opens with a question or an intent. A forecast is
-  stated at the start where you give one, and the verdict is asked
+  stated when it is created, where you give one, and the verdict is asked
   when the work completes.

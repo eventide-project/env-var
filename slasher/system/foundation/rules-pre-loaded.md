@@ -166,7 +166,7 @@ Source: system/foundation/source/a-project-does-not-name-its-downstream-consumer
 
 ## Where the operational need goes instead
 
-1. Where a tool must reach the consuming projects, such as to survey or refresh them, it reads per-machine configuration outside the repository.
+1. Where a tool must reach the Slasher projects, such as to survey or refresh them, it reads per-machine configuration outside the repository.
 2. That configuration lives under `~/.config/`, not in a gitignored file inside the repository.
 3. Commit the tool. It names no consumer and only reads the configuration.
 
@@ -284,13 +284,14 @@ Source: system/foundation/source/a-projects-durable-context-is-recorded-in-its-c
 
 Source: system/foundation/source/a-reply-that-writes-a-record-ends-with-the-records-path.md
 
-1. Before sending a reply, check whether it wrote a record. Where it did, end the reply with the line *Recorded in:*, then a list of each record's full, absolute path, as the file now stands. The path carries the state suffix where the record has one. Under the home folder, write `~/` in place of the home folder.
+1. Before sending a reply, check whether it wrote a record. Where it did, end the reply with the line *Record:*, then the path of its principal record from the project root, as the file now stands. The principal record is the record the reply's operation is about, such as the item an operation acts on. Print no other record the reply wrote. Write a printed path in the home folder with the `~/` shortcut. `/record copy` copies the absolute path alone, with no dash or backticks.
 2. A record is an item, an implementation record, a rule, a log entry, a journal entry, a work session record, a loop record, or any other record the agent writes to disk.
-3. Write each path as a list item, `- ` and then the path in backticks, so the terminal shows it in color. Put nothing else on the line: no label, and no sentence.
-4. Where the reply wrote several records, give each path its own list item. Put the record the reply is about last, after its log entries and any other record written beside it. List a renamed record by its new path.
+3. Write one record under *Record:*, indented two non-breaking spaces, with no dash, then the path in backticks. End the heading line with a backslash, so no blank line stands between it and the path. Write two or more under *Records:*, each a list item, `- ` and then the path in backticks. The backticks make the terminal show the path in color. Put nothing else on the line: no label, and no sentence.
+4. Where the operation is about more than one record, list each, each path its own list item. List a renamed record by its new path. Where no record written is the subject of the operation, print no records line.
 5. Do not list a record the agent did not write, such as a log entry a hook writes.
-6. List a record written in a worktree by the worktree's path.
+6. List a record written in a worktree by its path from the project root through the worktree.
 7. A reply that wrote no record ends as it otherwise would.
+8. `/records show`, or a bare `/records`, prints every record the previous reply wrote, in the same form, each path as the file now stands, the principal record last, after its log entries and any other record written beside it. Where the previous reply wrote no record, say so, and print no list. Its own reply carries no records line.
 
 # A status report prints a fixed whole-project report
 
@@ -431,6 +432,12 @@ Source: system/foundation/source/present-every-prompt-to-the-engineer-through-th
 11. Keep plain prose for statements, reports, and explanations that do not ask the engineer to choose.
 12. Where the engineer escapes a selection, by refusing it, stopping it to clarify, or interrupting it, do not put it again on your own. Say where the work stopped, and wait. Put it again when the engineer asks, as with `/ask-again` or `/aa`, or after a clarification they asked for. Put the next question the work reaches without waiting.
 
+## Code examples
+
+1. Where a question has code examples, print each one in the chat before the selection, in a fenced code block with a language tag, its indentation kept, under a short label.
+2. Put the selection in the same response. Each option's label is its example's label, and its description is the example's key line, the line that tells it apart from the others.
+3. Where the question is single-select, also put each example in its option's preview, since text printed before a question may not be on screen while it is open.
+
 # The command domain table prints when the rules have loaded
 
 Source: system/foundation/source/the-command-domain-table-prints-when-the-rules-have-loaded.md
@@ -511,12 +518,12 @@ Source: system/foundation/source/the-migration-directory-holds-the-plans-for-mov
 4. Plan a move here when content ends up under a different root, or in a different structure.
 5. Examples: a library extracted into its own repository, or work moved to a project that will own it.
 6. Further examples: one repository split into several, several merged into one, existing conventions migrated into an installed system, or a directory renamed or regrouped.
-7. A change to a norm or standard that existing content must be conformed to is a migration too: a tag renamed, a term substituted, or a format changed, where records already written carry the old form. Example: the `[work-item]` tag becoming `[work]`, in this repository or in a consuming project.
+7. A change to a norm or standard that existing content must be conformed to is a migration too: a tag renamed, a term substituted, or a format changed, where records already written carry the old form. Example: the `[work-item]` tag becoming `[work]`, in this repository or in a Slasher project.
 8. Do not use an ordinary item for a migration.
 9. An item sequences a build, against something this repository settled.
 10. A migration plan sequences a change to where existing content lives, or to the form it is written in. Across repositories, its increments land in two.
 11. Its order matters because content is unavailable or duplicated in between, a reference to the old place breaks until it is reconciled, and content in the old form does not match its rules until it is conformed.
-12. Across repositories, the plan is not finished when this repository's part is done.
+12. Across repositories, the plan is not concluded when this repository's part is done.
 13. A migration may realize a settled item, or be mechanical enough to need none.
 14. A migration record is one document, not entries that accrue like the contemporaneous, historical records under `logs/`.
 15. Revise the record while the migration runs.
@@ -546,10 +553,10 @@ Source: system/foundation/source/the-work-sessions-directory-holds-one-record-pe
 9. The durable records are the binding rules (`slasher/system/`, `slasher/local/rules/`), the items (`slasher/local/items/`), the log (`slasher/local/logs/log/`), and the implementation records (`slasher/local/implementations/`).
 10. The record points to the durable records throughout. It does not restate them.
 11. The record keeps the reasoning behind each fork in the work. It ties the durable records together as a narrative and keeps the arc.
-12. Write a record at the close of a work session that produced substantial dialogue, decisions, or discovery worth keeping as a narrative.
+12. Write a record at the end of a work session that produced substantial dialogue, decisions, or discovery worth keeping as a narrative.
 13. Write it when the engineer asks. Or propose it when the agent sees the work session has built up such work.
 14. A trivial work session needs no record. A record is not required for every session.
-15. Also propose it when the agent concludes a feature, an experiment, or a phase, or takes an item to Done, Realized, Abandoned, or Superseded.
+15. Also propose it when the agent concludes a feature, an experiment, or a phase, or takes an item to Completed, Realized, Abandoned, or Superseded.
 16. When the agent raises the question of recording, it asks through the AskUserQuestion selection UI, not as a prose question. The prompt offers three options, each naming a **work session record**: **write a new work session record**, **amend the previous work session record**, or **don't write a work session record**. The amend option names the previous record in a few words.
 17. The engineer's selection decides.
 18. The prompt says "work session", never the shortened "session".
@@ -561,7 +568,7 @@ Source: system/foundation/source/the-work-sessions-directory-holds-one-record-pe
 1. Title the record `# Work Session — <name> (<date>)`.
 2. Records written before 2026-08-03 are titled `# Session — …`. Keep those titles. Do not retitle them.
 3. The parts appear in the order below.
-4. **Opening summary**: a short paragraph naming what the work session was, as its arc. For example, it began as X, became Y, and ended with Z.
+4. **Opening summary**: a short paragraph naming what the work session was, as its arc. For example, it started as X, became Y, and ended with Z.
 5. **Framing note**: states that this is the communicable record, or guided tour. It states that the durable records it points to are the source of truth.
 6. **Chronological body**: numbered sections (`## 1.`, `## 2.`, …) walking the work session in order.
 7. Each section states what was asked and concluded at that step.
@@ -627,6 +634,6 @@ Source: system/foundation/source/work-in-a-downstream-project-is-never-offered-a
 3. Reporting what was done, after doing it.
 4. A report of work carried out is a result. A report of work not carried out is a prompt.
 5. To tell them apart, ask whether the sentence describes something that happened.
-6. Answering a question about downstream state, such as *Are the consuming projects up to date*, plainly and in full.
+6. Answering a question about downstream state, such as *Are the Slasher projects up to date*, plainly and in full.
 7. Raising downstream state unbidden stays forbidden.
 8. The session-start notice. The harness emits it, it reports only on the current project, and it names no other repository. See the the-harness-announces-slashers-installation-and-the-agent-never-prints-the-notice rule.

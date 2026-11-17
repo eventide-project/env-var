@@ -6,7 +6,7 @@
 
 **Each package carries its own skills**, under `skills/` in the package: `skills/<command>/SKILL.md`, one directory per root command or alias. A skill belongs to the package whose rules it hands its act to. A command whose name cannot be a directory's, as `/.`, or whose directory would show as the same name as another's, as `/'` beside `/?`, takes a directory named for it in words, such as `dot` or `apostrophe`, and the skill's `name` field gives the command.
 
-**The plugin directory is assembled from foundation's `plugin/` directory and the active packages' skills.** `plugin/` holds the plugin's manifest and its hooks: the session-start hooks, which the the-harness-announces-slashers-installation-and-the-agent-never-prints-the-notice rule governs, and the hook that reports a branch switch, which the `git` package's announce-a-branch-switch-in-a-bordered-block rule governs. `assemble-plugin.sh` copies it, then each active package's `skills/`, into `.claude/skills/slasher/`, and leaves out a deactivated package's. `install.sh` and `refresh-packages.sh` run it in a consuming project, and `compile.sh` runs it in the Slasher authoring source. A package activated or deactivated takes its skills with it at the next assembly.
+**The plugin directory is assembled from foundation's `plugin/` directory and the active packages' skills.** `plugin/` holds the plugin's manifest and its hooks: the session-start hooks, which the the-harness-announces-slashers-installation-and-the-agent-never-prints-the-notice rule governs, and the hook that reports a branch switch, which the `git` package's announce-a-branch-switch-in-a-bordered-block rule governs. `assemble-plugin.sh` copies it, then each active package's `skills/`, into `.claude/skills/slasher/`, and leaves out a deactivated package's. `install.sh` and `refresh-packages.sh` run it in a Slasher project, and `compile.sh` runs it in the Slasher authoring source. A package activated or deactivated takes its skills with it at the next assembly.
 
 **The plugin directory is committed with the project**, as `.claude/settings.json` is, so every engineer who clones the project has the skills and the hooks. It is assembled rather than edited: a change to a skill is made in its package, and reaches the plugin at the next install or refresh.
 
@@ -48,6 +48,8 @@
 - 2026-11-07, revised: `/?` no longer carries its act in its own body, and a command whose directory would show as another's name takes a directory named in words; not re-checked
 
 ## History
+
+Until Sun Nov 15 2026 this rule said "consuming project" for a Slasher project, and named the registry `consuming-projects.toml` and its reader `read-consuming-projects.sh` where it named them.
 
 Until Sat Nov 7 2026 `/?` carried its act in its own body, answering *What are we doing?*. It is now an alias of `/command-table`, and loads that rule.
 
@@ -95,3 +97,4 @@ Changed by Scott Bellware on Sat Nov 7 2026 at 12:00:17 AM PT
 Changed by Scott Bellware on Sat Nov 7 2026 at 2:34:55 AM PT
 Changed by Scott Bellware on Sat Nov 7 2026 at 2:40:29 AM PT
 Changed by Scott Bellware on Sat Nov 7 2026 at 2:46:44 AM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 11:44:42 PM PT

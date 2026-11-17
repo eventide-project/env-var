@@ -2,7 +2,7 @@
 
 **Trigger:** When the engineer types `/next`, `/next`, or `/next?`, or asks what is next
 
-**`/next?` asks what the next step is, and `/next` takes it.** `/next?` is the engineer asking *What's next?*, and `/next` is the engineer saying *proceed*. `/proceed` and `/..` are aliases of `/next`. Neither names the work, because the work is the one the conversation is on.
+**`/next?` asks what the next step is, and `/next` takes it.** `/next?` is the engineer asking *What's next?*, and `/next` is the engineer saying *proceed*. `/proceed` and `/.` are aliases of `/next`. Neither names the work, because the work is the one the conversation is on.
 
 **As the engineer stated it:** any kind of multi-step process. It stops me from having to say: What's next?
 
@@ -24,7 +24,7 @@
 
 ## Compressed
 
-1. `/next?` asks what the next step is, as the engineer asking *What's next?* would. `/next` takes it, as the engineer saying *proceed* would. `/proceed` and `/..` are aliases of `/next`.
+1. `/next?` asks what the next step is, as the engineer asking *What's next?* would. `/next` takes it, as the engineer saying *proceed* would. `/proceed` and `/.` are aliases of `/next`.
 2. The work under way is any work with steps still to take: a plan's unchecked tasks, an implementation's phases, an outcome's design hinges, a list of steps the agent gave, a procedure part done. Interrupted work is still under way, and `/next` resumes it where it stopped. The next step is the first not yet taken.
 3. On `/next?`, name the next step, or the step where interrupted work stopped, and what it would do, in a sentence or two, and do not take it.
 4. On `/next`, take the next step and nothing beyond it, then stop. Where the agent is suggesting an action, one its last response offered, that action is the next step.
@@ -41,8 +41,11 @@
 - 2026-11-11, revised: the command is `/proceed`, and `/next` is its alias, a term swap the engineer settled; not re-checked
 - 2026-11-11, revised: the command is `/next` again, and `/proceed` is its alias, a term swap the engineer settled; not re-checked
 - 2026-11-11, revised: `/next` carries out an action the agent is suggesting, at the engineer's direction; checked: 21 directives, 16 kept, 5 less precise, 0 lost, 3 repairs; re-checked: 21 directives, 20 kept, 1 less precise, 0 lost. Left less precise: a plain request for what is next is not stated as a trigger in the compressed text, which the rule's trigger line carries
+- 2026-11-15, revised: the shortcut of `/next` is `/.`, a term swap the engineer settled; not re-checked
 
 ## History
+
+Until Sun Nov 15 2026 the shortcut of `/next` was `/..`. The engineer changed it to `/.`, and `/?`, the shortcut of `/next?` until then, became the shortcut of `/recent`.
 
 Until Thu Nov 12 2026 the shortcut of `/next` was `/>>`. The engineer changed it to `/..`.
 
@@ -73,3 +76,4 @@ Changed by Scott Bellware on Wed Nov 11 2026 at 1:15:04 PM PT
 Changed by Scott Bellware on Wed Nov 11 2026 at 1:20:46 PM PT
 Changed by Scott Bellware on Wed Nov 11 2026 at 1:24:40 PM PT
 Changed by Scott Bellware on Thu Nov 12 2026 at 10:49:31 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 1:29:39 PM PT

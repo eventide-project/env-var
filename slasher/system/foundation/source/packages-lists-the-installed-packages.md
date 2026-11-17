@@ -10,13 +10,15 @@
 
 **Below the table, name the package set, as `package set: default`.** Where no set is declared, print nothing below the table.
 
-**`/packages refresh [<package>...]` does what `/package refresh` does.** It refreshes the packages named, or every installed package, under the package-refresh-and-install-run-foundations-scripts rule. The words after `refresh` pass to it unchanged.
+**`/packages update [<package>...]` does what `/package update` does.** It refreshes the packages named, or every installed package, under the package-refresh-and-install-run-foundations-scripts rule. The words after `update` pass to it unchanged.
+
+**`/packages` is a command domain of its own, and `/packages help` prints its help.** The help lists `/packages`, `/packages update`, and `/packages <package>`. `/package help` does not list them.
 
 ## One package
 
 **`/packages <package>` acts on one installed package.** Where an act follows the name, carry it out. Where none does, show the package's row from the table, then ask which act is meant, through the selection interface, with the acts the package can take now:
 
-- **refresh** — `/package refresh <package>`: refresh it from its repository, under the package-refresh-and-install-run-foundations-scripts rule.
+- **update** — `/package update <package>`: refresh it from its repository, under the package-refresh-and-install-run-foundations-scripts rule.
 - **deactivate** — `/package deactivate <package>`, offered only where the package is Active.
 - **activate** — `/package activate <package>`, offered only where the package is Deactivated.
 
@@ -34,6 +36,10 @@
 
 ## History
 
+Until Mon Nov 16 2026 `/packages update` was `/packages refresh`, and the act on one package was `refresh`. The engineer renamed both `update`, with `/package refresh`.
+
+Until Mon Nov 16 2026 `/packages` was a command of the `/package` domain and took no `help`. `/package help` listed it.
+
 Until Fri Nov 13 2026 `/packages` took no package name.
 
 Until Fri Nov 13 2026 `/packages` took no subcommand.
@@ -42,10 +48,12 @@ Related:
 
 - the a-project-declares-which-installed-packages-are-active rule — which packages are active, and the package set, and what activating or deactivating one writes
 - the a-printed-list-of-records-is-formatted-as-a-table-or-as-a-list-of-rows rule — how a list is presented
-- the package-refresh-and-install-run-foundations-scripts rule — what `/packages refresh` does, and what refreshing one package does
+- the package-refresh-and-install-run-foundations-scripts rule — what `/packages update` does, and what updating one package does
 
 ---
 
 Authored by Scott Bellware on Fri Nov 13 2026 at 3:02:14 PM PT
 Changed by Scott Bellware on Fri Nov 13 2026 at 3:18:09 PM PT
 Changed by Scott Bellware on Fri Nov 13 2026 at 3:19:28 PM PT
+Changed by Scott Bellware on Mon Nov 16 2026 at 12:41:19 PM PT
+Changed by Scott Bellware on Mon Nov 16 2026 at 1:08:22 PM PT

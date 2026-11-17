@@ -33,16 +33,17 @@
 2. **`item <words>`**: write a private item.
 3. **`log <words>`**: write a private log entry.
 4. **`journal <words>`**: write a private journal entry, by the journal package's private-journal-convention, as `/journal private` does.
-5. **`session <instruction>`**: start a private session, and carry out the instruction in it.
-6. **`session end`**: end the private session.
-7. Words that are not a subcommand and not a path to an existing file are not guessed at. Say so, and ask which subcommand is meant, through the selection interface.
+5. **Nothing**, a bare `/private`: start a private session, and wait for the engineer's request.
+6. **`session <instruction>`**: start a private session, and carry out the instruction in it.
+7. **`end`**, or **`session end`**: end the private session.
+8. Words that are not a subcommand and not a path to an existing file are not guessed at. Say so, and ask which subcommand is meant, through the selection interface.
 
 ## A private session
 
-1. `/private session <instruction>` starts a private session. It lasts until the session ends, or until `/private session end`.
+1. A bare `/private`, or `/private session <instruction>`, starts a private session. It lasts until the session ends, or until `/private end` or `/private session end`.
 2. In a private session, every record the agent writes goes to the private directory, in the directory for its kind, and never into the project. That holds for a record the engineer asks for and for a record a rule asks for.
 3. A record is a file under `slasher/local/` that a rule tells the agent to write: an item, a log entry, a journal entry, a work session record, an implementation record, or a loop record.
-4. Carry out the instruction after `session` in the private session. Where no instruction was typed, start the private session and wait for the engineer's request.
+4. Carry out the instruction after `session` in the private session. Where no instruction was typed, or the `/private` was bare, start the private session and wait for the engineer's request.
 5. When the private session starts, say once that the session's records go to the private directory. Say it again when it ends.
 6. A file that is not a record still changes in the project, as the work asks. Code, a test, a rule, a vocabulary, a README, and a skill are not records.
 7. The log-entry hook still writes into the project's log. In a private session, move each entry it writes to the private log directory, before anything is committed.
@@ -53,7 +54,7 @@
 ## A private session times out
 
 1. A private session times out when 4 minutes pass with no prompt from the engineer.
-2. The plugin's hook on each prompt keeps the time. `/private session` writes the session's state file, in `~/.local/state/slasher/private-sessions/`, named for the session. Each prompt in the private session writes its time there. `/private session end` removes the file.
+2. The plugin's hook on each prompt keeps the time. A bare `/private`, or `/private session`, writes the session's state file, in `~/.local/state/slasher/private-sessions/`, named for the session. Each prompt in the private session writes its time there. `/private end`, or `/private session end`, removes the file.
 3. Where a prompt comes more than 4 minutes after the last one, the hook tells the agent so. Before anything else, ask the engineer, through the selection interface, whether to continue the private session or end it.
 4. The options are **Continue** and **End**. Continue keeps the private session, and its 4 minutes count from the prompt that brought the question.
 5. End ends the private session: delete the state file the hook names, and say that the session's records go into the project again.
@@ -62,8 +63,8 @@
 
 ## A private record's shape
 
-1. **A document** keeps the name of the file given. It takes no datetime prefix, no state suffix, and no provenance footer.
-2. **An item** takes an item's shape: the ISO-8601-UTC prefix, the state suffix, a `**State:**` line, a `**Tags:**` line, and the provenance footer.
+1. **A document** keeps the name of the file given. It takes no datetime prefix and no provenance footer.
+2. **An item** takes an item's shape: the ISO-8601-UTC prefix, a name with no state, a `**State:**` line, a `**Tags:**` line, and the provenance footer.
 3. **A log entry** takes a log entry's shape: the ISO-8601-UTC prefix and a one-line title, with a `**Tags:**` line or a body where it needs one.
 4. **A journal entry** takes the shape the private-journal-convention gives it.
 5. **A work session record, an implementation record, or a loop record** takes the shape its own rule gives it, with no log entry in the project and no commit.
@@ -102,9 +103,12 @@
 
 ## History
 
-1. Until Thu Nov 12 2026, a private session had no time limit.
-2. Until Thu Nov 12 2026, `/private` recorded only what was given to it. It had no private session.
-3. Until Thu Nov 12 2026, the rule named the project's directory for the project's repository directory and did not say which directory that is in a git worktree. A record written from a worktree was put in a directory named for the worktree.
+Until Mon Nov 16 2026 a private item's name took the state suffix.
+
+1. Until Mon Nov 16 2026, a bare `/private` asked what to record, and a private session was started only by `/private session` and ended only by `/private session end`.
+2. Until Thu Nov 12 2026, a private session had no time limit.
+3. Until Thu Nov 12 2026, `/private` recorded only what was given to it. It had no private session.
+4. Until Thu Nov 12 2026, the rule named the project's directory for the project's repository directory and did not say which directory that is in a git worktree. A record written from a worktree was put in a directory named for the worktree.
 
 Related:
 
@@ -122,3 +126,5 @@ Changed by Scott Bellware on Thu Nov 12 2026 at 10:22:47 PM PT
 Changed by Scott Bellware on Thu Nov 12 2026 at 10:29:33 PM PT
 Changed by Scott Bellware on Thu Nov 12 2026 at 11:13:01 PM PT
 Changed by Scott Bellware on Thu Nov 12 2026 at 11:46:17 PM PT
+Changed by Scott Bellware on Mon Nov 16 2026 at 2:56:31 PM PT
+Changed by Scott Bellware on Mon Nov 16 2026 at 6:36:15 PM PT

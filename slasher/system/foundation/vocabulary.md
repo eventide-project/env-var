@@ -10,7 +10,7 @@ The foundation package's vocabulary: the terms it defines and the word substitut
 
 **These are the terms most easily confused, and they are confused because nothing has stated them beside each other.** They differ in *what is set aside*, *where it goes*, and *what brings it back*.
 
-- **deferred** — work identified mid-task and postponed until the current task finishes. It is an ordinary **item** in `slasher/local/items/` carrying a `**Waits for:**` line, and it may carry a `**Priority:**` rank. A deferred item is *waiting its turn*. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.**
+- **deferred** — work identified mid-task and postponed until the current task concludes. It is an ordinary **item** in `slasher/local/items/` carrying a `**Waits for:**` line, and it may carry a `**Priority:**` rank. A deferred item is *waiting its turn*. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.**
 - **suspended** — something the project **stopped doing** and set aside rather than deleted: a rule that became ceremony, a procedure nobody runs. The thing is **removed**, with a log entry tagged `[suspended]` naming what it cost and what else changed. A suspended thing is *not waiting its turn* — the project has stopped, and the entry states why. **STE: absent. `suspend (v)` is not approved and gives HANG (v), which is physical. Technical noun, ETE engineering, process, and method.**
 - **out of scope** — what a **design deliberately excludes**. It is neither queued nor set aside. It is a boundary the design draws around itself, recorded in its trailing **Out of Scope / Deferred** section so a reader knows the omission was chosen rather than overlooked. **STE: absent from the STE dictionary. Technical noun, ETE engineering, design, process, and method.**
 
@@ -18,10 +18,10 @@ The distinguishing question: **deferred** is *not yet*, **suspended** is *no lon
 
 ### The rest
 
-- **distributable rule** — a rule that **ships in a package** and is installed into a consuming project. It is named by a dash-separated, lower-case name and takes **no datetime prefix**, because it is identified by what it says rather than by when it was written. A project receives one by `git subtree`, and a refresh brings a change to it down. **STE: `distributable` is absent from the STE dictionary. `distribute (v)` is not approved and gives APPLY (v), as in APPLY THE LOAD, which is physical. `distribution (n)` is not approved and gives SUPPLY (n). `rule` is absent. Technical noun, ETE agent artifacts.**
+- **distributable rule** — a rule that **ships in a package** and is installed into a Slasher project. It is named by a dash-separated, lower-case name and takes **no datetime prefix**, because it is identified by what it says rather than by when it was written. A project receives one by `git subtree`, and a refresh brings a change to it down. **STE: `distributable` is absent from the STE dictionary. `distribute (v)` is not approved and gives APPLY (v), as in APPLY THE LOAD, which is physical. `distribution (n)` is not approved and gives SUPPLY (n). `rule` is absent. Technical noun, ETE agent artifacts.**
 - **local rule** — a rule a **project writes for itself**, in `slasher/local/rules/`. It takes the ISO-8601-UTC datetime prefix, because it is a dated decision in that project's history rather than a durable convention identified by its name. `slasher/local/` is never split or pushed, so a local rule cannot leak upstream. **STE: `LOCAL (adj)` is approved, meaning *applicable to a given location or position* — SET THE “LAT” KNOB TO THE LOCAL LATITUDE. Slasher's sense is belonging to one project rather than to a position, so the word is reserved with its meaning fixed here per the ete-fixes-the-meaning-of-a-word-in-its-category rule. `rule` is absent. Technical noun, ETE agent artifacts.**
   - **It is the fourth word ETE fixes the meaning of**, after `loop`, `mechanical`, and `level`. That rule calls this the most expensive reservation ETE makes: a reader who meets an unknown word knows they do not know it, and a reader who meets `local` believes they know it because the dictionary told them.
-- **Neither of the two is `system rule`**, which the corpus also uses. `system rule` names **where a rule sits** — under `slasher/system/` in a consuming project, or `system/` in the authoring source. `distributable rule` names **how it travels**. Every distributable rule becomes a system rule once it is installed, and the two words name different facts about it. `system rule` carries no entry here.
+- **Neither of the two is `system rule`**, which the corpus also uses. `system rule` names **where a rule sits** — under `slasher/system/` in a Slasher project, or `system/` in the authoring source. `distributable rule` names **how it travels**. Every distributable rule becomes a system rule once it is installed, and the two words name different facts about it. `system rule` carries no entry here.
 - **item** — a record in `slasher/local/items/`: a design, a plan, an aspiration, a note, or deferred work, each told apart by a tag. The the-items-directory-holds-one-file-per-item rule fixes its states and its shape. **A bare *item* means this record and nothing else.** An entry in a bulleted or numbered list is a **list item**, written in full, and a thing in general is named for what it is — a part, a segment, a piece of work. **STE: `ITEM (n)` is approved, meaning *a thing that is determined or specified*, which is not this. Technical noun, ETE agent artifacts, with its meaning fixed here per the ete-fixes-the-meaning-of-a-word-in-its-category rule.**
 - **projection** — a **derived** artifact that reads a record **without destroying it**. A summary generated at read-time is a projection of the log. A work session record is a projection of the records it is reconstituted from. The term exists to name the alternative to consolidation: where the impulse is to merge, rewrite, or tidy a record into something more readable, a projection gives the readability and leaves the record as written. A projection is regenerated, never maintained — which is why the record it derives from is **not back-edited** to suit it. **STE: absent from the STE dictionary. Technical noun, ETE evented systems and autonomous components.**
 - **reconcile** — to correct the **live, forward-looking** artifacts that cite something which has changed, moved, or been deleted. Reconciling is directed at what points *at* a thing, not at the thing itself, and it is confined to artifacts read as current: a note, an item, another deferred item, an implementation record. **Historical records are left as written**, the one exception being a record that discloses what should not have been disclosed. A design is reconciled **against** the records rather than **regenerated from** them: it is a source of truth a plan points back at, so rebuilding it from downstream work would invert the direction of authority. **STE: absent from the STE dictionary. Technical verb, ETE engineering, design, process, and method.**
@@ -42,6 +42,7 @@ Foundation-domain word substitutions. When the impulse is a word in the **Don't 
 | **work session record** | "session record" | the record of a stretch of work — see below |
 | **free-text option** | "escape" | the answer the selection interface supplies beside the options — see above for the term, and below for why the figure fails |
 | **superseded** | "overtaken" | a record, a claim, or a rule that a later one has replaced or left behind — see below |
+| **Slasher project** | "consuming project" | a project that installs Slasher's packages. "Consuming" names the project by what the Slasher source sees it do with the packages, and "Slasher project" names it by what it has |
 
 ### Finer distinctions
 
@@ -64,16 +65,16 @@ A word taken out of use with **nothing in its place**. This is not a substitutio
 ## The three ways of saying "not now"
 
 1. They differ in what is set aside, where it goes, and what brings it back. **Deferred** is not yet, **suspended** is no longer, **out of scope** is not here.
-2. **deferred** — work identified mid-task and postponed until the current task finishes. It is an ordinary item in `slasher/local/items/` with a `**Waits for:**` line, and it may carry a `**Priority:**` rank. It waits its turn.
+2. **deferred** — work identified mid-task and postponed until the current task concludes. It is an ordinary item in `slasher/local/items/` with a `**Waits for:**` line, and it may carry a `**Priority:**` rank. It waits its turn.
 3. **suspended** — something the project stopped doing and set aside rather than deleted, such as a rule that became ceremony or a procedure nobody runs. The thing is removed, with a log entry tagged `[suspended]` naming what it cost, what else changed, and why the project stopped. It does not wait its turn.
 4. **out of scope** — what a design deliberately excludes. It is neither queued nor set aside. It is a boundary the design draws around itself, recorded in its trailing **Out of Scope / Deferred** section so the omission reads as chosen.
 
 ## The rest
 
-1. **distributable rule** — a rule that ships in a package and is installed into a consuming project. Its name is dash-separated and lower-case, with no datetime prefix. A project receives one by `git subtree`, and a refresh brings a change to it down.
+1. **distributable rule** — a rule that ships in a package and is installed into a Slasher project. Its name is dash-separated and lower-case, with no datetime prefix. A project receives one by `git subtree`, and a refresh brings a change to it down.
 2. **local rule** — a rule a project writes for itself, in `slasher/local/rules/`. It takes the ISO-8601-UTC datetime prefix. `slasher/local/` is never split or pushed, so a local rule cannot leak upstream.
 3. `local` is the fourth word ETE fixes the meaning of, after `loop`, `mechanical`, and `level`.
-4. **system rule** is neither of the two and carries no entry here. It names where a rule sits: under `slasher/system/` in a consuming project, or `system/` in the authoring source. `distributable rule` names how it travels. Every distributable rule becomes a system rule once installed.
+4. **system rule** is neither of the two and carries no entry here. It names where a rule sits: under `slasher/system/` in a Slasher project, or `system/` in the authoring source. `distributable rule` names how it travels. Every distributable rule becomes a system rule once installed.
 5. **item** — a record in `slasher/local/items/`: a design, a plan, an aspiration, a note, or deferred work, each told apart by a tag. The the-items-directory-holds-one-file-per-item rule fixes its states and shape. A bare *item* means this record and nothing else. Call an entry in a bulleted or numbered list a **list item**, in full. Name a thing in general for what it is, such as a part, a segment, or a piece of work.
 6. **projection** — a derived artifact that reads a record without destroying it, such as a summary generated at read-time from the log, or a work session record reconstituted from other records. Where the impulse is to merge, rewrite, or tidy a record, make a projection and leave the record as written. A projection is regenerated, never maintained. Do not back-edit its record to suit it.
 7. **reconcile** — to correct the live, forward-looking artifacts that cite something which has changed, moved, or been deleted. It is directed at what points at a thing, not at the thing. It is confined to artifacts read as current: a note, an item, another deferred item, an implementation record. Leave historical records as written, except a record that discloses what should not have been disclosed. Reconcile a design against the records. Never regenerate it from them.
@@ -94,6 +95,7 @@ A word taken out of use with **nothing in its place**. This is not a substitutio
 | **work session record** | "session record" | the record of a stretch of work |
 | **free-text option** | "escape" | the answer the selection interface supplies beside the options |
 | **superseded** | "overtaken" | a record, a claim, or a rule that a later one has replaced or left behind |
+| **Slasher project** | "consuming project" | a project that installs Slasher's packages |
 
 1. Do not write `escape` for the free-text option.
 2. Write **superseded**, not "overtaken", for a record, a claim, or a rule that a later one replaced. It is ordinary vocabulary, not reserved, and takes no ETE category. `overtake` and `supersede` are both absent from the STE dictionary.
@@ -114,6 +116,7 @@ A word taken out of use with **nothing in its place**. This is not a substitutio
 - 2026-10-29, revised: the `Explain` option and every statement about the free-text option are removed, at the engineer's direction; checked: 93 directives, 84 kept, 2 less precise, 7 lost; what is not kept was left out on purpose, in this revision or an earlier one, or is stated in the pre-loaded present-every-prompt-to-the-engineer-through-the-selection-ui rule
 - 2026-10-29, revised: the *superseded* substitution moves here from this project's own vocabulary, at the engineer's direction; its compressed points are the ones checked in phase 13
 - 2026-11-05, revised: each entry's STE note is left out of the compressed text, at the engineer's direction; it matters only when a word is reserved or an entry written, and the full text keeps it
+- 2026-11-15, revised: the *Slasher project* substitution, and "consuming project" replaced with it in two entries, a swap of one term for another the engineer settled
 
 ## History
 
@@ -165,3 +168,4 @@ Changed by Scott Bellware on Thu Oct 29 2026 at 1:57:17 PM PT
 Changed by Scott Bellware on Fri Oct 30 2026 at 1:48:35 PM PT
 Changed by Scott Bellware on Thu Nov 5 2026 at 9:09:28 PM PT
 Changed by Scott Bellware on Thu Nov 5 2026 at 9:33:19 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 11:45:04 PM PT

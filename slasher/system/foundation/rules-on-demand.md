@@ -20,19 +20,19 @@ Trigger: When writing or changing a Slasher command, its help, or a shortcut ali
 
 **A command domain's rows live beside its skill, in `command-table-rows.md`.** A command domain is a group of root commands that share one heading, one description, and one help command in the Slasher help. Its row names the domain's help command, and its description is the one under that heading. A domain with no root command of its own name has a skill named for the domain, as `/process` for PROCESS and `/language` for LANGUAGE, and its rows live beside that skill. A package carries the rows of the domains it holds, as `imap` carries `/email`'s.
 
-**One row to a domain, and a few root commands have rows of their own.** `/features` has a row below `/feature`, `/experiments` below `/experiment`, `/decision` below `/log`, `/note` below `/decision`, `/notes` below `/note`, and `/packages` below `/package`, each in its domain's rows file. `/clarify, /??`, `/idk`, `/ask-again, /aa`, `/estimate-confidence, /%`, `/unattended, /!`, `/shortcuts, /sc, /:`, and `/load` have rows of their own, beside their skills, in that order at the bottom of the table. The PHASE domain has no row. Write no other root command, alias, or subcommand into a row.
+**One row to a domain, and a few root commands have rows of their own.** `/features` has a row below `/feature`, `/experiments` below `/experiment`, `/decision` below `/log`, `/note` below `/decision`, and `/notes` below `/note`, each in its domain's rows file. `/pros-and-cons, /??`, `/ask-again, /aa`, `/estimate-confidence, /%`, `/unattended, /!`, `/shortcuts, /sc, /:`, and `/load` have rows of their own, beside their skills, in that order at the bottom of the table. The PHASE domain has no row. Write no other root command, alias, or subcommand into a row.
 
 **A description may open with *These commands*, as the help does.** No description opens with *This command*. Keep each row in line with the help: when a domain's heading, its help command, or its description changes in the help, change its row in the same commit.
 
-**The table's top rows are foundation's.** `plugin/command-table-header.md` holds the heading and the rows that open the table: `/slasher help`, then each command with a shortcut alias. Their order is `/commands, /;`, `/recent, /.`, `/current, /', /c`, `/next, /proceed, /..`, and `/next?, /?`. A command of another package with a shortcut alias has its row beside its skill, as `/push, /p` in the `git` package, and `/reprint-and-review, /rr` in the `language` package.
+**The table's top rows are foundation's.** `plugin/command-table-header.md` holds the heading and the rows that open the table: `/slasher help`, then each command with a shortcut alias, and `/next?`. Their order is `/commands, /;`, `/recent, /?`, `/current, /', /c`, `/next, /proceed, /.`, and `/next?`. A command of another package with a shortcut alias has its row beside its skill, as `/push, /p` in the `git` package, and `/print-and-review, /pr` in the `prose` package.
 
-**A row with a shortcut alias names the command first and the alias after it, as `/recent, /.`.** A command with an alias and a shortcut names the alias, then the shortcut last, as `/next, /proceed, /..`. A command with two shortcuts names both, in the order they were given, as `/current, /', /c`. This holds in the full table and in the startup table alike.
+**A row with a shortcut alias names the command first and the alias after it, as `/recent, /?`.** A command with an alias and a shortcut names the alias, then the shortcut last, as `/next, /proceed, /.`. A command with two shortcuts names both, in the order they were given, as `/current, /', /c`. This holds in the full table and in the startup table alike.
 
 **The help's order is the table's order.** `plugin/help-order` lists the domains in the order the help and the table both follow. A domain it does not list follows, in name order. Add a new domain to it where its row belongs.
 
 **A shortcut alias changes three files together.** Change its row in `command-table-header.md` or beside its skill, its row in `plugin/shortcuts.md`, and `plugin/command-table-startup.md` where it names the alias, in the same commit. `plugin/shortcuts.md` is foundation's, and lists another package's shortcut too, as `/p`.
 
-**The startup table's four rows stand in `plugin/command-table-startup.md`.** The `/slasher help` row also names `/help`. The `/commands, /;` row reads *Print the list of Slasher commands*. The `/recent, /.` row takes `/recent`'s description from the help. The `/current, /', /c` row reads *Lists the current items, features, and experiments.* The plugin build writes the sentence below them, naming every other command, so the sentence is never written by hand.
+**The startup table's four rows stand in `plugin/command-table-startup.md`.** The `/slasher help` row also names `/help`. The `/commands, /;` row reads *Print the list of Slasher commands*. The `/recent, /?` row takes `/recent`'s description from the help. The `/current, /', /c` row reads *Lists the current items, features, and experiments.* The plugin build writes the sentence below them, naming every other command, so the sentence is never written by hand.
 
 **Each table is followed by the help line:** *Type /help for all of Slasher's help, or /<command> help for one command's.* The plugin build adds it.
 
@@ -148,7 +148,7 @@ Trigger: When creating an item, adding a dated Settled resolution to it, changin
 4. Write the entry on the item's creation.
 5. Write the entry on each dated `Settled` resolution added after the item is created.
 6. Write the entry on each change of the item's `**State:**` line.
-7. A change of state is the line reaching any state word the items rule names: Open, Active, a concluding state such as Realized, Done, Corrected, Resolved, or Completed, or Deferred, Suspended, Discontinued, Superseded, Abandoned, or Obsolete.
+7. A change of state is the line reaching any state word the items rule names: Open, Active, a concluding state such as Realized, Corrected, Resolved, or Completed, or Deferred, Suspended, Discontinued, Superseded, Abandoned, or Obsolete.
 8. A change of state is also the line taking a state back, by resume.
 9. A design and a note are `Recorded` and never move, so each takes a creation entry only.
 10. Do not log a completed checkbox task, because it carries out a direction already settled.
@@ -228,7 +228,7 @@ Lines 1–8 below are the opening statements, which come before any section head
 
 1. A note carries `**State:** Recorded` from the moment it is written.
 2. It keeps that state for the rest of its life.
-3. Its filename ends `-RECORDED`.
+3. Its filename carries no state.
 4. It carries no `**Why this state:**` line.
 5. A note has no lifecycle.
 6. It is never realized, abandoned, obsolete, superseded, or suspended.
@@ -248,7 +248,7 @@ Lines 1–8 below are the opening statements, which come before any section head
 4. The file starts with a `# <title>`, then a `**State:** Recorded` line.
 5. Next comes a `**Tags:**` line carrying `[note]`, then the content in prose.
 6. The filename follows the ISO-8601-UTC prefix convention (see the file-names rule).
-7. The filename ends `-RECORDED`.
+7. The filename carries no state.
 8. **Provenance footer:** end the file with the `Authored by … / Changed by …` footer, like every working-state artifact.
 9. **Recording one:** add the file.
 10. Add a matching one-line entry to `slasher/local/logs/log/`, noting it was recorded as a note.
@@ -259,7 +259,7 @@ Lines 1–8 below are the opening statements, which come before any section head
 
 Source: system/foundation/source/a-phase-starts-by-stating-its-goal.md
 
-Trigger: When starting a phase of an experiment or a feature, or when the engineer asks for the current phase or the list of phases, as with `/experiment status` or `/feature status`
+Trigger: When starting a phase of an experiment or a feature, or when the engineer asks for the current phase or the list of phases, as with `/experiment status`, `/feature status`, or `/phase status`
 
 1. At the start of an experiment's or a feature's phase, state the phase's goal to the engineer, before its work, in the response that starts it.
 2. The goal is the phase's question or intent, whichever it has, whatever the kind. For a question, it is what the phase is to establish. For an intent, it is what the phase is to build. Say how it serves the implementation's question or intent.
@@ -267,7 +267,7 @@ Trigger: When starting a phase of an experiment or a feature, or when the engine
 4. State the goal and the list at each phase's start, not only when the record is written. The record's naming of the phases, and a phase's forecast, do not stand in for them.
 5. When the engineer asks for the current phase, as with `/phase` or `/phase current`, print its goal and its branch.
 6. When the engineer asks for the phases, as with `/phases`, list them in the record's order, with the current phase emphasized.
-7. `/experiment status` and `/feature status` print the phases in the record's order, the current one emphasized, and the current phase's goal. Without phases, they print the implementation's question or intent, and its state.
+7. `/experiment status`, `/feature status`, and `/phase status` print the phases in the record's order, the current one emphasized, and the current phase's goal. Without phases, they print the implementation's question or intent, and its state.
 
 # A printed list of records is formatted as a table or as a list of rows
 
@@ -360,48 +360,6 @@ A list of items takes the ordinal and no SHA columns:
 2. This rule does not govern an answer that is not a list of records.
 3. The `language` package's an-answer-is-a-list-and-prose-must-justify-itself rule governs the form of an answer's list items. This rule governs only how a set of records is presented.
 
-# A record carrying a state line ends its filename with the state in upper case
-
-Source: system/foundation/source/a-record-carrying-a-state-line-ends-its-filename-with-the-state-in-upper-case.md
-
-Trigger: When creating, renaming, changing the state of, or referencing an item or implementation record
-
-1. Where a record carries a canonical `**State:**` line, its filename ends with that state word in upper case.
-2. The state word is appended to the name with a dash, before the extension.
-
-```
-2026-07-27T07-09-02Z-the-feature-capability-REALIZED.md
-2026-08-05T19-37-06Z-ooda-terminology-REFUTED.md
-2026-08-06T04-32-50Z-ooda-mode-COMPLETED.md
-```
-
-3. This reaches every record that carries a state line: an implementation record, whether experiment or feature, and an item.
-4. Each convention fixes its own state words. This rule fixes only where the word is rendered.
-5. Every item and every implementation record carries a suffix. Each carries a state line from the moment it is written, and the in-progress state of each is **Active**.
-6. A name with no suffix is a defect.
-7. A note's suffix is always `-RECORDED`.
-8. The file's contents are unchanged. Add no suffix to any file's contents.
-9. The state inside the file is the `**State:**` line and nothing else.
-10. The file still ends with its provenance footer.
-
-## Upper case, and the exception it takes
-
-1. The suffix is the stated exception to the file-names rule's dash-separated, lower-case name.
-2. The upper case marks the state as not part of the record's subject. `…-ooda-terminology-REFUTED.md`, not `…-ooda-terminology-refuted.md`.
-3. The dash is the ordinary separator. Nothing else about the name changes.
-4. The ISO-8601-UTC prefix is untouched, so the directory still sorts chronologically.
-
-## The `**State:**` line stays the only authoritative statement
-
-1. The name is derived from the line. It changes only when the line changes.
-2. Where name and line disagree, the line is right and the name is stale.
-3. A state change renames the file, using `git mv`.
-4. When a reversible word is taken back, rename the file to the state the record returns to, such as **ACTIVE** or **OPEN**.
-5. Any state but Open, Active, and Recorded can be taken back by resume, as the the-items-directory-holds-one-file-per-item rule sets out.
-6. A reference to a record omits its state suffix and extension, and keeps the prefix and name. A rename then breaks no reference.
-7. A reader finds the record by that prefix and name.
-8. Leave historical records as written.
-
 # A record may be tagged with square-bracket tags
 
 Source: system/foundation/source/a-record-may-be-categorized-with-square-bracket-tags.md
@@ -415,6 +373,26 @@ Trigger: When adding a tag to a record or a list item
 5. Tags are optional and freeform. Add one when it is useful.
 6. Nothing checks tags, and there is no fixed list.
 7. Some tags have lifecycle states, such as `[experiment]`, `[feature]`, `[note]`, and `[work]`. Each one's own rule states its states.
+
+# A record's file name carries no state
+
+Source: system/foundation/source/a-records-file-name-carries-no-state.md
+
+Trigger: When creating, renaming, changing the state of, or referencing an item or implementation record
+
+1. An item's or an implementation record's file name carries no state.
+2. The name is the ISO-8601-UTC prefix, a dash-separated, lower-case name, and `.md`.
+
+```
+2026-07-27T07-09-02Z-the-cart-keeps-its-contents.md
+2026-08-05T19-37-06Z-the-receipt-shows-the-tax.md
+```
+
+3. The `**State:**` line inside the file is the only statement of the state.
+4. A state change edits the `**State:**` line and renames nothing. A record keeps one path for its whole life.
+5. Refer to a record by its path, or by its prefix and name.
+6. Leave a historical record that gives a path with a state as written. A reader finds the record by its prefix and name.
+7. `install.sh` takes the state off the end of a Slasher project's record names when its packages are updated or Slasher is installed. Where the name without it is taken, or two names differ only in their state, it renames neither, and says so. Content does not change.
 
 # A rule's compressed text is written in its source, checked against it, and its figures recorded below the body
 
@@ -593,17 +571,17 @@ Trigger: When writing, revising, or creating a `vocabulary.md` file
 
 Source: system/foundation/source/an-implementation-runs-on-a-branch-to-a-declared-end.md
 
-Trigger: When starting, adding a worktree to, suspending, or concluding an experiment or feature implementation
+Trigger: When creating, starting, adding a worktree to, suspending, or concluding an experiment or feature implementation
 
 1. An implementation runs on its own branch, designed through the five hinges by DBE, to a declared state.
 2. It is never left silently open.
 3. Whether the work states a forecast decides the parts that differ while it runs. Whether it reaches a verdict is asked at its end. The tag names the record and the branch, and decides nothing else.
-4. Either kind opens with a question or an intent. A forecast is stated at the start only where the engineer gives one. Only work with a forecast is asked the verdict question, and the engineer can conclude any work with a verdict word (see the the-implementations-directory-holds-one-record-per-implementation rule).
+4. Either kind opens with a question or an intent. A forecast is stated when the implementation is created only where the engineer gives one. Only work with a forecast is asked the verdict question, and the engineer can conclude any work with a verdict word (see the the-implementations-directory-holds-one-record-per-implementation rule).
 5. A clause below names work with a forecast, or with or without a verdict, only because of that difference. Every other clause holds for all.
 
 ## The branch
 
-1. `new` writes the record `Open`, then creates the branch. `start` makes it `Active`.
+1. `new` writes the record `Open`, then creates the branch. `start` makes it `Active`. Where no implementation is in place, `start` creates it as `new` does, and writes the record `Active`.
 2. Name it `experiment/<subject>` or `feature/<subject>`, matching the tag.
 3. The subject is short, lower-case, and dash-separated, and names literally what is tested or built.
 4. Add `-run-<n>` only where the work has more than one run.
@@ -617,15 +595,15 @@ Trigger: When starting, adding a worktree to, suspending, or concluding an exper
 12. Record the branch, its upstream, and its base. Record the base as its commit SHA and the ref it came from.
 13. Make no git tag for the base.
 14. A later run branches from the recorded commit.
-15. Except on the current branch, `new` commits the first record, `Open`, and its log entry on the upstream branch, `master` in the ordinary case, then creates the implementation branch from that commit.
+15. Except on the current branch, `new`, or `start` where it creates the implementation, commits the first record, `Open` or `Active`, and its log entry on the upstream branch, `master` in the ordinary case, then creates the implementation branch from that commit.
 16. Make every later update to the record on the implementation branch. The first records the base, the commit that holds the first record, which that record cannot name. Leave the upstream branch's copy as first written until the work merges.
 17. Where the working location is the current branch, write the record there. There is no second copy.
 
 ## Phases
 
 1. An experiment or a feature may run in phases. Each phase is a question or an intent that serves the implementation's.
-2. The record names the phases and their order at the start, and, as each phase starts, the commit it branched from.
-3. When a phase is added, ask whether it states a forecast, whatever its implementation chose: *No forecast*, then *State a forecast*. A phase with a forecast states it before its work. When its work is complete, ask it the verdict question, with the implementation's three options. A phase without a forecast is not asked.
+2. The record names the phases and their order when the implementation is created, and, as each phase starts, the commit it branched from.
+3. When a phase is created, by `/phase new`, ask whether it states a forecast, whatever its implementation chose: *No forecast*, then *State a forecast*. A phase with a forecast states it before its work. When its work is complete, ask it the verdict question, with the implementation's three options. A phase without a forecast is not asked.
 4. A phase's branch is the implementation's branch, a dot, and the phase's name: `experiment/rule-reduction.flattening`, `feature/worktree/skills.slash-commands`.
 5. Git refuses a slash here, because no branch can sit beneath another branch's name.
 6. A `worktree/` segment carries into each phase's name.
@@ -645,7 +623,7 @@ Trigger: When starting, adding a worktree to, suspending, or concluding an exper
 
 ## The working location
 
-1. Put the working location through the selection interface at every start, with no default.
+1. Put the working location through the selection interface each time an implementation is created, with no default.
 2. Each option states what it creates:
 
 > **Branch only** — Create the branch and switch this working tree to it. At the conclusion this
@@ -680,18 +658,18 @@ Trigger: When starting, adding a worktree to, suspending, or concluding an exper
 
 1. Put attended or unattended through the selection interface beside the working location.
 2. Attended is the default.
-3. The design-by-efferent attended-or-unattended-is-chosen-when-the-work-is-started rule states why the two sit at one gate, and what changes between them.
+3. The design-by-efferent attended-or-unattended-is-chosen-when-the-work-is-created rule states why the two sit at one gate, and what changes between them.
 4. Record both choices.
 
 ## The forecast and the verdict
 
-1. At the start, ask whether the work states a forecast, through the selection interface, beside the working location and the participation. Its options read *No forecast*, then *State a forecast*, in that order. Record the answer as a confirmation, and write a stated forecast in the record.
+1. When the implementation is created, ask whether the work states a forecast, through the selection interface, beside the working location and the participation. Its options read *No forecast*, then *State a forecast*, in that order. Record the answer as a confirmation, and write a stated forecast in the record.
 2. Do not ask it where the working location is the current branch. Work there states no forecast.
 3. Whether the work states a forecast follows neither the kind nor whether it opens with a question or an intent.
 4. At the end, when the work is complete, ask the verdict question of work with a forecast, and of no other work. Record the answer as a confirmation.
 5. Its two options read, in these words and in this order: *Conclude without an engineer's verdict*, then *Conclude with an engineer's verdict*.
-6. Work concluded without a verdict ends Completed. Work concluded with one ends Affirmed, Refuted, or Inconclusive, on the engineer's declaration. Work without a forecast is not asked. `complete` concludes it Completed, and the engineer can conclude it with a verdict word instead.
-7. A third option reads *What's a verdict?* Selecting it explains, in a sentence or two, that a verdict is the engineer's declaration that the work is Affirmed, Refuted, or Inconclusive, against the forecast stated before the work, and that work without a verdict ends Completed.
+6. Work concluded without a verdict concludes Completed. Work concluded with one concludes Affirmed, Refuted, or Inconclusive, on the engineer's declaration. Work without a forecast is not asked. `complete` concludes it Completed, and the engineer can conclude it with a verdict word instead.
+7. A third option reads *What's a verdict?* Selecting it explains, in a sentence or two, that a verdict is the engineer's declaration that the work is Affirmed, Refuted, or Inconclusive, against the forecast stated before the work, and that work without a verdict concludes Completed.
 8. Then ask the question again, with the same three options.
 
 ## The end
@@ -740,7 +718,7 @@ Trigger: When starting, adding a worktree to, suspending, or concluding an exper
 3. Neither recourse ends the implementation, and the engineer's intent decides.
 4. The watch rests on the branch name in the status line and on a judgment of whether the work serves the recorded question or intent.
 5. The watch is a practice, not a guarantee.
-6. Under a worktree there is nothing to watch. The session-start notice reports every implementation that has not concluded.
+6. Under a worktree there is nothing to watch. The status line's second line names the branch of an implementation that has not concluded, in any worktree.
 7. Work without a forecast has no watch, since starting other work during it is ordinary.
 
 # An item that sequences work contains no code samples
@@ -800,16 +778,17 @@ Trigger: When the engineer types `/private`, or asks to write, read, or list a p
 2. **`item <words>`**: write a private item.
 3. **`log <words>`**: write a private log entry.
 4. **`journal <words>`**: write a private journal entry, by the journal package's private-journal-convention, as `/journal private` does.
-5. **`session <instruction>`**: start a private session, and carry out the instruction in it.
-6. **`session end`**: end the private session.
-7. Words that are not a subcommand and not a path to an existing file are not guessed at. Say so, and ask which subcommand is meant, through the selection interface.
+5. **Nothing**, a bare `/private`: start a private session, and wait for the engineer's request.
+6. **`session <instruction>`**: start a private session, and carry out the instruction in it.
+7. **`end`**, or **`session end`**: end the private session.
+8. Words that are not a subcommand and not a path to an existing file are not guessed at. Say so, and ask which subcommand is meant, through the selection interface.
 
 ## A private session
 
-1. `/private session <instruction>` starts a private session. It lasts until the session ends, or until `/private session end`.
+1. A bare `/private`, or `/private session <instruction>`, starts a private session. It lasts until the session ends, or until `/private end` or `/private session end`.
 2. In a private session, every record the agent writes goes to the private directory, in the directory for its kind, and never into the project. That holds for a record the engineer asks for and for a record a rule asks for.
 3. A record is a file under `slasher/local/` that a rule tells the agent to write: an item, a log entry, a journal entry, a work session record, an implementation record, or a loop record.
-4. Carry out the instruction after `session` in the private session. Where no instruction was typed, start the private session and wait for the engineer's request.
+4. Carry out the instruction after `session` in the private session. Where no instruction was typed, or the `/private` was bare, start the private session and wait for the engineer's request.
 5. When the private session starts, say once that the session's records go to the private directory. Say it again when it ends.
 6. A file that is not a record still changes in the project, as the work asks. Code, a test, a rule, a vocabulary, a README, and a skill are not records.
 7. The log-entry hook still writes into the project's log. In a private session, move each entry it writes to the private log directory, before anything is committed.
@@ -820,7 +799,7 @@ Trigger: When the engineer types `/private`, or asks to write, read, or list a p
 ## A private session times out
 
 1. A private session times out when 4 minutes pass with no prompt from the engineer.
-2. The plugin's hook on each prompt keeps the time. `/private session` writes the session's state file, in `~/.local/state/slasher/private-sessions/`, named for the session. Each prompt in the private session writes its time there. `/private session end` removes the file.
+2. The plugin's hook on each prompt keeps the time. A bare `/private`, or `/private session`, writes the session's state file, in `~/.local/state/slasher/private-sessions/`, named for the session. Each prompt in the private session writes its time there. `/private end`, or `/private session end`, removes the file.
 3. Where a prompt comes more than 4 minutes after the last one, the hook tells the agent so. Before anything else, ask the engineer, through the selection interface, whether to continue the private session or end it.
 4. The options are **Continue** and **End**. Continue keeps the private session, and its 4 minutes count from the prompt that brought the question.
 5. End ends the private session: delete the state file the hook names, and say that the session's records go into the project again.
@@ -829,8 +808,8 @@ Trigger: When the engineer types `/private`, or asks to write, read, or list a p
 
 ## A private record's shape
 
-1. **A document** keeps the name of the file given. It takes no datetime prefix, no state suffix, and no provenance footer.
-2. **An item** takes an item's shape: the ISO-8601-UTC prefix, the state suffix, a `**State:**` line, a `**Tags:**` line, and the provenance footer.
+1. **A document** keeps the name of the file given. It takes no datetime prefix and no provenance footer.
+2. **An item** takes an item's shape: the ISO-8601-UTC prefix, a name with no state, a `**State:**` line, a `**Tags:**` line, and the provenance footer.
 3. **A log entry** takes a log entry's shape: the ISO-8601-UTC prefix and a one-line title, with a `**Tags:**` line or a body where it needs one.
 4. **A journal entry** takes the shape the private-journal-convention gives it.
 5. **A work session record, an implementation record, or a loop record** takes the shape its own rule gives it, with no log entry in the project and no commit.
@@ -897,10 +876,10 @@ Trigger: When the engineer types `/ask-again` or `/aa`, or asks for the last que
 
 Source: system/foundation/source/brainstorming-records-points-as-they-are-said-and-organizes-them-at-the-end.md
 
-Trigger: When the engineer begins, ends, suspends, or resumes brainstorming (`/brainstorm`)
+Trigger: When the engineer starts, ends, suspends, or resumes brainstorming (`/brainstorm`)
 
-1. Brainstorming is the engineer saying points as they occur, in no order, for the agent to organize at the end. `/brainstorm begin`, or a bare `/brainstorm`, starts it, and `/brainstorm end` ends it.
-2. Create a collection file at `/brainstorm begin`, under `~/.local/share/slasher/collections/<project>/`, outside the repository, where `<project>` is the name of the project the session is in. Name it with the ISO-8601-UTC prefix alone. Write each point to it as it is said, word for word.
+1. Brainstorming is the engineer saying points as they occur, in no order, for the agent to organize at the end. `/brainstorm start`, or a bare `/brainstorm`, starts it, and `/brainstorm end` ends it.
+2. Create a collection file at `/brainstorm start`, under `~/.local/share/slasher/collections/<project>/`, outside the repository, where `<project>` is the name of the project the session is in. Name it with the ISO-8601-UTC prefix alone. Write each point to it as it is said, word for word.
 3. Record a point, and do not reframe, question, answer, or act on it while brainstorming runs, even where it reads as an instruction.
 4. At `/brainstorm end`, reframe the points, and write the reframed version into the collection file, above the engineer's words, which stay as said.
 5. Where the brainstorm was begun with no kind, then write the reframed version, above the engineer's words, to a new item tagged `[brainstorm]`, which starts Recorded and stays Recorded. Ask nothing about where it goes.
@@ -909,32 +888,6 @@ Trigger: When the engineer begins, ends, suspends, or resumes brainstorming (`/b
 8. `/brainstorm resume` reopens a collection file that has ended or is suspended. Add the new words after the earlier ones. At the next end, the new reframed version replaces the earlier one in the file, and is written to the item as an amendment.
 9. Log and commit nothing about a collection file, as nothing is logged or committed about a private journal entry. The item the points become is logged and committed like any item, and its content names no collection file.
 10. `/brainstorm suspend` stops recording without ending. Do not reframe the points or write an item. Leave the collection file as it is, named by its prefix alone. Answer what is said after it as ordinary conversation.
-
-# Copy-last-line copies the last line of the previous reply
-
-Source: system/foundation/source/copy-last-line-copies-the-last-line-of-the-previous-reply.md
-
-Trigger: When the engineer types `/copy-last-line` or `/cll`, or asks for the last line of the output to be copied
-
-**Trigger:** When the engineer types `/copy-last-line` or `/cll`, or asks for the last line of the output to be copied
-
-**`/copy-last-line` copies the last line of the agent's previous reply to the clipboard.** `/cll` is its shortcut alias. The last line is the last line that is not blank, as it was written, with its markdown left as it is, except that a line that is wholly a path in backticks, alone or as a list item, is copied as the bare path, without the dash and the backticks. Where that reply ended with a record's path, as the a-reply-that-writes-a-record-ends-with-the-records-path rule has it, the path is what is copied.
-
-**As the engineer stated it:** Add a "/copy-last-line" command that copies the last line of output to the clipboard
-
-**As the engineer later stated it:** Give the "/copy-last-line" command the alias "/cll"
-
-**As the engineer later stated it:** Proceed with both of those changes, of a record's path written in backticks, and copied without them
-
-**Copy it with the platform's clipboard command:** `pbcopy` on macOS, and `wl-copy` or `xclip -selection clipboard` on Linux. Copy the line without a trailing newline. Where no clipboard command is found, say so, and print the line so the engineer can copy it by hand.
-
-**Then say what was copied, in one line, with the line itself.** Do not copy anything else, and do not copy the reply that reports the copy.
-
-**Where there is no previous reply, say so, and copy nothing.**
-
-**Why:** Claude Code's `/copy` copies the whole of the last reply. A record's path, or one command, is usually the line the engineer wants, and it sits on the last line by design.
-
-**How to apply:** on `/copy-last-line` or `/cll`, take the last line that is not blank from the previous reply, drop the list item's dash and the backticks where the line is a path in backticks, copy it with the clipboard command without a trailing newline, and report it in one line.
 
 # Dated artifacts are prefixed with an ISO 8601 UTC datetime, and system rules are not
 
@@ -946,7 +899,7 @@ Trigger: When creating and naming a new file under slasher/local/ or a new rule 
 1. A dated artifact takes the datetime prefix. A dated artifact is something a project accrues over time, ordered by when it was made.
 2. The contemporaneous, historical records under `logs/` take it: the log (`logs/log/`), `logs/loops/`, and `logs/work-sessions/`.
 3. The work-artifact directories `items/`, `implementations/`, and `migration/` take it.
-4. A consuming project's own local rules, the ones it adds to its `slasher/local/rules/`, take it. A local rule is a dated decision in that project's history.
+4. A Slasher project's own local rules, the ones it adds to its `slasher/local/rules/`, take it. A local rule is a dated decision in that project's history.
 5. Prefix every new working-state artifact with the full `YYYY-MM-DDTHH-MM-SSZ-` UTC datetime.
 6. Prefix every local rule a project adds the same way.
 
@@ -956,10 +909,8 @@ Trigger: When creating and naming a new file under slasher/local/ or a new rule 
 3. Join the date and time with `T`. The trailing `Z` marks UTC.
 4. Write the time's colons as dashes, for filesystem safety, as in `2026-07-01T20-40-00Z-some-name.md`.
 5. The name is dash-separated and lower-case.
-6. The state suffix is the one exception to the lower case.
-7. A record carrying a canonical `**State:**` line ends its name with that state word in upper case, after a dash: `2026-08-05T19-37-06Z-ooda-terminology-REFUTED.md`.
-8. The suffix changes nothing else about the name, and leaves the prefix untouched.
-9. The a-record-carrying-a-state-line-ends-its-filename-with-the-state-in-upper-case rule fixes the suffix.
+6. The name carries no state.
+7. The a-records-file-name-carries-no-state rule says so.
 
 ## What takes no prefix
 1. System rules do not take the prefix.
@@ -1017,7 +968,7 @@ Trigger: When the engineer types `/estimate-confidence` or `/%`, or asks for the
 
 **Trigger:** When the engineer types `/estimate-confidence` or `/%`, or asks for the agent's confidence of proceeding unattended
 
-**`/estimate-confidence` gives the agent's confidence of finishing the work under way on its own, from where the work stands.** `/%` is its alias. The work is the one the conversation is on, found as `/next?` finds it. Where that is not clear, ask which, through the selection interface. Where no work is under way, say so.
+**`/estimate-confidence` gives the agent's confidence of concluding the work under way on its own, from where the work stands.** `/%` is its alias. The work is the one the conversation is on, found as `/next?` finds it. Where that is not clear, ask which, through the selection interface. Where no work is under way, say so.
 
 **Give five figures, each the agent's own estimate for this work, made when the command is typed.** Each figure is followed by its fixed sentence, in parentheses:
 
@@ -1035,31 +986,77 @@ Trigger: When the engineer types `/estimate-confidence` or `/%`, or asks for the
 
 **How to apply:** on `/estimate-confidence` or `/%`, estimate the figures for the rest of the work under way, print them with their sentences, add the warning line where it applies, list what drives the two figures, and stop.
 
-# Idk answers the last question with "I don't know"
+# Implementation status reports its phases, its state, what exists, and what is left
 
-Source: system/foundation/source/idk-answers-the-last-question-with-i-dont-know.md
+Source: system/foundation/source/implementation-status-reports-its-phases-its-state-what-exists-and-what-is-left.md
 
-Trigger: When the engineer types `/idk`, or answers the agent's question with "I don't know"
+Trigger: When the engineer types `/feature status` or `/experiment status`, or asks for the status of a feature or an experiment
 
-**Trigger:** When the engineer types `/idk`, or answers the agent's question with "I don't know"
+**Trigger:** When the engineer types `/feature status` or `/experiment status`, or asks for the status of a feature or an experiment
 
-**`/idk` answers the agent's last question with "I don't know".** The engineer cannot select an option, because they do not know enough to decide. `/idk` is not a selection. Do not take it as one, and do not choose an option for the engineer.
+**`/feature status` and `/experiment status` report the status of one implementation.** A bare `/feature status` reports on the feature the conversation is on. Where that is not clear, it reports on the one feature whose `**State:**` line reads Active. Where no feature is Active, or more than one is, ask which feature is meant, through the selection interface, each Active feature an option where there are any. `/experiment status` does the same for an experiment.
 
-**As the engineer stated it:** "/idk" command that says "I don't know" to the agent
+**As the engineer stated it:** Add the "status" subcommand to implementations
 
-**The agent first explains the question.** Say in one or two plain sentences what the question decides. Then give each option in one line: what it does and what follows from it. Show an example where one makes the difference clear. Use no reserved term the engineer may not know without its plain meaning.
+**`/feature status <feature>` reports on the feature the identifier names**, and `/experiment status <experiment>` on the experiment. An identifier is any of three forms:
 
-**Words after `/idk` say what the engineer does not know.** `/idk what a partial refund is` asks about the partial refund. Answer those words first, then explain only what else the decision needs.
+- **a number**, the ordinal of a row in the last list of features or experiments printed in the session, as `/feature status 2`
+- **a datetime prefix**, the record's ISO-8601-UTC filename prefix, as `/feature status 2026-10-02T14-10-05Z`
+- **words from the title**, which match the title of one record of the kind, as `/feature status cart payment`
 
-**Then the agent gives its recommendation and its reason.** Name the option it recommends, and say in one sentence why. Where no option is better than another for this work, say so, and say what would make one better.
+**Where the identifier names no record of the kind, say so, and report nothing.** Where words match more than one record's title, ask which, through the selection interface, each match an option. Where a number is given and no list of the kind was printed in the session, say so, and report nothing.
 
-**Then the agent puts the question again.** Put it through the selection interface, with its text and its options as they were. List the recommended option first, with *(Recommended)* after its label. A question that carried the decision marker carries it again.
+**Name the implementation before the report**, by its record's title, so the engineer can see which one the identifier named.
 
-**Where no question has been put, say so, and put nothing.** Do not invent a question to answer.
+**The report gives the phases, then the state, what exists, and what is left.** The phases are what the a-phase-starts-by-stating-its-goal rule prints for a status: the phases in the record's order, the current one emphasized, and the current phase's goal. Without phases, give the question or intent. Then each of the rest is a short list item:
 
-**Why:** a selection asks the engineer to decide, and the engineer cannot decide what they do not understand. Without a way to say so, the engineer guesses an option or stops the question. A guess records a decision the engineer did not make. A stopped question waits for `/ask-again`, and the engineer still does not know. `/idk` turns the gap into an explanation, so the engineer decides with the knowledge they need.
+- **State:** the word on its `**State:**` line.
+- **What exists:** each thing the implementation's question or intent asks for that now exists on its branch, such as a command, a rule, or a file.
+- **What is left:** each thing it asks for that does not exist yet, and any decision it waits on.
 
-**How to apply:** on `/idk`, find the last question put. Explain it and its options in plain words, answering any words typed after `/idk`. Give the recommendation and its reason. Put the question again through the selection interface, with the recommended option first. Where no question has been put, say so.
+**Read the record, its branch, and the work when the command is typed, never from memory.**
+
+**The report changes nothing.** It writes no record, changes no state, and offers no state change. Concluding the implementation is the engineer's to ask for.
+
+**Why:** `/item status` reports where an item stands. A feature or an experiment is asked about the same way, and its phases are part of where it stands.
+
+**How to apply:** on `/feature status` or `/experiment status`, find the record from the identifier, or the one the conversation is on, or the one Active record of the kind. Name it, give its phases or its question or intent, then its state, what exists, and what is left.
+
+# Item status reports an item's state, what exists, and what is left
+
+Source: system/foundation/source/item-status-reports-an-items-state-what-exists-and-what-is-left.md
+
+Trigger: When the engineer types `/item status`, or asks for the status of an item
+
+**Trigger:** When the engineer types `/item status`, or asks for the status of an item
+
+**`/item status` reports the status of one item.** A bare `/item status` reports on the current item, which is the one item whose `**State:**` line reads Active. Where no item is Active, or more than one is, ask which item is meant, through the selection interface, each Active item an option where there are any.
+
+**As the engineer stated it:** A "status" subcommand for item. Bare, it gives the status of the current item. Otherwise, it receives an item identifier.
+
+**`/item status <item>` reports on the item the identifier names.** An identifier is any of three forms:
+
+- **a number**, the ordinal of a row in the last list of items printed in the session, as `/item status 6`
+- **a datetime prefix**, the item's ISO-8601-UTC filename prefix, as `/item status 2026-10-02T14-10-05Z`
+- **words from the title**, which match the title of one item, as `/item status cart payment`
+
+**Where the identifier names no item, say so, and report nothing.** Where words match more than one item's title, ask which, through the selection interface, each match an option. Where a number is given and no list of items was printed in the session, say so, and report nothing.
+
+**Name the item before the report**, by its title, so the engineer can see which item the identifier named. This matters most for a number, which the engineer typed from a list that may have changed.
+
+**The report gives the item's state, what of it exists, and what is left.** Each is a short list item, under the a-response-is-clarified-twice-before-it-is-sent rule and the an-answer-is-a-list-and-prose-must-justify-itself rule:
+
+- **State:** the word on its `**State:**` line.
+- **What exists:** each thing the item asks for that now exists, such as a command, a rule, or a file.
+- **What is left:** each thing the item asks for that does not exist yet, and any decision it waits on.
+
+**Read the item and the work when the command is typed, never from memory.** The item's content is point-in-time. What exists is read from the project as it now stands.
+
+**The report changes nothing.** It writes no record, changes no state, and offers no state change. Concluding the item is the engineer's to ask for.
+
+**Why:** the engineer often asks where one item stands, as *#6 status*. One subcommand answers it the same way each time: which item, its state, what exists, and what is left.
+
+**How to apply:** on `/item status`, find the item from the identifier, or the one Active item where none was given. Name it, then give its state, what exists, and what is left, each as a short list item.
 
 # Next takes the next step of the work under way, and next? names it
 
@@ -1067,7 +1064,7 @@ Source: system/foundation/source/next-takes-the-next-step-of-the-work-under-way.
 
 Trigger: When the engineer types `/next`, `/next`, or `/next?`, or asks what is next
 
-1. `/next?` asks what the next step is, as the engineer asking *What's next?* would. `/next` takes it, as the engineer saying *proceed* would. `/proceed` and `/..` are aliases of `/next`.
+1. `/next?` asks what the next step is, as the engineer asking *What's next?* would. `/next` takes it, as the engineer saying *proceed* would. `/proceed` and `/.` are aliases of `/next`.
 2. The work under way is any work with steps still to take: a plan's unchecked tasks, an implementation's phases, an outcome's design hinges, a list of steps the agent gave, a procedure part done. Interrupted work is still under way, and `/next` resumes it where it stopped. The next step is the first not yet taken.
 3. On `/next?`, name the next step, or the step where interrupted work stopped, and what it would do, in a sentence or two, and do not take it.
 4. On `/next`, take the next step and nothing beyond it, then stop. Where the agent is suggesting an action, one its last response offered, that action is the next step.
@@ -1078,12 +1075,12 @@ Trigger: When the engineer types `/next`, `/next`, or `/next?`, or asks what is 
 
 Source: system/foundation/source/package-refresh-and-install-run-foundations-scripts.md
 
-Trigger: When the engineer asks to refresh or install Slasher's packages, as with `/package refresh` or `/package install`
+Trigger: When the engineer asks to refresh or install Slasher's packages, as with `/package update` or `/package install`
 
-1. `/package refresh [<package>...]` refreshes the installed packages from their repositories. Run foundation's `refresh-packages.sh` with the packages named, or none for every one. Report each package that moved and its changed rule files, as the script prints them.
+1. `/package update [<package>...]` refreshes the installed packages from their repositories. Run foundation's `refresh-packages.sh` with the packages named, or none for every one. Report each package that moved and its changed rule files, as the script prints them.
 2. `/package install` installs Slasher into the project the session is in. Run foundation's `install.sh` from that project's root. The installer asks before changing a file the project already has.
 3. Act only on the project the session is in. Refreshing or installing in another project is the engineer's to ask for there.
-4. Never run `/package install` in the Slasher authoring source, whose root `AGENTS.md` it would overwrite with a consuming project's bootstrap.
+4. Never run `/package install` in the Slasher authoring source, whose root `AGENTS.md` it would overwrite with a Slasher project's bootstrap.
 5. Say that a refreshed or installed rule is read at the next load of the rules: a session restart, or `load rules`.
 
 # Packages lists the installed packages
@@ -1102,13 +1099,15 @@ Trigger: When the engineer types `/packages`, or asks which packages are install
 
 **Below the table, name the package set, as `package set: default`.** Where no set is declared, print nothing below the table.
 
-**`/packages refresh [<package>...]` does what `/package refresh` does.** It refreshes the packages named, or every installed package, under the package-refresh-and-install-run-foundations-scripts rule. The words after `refresh` pass to it unchanged.
+**`/packages update [<package>...]` does what `/package update` does.** It refreshes the packages named, or every installed package, under the package-refresh-and-install-run-foundations-scripts rule. The words after `update` pass to it unchanged.
+
+**`/packages` is a command domain of its own, and `/packages help` prints its help.** The help lists `/packages`, `/packages update`, and `/packages <package>`. `/package help` does not list them.
 
 ## One package
 
 **`/packages <package>` acts on one installed package.** Where an act follows the name, carry it out. Where none does, show the package's row from the table, then ask which act is meant, through the selection interface, with the acts the package can take now:
 
-- **refresh** — `/package refresh <package>`: refresh it from its repository, under the package-refresh-and-install-run-foundations-scripts rule.
+- **update** — `/package update <package>`: refresh it from its repository, under the package-refresh-and-install-run-foundations-scripts rule.
 - **deactivate** — `/package deactivate <package>`, offered only where the package is Active.
 - **activate** — `/package activate <package>`, offered only where the package is Deactivated.
 
@@ -1130,7 +1129,7 @@ Source: system/foundation/source/projects-lists-the-registry-and-carries-out-an-
 
 Trigger: When the engineer asks for the Slasher projects on this machine, or asks for an instruction to be carried out in another project, as with `/projects`, `/projects -base`, `/projects -system`, or `/projects <name>`
 
-1. `/projects` lists the Slasher projects registered on this machine, from within any project. Run foundation's `read-consuming-projects.sh`, which reads `~/.config/slasher/consuming-projects.toml`, and print its report. Where there is no registry, say so.
+1. `/projects` lists the Slasher projects registered on this machine, from within any project. Run foundation's `list-projects.sh`, which reads `~/.config/slasher/projects.toml`, and print its report. Where there is no registry, say so.
 2. `/projects -base <instruction>`, `/projects -system <instruction>`, and `/projects <name> <instruction>` carry out the instruction in the base project, the machine's system project, or the registered project with that name.
 3. Resolve the target from the current project's root with `slasher/system/foundation/resolve-project.sh -base`, `-system`, or `<name>`, or `system/foundation/resolve-project.sh` where there is no `slasher/` directory. It prints the target's root.
 4. Where the script fails, report its message and do nothing more.
@@ -1139,6 +1138,32 @@ Trigger: When the engineer asks for the Slasher projects on this machine, or ask
 7. A commit in the target waits for the engineer's selection.
 8. With a target and no instruction, print the target's root, and act on nothing.
 9. Do not change the registry, `slasher.toml`, or `system-project.toml`. Write no project's name into the project the session is in.
+
+# Pros and cons gives each option of the last question with its pros and cons
+
+Source: system/foundation/source/pros-and-cons-gives-each-option-of-the-last-question-with-its-pros-and-cons.md
+
+Trigger: When the engineer types `/pros-and-cons` or `/??`, or asks for the pros and cons of the last question's options
+
+**Trigger:** When the engineer types `/pros-and-cons` or `/??`, or asks for the pros and cons of the last question's options
+
+**`/pros-and-cons` gives each option of the last question with its pros and cons.** The last question is the one the agent last put through the selection interface, answered or escaped. `/??` is its shortcut alias, and does exactly what it does. It is in the PROCESS command domain, so `/pros-and-cons help` says that the command takes no `help`, and names `/process help`.
+
+**As the engineer stated it:** A Pros and Cons command that refers to the last question. It pairs with ask-again.
+
+**The answer leads with the trade between the options, in a sentence or two.** It says what one option gains and the other gives up, in plain words. Then each option follows under its label, as the question showed it, with a **Pros** list and a **Cons** list.
+
+**Each pro and each con is a fact about what the option does or causes.** It could be false, and it names a concrete effect, such as a file changed, a case caught or missed, or work the engineer must do. It is not a judgment of the option, such as *simpler* or *cleaner*, where the fact behind the judgment can be given instead. Give the cons as plainly as the pros. An option that is the agent's recommendation gets no softer cons.
+
+**Words after the command say what the engineer wants weighed.** `/pros-and-cons the printed list` weighs that option first. Answer those words first, then give the rest.
+
+**Where the last question held several questions, give each one's options**, each under its own question. Where no question has been put, say so, and give nothing.
+
+**The command does not put the question again.** It answers, and stops. `/ask-again` puts the question again, once the engineer has weighed it. The two are used together: escape the question, read its pros and cons, then `/ask-again`.
+
+**Why:** a question asks the engineer to decide between options whose effects the option's description can only name. The engineer who cannot decide needs to see what each option gains and gives up, not the agent's account of the question or its preference. Facts the engineer can check let the engineer decide, where a recommendation asks the engineer to defer.
+
+**How to apply:** on `/pros-and-cons` or `/??`, find the last question. Lead with the trade between its options. Then give each option's pros and cons as lists of facts, answering any words typed after the command first. Put nothing again, and stop.
 
 # Record a rule's authorship in a provenance footer
 
@@ -1204,6 +1229,34 @@ Trigger: When writing or changing a rule file
 16. Judge a stance-establishing rule by the mindset it produces, not by surface conformance.
 17. A rule that is technically obeyed while the intended stance is absent has failed.
 
+# Status reports on the work under way, or on the record named
+
+Source: system/foundation/source/status-reports-on-the-work-under-way-or-the-record-named.md
+
+Trigger: When the engineer types `/status`, or asks for the status of the work under way
+
+**Trigger:** When the engineer types `/status`, or asks for the status of the work under way
+
+**`/status` reports the status of one item, feature, or experiment.** It finds the record, then reports on it as the command of its kind does: an item as `/item status` does, a feature as `/feature status` does, and an experiment as `/experiment status` does. It is in the PROCESS command domain, so `/status help` says that the command takes no `help`, and names `/process help`.
+
+**As the engineer stated it:** Add a root "/status" command
+
+**A bare `/status` reports on the work under way.** That is the feature or experiment the conversation is on. Where the conversation is on none, it is the one implementation whose `**State:**` line reads Active, and where none is Active, the one Active item. Where more than one record is a candidate at the step that decides, ask which, through the selection interface, each candidate an option. Where no record is a candidate, say that no work is under way, and report nothing.
+
+**`/status <record>` reports on the record the identifier names.** An identifier is any of three forms:
+
+- **a number**, the ordinal of a row in the last list of items, features, or experiments printed in the session, as `/status 3`
+- **a datetime prefix**, the record's ISO-8601-UTC filename prefix, looked for among the items and the implementations, as `/status 2026-10-02T14-10-05Z`
+- **words from the title**, which match the title of one item or implementation, as `/status cart payment`
+
+**Where the identifier names no record, say so, and report nothing.** Where words match more than one record's title, ask which, through the selection interface, each match an option. Where a number is given and no list of records was printed in the session, say so, and report nothing.
+
+**The report changes nothing.** It writes no record, changes no state, and offers no state change.
+
+**Why:** the engineer asks *where does this stand?* without stopping to name the kind of record. One root command finds the work under way, or the record named, and gives the report its kind gives.
+
+**How to apply:** on `/status`, find the record from the identifier, or the work under way where none was given. Then report on it under the item-status-reports-an-items-state-what-exists-and-what-is-left rule for an item, or the implementation-status-reports-its-phases-its-state-what-exists-and-what-is-left rule for a feature or an experiment.
+
 # The harness announces Slasher's installation, and the agent never prints the notice
 
 Source: system/foundation/source/the-harness-announces-slashers-installation-and-the-agent-never-prints-the-notice.md
@@ -1221,34 +1274,28 @@ Trigger: When changing the session-start notice, the startup display, the status
 
 ```
 Slasher installed at slasher/system/ — 5 packages: foundation, language, testing, design-by-efferent, git
-
-3 implementations open: gate-forecasting (no state recorded), shipped-test-tree-script (suspended), upload-retries (suspended)
 ```
 
 2. The install line enumerates what is on disk.
 3. A directory carrying a `README.md` is a package, which tells a grouped package from the grouping directory above it.
 4. Nothing prints a fixed list.
-5. The open line, after a blank line below the install line, names experiments and features that have not concluded, read from each record's `**State:**` line under `slasher/local/implementations/`.
-6. An implementation that is Affirmed, Refuted, Inconclusive, Completed, Abandoned, or Superseded has concluded, whatever its kind.
-7. One that is Active, Suspended, or carries no state line is reported.
-8. With nothing open, the open line is absent.
-9. The open line exists because an implementation must never be left silently open. One worked in a worktree leaves no trace in the main working tree.
-10. The notice has no close of its own. It ends with what it reports. The startup display's load line, after it in the same message, says when the rules load and that `/load` loads them now.
-11. Something the engineer types is required in any case, since the agent produces nothing until the engineer speaks.
-12. This gives up a contentless foil word whose only effect came through the hook's channel. So that channel is no longer testable from ordinary use.
-13. The trade of observability for legibility is deliberate.
-14. The notice says `installed`, never `loaded`.
-15. A hook runs before the session. It can observe that the packages are on disk and the configuration is live, and not that any rule was read.
-16. The read instruction describes what the session does next, and reports no read.
-17. Call it the session-start notice, not the load notice.
-18. The status line reports the system active, a claim about the configuration rather than the agent.
-19. The notice is plain text. The harness renders `systemMessage` literally, so markup reaches the engineer as punctuation.
-20. The notice carries no mark of its own. The startup display, which holds it, leads the same message, taken from `startup-display.sh message` (see the the-startup-display-prints-as-the-session-starts rule).
-21. Put no quotation marks, and no lone backslash, in anything the hook emits.
-22. `printf` interpolates the notice and the instruction into a JSON string with no escaping.
-23. A double quote ends the string, and a lone backslash begins an invalid escape.
-24. Either way the harness fails to parse the output, and the notice disappears with no error.
-25. After a compaction, one line stands in place of the startup display and the notice: `Context compacted. Slasher is reloading its rules.` It says what the session does next, and reports no read.
+5. The notice reports the install and nothing more. It names no experiment or feature. The status line's second line shows one that has not concluded, and `/current` lists every one.
+6. The notice has no close of its own. It ends with what it reports. The startup display's load line, after it in the same message, says when the rules load and that `/load` loads them now. It is left out where Claude Code was started with `/load`.
+7. Something the engineer types is required in any case, since the agent produces nothing until the engineer speaks.
+8. This gives up a contentless foil word whose only effect came through the hook's channel. So that channel is no longer testable from ordinary use.
+9. The trade of observability for legibility is deliberate.
+10. The notice says `installed`, never `loaded`.
+11. A hook runs before the session. It can observe that the packages are on disk and the configuration is live, and not that any rule was read.
+12. The read instruction describes what the session does next, and reports no read.
+13. Call it the session-start notice, not the load notice.
+14. The status line reports the system active, a claim about the configuration rather than the agent.
+15. The notice is plain text. The harness renders `systemMessage` literally, so markup reaches the engineer as punctuation.
+16. The notice carries no mark of its own. The startup display, which holds it, leads the same message, taken from `startup-display.sh message` (see the the-startup-display-prints-as-the-session-starts rule).
+17. Put no quotation marks, and no lone backslash, in anything the hook emits.
+18. `printf` interpolates the notice and the instruction into a JSON string with no escaping.
+19. A double quote ends the string, and a lone backslash begins an invalid escape.
+20. Either way the harness fails to parse the output, and the notice disappears with no error.
+21. After a compaction, one line stands in place of the startup display and the notice: `Context compacted. Slasher is reloading its rules.` It says what the session does next, and reports no read.
 
 ## The read instruction
 
@@ -1318,7 +1365,7 @@ slasher · master · uncommitted changes · untracked files · unpushed commits 
 
 1. The committed Slasher plugin, `.claude/skills/slasher/`, wires the notice and the display through its `SessionStart` and `UserPromptSubmit` hooks.
 2. A committed `.claude/settings.json` wires the status line, since a plugin cannot set the main status line.
-3. `install.sh` assembles the plugin and places `.claude/settings.json` in a consuming project.
+3. `install.sh` assembles the plugin and places `.claude/settings.json` in a Slasher project.
 4. `install.sh` warns when git ignores `.claude/settings.json` or the plugin and the file is not tracked, and prints how to correct it.
 5. The fix is `.claude/*` with `!.claude/settings.json` and `!.claude/skills/`, since git cannot re-include a file inside an excluded directory.
 6. The fix keeps `.claude/settings.local.json` ignored.
@@ -1342,22 +1389,22 @@ slasher · master · uncommitted changes · untracked files · unpushed commits 
 
 Source: system/foundation/source/the-implementations-directory-holds-one-record-per-implementation.md
 
-Trigger: When starting an experiment or feature, or writing or changing an implementation record
+Trigger: When creating or starting an experiment or feature, or writing or changing an implementation record
 
 1. `slasher/local/implementations/` holds implementation records, one file per implementation.
-2. A record carries how the implementation began, where it is being worked, and what became of it.
+2. A record carries how the implementation started, where it is being worked, and what became of it.
 3. An implementation is a bounded unit of work with a lifecycle.
 4. The record is a persisted, dated artifact, kept after the implementation concludes.
 5. An experiment is tagged `[experiment]`, and a feature is tagged `[feature]`. These are ordinary square-bracket tags (see the a-record-may-be-categorized-with-square-bracket-tags rule).
 6. The tags name what the work is. No rule reads them to decide how the work runs.
 7. Either kind opens with a question or an intent, whichever the work has.
-8. Whether the work states a forecast is asked at the start. Put it to the engineer, and record it as a confirmation beside the working location and the participation.
+8. Whether the work states a forecast is asked when the implementation is created. Put it to the engineer, and record it as a confirmation beside the working location and the participation.
 9. Whether the work reaches a verdict is asked at the end, of work with a forecast only, and recorded as a confirmation. The lifecycle reads both. Neither follows from the kind, or from whether the work opens with a question or an intent.
 
 ## The record
 
 1. Open with the **Question** or the **Intent**.
-2. Then give the setup: a `**State:**` line, the upstream branch it merges into, the implementation branch, its base, the working location chosen at the start, and whether it states a forecast. Add whether it reaches a verdict at the end.
+2. Then give the setup: a `**State:**` line, the upstream branch it merges into, the implementation branch, its base, the working location chosen when the implementation is created, and whether it states a forecast. Add whether it reaches a verdict at the end.
 3. The upstream branch is `master` or another topic branch.
 4. The setup also includes a `**Tags:**` line carrying `[experiment]` or `[feature]`.
 5. Work with a forecast states it, what is expected to happen, before the work.
@@ -1365,7 +1412,7 @@ Trigger: When starting an experiment or feature, or writing or changing an imple
 7. It then records the findings and any post-hoc misses, including outcomes the forecast did not account for.
 8. Work without a forecast records no comparison against one, and no findings or misses. It concludes Completed, unless the engineer concludes it with a verdict word.
 9. Every record carries the confirmations the lifecycle required, so the work's authority is auditable.
-10. Every record carries these: the working-location selection, the attended-or-unattended selection, and the forecast selection, each at the start, and the verdict selection at the end where the work has a forecast.
+10. Every record carries these: the working-location selection, the attended-or-unattended selection, and the forecast selection, each at the implementation's creation, and the verdict selection at the end where the work has a forecast.
 11. Every record also carries these: adding a worktree to work already under way, and branch deletion with worktree removal.
 12. Work that reaches a verdict also records the affirmation declaration, concluding a superseded implementation, and merging untested code.
 
@@ -1378,14 +1425,14 @@ Trigger: When starting an experiment or feature, or writing or changing an imple
 5. `Active` is the in-progress state, as it is for an item.
 6. A record without a line is a defect. Absence is not a state.
 7. Do not invent a state word.
-8. `new` creates the branch and writes the record `Open`. `start` makes it `Active`.
-9. The filename carries the state suffix, as `-OPEN` or `-ACTIVE` (see the a-record-carrying-a-state-line-ends-its-filename-with-the-state-in-upper-case rule).
+8. `new` creates the branch and writes the record `Open`. `start` makes it `Active`. Where no implementation is in place, `start` creates the branch and writes the record `Active`.
+9. The filename carries no state (see the a-records-file-name-carries-no-state rule).
 10. The state words every implementation takes are these.
     - **Open**: the record and the branch exist, and the work has not started.
     - **Active**: the work is in progress.
     - **Deferred**: kept to do later, with no one working toward it.
     - **Suspended**: paused, not ended.
-    - **Discontinued**: stopped, with no plan to do it. It is not current work: the list of current work and the session-start notice leave it out. What it recorded may be merged.
+    - **Discontinued**: stopped, with no plan to do it. It is not current work: the list of current work and the status line leave it out. What it recorded may be merged.
     - **Obsolete**: it lost its relevance over time, with no one deciding.
     - **Superseded**: replaced by another implementation. Each of the two records names its counterpart. Supersede at any time, without suspending first.
     - **Abandoned**: dropped before concluding, by decision. It is not merged, and the record is kept.
@@ -1426,7 +1473,7 @@ Trigger: When starting an experiment or feature, or writing or changing an imple
 3. The kind reads in the title and is stated as data in the `**Tags:**` line.
 4. A record whose title and tag name different kinds is defective.
 5. The filename takes the ISO-8601-UTC prefix (see the file-names rule).
-6. The filename also takes the state suffix.
+6. The filename carries no state.
 7. End the file with the provenance footer.
 8. Pair the record with a log entry (see the a-log-entry-is-written-for-an-implementation-record-and-the-concluding-entry-depends-on-whether-the-work-merged rule).
 
@@ -1438,11 +1485,11 @@ Trigger: When creating an item, changing an item's state or content, or answerin
 
 1. `slasher/local/items/` holds the project's items, one file per item. Every record there is an item, and only an item.
 2. An item is the thinking that settles what the work should be and how it should go.
-3. Name the file with the ISO-8601-UTC prefix, ending in its state in upper case.
+3. Name the file with the ISO-8601-UTC prefix and a name. The name carries no state.
 4. Write the item as frontmatter-free markdown.
 5. Give it, in this order, a `# <title>`, a `**State:**` line, a `**Tags:**` line, and whatever the item has to say. A provenance footer ends it.
 6. Write a log entry when the item is created and at each change of its state.
-7. Put no code samples in an item.
+7. Put no code samples in an item that sequences work.
 8. Nothing else is required. Add no shape the thinking does not have.
 9. Where an item records decisions, record them as dated **Settled** resolutions.
 10. Where an item that settles things deliberately leaves something out, mark it in an **Out of Scope / Deferred** tail.
@@ -1462,7 +1509,7 @@ Trigger: When creating an item, changing an item's state or content, or answerin
 24. `[problem]` is something wrong or in the way, recorded without a solution named. `[mistake]` is an act that should have gone otherwise, recorded with what went wrong and why. `[brainstorm]` is the points of a brainstorm begun with no kind, reframed, under the brainstorming rule.
 25. A kind takes the states every item takes, except where its own rule says otherwise.
 26. An item may carry two optional lines, `**Waits for:**` and `**Priority:**`, and most items carry neither.
-27. `**Waits for:**` states what must finish before the item is actionable, and nothing more.
+27. `**Waits for:**` states what must conclude before the item is actionable, and nothing more.
 28. `**Priority:** N`, written as `- **Priority:** 3`, ranks the item from 1 to N, contiguous, one item to a number.
 29. Rank 1 is worked next among the actionable items.
 30. Ranking an item renumbers those below it. The several files that changes are the accepted cost.
@@ -1484,11 +1531,11 @@ Trigger: When creating an item, changing an item's state or content, or answerin
 46. **Obsolete** — it lost its relevance over time, as the work moved past it with no one deciding. Where a decision dropped it, it is **Abandoned**. Any item that changes state takes it.
 47. **Discontinued** — stopped, with no plan to do it. It is not current work, so the list of current items leaves it out. Deferred is kept to do later, and Discontinued has no plan to do it.
 48. Take back any state but Open, Active, and Recorded with resume, to Open or Active as the engineer's words say. Where they do not say which, ask. Conclude an item whose work is done on an experiment's branch when the work is done, in its kind's concluding state. Do not wait for the merge, and name the branch.
-49. At each change of state, change the `**State:**` line and rename the file.
+49. At each change of state, change the `**State:**` line. Do not rename the file.
 50. At each change of state, write the log entry.
 51. An item tagged `[work]` is a piece of work to be done.
-52. **Corrected** — what was wrong is put right. A correction and a mistake conclude Corrected. **Resolved** — the problem no longer stands. A problem concludes Resolved. **Completed** — items take it, and no kind concludes with it yet.
-53. A work item and a rework item conclude `Done`. Every item that changes state takes Deferred, Suspended, Discontinued, Obsolete, Superseded, and Abandoned.
+52. **Corrected** — what was wrong is put right. A correction and a mistake conclude Corrected. **Resolved** — the problem no longer stands. A problem concludes Resolved. **Completed** — the work is complete. A work item and a rework item conclude Completed.
+53. A work item and a rework item conclude `Completed`. Every item that changes state takes Deferred, Suspended, Discontinued, Obsolete, Superseded, and Abandoned.
 54. A work item never takes `Realized`. Where an item carries two kind tags: `[idea]` with `[design]` concludes as an idea, and a correction or a rework item concludes as its first tag says.
 55. Complete concludes an item in its kind's concluding state.
 56. Supersede an item rather than rewrite it.
@@ -1497,7 +1544,7 @@ Trigger: When creating an item, changing an item's state or content, or answerin
 59. When amending, keep an outdated resolution's date and wording, and state what changed in a later resolution.
 60. Answer a question that runs against what an item settled, and record the change.
 61. Do not refuse to answer until the item is amended.
-62. Where one item names another as what it realizes, the named item is the source of truth. Reconcile it; never regenerate it from the work downstream.
+62. Reconcile a settled item; never regenerate it. Where one item names another as what it realizes, the named item is the source of truth. Reconcile it; never regenerate it from the work downstream.
 63. Where the engineer asks for an item to be concluded and names no state, put the concluding states the item can take to the engineer through the selection interface. Do not choose the state, and do not conclude the item before the engineer selects one. *Conclude that item* names no state. *That item is done* names one. The implementations rule asks the same for an implementation concluded with no state named. *Complete that item* names its kind's concluding state.
 64. **Implementation** — when a feature or an experiment is created for an item, the item takes Implementation, and the two records name each other. It is a current item, and its implementation is listed as current work too.
 65. When the implementation is Completed or Affirmed, the item takes its kind's concluding state. When it reaches another concluding state, or is set aside, ask the engineer what state the item takes.
@@ -1519,7 +1566,7 @@ Trigger: When writing a log entry, especially one recording abandoned work
 3. Write no reason that was not given. An agent's reading of why the engineer stopped is not the engineer's reason.
 4. Say plainly that nothing merged.
 5. Say plainly where the work was.
-6. Do not carry the unfinished work: not the unexecuted plan, the unrun increments, or the unbuilt design.
+6. Do not carry the work that was not concluded: not the unexecuted plan, the unrun increments, or the unbuilt design.
 7. Where an entry needs more than a line, it takes a body, as the the-log-holds-one-file-per-entry-with-a-one-line-title rule describes.
 
 ## Why the mood is not enough
@@ -1563,6 +1610,39 @@ Trigger: When writing a record under local/logs/ or deciding which directory a n
 3. Foundation requires nothing of what sits inside `loops/`, reads nothing there, and derives nothing from it.
 4. A project that installs only `foundation` has `logs/log/` and no `logs/loops/`, and nothing is missing.
 
+# The open command opens a named record in its default application
+
+Source: system/foundation/source/the-open-command-opens-a-named-record-in-its-default-application.md
+
+Trigger: When the engineer types `/open`, or asks for a record they name to be opened
+
+**Trigger:** When the engineer types `/open`, or asks for a record they name to be opened
+
+**As the engineer stated it:** Create an "/open" command. It receives a record descriptor, and opens its file in the default application.
+
+**`/open <record>` opens the record the words name, in the default application for its kind of file**, by its full, absolute path. Open it with `open` on macOS, and `xdg-open` on Linux. Where no such command is found, say so, and print the path so the engineer can open it by hand. A record is any record the agent writes under `slasher/local/`: an item, an implementation record, a rule, a log entry, a journal entry, a work session record, a loop record, or a migration record.
+
+**The words name a record in one of four ways.**
+
+1. An ordinal from the list of records printed last in the session, as `#3` or `3`, as in `/open #3` after `/items current`.
+2. A handle, the record's ISO-8601-UTC filename prefix, as `2026-03-02T10-15-00Z`, or enough of its start to match one record.
+3. A path or a filename, as `slasher/local/items/2026-03-02T10-15-00Z-the-cart-keeps-its-contents.md`.
+4. Words from the record's title or filename, as `/open cart contents`.
+
+**Where the words match one record, open it.** Name it before opening it, so an ordinal is confirmed: after an open, say what was opened, in one line, with the record's title and its path from the project root, in backticks. Act on nothing else.
+
+**Where the words match more than one record, ask which**, through the selection interface, each record an option, named by its title and its handle. Where more match than the selection holds, offer the most recently created, and say how many others matched.
+
+**Where the words match no record, say so, and open nothing.** Where an ordinal is given and no list of records was printed in the session, say so, and open nothing.
+
+**Where no words were typed, ask which record**, through the selection interface. Offer the current items and the current implementations, most recently created first.
+
+**`/open` is in the RECORD command domain.** `/record help` prints its help. `/open help` says that this command takes no `help`, names `/record help`, and does nothing more.
+
+**Why:** the engineer often wants to read or edit a record that is not the one just written, such as one a list just showed. `/record open` opens only the most recent principal record, and finding any other record takes a search.
+
+**How to apply:** on `/open`, find the record the words name, and open it with the platform's command. Where the words name none, or more than one, say so or ask, as above.
+
 # The recent report says what was recently done, and what is next
 
 Source: system/foundation/source/the-recent-report-says-what-was-recently-done-and-what-is-next.md
@@ -1577,6 +1657,50 @@ Trigger: When the engineer types `/recent`, or asks what was recently done and w
 6. Read the log, the commits, and the records when the command is typed, never from memory. A record the status report rule hides is counted rather than listed.
 7. Head the part that gives the next step *What's next*, not *What is next*.
 8. Number the list of what was recently done from 1, not with bullets. Give the part that gives the next step bullets, not numbers.
+
+# The record command copies, prints, or opens the most recent principal record
+
+Source: system/foundation/source/the-record-command-copies-prints-or-opens-the-most-recent-principal-record.md
+
+Trigger: When the engineer types `/record`, or asks for the record just written to be copied, printed, or opened
+
+**Trigger:** When the engineer types `/record`, or asks for the record just written to be copied, printed, or opened
+
+**`/record` acts on the most recent principal record: that of the latest reply that had one, however many replies have passed since.** A reply that wrote no record, such as a `/records show` or a `/record print`, leaves it as it was. The principal record is the record a reply's operation was about, the one its records line gives, as the a-reply-that-writes-a-record-ends-with-the-records-path rule has it. `/record copy` copies its path, `/record print` prints its contents, and `/record open` opens it. A bare `/record` prints its path.
+
+**As the engineer stated it:** Add a "/copy-last-line" command that copies the last line of output to the clipboard
+
+**As the engineer later stated it:** Give the "/copy-last-line" command the alias "/cll"
+
+**As the engineer later stated it:** Proceed with both of those changes, of a record's path written in backticks, and copied without them
+
+**As the engineer later stated it:** Change "/copy-last-line" to "/copy-record". Remove the "/cll" command.
+
+**As the engineer later stated it:** Create a "/open-record" command that opens the last record with the registered application
+
+**As the engineer later stated it:** Consolidate "/copy-record" and "/open-record" in a "/record" command, with the subcommands "copy", "print", and "open"
+
+**As the engineer later stated it:** The "/record" command should work on the most recent principal record, even if the previous reply wrote no record
+
+**As the engineer later stated it:** A bare "/record" command prints the filepath of the most recent principal record
+
+**A bare `/record` prints the record's path from the project root**, as the file now stands, in backticks, as a records line gives it. Print nothing else.
+
+**`/record copy` copies the record's full, absolute path to the clipboard**, as the file now stands, with no dash and no backticks. Copy it with the platform's clipboard command: `pbcopy` on macOS, and `wl-copy` or `xclip -selection clipboard` on Linux. Copy the path without a trailing newline. Where no clipboard command is found, say so, and print the path so the engineer can copy it by hand.
+
+**`/record print` prints the record's contents in the chat**, as the file now stands, under a line naming its path from the project root. Print the contents as they are, with nothing added and nothing left out.
+
+**`/record open` opens the record in the default application for its kind of file**, by its full, absolute path. Open it with `open` on macOS, and `xdg-open` on Linux. Where no such command is found, say so, and print the path so the engineer can open it by hand.
+
+**After a copy or an open, say what was copied or opened, in one line, with the record's path.** Act on nothing else.
+
+**Where that reply had more than one principal record, ask which**, through the selection interface, each path an option.
+
+**Where no reply in the session has had a principal record, say so, and act on nothing.**
+
+**Why:** the engineer often wants to pass on, read, or edit the record just written. Claude Code's `/copy` copies the whole of the last reply, and finding a file to read or open it takes a search. One command acting on the principal record saves both.
+
+**How to apply:** on `/record`, take the most recent principal record, and print its path, copy its path, print its contents, or open it, as the subcommand says. With no subcommand, print its path.
 
 # The Slasher skills are delivered as a plugin named slasher
 
@@ -1599,7 +1723,7 @@ Source: system/foundation/source/the-startup-display-prints-as-the-session-start
 
 Trigger: When a session starts, or the engineer types its first prompt, or when changing the startup display or its script
 
-1. The display prints verbatim in two parts. The session-start part prints as the session starts: the title and the copyright and license ahead of the session-start notice, and the load line after it, last. The loading part, the loading line and then the figure, prints on the session's first prompt, whatever it is. These five are always printed, in this file's order.
+1. The display prints verbatim in two parts. The session-start part prints as the session starts: the title and the copyright and license ahead of the session-start notice, and the load line after it, last. The loading part, the loading line and then the figure, prints on the session's first prompt, whatever it is. These five are printed, in this file's order. The load line is left out where Claude Code was started with `/load`.
 2. The package set is printed only where the project has declared one, after the loading part.
 3. The harness prints both parts. The agent prints none of them.
 4. As the session starts, the Slasher plugin's `SessionStart` hook runs `slasher/system/foundation/session-start.sh`, which prints the title and the copyright and license ahead of the session-start notice and the load line after it, in one `systemMessage`. It takes them from `startup-display.sh message` and `startup-display.sh load-line`, each of which prints its blocks alone.
@@ -1675,7 +1799,7 @@ Copyright © 2026 Scott Bellware
 Slasher's rules will load on the first prompt, or enter: /load
 ```
 
-51. The load line states that the rules load on the first prompt, whatever it is, and that `/load` loads them now. It names its subject, *Slasher's rules*, itself. The plugin that prints it carries the `/load` skill, so the command it names is always available.
+51. The load line states that the rules load on the first prompt, whatever it is, and that `/load` loads them now. It names its subject, *Slasher's rules*, itself. The plugin that prints it carries the `/load` skill, so the command it names is always available. `session-start.sh` leaves it out where `started-with-load.sh` finds that Claude Code was started with `/load` or `/slasher:load` with no `help` after it, or with `load rules`. Where the script finds no Claude Code process, the line prints.
 52. The session-start notice has no close of its own. The load line says what a close said.
 53. The loading part opens with the loading line, which names the wait for the read:
 

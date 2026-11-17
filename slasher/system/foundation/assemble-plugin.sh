@@ -3,10 +3,10 @@
 #
 # Run from the project root:
 #
-#   slasher/system/foundation/assemble-plugin.sh     in a consuming project
+#   slasher/system/foundation/assemble-plugin.sh     in a Slasher project
 #   system/foundation/assemble-plugin.sh             in the Slasher authoring source
 #
-# install.sh runs it in a consuming project, and compile.sh runs it in the authoring source.
+# install.sh runs it in a Slasher project, and compile.sh runs it in the authoring source.
 #
 # The plugin is foundation's plugin/ directory, which holds its manifest and its session-start
 # hooks, with each active package's skills under skills/, each as skills/<command>/ in its package.
@@ -14,8 +14,8 @@
 # rebuilt whole each time and nothing in it is kept.
 set -e
 
-# Locate the system and the project's own directory: slasher/ in a consuming project, the root
-# in the Slasher authoring source. Checked in that order — a consuming project may have a
+# Locate the system and the project's own directory: slasher/ in a Slasher project, the root
+# in the Slasher authoring source. Checked in that order — a Slasher project may have a
 # system/ directory of its own.
 if [ -d slasher/system ]; then
   system=slasher/system
