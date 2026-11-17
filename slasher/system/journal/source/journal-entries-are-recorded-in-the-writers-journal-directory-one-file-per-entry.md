@@ -24,6 +24,8 @@ Filename: `YYYY-MM-DDTHH-MM-<name>.md`, with the timestamp computed in **local t
 
 **The directive is *new entry*, or the command `/journal`.** Where the writer opens with that phrase, or types `/journal`, `/journal new`, or `/journal entry`, write the entry by this rule, by the a-journal-entry-has-a-human-readable-datetime-line-under-its-title, where-an-entrys-body-says-the-same-thing-as-its-title-keep-the-title-alone, and where-an-entry-carries-no-time-ask-for-one-through-the-selection-interface rules, and by the `foundation` package's a-record-may-be-categorized-with-square-bracket-tags rule. Nothing else follows from it. Nothing beside the entry file is written, and no index is maintained — see the a-timeline-view-lists-every-journal-entry-by-its-datetime rule.
 
+**Where the project's journal is private entirely, the entry is a private entry.** Before writing, run `slasher/system/foundation/read-project-setting.sh journal` from the project root. Where it prints `private`, the project's entry in the project registry makes its journal private entirely, and the entry is written by the private-journal-convention rule, not in `slasher/local/journal/<username>/`. Where it prints anything else, or nothing, the entry goes to the project journal.
+
 **Dating default:** an entry is about **today** unless the writer signals otherwise. Where the writer refers to a different time, by an explicit date or by a phrase such as *last Tuesday's meeting* or *back in April*, date and stamp the entry to that time instead. Opening with *Today* is a signal, and it means today.
 
 **This rule settles the date alone.** The **time** is the where-an-entry-carries-no-time-ask-for-one-through-the-selection-interface rule's, and that ask fires wherever the writer gave no time — including where they gave a day, since *yesterday* and *today* fix the day and say nothing about the hour.
@@ -79,6 +81,9 @@ Stamp to the minute. Write seconds only where the writer stated seconds, and dro
 4. Nothing else follows from the directive.
 5. Write nothing beside the entry file.
 6. Maintain no index. See the a-timeline-view-lists-every-journal-entry-by-its-datetime rule.
+7. Before writing, run `slasher/system/foundation/read-project-setting.sh journal` from the project root.
+8. Where it prints `private`, write the entry as a private entry, by the private-journal-convention rule, not in `slasher/local/journal/<username>/`.
+9. Where it prints anything else, or nothing, write the entry in the project journal.
 
 ## Dating
 
@@ -100,8 +105,11 @@ Stamp to the minute. Write seconds only where the writer stated seconds, and dro
 - 2026-10-28, revised: Why points removed, solubility 53 → 54, clarity 0.86 → 0.85; checked: 38 directives, 38 kept, 0 less precise, 0 lost
 - 2026-10-29, merge from master re-checked: 41 directives, 38 kept, 0 less precise, 3 lost, 1 repair
 - 2026-11-05, revised: `/journal` is a command for a new entry; checked: 30 directives, 30 kept, 0 less precise, 0 lost
+- 2026-11-15, revised: an entry is private where the project's journal is private entirely; checked: 46 directives, 46 kept, 0 less precise, 0 lost
 
 ## History
+
+Until Sun Nov 15 2026 every entry this rule wrote went to the project journal.
 
 Until Sun Oct 25 2026 this rule was named journal-entries and titled "Journal entries live in `waytide/local/journal/<username>/`, one file per entry".
 
@@ -121,6 +129,7 @@ Related:
 - the where-an-entry-carries-no-time-ask-for-one-through-the-selection-interface rule — where the writer gives no time
 - the a-timeline-view-lists-every-journal-entry-by-its-datetime rule — the on-demand listing of the entries this writes
 - the foundation package's file-names rule — the UTC normalization this departs from
+- the private-journal-convention rule — the private entry an entry becomes where the project's journal is private entirely
 
 ---
 
@@ -157,3 +166,4 @@ Changed by Scott Bellware on Mon Oct 26 2026 at 2:41:43 PM PT
 Changed by Scott Bellware on Mon Oct 26 2026 at 7:01:39 PM PT
 Changed by Scott Bellware on Thu Nov 5 2026 at 5:52:32 PM PT
 Changed by Scott Bellware on Fri Nov 6 2026 at 8:47:18 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 10:09:38 PM PT
