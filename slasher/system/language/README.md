@@ -12,6 +12,7 @@ How language is used: precisely. A word is not a label applied to a thought afte
 - **no-slang rule**. Use literal, non-figurative terms in prose and in conversation, not only in the code.
 - **communicate-plainly-and-name-the-actual-thing rule**. In explanation and conversation, use plain words and the real names of things. No invented labels ("tier 1") or compressed jargon offered as if already shared.
 - **expand-an-abbreviation-on-first-use rule**. Spell out an abbreviation the first time it appears (full term, abbreviation in parentheses). Don't use unexplained shorthand.
+- **writing-states-the-evidence-and-the-reader-draws-the-conclusion rule**. Write the facts, and leave the conclusion to the reader. It names the forms that draw a conclusion or characterize the work, for the agent's answers, Slasher's records, and content under review.
 - **an-answer-is-a-list-and-prose-must-justify-itself rule**. An answer to the engineer is a list, and each list item states a fact rather than narrating — no describing a decision, no unasked-for reason, no characterizing the work. Prose is written only where the answer is a sentence or two. Reasoning whose steps depend on each other takes a numbered list rather than prose, since an unordered list asserts its list items are parallel. Where an expansion would add something, the answer ends by offering one.
 
 **Eventide Technical English (ETE)** — Slasher's implementation of ASD-STE100 Simplified Technical English — is in `ete/`. Five rules:
