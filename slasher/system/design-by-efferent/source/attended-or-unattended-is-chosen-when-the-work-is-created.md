@@ -1,8 +1,8 @@
-# Attended or unattended is chosen when the work is started
+# Attended or unattended is chosen when the work is created
 
-**Trigger:** When starting a feature or an experiment
+**Trigger:** When creating a feature or an experiment
 
-Work designed through DBE runs in one of two modes, chosen when a feature or an experiment is started and held for its duration:
+Work designed through DBE runs in one of two modes, chosen when a feature or an experiment is created and held for its duration:
 
 - **Attended** — human-in-the-loop. The loop **waits** at every hinge, and the engineer deliberates each one. **This is the default.**
 - **Unattended** — the loop does not wait. The agent determines each hinge and decides it, generating through to the end of the work.
@@ -17,7 +17,7 @@ Unattended is **big-batch**: no attention is spent until the end. A wrong turn i
 
 Which is cheaper depends on how load-bearing the work is, and on how likely the first pass is to be right. That is a judgment about *this* piece of work.
 
-**It is asked at the start, through the selection UI, beside the working location.** The two are decisions about how the work will be conducted. Each is made once and holds for its duration. So they are put at the same gate rather than adding one. The default is attended.
+**It is asked when the work is created, through the selection UI, beside the working location.** The two are decisions about how the work will be conducted. Each is made once and holds for its duration. So they are put at the same gate rather than adding one. The default is attended.
 
 **The question is asked in these words:**
 
@@ -77,13 +77,13 @@ Above 70%, the question carries no warning, neither option is marked, and Unatte
 
 **The mode is recorded in the two records.**
 
-- **The feature or experiment record** carries it as a **confirmation at the start**, beside the working-location selection. It is a lifecycle fact: what was chosen, when, and by whom.
+- **The feature or experiment record** carries it as a **confirmation at creation**, beside the working-location selection. It is a lifecycle fact: what was chosen, when, and by whom.
 
   **The confirmation also records the five figures the question showed, and whether the warning was shown.** For example:
 
   > - **2026-11-06** — Participation: Attended, selected by the engineer. Agent's confidence 60%, risk of redo 40%, It'll work 90%, Your approval 65%, attended confidence 90%. The warning was shown, and Attended was recommended.
 
-  Recorded at the start, before the work, the figures can later be compared with how the work turned out. That comparison is the only way to learn whether the agent's estimates are accurate.
+  Recorded at creation, before the work, the figures can later be compared with how the work turned out. That comparison is the only way to learn whether the agent's estimates are accurate.
 - **The loop record declares it at the top**, because it changes how every cycle below is read.
 
 **An unattended cycle is not written as though an engineer was consulted.** A loop record's cycle ordinarily carries a hinge, the **options** put at the gate, and the **decision or chat** that resolved it. Under unattended work the last two did not happen. So:
@@ -143,7 +143,7 @@ Record the selection as a confirmation in the feature or experiment record, with
 ## Compressed
 
 1. Work designed through DBE runs in one of two modes: attended or unattended.
-2. Choose the mode when a feature or an experiment is started. Hold it for the work's whole duration.
+2. Choose the mode when a feature or an experiment is created. Hold it for the work's whole duration.
 3. **Attended** is human-in-the-loop. The loop waits at every hinge, and the engineer deliberates each one.
 4. Attended is the default.
 5. **Unattended**: the loop does not wait. The agent determines and decides each hinge, generating through to the end of the work.
@@ -153,7 +153,7 @@ Record the selection as a confirmation in the feature or experiment record, with
 9. Every hinge is still determined and run in both modes. Only who decides it changes, and whether the loop stops.
 10. Attended is small-batch: a wrong turn is caught at its hinge. Unattended is big-batch: a wrong turn is found with everything built on it.
 11. The choice is a judgment about this piece of work: how load-bearing it is, and how likely the first pass is to be right.
-12. Ask the mode at the start, through the selection UI, beside the working-location selection.
+12. Ask the mode when the work is created, through the selection UI, beside the working-location selection.
 13. Put both decisions at the same gate. Do not add a separate gate.
 14. Ask the question in these exact words, with the agent's own figures:
 
@@ -193,7 +193,7 @@ with these options:
 27. The engineer may choose either option, whatever the score.
 28. Name no reserved term, such as hinge, gate, or loop, in the question or in any option.
 29. Name the hinges when the loop reaches the first one, not before.
-30. Record the mode in the feature or experiment record, as a confirmation at the start, beside the working-location selection.
+30. Record the mode in the feature or experiment record, as a confirmation at creation, beside the working-location selection.
 31. That confirmation records what was chosen, when, and by whom.
 32. That confirmation also records the five figures the question showed, whether the warning was shown, and whether Attended was recommended. Write it in this form, with the actual date and figures in place of the example ones:
 
@@ -260,8 +260,11 @@ with these exact options:
 - 2026-11-07, revised: *It is 100% minus the agent's confidence.* is removed from the risk-of-redo line, as the engineer directed; not re-checked
 - 2026-11-07, revised: the Attended option carries the attended confidence in parentheses, and the confirmation records it, as point 40 and point 32; checked: 51 directives, 51 kept, 0 less precise, 0 lost, 0 repairs
 - 2026-11-08, revised: the Attended option's figure follows *Confidence:*, at the engineer's direction; not re-checked
+- 2026-11-14, revised: the mode is chosen when the work is created, and the rule is renamed to say so; not re-checked
 
 ## History
+
+Until Sat Nov 14 2026 this rule was named attended-or-unattended-is-chosen-when-the-work-is-started, and said the mode is chosen when the work is *started*, where it now says *created*. The begin, start, end, conclude work item settled that *start* means only the work starting.
 
 Until Sun Nov 8 2026 the Attended option gave its figure alone, as *Attended (95%)*.
 
@@ -343,3 +346,4 @@ Changed by Scott Bellware on Sat Nov 7 2026 at 1:59:54 AM PT
 Changed by Scott Bellware on Sat Nov 7 2026 at 2:06:32 AM PT
 Changed by Scott Bellware on Sat Nov 7 2026 at 2:18:41 AM PT
 Changed by Scott Bellware on Sun Nov 8 2026 at 9:44:58 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 4:41:56 PM PT

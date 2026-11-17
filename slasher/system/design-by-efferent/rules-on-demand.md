@@ -35,7 +35,7 @@ Trigger: When writing a loop record for a feature under slasher/local/logs/loops
 
 1. Name the file per the ISO 8601 UTC datetime prefix convention: `YYYY-MM-DDTHH-MM-SSZ-<feature-name>.md`.
 2. Begin with a `# Loop record — <feature>` title and a one-paragraph summary of the feature.
-3. Declare the mode at the top, as **attended** or **unattended**, per the attended-or-unattended-is-chosen-when-the-work-is-started rule.
+3. Declare the mode at the top, as **attended** or **unattended**, per the attended-or-unattended-is-chosen-when-the-work-is-created rule.
 4. State the mode once.
 5. Write one section per cycle, in order.
 6. Each cycle records a **Hinge**: the subtle, load-bearing decision the AI determined.
@@ -139,14 +139,14 @@ Trigger: When reaching the implementation hinge of an outcome
 2. Open each option's description with the agent's own estimate, as *Rework risk: 30% (how likely it is that you will have to redo what this produces.)*. The labels' words stay as fixed.
 3. Each label's figure is the agent's confidence in that option: 100% minus the option's rework risk, computed.
 
-# Attended or unattended is chosen when the work is started
+# Attended or unattended is chosen when the work is created
 
-Source: system/design-by-efferent/source/attended-or-unattended-is-chosen-when-the-work-is-started.md
+Source: system/design-by-efferent/source/attended-or-unattended-is-chosen-when-the-work-is-created.md
 
-Trigger: When starting a feature or an experiment
+Trigger: When creating a feature or an experiment
 
 1. Work designed through DBE runs in one of two modes: attended or unattended.
-2. Choose the mode when a feature or an experiment is started. Hold it for the work's whole duration.
+2. Choose the mode when a feature or an experiment is created. Hold it for the work's whole duration.
 3. **Attended** is human-in-the-loop. The loop waits at every hinge, and the engineer deliberates each one.
 4. Attended is the default.
 5. **Unattended**: the loop does not wait. The agent determines and decides each hinge, generating through to the end of the work.
@@ -156,7 +156,7 @@ Trigger: When starting a feature or an experiment
 9. Every hinge is still determined and run in both modes. Only who decides it changes, and whether the loop stops.
 10. Attended is small-batch: a wrong turn is caught at its hinge. Unattended is big-batch: a wrong turn is found with everything built on it.
 11. The choice is a judgment about this piece of work: how load-bearing it is, and how likely the first pass is to be right.
-12. Ask the mode at the start, through the selection UI, beside the working-location selection.
+12. Ask the mode when the work is created, through the selection UI, beside the working-location selection.
 13. Put both decisions at the same gate. Do not add a separate gate.
 14. Ask the question in these exact words, with the agent's own figures:
 
@@ -196,7 +196,7 @@ with these options:
 27. The engineer may choose either option, whatever the score.
 28. Name no reserved term, such as hinge, gate, or loop, in the question or in any option.
 29. Name the hinges when the loop reaches the first one, not before.
-30. Record the mode in the feature or experiment record, as a confirmation at the start, beside the working-location selection.
+30. Record the mode in the feature or experiment record, as a confirmation at creation, beside the working-location selection.
 31. That confirmation records what was chosen, when, and by whom.
 32. That confirmation also records the five figures the question showed, whether the warning was shown, and whether Attended was recommended. Write it in this form, with the actual date and figures in place of the example ones:
 
@@ -343,7 +343,7 @@ Trigger: When starting a feature by writing its first test file
 
 1. Start a feature by writing a test file, not implementation.
 2. The first turn produces that test file and nothing more.
-3. The first turn begins at the first gate, where responsibility first transfers to the human.
+3. The first turn starts at the first gate, where responsibility first transfers to the human.
 4. The first gate puts down only the actuation and an unnamed assert.
 5. Bind the actuation to an explaining variable.
 6. State any inputs just above the actuation, via controls or literals.
@@ -376,8 +376,8 @@ end
 11. Once the shell is implemented, leave the test unnamed through the rest of the feature's development.
 12. Name the test only at the end of the feature.
 13. Add the outcome `context` each observation establishes at that time, giving the test-structure rule's "one inner `context` per outcome" structure.
-14. This naming step is the seam where the next feature begins.
-15. A feature in progress carries bare unnamed asserts. A finished feature carries named outcome contexts.
+14. This naming step is the seam where the next feature starts.
+15. A feature in progress carries bare unnamed asserts. A concluded feature carries named outcome contexts.
 16. The first gate's hinge is the actuation's shape and the truth of the one observation, not how outcomes are named or divided.
 17. Before writing the file, settle the actuation, the observation, and the controls.
 18. Do not write the implementation in the first turn.
@@ -388,7 +388,7 @@ end
 23. Propose each hinge and get it accepted before the next, per the the-hinge-cycle-is-actuation-observation-controls-implementation-and-naming rule.
 24. Do not present the whole test file for a single accept.
 25. Settle the three test hinges first, then assemble and show the file.
-26. The exception to points 24 and 25 is when the engineer chose unattended work at the start, per the attended-or-unattended-is-chosen-when-the-work-is-started rule.
+26. The exception to points 24 and 25 is when the engineer chose unattended work at the start, per the attended-or-unattended-is-chosen-when-the-work-is-created rule.
 
 # The hinge cycle is actuation, observation, controls, implementation, and naming
 
@@ -397,13 +397,13 @@ Source: system/design-by-efferent/source/the-hinge-cycle-is-actuation-observatio
 Trigger: When starting the DBE loop on an outcome, before the first hinge
 
 1. Building the initial implementation of an outcome runs a cycle of five hinges, in the order below.
-2. Hand each hinge to the human separately. Get it accepted before moving to the next.
+2. Hand each hinge to the human separately, through the selection UI. Do not slip one hinge in under another's gate. Get it accepted before moving to the next.
 3. **Actuation** is the unit's efferent shape: name, arguments, arity, return.
 4. **Observation** is what is asserted about the result. That covers value-equality vs. identity vs. a raised error, and what the explaining variable is compared against.
 5. What the test reads is the side effect the actuation produces. A returned value is one such effect, a case rather than the rule.
 6. An actuation that returns nothing still produces an effect somewhere. One that returns a value frequently produces others beside it.
 7. The observation hinge asks which effect the test reads, and how it reads it. It does not assume the return.
-8. **Controls** are the example constants the test is built from. That covers control form, nested vs. top-level, inner constants, Array vs. Hash seeding, and literals vs. controls.
+8. **Controls** are the example constants the test is built from. That covers control form, nested vs. top-level, inner constants, Array vs. Hash seeding, and literals vs. controls. The controls are a hinge in their own right, and their example must discriminate.
 9. **Implementation** is the code that satisfies the test.
 10. The implementation hinge always has two candidates. One is the complete implementation written directly. The other is the red/green/refactor cycle (see the at-the-implementation-hinge-the-engineer-chooses-a-direct-implementation-or-red-green-refactor rule).
 11. **Naming** is the outcome `context` that names what the observation establishes (the test's name).
@@ -420,11 +420,11 @@ Trigger: When starting the DBE loop on an outcome, before the first hinge
 22. Settle the outcome taxonomy deliberately, as a design artifact. Do not treat it as a label applied after the fact.
 23. Where a hinge has genuinely distinct options, present them as options.
 24. Never pass a hinge without the human's acceptance.
-25. An option is the artifact, not a label for it. It is the line that would be written, shown as it would be written.
+25. An option is the artifact, not a label for it. It is the line that would be written, shown as it would be written. Where it runs past one line, show it in the chat under a label and in the option's preview, as the `foundation` present-every-prompt-to-the-engineer-through-the-selection-ui rule shows a code example. The option takes the label, and the artifact's key line as its description.
 26. For example, the option reads `assert(retries == 3)` or `Controls::Upload.example(client: control_client, retries: 3)`.
 27. A gloss may follow an option where the difference between two candidates is not visible in the code alone.
 28. A label standing in place of the artifact is not an option. For example, `Accept — assert the returned count against 3` is not an option.
-29. A hinge with one candidate is not an "accept" prompt. It shows that candidate as its option, exactly as a hinge with three shows three.
+29. A hinge with one candidate is not an "accept" prompt. It shows that candidate as its option, exactly as a hinge with three shows three. Do not search for, or manufacture, a second candidate to reach two or to avoid the look of a foregone conclusion.
 30. Selecting the lone candidate is the acceptance. Nothing about the single case changes the form.
 31. This generalizes the the-actuation-gate-offers-candidate-actuations-as-options rule, which states the same mechanism at the first gate.
 32. What goes on screen at each hinge is the each-hinge-displays-the-actuation-as-its-anchor-and-the-contexts-once rule. That is the actuation as the anchor, and the contexts shown once.
@@ -449,7 +449,7 @@ Trigger: When starting the DBE loop on an outcome, before the first hinge
 
 4. Give the account once, when the loop starts on a piece of work.
 5. Do not repeat it at each cycle or at each outcome.
-6. The account does not apply under unattended work, where no hinge is put to the engineer. There the plan takes its place (see the attended-or-unattended-is-chosen-when-the-work-is-started rule).
+6. The account does not apply under unattended work, where no hinge is put to the engineer. There the plan takes its place (see the attended-or-unattended-is-chosen-when-the-work-is-created rule).
 7. Give the account after the participation decision, not before it.
 8. Place the account immediately ahead of the first hinge.
 9. The participation decision names no hinge, on purpose.
