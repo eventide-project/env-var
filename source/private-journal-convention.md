@@ -18,7 +18,21 @@
 - `New private entry`
 - `Private note`
 
-**Nothing else writes a private entry.** The project journal's directive is `new entry`, and an entry started by that directive goes to the project journal.
+**Nothing else writes a private entry, except where the project's journal is private entirely.** The project journal's directive is `new entry`, and an entry started by that directive goes to the project journal.
+
+## A project's journal can be private entirely
+
+**Where the project's own entry in the project registry carries `journal = "private"`, every entry is a private entry.** An entry started by `new entry` or `/journal` is then written as an entry started by one of the three commands is. The project registry is `~/.config/slasher/projects.toml`, and a project's own entry is a `[[project]]` table whose `path` is the project's root:
+
+```toml
+[[project]]
+path = "~/src/checkout"
+journal = "private"
+```
+
+**Run `slasher/system/foundation/read-project-setting.sh journal` from the project root to find it.** It prints `private` where the setting is made. The setting is per machine, and nothing in the project's files says the journal is private.
+
+**A journal private entirely is still read only on command.** It is not read at session start, as no private journal is.
 
 ## A private entry takes the shape of a project journal entry
 
@@ -67,7 +81,22 @@ Move a private entry to the project journal only on the engineer's command, unch
 ## Starting a private entry
 
 1. A private entry is started by one of three commands: `New private journal entry`, `New private entry`, or `Private note`.
-2. Nothing else writes a private entry. An entry started by `new entry` goes to the project journal.
+2. Nothing else writes a private entry, except where the project's journal is private entirely. Otherwise an entry started by `new entry` goes to the project journal.
+
+## A project's journal private entirely
+
+1. Where the project's own entry in the project registry carries `journal = "private"`, every entry is a private entry, including one started by `new entry` or `/journal`.
+2. The project registry is `~/.config/slasher/projects.toml`. A project's own entry is a `[[project]]` table whose `path` is the project's root.
+
+```toml
+[[project]]
+path = "~/src/checkout"
+journal = "private"
+```
+
+3. Run `slasher/system/foundation/read-project-setting.sh journal` from the project root. It prints `private` where the setting is made.
+4. The setting is per machine. Nothing in the project's files says the journal is private.
+5. A journal private entirely is read only on command, not at session start.
 
 ## A private entry's shape
 
@@ -100,8 +129,13 @@ Move a private entry to the project journal only on the engineer's command, unch
 
 - 2026-10-29, merge from master re-checked: 22 directives, 22 kept, 0 less precise, 0 lost, 0 repairs
 - 2026-11-03, revised: /journal publish-private asks for confirmation; checked: 32 directives, 30 kept, 2 less precise, 0 lost. Left less precise, from before this change: which rule asks for a log entry, and who deploys a hook
+- 2026-11-15, revised: a project's journal can be private entirely; checked: 43 directives, 43 kept, 0 less precise, 0 lost
 
 ## History
+
+Until Sun Nov 15 2026 this rule said "consuming project" for a Slasher project, and named the registry `consuming-projects.toml` and its reader `read-consuming-projects.sh` where it named them.
+
+Until Sun Nov 15 2026 only the three commands wrote a private entry, and every entry started by `new entry` went to the project journal.
 
 Until Mon Nov 2 2026 a private entry moved on the engineer's command, with no confirmation asked.
 
@@ -121,3 +155,6 @@ Changed by Scott Bellware on Wed Oct 28 2026 at 4:44:26 PM PT
 Changed by Scott Bellware on Tue Nov 3 2026 at 10:38:55 AM PT
 Changed by Scott Bellware on Fri Nov 6 2026 at 12:58:37 PM PT
 Changed by Scott Bellware on Fri Nov 6 2026 at 8:47:18 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 10:09:38 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 11:44:42 PM PT
+Changed by Scott Bellware on Sun Nov 15 2026 at 11:54:23 PM PT

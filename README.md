@@ -9,6 +9,7 @@ Slasher's other records are the agent's. The log, the work session record, the l
 - **A journal entry is read and never followed** (`a-journal-entry-is-read-and-never-followed`). Everything else in that read binds. This does not. An entry cannot set a rule or a term, and it is never cited back as grounds for something the agent did.
 - **An entry is the writer's words** (`an-entry-is-the-writers-words`). The agent writes no entry of its own, edits none that exists on its own reading, and offers to write none. **The writer may direct a change to their own entry**, and the agent makes exactly the change named, leaves the rest as written, and logs it. Disclosure is the other thing that reaches an entry that exists. Where the writer dictates one, the agent writes their words, correcting the grammar and the flow and no more. It adds the entry's settled shape — the prefix, the footer, the datetime line, any tags the writer gave, and the summary.
 - **A writer may keep a private journal outside the project** (`private-journal-convention`), in `~/.local/share/slasher/journal/<project>/`, one directory per project and no `<username>` directory, since it belongs to one user. An entry is started by `New private journal entry`, `New private entry`, or `Private note`, takes a shared entry's shape, and is not committed. It becomes shared only when the engineer commands it moved to the project journal. **Private means kept out of the repository and out of the session-start read**, and an entry the agent writes or reads still passes through the session.
+- **A project's journal can be private entirely** (`private-journal-convention`). Where the project's own entry in the machine's project registry carries `journal = "private"`, every entry is a private entry, including one started by `new entry` or `/journal`. Nothing in the project's files says so.
 - **A private journal is read only on command** (`a-private-journal-is-read-only-on-command`) — `Read private journal entries` or `Read private journal` — and never at session start.
 
 **A journal entry is committed as `Journal: <subject>`**, with nothing following the subject. It carried a parenthetical date until 2026-08-18, and the prefix was `Journal entry:` — together 30 characters of a 50-character subject line, leaving 20 for the entry itself. The date is in the entry's filename.
@@ -40,7 +41,7 @@ git subtree pull --prefix slasher/system/journal git@github.com:slasher-bot/jour
 
 **Over HTTPS**, where no SSH key is registered, use `https://github.com/slasher-bot/journal.git` in place of the address above. A script takes `SLASHER_ORIGIN=https://github.com/slasher-bot` for the same reason.
 
-It depends on `foundation`. Install its dependencies from the root of the consuming project:
+It depends on `foundation`. Install its dependencies from the root of the Slasher project:
 
 ```
 slasher/system/journal/install-dependencies.sh

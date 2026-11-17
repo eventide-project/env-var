@@ -113,6 +113,9 @@ Trigger: When writing a journal entry (including when the writer types `/journal
 4. Nothing else follows from the directive.
 5. Write nothing beside the entry file.
 6. Maintain no index. See the a-timeline-view-lists-every-journal-entry-by-its-datetime rule.
+7. Before writing, run `slasher/system/foundation/read-project-setting.sh journal` from the project root.
+8. Where it prints `private`, write the entry as a private entry, by the private-journal-convention rule, not in `slasher/local/journal/<username>/`.
+9. Where it prints anything else, or nothing, write the entry in the project journal.
 
 ## Dating
 
@@ -143,7 +146,22 @@ Trigger: When the writer starts a private journal entry, directs a change to one
 ## Starting a private entry
 
 1. A private entry is started by one of three commands: `New private journal entry`, `New private entry`, or `Private note`.
-2. Nothing else writes a private entry. An entry started by `new entry` goes to the project journal.
+2. Nothing else writes a private entry, except where the project's journal is private entirely. Otherwise an entry started by `new entry` goes to the project journal.
+
+## A project's journal private entirely
+
+1. Where the project's own entry in the project registry carries `journal = "private"`, every entry is a private entry, including one started by `new entry` or `/journal`.
+2. The project registry is `~/.config/slasher/projects.toml`. A project's own entry is a `[[project]]` table whose `path` is the project's root.
+
+```toml
+[[project]]
+path = "~/src/checkout"
+journal = "private"
+```
+
+3. Run `slasher/system/foundation/read-project-setting.sh journal` from the project root. It prints `private` where the setting is made.
+4. The setting is per machine. Nothing in the project's files says the journal is private.
+5. A journal private entirely is read only on command, not at session start.
 
 ## A private entry's shape
 
