@@ -18,7 +18,7 @@ Source: system/git/source/run-the-test-suite-after-changes-before-considering-wh
 14. For a single-file change, you may run that one file's tests first for speed.
 15. Run the full suite before commit anyway.
 16. The commit waits on the suite passing, not on the human's attention.
-17. When the agent can tell it is a good time to commit, a piece of work finished and the suite passing, it offers the commit through the selection interface: commit, or do not commit.
+17. When the agent can tell it is a good time to commit, a piece of work concluded and the suite passing, it offers the commit through the selection interface: commit, or do not commit.
 18. Commit only when the engineer selects it. Where the agent cannot tell, wait to be asked.
 19. The prompt also offers `Snooze this question`. Once it is selected, commit at each good time without the prompt, while the working tree stays on the branch it was selected on. The suite still passes before each commit.
 20. When the working tree leaves that branch, offer the prompt again.

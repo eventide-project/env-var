@@ -11,7 +11,7 @@ A commit message must not use the phrasing "mark ... done" (or "mark ... complet
 
 **Why:** "Mark ... done" describes the act of ticking a box. The commit should describe the state of the work — the task *is* done. The fact is what matters and what reads well in the log, not the clerical gesture of marking it.
 
-**How to apply:** A commit records that a task or a piece of work is finished. Phrase the subject and the body as the task *being* done. Say "Task N is done", or "X is complete". Never phrase it as "mark ... done/complete". Applies to the commit subject and body. The same plain-statement preference extends to prose addressed to the user.
+**How to apply:** A commit records that a task or a piece of work is concluded. Phrase the subject and the body as the task *being* done. Say "Task N is done", or "X is complete". Never phrase it as "mark ... done/complete". Applies to the commit subject and body. The same plain-statement preference extends to prose addressed to the user.
 
 ## Compressed
 
@@ -25,7 +25,7 @@ A commit message must not use the phrasing "mark ... done" (or "mark ... complet
 | `Log: mark Task 9 done (already passing)` | `Log: Task 9 is done (already passing)` |
 | `mark the predicate task complete` | `the predicate task is done` |
 
-5. Phrase finished work as the task being done. Say "Task N is done" or "X is complete".
+5. Phrase concluded work as the task being done. Say "Task N is done" or "X is complete".
 6. This applies to the commit subject and the commit body.
 7. Prose addressed to the user follows the same preference.
 8. In prose addressed to the user, state the plain fact. Do not describe the act of marking it.
@@ -36,8 +36,11 @@ A commit message must not use the phrasing "mark ... done" (or "mark ... complet
 - 2026-10-24, revised: written as a numbered list; checked twice, every directive kept
 - 2026-10-27, re-checked: 5 directives, 5 kept, 0 less precise, 0 lost
 - 2026-10-28, revised: Why points removed, solubility 85 → 93, clarity 0.73 → 0.91; checked: 5 directives, 5 kept, 0 less precise, 0 lost
+- 2026-11-15, revised: *conclude* replaces *finish*; not re-checked
 
 ## History
+
+Until Sun Nov 15 2026 this rule said *finish* where it now says *conclude*. The begin, start, end, conclude work item settled that *conclude* replaces *finish*.
 
 Until Thu Nov 5 2026 this rule had no trigger, and was read at every session start.
 
@@ -67,3 +70,4 @@ Changed by Scott Bellware on Mon Oct 26 2026 at 4:34:57 PM PT
 Changed by Scott Bellware on Tue Oct 27 2026 at 2:06:51 PM PT
 Changed by Scott Bellware on Tue Oct 27 2026 at 2:29:24 PM PT
 Changed by Scott Bellware on Thu Nov 5 2026 at 9:18:12 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 5:36:24 PM PT
