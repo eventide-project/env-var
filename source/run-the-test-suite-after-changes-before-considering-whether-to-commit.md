@@ -2,7 +2,7 @@
 
 After making any code change, run the full test suite and confirm it passes **before** considering whether to commit. The suite run is a precondition of the commit decision, not a step taken after deciding to commit. A failing or incomplete suite means there is nothing to weigh — don't reach the question of committing until the suite passes.
 
-**When the agent can tell that it is a good time to commit, it offers the commit through the selection interface.** A good time is a piece of work finished and the suite passing. The prompt offers to commit and not to commit, and the agent does not commit until the engineer selects it. Where the agent cannot tell, it waits to be asked.
+**When the agent can tell that it is a good time to commit, it offers the commit through the selection interface.** A good time is a piece of work concluded and the suite passing. The prompt offers to commit and not to commit, and the agent does not commit until the engineer selects it. Where the agent cannot tell, it waits to be asked.
 
 **As the engineer stated it:** if the agent can know whether it's an appropriate time to commit, then it should prompt with an option to commit.
 
@@ -38,7 +38,7 @@ After making any code change, run the full test suite and confirm it passes **be
 14. For a single-file change, you may run that one file's tests first for speed.
 15. Run the full suite before commit anyway.
 16. The commit waits on the suite passing, not on the human's attention.
-17. When the agent can tell it is a good time to commit, a piece of work finished and the suite passing, it offers the commit through the selection interface: commit, or do not commit.
+17. When the agent can tell it is a good time to commit, a piece of work concluded and the suite passing, it offers the commit through the selection interface: commit, or do not commit.
 18. Commit only when the engineer selects it. Where the agent cannot tell, wait to be asked.
 19. The prompt also offers `Snooze this question`. Once it is selected, commit at each good time without the prompt, while the working tree stays on the branch it was selected on. The suite still passes before each commit.
 20. When the working tree leaves that branch, offer the prompt again.
@@ -52,8 +52,11 @@ After making any code change, run the full test suite and confirm it passes **be
 - 2026-10-29, revised: the agent offers the commit when it can tell the time is right; checked: 15 directives, 15 kept, 0 less precise, 0 lost
 - 2026-10-29, revised: the commit prompt offers Snooze this question, lasting while the working tree stays on its branch; checked: 18 directives, 17 kept, 1 less precise, 0 lost. Left less precise: the run framed as verification rather than ceremony, a reason the compressed text does not carry. The option's wording was then swapped, a term the engineer settled, so no re-check
 - 2026-10-29, revised: the question is never snoozed on master; checked: 21 directives, 21 kept, 0 less precise, 0 lost
+- 2026-11-15, revised: *conclude* replaces *finish*; not re-checked
 
 ## History
+
+Until Sun Nov 15 2026 this rule said *finish* where it now says *conclude*. The begin, start, end, conclude work item settled that *conclude* replaces *finish*.
 
 Until Thu Oct 29 2026 `Snooze this question` was offered on any branch. The engineer settled that it is never offered on `master`.
 
@@ -89,3 +92,4 @@ Changed by Scott Bellware on Tue Oct 27 2026 at 2:29:24 PM PT
 Changed by Scott Bellware on Thu Oct 29 2026 at 10:07:48 PM PT
 Changed by Scott Bellware on Thu Oct 29 2026 at 10:54:36 PM PT
 Changed by Scott Bellware on Thu Oct 29 2026 at 10:58:00 PM PT
+Changed by Scott Bellware on Sat Nov 14 2026 at 5:36:24 PM PT
